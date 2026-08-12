@@ -1,0 +1,121 @@
+import pytest
+import torch
+import numpy as np
+import src.vlasov1D1V
+
+@pytest.mark.parametrize("solver", [0, 1])
+def test_advect_1d_core_x(grid_instance, solver):
+    """
+    Test advection along X (periodic boundary conditions).
+    f(x, v) = Gaussian(x) * 1(v)
+    velocity = constant v_drift
+    After time dt, f(x, v) should be Gaussian(x - v_drift*dt).
+    """
+    Nx = grid_instance.Nx
+    Nv = grid_instance.Nv
+    L = grid_instance.L
+    dx = grid_instance.dx
+    x = grid_instance.x
+    v = grid_instance.v
+    x_indices = grid_instance.x_indices
+    x_batch_offsets = grid_instance.x_batch_offsets
+    stencil_offsets = grid_instance.stencil_offsets
+
+    # Initial condition: Gaussian in x, constant in v
+    x0 = L / 2.0
+    sigma = L / 10.0
+    f_x = torch.exp(-0.5 * ((x - x0) / sigma)**2)
+    f_init = f_x[:, None].expand(-1, Nv).clone()  # [Nx, Nv]
+
+    # For advect_1d_vectorized with periodic=True (X advection):
+    # We transpose f to [Nv, Nx] (batch=Nv, grid_size=Nx)
+    # velocities shape [Nv] (one constant velocity for each v-slice)
+    v_drift = 1.0
+    velocities = torch.full((Nv,), v_drift)
+
+    dt = 0.1
+
+    # Run advection (matching the pattern in vlasov_step_impl for X advection)
+    
+    advect_1d_map = {0: src.vlasov1D1V.advect_1d_vectorized, 1: src.vlasov1D1V.advect_1d_roll}
+    advect_1d_fn = advect_1d_map[solver]
+    
+    if solver == 0:
+        f_next = advect_1d_fn(
+            f_init.T, velocities, dt, x_indices, x_batch_offsets, stencil_offsets, dx, periodic=True
+        ).T
+    else:
+        f_next = advect_1d_fn(
+            f_init, velocities, dt, x_indices, x_batch_offsets, stencil_offsets, dx, periodic=True
+        )
+
+    # Check result
+    shift = v_drift * dt
+    x_shifted = x0 + shift
+
+    # Analytical solution with periodic wrapping
+    x_diff = x[:, None] - x_shifted
+    x_diff = x_diff - L * torch.round(x_diff / L)
+    f_expected = torch.exp(-0.5 * (x_diff / sigma)**2)
+    f_expected = f_expected.expand(-1, Nv)
+
+    # 5th order Lagrange should be quite good
+    assert torch.allclose(f_next, f_expected, atol=1e-2)
+
+def test_advect_1d_core_v_dirichlet(grid_instance):
+    """
+    Test advection along V (Dirichlet boundary conditions).
+    f(x, v) = 1(x) * Gaussian(v)
+    acceleration = constant a_drift
+    After time dt, f should be Gaussian(v - a_drift*dt) with Dirichlet BCs.
+    """
+    Nx = grid_instance.Nx
+    Nv = grid_instance.Nv
+    V_max = grid_instance.V_max
+    dv = grid_instance.dv
+    v = grid_instance.v
+    v_indices = grid_instance.v_indices
+    v_batch_offsets = grid_instance.v_batch_offsets
+    stencil_offsets = grid_instance.stencil_offsets
+
+    # Initial condition: Gaussian in v, constant in x
+    v0 = 0.0
+    sigma = V_max / 4.0
+    f_v = torch.exp(-0.5 * ((v - v0) / sigma)**2)
+    f_init = f_v[None, :].expand(Nx, -1).clone()  # [Nx, Nv]
+
+    # Constant acceleration
+    a_drift = 1.0
+    accelerations = torch.full((Nx,), a_drift)
+
+    dt = 0.1
+
+    # Run advection (matching the pattern in vlasov_step_impl for V advection)
+    # f is already [Nx, Nv], batch=Nx, grid_size=Nv
+    f_next = src.vlasov1D1V.advect_1d_vectorized(
+        f_init, accelerations, dt, v_indices, v_batch_offsets, stencil_offsets, dv, periodic=False
+    )
+
+    # Check result
+    shift = a_drift * dt
+    v_shifted = v0 + shift
+
+    # Analytical solution with Dirichlet BCs
+    v_grid_shifted = v - shift
+    f_expected_v = torch.exp(-0.5 * ((v_grid_shifted - v0) / sigma)**2)
+
+    # Apply Dirichlet condition: departure points outside domain -> 0
+    departure_points = v - shift
+    mask = (departure_points >= -V_max) & (departure_points <= V_max)
+    f_expected_v = torch.where(mask, f_expected_v, torch.tensor(0.0))
+
+    f_expected = f_expected_v[None, :].expand(Nx, -1)
+
+    assert torch.allclose(f_next, f_expected, atol=1e-2)
+
+    # Test Dirichlet specifically: shift everything out
+    large_dt = 3.0 * V_max / a_drift
+    f_out = src.vlasov1D1V.advect_1d_vectorized(
+        f_init, accelerations, large_dt, v_indices, v_batch_offsets, stencil_offsets, dv, periodic=False
+    )
+    assert torch.allclose(f_out, torch.zeros_like(f_out), atol=1e-6)

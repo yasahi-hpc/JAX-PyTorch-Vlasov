@@ -1,0 +1,19 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c # v6.0.0
+    hooks:
+    - id: trailing-whitespace
+      name: Trim trailing white space
+      exclude: '^tpls/|^paper/|^measurements/'
+    - id: end-of-file-fixer
+      name: Fix EOFs
+      exclude: '^tpls/|^paper/|^measurements/'
+
+    # Spell-checking
+  - repo: https://github.com/crate-ci/typos
+    rev: aca895bf05aec0cb7dffa6f94495e923224d9f17 # v1.46.2
+    hooks:
+      - id: typos
+        name: Spell-check for typos
+        args: ['--config=./.typos.toml']
+        exclude: '\.(csv|json|cls|out|gitignore)$|(^|/)measurements/|(^|/)paper/'

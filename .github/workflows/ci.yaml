@@ -1,0 +1,103 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+  # Force the use of BuildKit for Docker
+  DOCKER_BUILDKIT: 1
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      kokkos_changed: ${{ steps.changed-files.outputs.kokkos_changed }}
+    steps:
+      - name: Detect changed Kokkos files
+        id: changed-files
+        uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
+        with:
+          filters: |
+            kokkos_changed:
+              - 'common/kokkos/**'
+              - 'simulations/heat3d/kokkos/**'
+              - 'simulations/stream/kokkos/**'
+              - 'simulations/vlasov1d_1v/kokkos/**'
+              - 'simulations/vlasov2d_2v/kokkos/**'
+
+  # run pre-commit-check
+  pre-commit-check:
+    uses: ./.github/workflows/__pre-commit.yaml
+
+  # build project
+  build:
+    needs: [detect-changes, pre-commit-check]
+    if: ${{ needs.detect-changes.outputs.kokkos_changed == 'true' }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        backend:
+          - name: clang-tidy
+            image: clang
+            compiler:
+              cxx: clang++
+            cmake_flags:
+              cxx_standard: 20
+              kokkos: -DKokkos_ENABLE_SERIAL=ON
+              vlp4d: -DCMAKE_CXX_FLAGS="-Wall -Wextra" -DCMAKE_COMPILE_WARNING_AS_ERROR=ON -DCMAKE_CXX_CLANG_TIDY="clang-tidy;-warnings-as-errors=*"
+          - name: cuda
+            image: nvcc
+            compiler:
+              cxx: g++
+            cmake_flags:
+              cxx_standard: 20
+              kokkos: -DKokkos_ENABLE_CUDA=ON -DKokkos_ARCH_AMPERE80=ON
+              vlp4d:
+
+    steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@v1.2.0
+        with:
+          tool-cache: true
+          large-packages: false
+
+      - name: Checkout built branch
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build docker
+        run: docker build -t ${{ matrix.backend.image }} docker/${{ matrix.backend.image }}
+
+      - name: Configure
+        run: |
+          docker run -v ${{ github.workspace }}:/work ${{ matrix.backend.image }} \
+            cmake -B build \
+            -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+            -DCMAKE_CXX_COMPILER=${{ matrix.backend.compiler.cxx }} \
+            -DCMAKE_CXX_STANDARD=${{ matrix.backend.cmake_flags.cxx_standard }} \
+            -DVLP4D_ENABLE_INTERNAL_KOKKOS=ON \
+            -DVLP4D_ENABLE_INTERNAL_KOKKOSFFT=ON \
+            -DVLP4D_ENABLE_TESTS=ON \
+            ${{ matrix.backend.cmake_flags.kokkos }} \
+            ${{ matrix.backend.cmake_flags.vlp4d }}
+
+      - name: Build
+        run: |
+          docker run -v ${{ github.workspace }}:/work ${{ matrix.backend.image }} \
+            cmake --build build -j 4
+
+      - name: Test
+        run: |
+          docker run -v ${{github.workspace}}:/work ${{ matrix.backend.image }} \
+            ctest --test-dir build -C ${{env.BUILD_TYPE}} --output-on-failure
+        if: ${{ matrix.backend.name == 'clang-tidy' }}

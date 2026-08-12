@@ -1,0 +1,4 @@
+Checks: '-*,kokkos-*,modernize-type-traits,modernize-use-using,modernize-use-nullptr,cppcoreguidelines-pro-type-cstyle-cast'
+FormatStyle: file
+HeaderFilterRegex: '(batched).*\.hpp'
+ExcludeHeaderFilterRegex: '(tpls).*\.hpp'

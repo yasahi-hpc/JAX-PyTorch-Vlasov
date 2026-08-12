@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vlp4d-jax"
+version = "0.0.1"
+readme = "../../README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pytest>=7.0",
+  "numpy",
+  "xarray[io]",
+  "xarray[viz]",
+  "matplotlib",
+  "joblib",
+  "jax",
+  "crc32c"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["python"]
