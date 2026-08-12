@@ -10,7 +10,7 @@ import warnings
 import pytest
 
 import fig_common
-from parse_cross_platform_vlp2d import collect
+import parse_cross_platform_vlp2d as parser
 from conftest import (IMG_DIR, artifact_dirs, assert_written, sha_args)
 
 BENCH = "vlasov2d_2v"
@@ -24,7 +24,7 @@ def artifact_data():
     """collect() over the artifact tree with the default (artifact) SHAs."""
     arch_map = {a: (sha, fig_common.ARCH_TAG[a])
                 for a, sha in fig_common.DEFAULT_SHAS.items()}
-    return collect(arch_map=arch_map, base=fig_common.ARTIFACT_ROOT / BENCH)
+    return parser.collect(arch_map=arch_map, base=fig_common.ARTIFACT_ROOT / BENCH)
 
 
 @pytest.mark.parametrize("path", artifact_dirs(BENCH, BACKENDS),
@@ -69,3 +69,9 @@ def test_out_dir_argument(run_figure, tmp_path):
     _, start = run_figure("fig4.py", *sha_args(), out_dir=tmp_path)
     for name in EXPECTED:
         assert_written(tmp_path / name, start)
+
+
+def test_measurements_base_is_repo_relative():
+    """No absolute path is baked in: BASE follows this checkout's location."""
+    assert parser.BASE == fig_common.REPO_ROOT / "measurements" / parser.BENCH
+    assert parser.INVESTIGATION_DIR == fig_common.REPO_ROOT / "investigation" / parser.BENCH

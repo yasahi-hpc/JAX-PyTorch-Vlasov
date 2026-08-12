@@ -43,7 +43,11 @@ import json
 import re
 from pathlib import Path
 
-BASE = Path("/work/jh220036/i18048/develop/vlp4d_tuto/measurements/vlasov2d_2v")
+from fig_common import REPO_ROOT  # repository root, derived from this file's location
+
+BENCH = "vlasov2d_2v"
+BASE = REPO_ROOT / "measurements" / BENCH
+INVESTIGATION_DIR = REPO_ROOT / "investigation" / BENCH
 
 # report sha -> {arch: ([sha7, ...] in fallback order, filename-arch-tag)}
 ARCH_SETS = {
@@ -258,9 +262,7 @@ if __name__ == "__main__":
     args = ap.parse_args()
 
     data = collect(args.sha_set)
-    outdir = args.out_dir or Path(
-        "/home/i18048/jh220036/develop/vlp4d_tuto/investigation/vlasov2d_2v"
-    ) / args.sha_set
+    outdir = args.out_dir or INVESTIGATION_DIR / args.sha_set
     outdir.mkdir(parents=True, exist_ok=True)
     (outdir / "cross_platform_data.json").write_text(json.dumps(data, indent=2))
     print("Wrote", outdir / "cross_platform_data.json")

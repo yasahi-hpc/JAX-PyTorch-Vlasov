@@ -2,18 +2,45 @@
 
 The figure is always built from the SHAs published under ``artifact/``
 (``fig_common.DEFAULT_SHAS``): H200 d875542, TPU v5e 7e1e001.
+
+Also holds the check that no module in ``src`` hardcodes an absolute path;
+every root is derived from the location of the source file itself.
 """
 from __future__ import annotations
+
+import re
 
 import pytest
 
 import fig1
 import fig_common
-from conftest import (IMG_DIR, SHAS, artifact_dirs, assert_written, sha_args)
+from conftest import (IMG_DIR, SHAS, SRC_DIR, artifact_dirs, assert_written,
+                      sha_args)
 
 ARCHS = ["H200", "TPU"]
 BASENAME = "heat3d_bandwidth_H200_TPUv5e_fp32"
 SUFFIX = ".png"  # fig1 writes PNG only
+
+# An absolute path literal anchored at a machine-specific root: exactly what the
+# scripts must not contain, since it ties them to one checkout on one cluster.
+ABSOLUTE_PATH_RE = re.compile(r"""["'](/(?:work|home|scratch|data)/[^"']*)["']""")
+
+
+def test_sources_have_no_absolute_paths():
+    offenders = []
+    for path in sorted(SRC_DIR.glob("*.py")):
+        for lineno, line in enumerate(path.read_text().splitlines(), 1):
+            found = ABSOLUTE_PATH_RE.search(line)
+            if found:
+                offenders.append(f"{path.name}:{lineno}: {found.group(1)}")
+    assert not offenders, "absolute paths must be derived from __file__:\n" + \
+        "\n".join(offenders)
+
+
+def test_repo_root_contains_this_checkout():
+    """REPO_ROOT is this checkout, not a path baked in at authoring time."""
+    assert fig_common.SCRIPT_DIR == fig_common.REPO_ROOT / "python_scripts" / "plot" / "src"
+    assert fig_common.ARTIFACT_ROOT.is_dir()
 
 
 @pytest.mark.parametrize("path", artifact_dirs("heat3d", ("jax",), ARCHS),
