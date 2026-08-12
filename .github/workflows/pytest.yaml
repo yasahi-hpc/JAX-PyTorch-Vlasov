@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: (C) The Kokkos-FFT development team, see COPYRIGHT.md file
+#
+# SPDX-License-Identifier: MIT OR Apache-2.0 WITH LLVM-exception
+
+name: CI (pytest)
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      plot_changed: ${{ steps.changed-files.outputs.plot_changed }}
+    steps:
+      - name: Detect changed plotting files
+        id: changed-files
+        uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
+        with:
+          filters: |
+            plot_changed:
+              - 'python_scripts/**'
+              - 'artifact/**'
+              - '.github/workflows/pytest.yaml'
+
+  test:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.plot_changed == 'true' }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  # v6.0.1
+      - name: Set up Python
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548  # v6.1.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies and package with test extras
+        run: |
+          python -m pip install --upgrade pip
+          pip install --upgrade hatch "virtualenv<21"
+          cd python_scripts/plot_env && hatch build && pip install .
+
+      - name: Test draft figures with pytest
+        run: |
+          PYTHONPATH=$PWD/python_scripts/plot/src:$PYTHONPATH pytest python_scripts/plot/tests/
+
+      - name: Upload generated figures
+        uses: actions/upload-artifact@v4
+        with:
+          name: draft-figures-py${{ matrix.python-version }}
+          path: python_scripts/plot/imgs/
