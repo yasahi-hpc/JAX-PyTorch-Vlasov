@@ -8,7 +8,6 @@ version = "0.0.1"
 # FIXME do not understand why it fails with readme = "../../README.md"
 # No `readme`: hatchling rejects a path outside the project directory
 # ("Readme path must be within the project directory: ../../README.md").
-readme = "../../README.md"
 requires-python = ">=3.10"
 dependencies = [
   "pytest>=7.0",
