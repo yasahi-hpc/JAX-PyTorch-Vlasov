@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vlp4d-plot"
+version = "0.0.1"
+# FIXME do not understand why it fails with readme = "../../README.md"
+# No `readme`: hatchling rejects a path outside the project directory
+# ("Readme path must be within the project directory: ../../README.md").
+requires-python = ">=3.10"
+dependencies = [
+  "pytest>=7.0",
+  "numpy",
+  "matplotlib"
+]
+
+# The draft figure scripts (python_scripts/plot/src/fig1..fig4.py) are executed
+# as scripts, not imported as an installed package, so this project ships its
+# dependencies only and no Python files.
+[tool.hatch.build.targets.wheel]
+bypass-selection = true
