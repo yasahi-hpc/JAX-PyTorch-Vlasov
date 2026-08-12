@@ -1,6 +1,6 @@
 # AI frameworks for Performance Portable Vlasov code
 
-Evaluating the capability of AI frameworks (JAX, pytorch) as a performance portability framework.
+Evaluating the capability of AI frameworks (JAX, PyTorch) as a performance portability framework.
 
 ## Using
 
