@@ -1,0 +1,77 @@
+
+    ROCPROFV3 SUMMARY:
+
+    |                   NAME                   |     DOMAIN      |      CALLS      | DURATION (nsec) | AVERAGE (nsec)  | PERCENT (INC) |   MIN (nsec)    |   MAX (nsec)    |     STDDEV      |
+    |------------------------------------------|-----------------|-----------------|-----------------|-----------------|---------------|-----------------|-----------------|-----------------|
+    | hipMemset                                | HIP_API         |               9 |      3716285919 |       4.129e+08 |     38.194845 |           36249 |       490685107 |       1.560e+08 |
+    | hipStreamCreateWithFlags                 | HIP_API         |             151 |      1761491042 |       1.167e+07 |     18.104064 |         9623195 |        22388848 |       3.727e+06 |
+    | __amd_rocclr_copyBuffer                  | KERNEL_DISPATCH |            1312 |      1551713735 |       1.183e+06 |     15.948037 |            2720 |         1354413 |       3.359e+05 |
+    | loop_add_fusion                          | KERNEL_DISPATCH |            1203 |      1347332432 |       1.120e+06 |     13.847469 |            3200 |         1142891 |       5.620e+04 |
+    | hipStreamDestroy                         | HIP_API         |             150 |       568254102 |       3.788e+06 |      5.840341 |         3477504 |         4688975 |       1.347e+05 |
+    | hipGraphLaunch                           | HIP_API         |            1212 |       373592286 |       3.082e+05 |      3.839667 |           19457 |          900991 |       8.363e+04 |
+    | hipInit                                  | HIP_API         |               2 |       150420981 |       7.521e+07 |      1.545981 |             942 |       150420039 |       1.064e+08 |
+    | hipStreamCreateWithPriority              | HIP_API         |               4 |        79366022 |       1.984e+07 |      0.815700 |        19610011 |        20202226 |       2.831e+05 |
+    | hipHostMalloc                            | HIP_API         |               3 |        62825651 |       2.094e+07 |      0.645703 |           96343 |        61608860 |       3.522e+07 |
+    | hipModuleLoadData                        | HIP_API         |              15 |        19754045 |       1.317e+06 |      0.203026 |          649904 |         8391486 |       1.959e+06 |
+    | loop_multiply_fusion                     | KERNEL_DISPATCH |              13 |        14035013 |       1.080e+06 |      0.144248 |         1059210 |         1102730 |       1.310e+04 |
+    | wrapped_multiply                         | KERNEL_DISPATCH |               8 |        13868133 |       1.734e+06 |      0.142532 |         1678096 |         1813617 |       3.912e+04 |
+    | wrapped_cosine                           | KERNEL_DISPATCH |              12 |        12571319 |       1.048e+06 |      0.129204 |         1043049 |         1056010 |       4.236e+03 |
+    | hipMalloc                                | HIP_API         |              19 |        12541782 |       6.601e+05 |      0.128901 |           54433 |         2857376 |       6.535e+05 |
+    | wrapped_broadcast                        | KERNEL_DISPATCH |              12 |         7194310 |       5.995e+05 |      0.073941 |          582565 |          610886 |       8.423e+03 |
+    | hipModuleUnload                          | HIP_API         |              15 |         5121035 |       3.414e+05 |      0.052632 |          252148 |          756306 |       1.496e+05 |
+    | loop_and_fusion_1                        | KERNEL_DISPATCH |            1200 |         4898445 |       4.082e+03 |      0.050345 |            3840 |            4640 |       1.084e+02 |
+    | loop_add_fusion_1                        | KERNEL_DISPATCH |            1200 |         3649159 |       3.041e+03 |      0.037505 |            2880 |            3360 |       9.019e+01 |
+    | wrapped_subtract                         | KERNEL_DISPATCH |               2 |         3344832 |       1.672e+06 |      0.034377 |         1670256 |         1674576 |       3.055e+03 |
+    | hipLaunchHostFunc                        | HIP_API         |             173 |         2572152 |       1.487e+04 |      0.026436 |            6061 |           73890 |       1.040e+04 |
+    | loop_and_fusion                          | KERNEL_DISPATCH |            1200 |         2212662 |       1.844e+03 |      0.022741 |            1600 |            4160 |       2.322e+02 |
+    | hipFree                                  | HIP_API         |               1 |         1912321 |       1.912e+06 |      0.019654 |         1912321 |         1912321 |       0.000e+00 |
+    | hipEventRecord                           | HIP_API         |             328 |         1895246 |       5.778e+03 |      0.019479 |            1703 |           60485 |       5.398e+03 |
+    | hipStreamWaitEvent                       | HIP_API         |             253 |         1494332 |       5.906e+03 |      0.015358 |             371 |           53312 |       6.362e+03 |
+    | hipModuleLaunchKernel                    | HIP_API         |              58 |         1351322 |       2.330e+04 |      0.013888 |            4889 |          376455 |       4.809e+04 |
+    | hipMemcpyHtoDAsync                       | HIP_API         |              44 |         1320150 |       3.000e+04 |      0.013568 |            6593 |           74111 |       1.418e+04 |
+    | input_reduce_fusion                      | KERNEL_DISPATCH |               3 |         1221450 |       4.072e+05 |      0.012554 |          402243 |          414403 |       6.410e+03 |
+    | wrapped_abs                              | KERNEL_DISPATCH |               1 |         1064010 |       1.064e+06 |      0.010936 |         1064010 |         1064010 |       0.000e+00 |
+    | hipHostFree                              | HIP_API         |               2 |          624776 |       3.124e+05 |      0.006421 |          111652 |          513124 |       2.839e+05 |
+    | hipDeviceGet                             | HIP_API         |              24 |          622099 |       2.592e+04 |      0.006394 |              90 |          236068 |       5.462e+04 |
+    | hipCtxSetCurrent                         | HIP_API         |            1913 |          620976 |       3.246e+02 |      0.006382 |              80 |           32131 |       1.517e+03 |
+    | hipDeviceEnablePeerAccess                | HIP_API         |              56 |          548746 |       9.799e+03 |      0.005640 |             290 |          108957 |       2.414e+04 |
+    | hipMemGetInfo                            | HIP_API         |             136 |          497468 |       3.658e+03 |      0.005113 |             861 |           11482 |       2.531e+03 |
+    | hipGraphInstantiate                      | HIP_API         |               2 |          467547 |       2.338e+05 |      0.004805 |          202514 |          265033 |       4.421e+04 |
+    | hipMemcpyDtoDAsync                       | HIP_API         |              26 |          366545 |       1.410e+04 |      0.003767 |            5210 |           34916 |       7.343e+03 |
+    | __amd_rocclr_fillBufferAligned           | KERNEL_DISPATCH |               9 |          302883 |       3.365e+04 |      0.003113 |           32960 |           34401 |       5.991e+02 |
+    | hipGraphExecKernelNodeSetParams          | HIP_API         |              60 |          262581 |       4.376e+03 |      0.002699 |            1763 |           24587 |       3.329e+03 |
+    | hipGraphExecDestroy                      | HIP_API         |               2 |          234054 |       1.170e+05 |      0.002406 |          111862 |          122192 |       7.304e+03 |
+    | hipEventCreateWithFlags                  | HIP_API         |             183 |          213675 |       1.168e+03 |      0.002196 |             351 |           20719 |       1.782e+03 |
+    | hipDeviceSynchronize                     | HIP_API         |               8 |          190172 |       2.377e+04 |      0.001955 |           16170 |           42050 |       7.812e+03 |
+    | hipMemcpyDtoHAsync                       | HIP_API         |               6 |          180303 |       3.005e+04 |      0.001853 |           11131 |           47941 |       1.281e+04 |
+    | hipEventDestroy                          | HIP_API         |             177 |          173234 |       9.787e+02 |      0.001780 |             421 |            7775 |       9.783e+02 |
+    | hipStreamSynchronize                     | HIP_API         |             197 |          149834 |       7.606e+02 |      0.001540 |             260 |           19137 |       1.352e+03 |
+    | hipGraphExecMemcpyNodeSetParams1D        | HIP_API         |              40 |          130075 |       3.252e+03 |      0.001337 |            1512 |           15690 |       2.361e+03 |
+    | hipModuleGetFunction                     | HIP_API         |              28 |           99400 |       3.550e+03 |      0.001022 |             220 |           12303 |       3.158e+03 |
+    | hipDevicePrimaryCtxGetState              | HIP_API         |               8 |           97966 |       1.225e+04 |      0.001007 |            1343 |           42250 |       1.449e+04 |
+    | hipGetDevicePropertiesR0600              | HIP_API         |              67 |           92523 |       1.381e+03 |      0.000951 |             150 |           15399 |       2.407e+03 |
+    | hipStreamQuery                           | HIP_API         |             150 |           75517 |       5.034e+02 |      0.000776 |             300 |            7855 |       6.105e+02 |
+    | hipDeviceGetAttribute                    | HIP_API         |             192 |           70657 |       3.680e+02 |      0.000726 |             190 |            9068 |       7.239e+02 |
+    | hipDevicePrimaryCtxRetain                | HIP_API         |               8 |           53038 |       6.630e+03 |      0.000545 |             340 |           24837 |       8.101e+03 |
+    | loop_add_fusion_3                        | KERNEL_DISPATCH |              12 |           47681 |       3.973e+03 |      0.000490 |            3840 |            4160 |       1.147e+02 |
+    | hipDeviceGetPCIBusId                     | HIP_API         |              16 |           39745 |       2.484e+03 |      0.000408 |             621 |           11672 |       2.870e+03 |
+    | hipGetDevice                             | HIP_API         |              36 |           38370 |       1.066e+03 |      0.000394 |              70 |           17223 |       2.917e+03 |
+    | hipCtxGetDevice                          | HIP_API         |             120 |           33810 |       2.818e+02 |      0.000347 |              60 |           15900 |       1.531e+03 |
+    | hipModuleGetGlobal                       | HIP_API         |               2 |           30558 |       1.528e+04 |      0.000314 |            2935 |           27623 |       1.746e+04 |
+    | hipFuncGetAttribute                      | HIP_API         |              56 |           30326 |       5.415e+02 |      0.000312 |              90 |            7194 |       9.855e+02 |
+    | hipGraphAddKernelNode                    | HIP_API         |               6 |           28152 |       4.692e+03 |      0.000289 |             961 |           16932 |       6.112e+03 |
+    | hipDeviceCanAccessPeer                   | HIP_API         |              56 |           26570 |       4.745e+02 |      0.000273 |              70 |           20099 |       2.671e+03 |
+    | loop_add_fusion_2                        | KERNEL_DISPATCH |              12 |           25280 |       2.107e+03 |      0.000260 |            1760 |            3680 |       5.277e+02 |
+    | hipGetDeviceCount                        | HIP_API         |              17 |           17965 |       1.057e+03 |      0.000185 |             230 |            4488 |       9.223e+02 |
+    | hipDeviceTotalMem                        | HIP_API         |              16 |           16479 |       1.030e+03 |      0.000169 |              90 |            6282 |       1.999e+03 |
+    | hipGraphDestroy                          | HIP_API         |               2 |           15038 |       7.519e+03 |      0.000155 |            2765 |           12273 |       6.723e+03 |
+    | hipGraphAddMemcpyNode1D                  | HIP_API         |               4 |           15018 |       3.754e+03 |      0.000154 |            1122 |           10690 |       4.629e+03 |
+    | input_reduce_fusion_1                    | KERNEL_DISPATCH |               3 |           13600 |       4.533e+03 |      0.000140 |            3680 |            6240 |       1.478e+03 |
+    | hipDeviceGetName                         | HIP_API         |              16 |           12130 |       7.581e+02 |      0.000125 |              90 |            6121 |       1.484e+03 |
+    | hipGraphCreate                           | HIP_API         |               2 |           11982 |       5.991e+03 |      0.000123 |             871 |           11111 |       7.241e+03 |
+    | hipCtxGetCurrent                         | HIP_API         |               8 |           10842 |       1.355e+03 |      0.000111 |             480 |            5761 |       1.793e+03 |
+    | hipRuntimeGetVersion                     | HIP_API         |              16 |            6472 |       4.045e+02 |      0.000067 |              70 |            2735 |       6.640e+02 |
+    | hipDriverGetVersion                      | HIP_API         |              16 |            5512 |       3.445e+02 |      0.000057 |              70 |            2405 |       5.730e+02 |
+    | hipDeviceGetStreamPriorityRange          | HIP_API         |               4 |            4176 |       1.044e+03 |      0.000043 |             310 |            3126 |       1.389e+03 |
+    | wrapped_divide                           | KERNEL_DISPATCH |               1 |            2400 |       2.400e+03 |      0.000025 |            2400 |            2400 |       0.000e+00 |
+

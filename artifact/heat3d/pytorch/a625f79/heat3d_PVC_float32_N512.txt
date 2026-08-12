@@ -1,0 +1,15 @@
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+PyTorch version: 2.10.0a0+git449b176
+Device: Intel(R) Data Center GPU Max 1550 (xpu:0)
+Grid: 512 x 512 x 512 (N=134,217,728 points), dtype=torch.float32
+Times (s): best=0.135667, avg=0.149879 over 10 runs
+Estimated bandwidth (GB/s): best=791.45, avg=716.41
+
+Memory statistics
+Allocated before benchmark : 1024.01 MiB
+Reserved before benchmark  : 4098.00 MiB
+Peak allocated             : 1536.01 MiB
+Peak reserved              : 4098.00 MiB
+
+Errors vs analytical PDE at t=2.000000e+00: L2rel=2.549e-07, Linf=1.013e-06

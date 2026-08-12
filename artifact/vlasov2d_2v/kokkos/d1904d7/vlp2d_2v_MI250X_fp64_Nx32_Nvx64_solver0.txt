@@ -1,0 +1,96 @@
+Device Execution Space:
+  KOKKOS_ENABLE_HIP: yes
+HIP Options:
+  KOKKOS_ENABLE_HIP_RELOCATABLE_DEVICE_CODE: no
+
+Runtime Configuration:
+  XNACK environment variable set: no
+  Kernel reports HMM module via `CONFIG_HMM_MIRROR=y` in `/boot/config`: yes
+macro  KOKKOS_ENABLE_HIP : defined
+macro  HIP_VERSION : 70226015 = version 7.2.26015
+macro KOKKOS_ENABLE_ROCTHRUST : defined
+macro KOKKOS_ENABLE_IMPL_HIP_MALLOC_ASYNC: no
+Kokkos::HIP[ 0 ] gcnArch gfx90a:sramecc+:xnack- : Selected
+  Total Global Memory: 63.98 GiB
+  Shared Memory per Block: 64 KiB
+  APU or dGPU: dGPU
+  Is Large Bar: 1
+  Supports Managed Memory: 1
+  Architecture capable of accessing system allocated memory: 1
+  System allows accessing system allocated memory on GPU: 0
+  Wavefront Size: 64
+Kokkos::HIP[ 1 ] gcnArch gfx90a:sramecc+:xnack- : Not Selected
+  Total Global Memory: 63.98 GiB
+  Shared Memory per Block: 64 KiB
+  APU or dGPU: dGPU
+  Is Large Bar: 1
+  Supports Managed Memory: 1
+  Architecture capable of accessing system allocated memory: 1
+  System allows accessing system allocated memory on GPU: 0
+  Wavefront Size: 64
+Kokkos::HIP[ 2 ] gcnArch gfx90a:sramecc+:xnack- : Not Selected
+  Total Global Memory: 63.98 GiB
+  Shared Memory per Block: 64 KiB
+  APU or dGPU: dGPU
+  Is Large Bar: 1
+  Supports Managed Memory: 1
+  Architecture capable of accessing system allocated memory: 1
+  System allows accessing system allocated memory on GPU: 0
+  Wavefront Size: 64
+Kokkos::HIP[ 3 ] gcnArch gfx90a:sramecc+:xnack- : Not Selected
+  Total Global Memory: 63.98 GiB
+  Shared Memory per Block: 64 KiB
+  APU or dGPU: dGPU
+  Is Large Bar: 1
+  Supports Managed Memory: 1
+  Architecture capable of accessing system allocated memory: 1
+  System allows accessing system allocated memory on GPU: 0
+  Wavefront Size: 64
+Kokkos::HIP[ 4 ] gcnArch gfx90a:sramecc+:xnack- : Not Selected
+  Total Global Memory: 63.98 GiB
+  Shared Memory per Block: 64 KiB
+  APU or dGPU: dGPU
+  Is Large Bar: 1
+  Supports Managed Memory: 1
+  Architecture capable of accessing system allocated memory: 1
+  System allows accessing system allocated memory on GPU: 0
+  Wavefront Size: 64
+Kokkos::HIP[ 5 ] gcnArch gfx90a:sramecc+:xnack- : Not Selected
+  Total Global Memory: 63.98 GiB
+  Shared Memory per Block: 64 KiB
+  APU or dGPU: dGPU
+  Is Large Bar: 1
+  Supports Managed Memory: 1
+  Architecture capable of accessing system allocated memory: 1
+  System allows accessing system allocated memory on GPU: 0
+  Wavefront Size: 64
+Kokkos::HIP[ 6 ] gcnArch gfx90a:sramecc+:xnack- : Not Selected
+  Total Global Memory: 63.98 GiB
+  Shared Memory per Block: 64 KiB
+  APU or dGPU: dGPU
+  Is Large Bar: 1
+  Supports Managed Memory: 1
+  Architecture capable of accessing system allocated memory: 1
+  System allows accessing system allocated memory on GPU: 0
+  Wavefront Size: 64
+Kokkos::HIP[ 7 ] gcnArch gfx90a:sramecc+:xnack- : Not Selected
+  Total Global Memory: 63.98 GiB
+  Shared Memory per Block: 64 KiB
+  APU or dGPU: dGPU
+  Is Large Bar: 1
+  Supports Managed Memory: 1
+  Architecture capable of accessing system allocated memory: 1
+  System allows accessing system allocated memory on GPU: 0
+  Wavefront Size: 64
+Vlasov-Poisson Simulation Report:
+  Solver Type: TeamPolicy
+  Data Type: double
+  Grid: 32 x 32 x 64 x 64
+  Domain: [0, 12.5664] x [0, 12.5664] x [-5, 5] x [-5, 5]
+  Time step: 0.05
+  Total iterations: 128
+  Diagnostics every: 2000 iterations
+  Output directory: data_kokkos
+  Physics mode: Landau damping
+  Perturbation amplitude (epsilon): 0.001
+  Elapsed time: 0.368558 [s]

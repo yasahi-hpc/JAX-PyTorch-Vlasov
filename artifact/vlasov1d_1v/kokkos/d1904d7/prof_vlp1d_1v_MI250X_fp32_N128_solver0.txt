@@ -1,0 +1,72 @@
+ (Type)   Total Time, Call Count, Avg. Time per Call, %Total Time in Kernels, %Total Program Time
+-------------------------------------------------------------------------
+
+Regions: 
+
+- KokkosFFT::create_plan[TPL_hipfft]
+ (REGION)   0.150888 2 0.075444 167.058662 17.609507
+- KokkosFFT::exec_plan[TPL_hipfftExecC2R]
+ (REGION)   0.030843 2002 0.000015 34.148209 3.599533
+- KokkosFFT::exec_plan[TPL_hipfftExecR2C]
+ (REGION)   0.015036 1001 0.000015 16.647793 1.754829
+- KokkosFFT::cleanup_plan[TPL_hipfft]
+ (REGION)   0.002667 2 0.001333 2.952504 0.311221
+
+-------------------------------------------------------------------------
+Kernels: 
+
+- advect_x
+ (ParFor)   0.032176 2000 0.000016 35.624065 3.755101
+- compute_rho
+ (ParFor)   0.014786 1001 0.000015 16.370624 1.725613
+- advect_v
+ (ParFor)   0.014685 1000 0.000015 16.259229 1.713871
+- solve_poisson
+ (ParFor)   0.011729 1001 0.000012 12.986002 1.368843
+- delta_rho
+ (ParFor)   0.011198 1001 0.000011 12.397877 1.306849
+- Kokkos::View::initialization [rho_k]
+ (ParFor)   0.005492 1 0.005492 6.080548 0.640945
+- init_fn
+ (ParFor)   0.000037 1 0.000037 0.040915 0.004313
+- Kokkos::View::initialization [linspace] via memset
+ (ParFor)   0.000032 2 0.000016 0.035372 0.003729
+- Kokkos::View::initialization [f0] via memset
+ (ParFor)   0.000032 2 0.000016 0.035372 0.003729
+- Kokkos::View::initialization [phi] via memset
+ (ParFor)   0.000027 2 0.000014 0.030093 0.003172
+- Kokkos::View::initialization [rho] via memset
+ (ParFor)   0.000027 2 0.000014 0.030093 0.003172
+- Kokkos::View::initialization [fn] via memset
+ (ParFor)   0.000018 1 0.000018 0.020062 0.002115
+- Kokkos::View::initialization [inv_kx] via memset
+ (ParFor)   0.000014 1 0.000014 0.015574 0.001642
+- Kokkos::View::initialization [E_k]
+ (ParFor)   0.000012 1 0.000012 0.013462 0.001419
+- Kokkos::View::initialization [phi_k]
+ (ParFor)   0.000012 1 0.000012 0.013198 0.001391
+- Kokkos::View::initialization [f] via memset
+ (ParFor)   0.000011 1 0.000011 0.012143 0.001280
+- Kokkos::View::initialization [delta_rho] via memset
+ (ParFor)   0.000011 1 0.000011 0.012143 0.001280
+- Kokkos::View::initialization [fnp1] via memset
+ (ParFor)   0.000010 1 0.000010 0.011087 0.001169
+- Kokkos::View::initialization [E] via memset
+ (ParFor)   0.000010 1 0.000010 0.011087 0.001169
+- Kokkos::View::initialization [freq] via memset
+ (ParFor)   0.000001 1 0.000001 0.001056 0.000111
+- Kokkos::View::initialization [linspace_mirror] via memset
+ (ParFor)   0.000000 2 0.000000 0.000000 0.000000
+- Kokkos::View::initialization [inv_kx_mirror] via memset
+ (ParFor)   0.000000 1 0.000000 0.000000 0.000000
+
+-------------------------------------------------------------------------
+Summary:
+
+Total Execution Time (incl. Kokkos + non-Kokkos):                   0.85686 seconds
+Total Time in Kokkos kernels:                                       0.09032 seconds
+   -> Time outside Kokkos kernels:                                  0.76653 seconds
+   -> Percentage in Kokkos kernels:                                   10.54 %
+Total Calls to Kokkos Kernels:                                         6025
+
+-------------------------------------------------------------------------

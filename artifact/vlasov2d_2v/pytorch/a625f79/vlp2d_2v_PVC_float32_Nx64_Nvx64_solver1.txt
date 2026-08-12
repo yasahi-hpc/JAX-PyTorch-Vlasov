@@ -1,0 +1,13 @@
+PyTorch version: 2.10.0a0+git449b176
+Starting simulation on xpu with torch.float32 precision with Poisson solver and solver type vlasov_step_matrix_diag.
+Grid: 64x64x64x64, Steps: 128, chunks: 0, diag_freq: 2000
+Warming up torch.compile...
+Compilation done. Starting timed run...
+Elapsed time: 0.7966 [s]
+
+Memory statistics
+Allocated before benchmark : 128.11 MiB
+Reserved before benchmark  : 1710.00 MiB
+Peak allocated             : 770.20 MiB
+Peak reserved              : 1710.00 MiB
+

@@ -1,0 +1,112 @@
+{ lambda a:f32[1,1,3]; b:f32[32,32,32] c:f32[]. let
+    d:f32[32,32,32] = pjit[
+      name=heat_step_conv
+      jaxpr={ lambda ; e:f32[32,32,32] f:f32[] g:f32[1,1,3]. let
+          h:f32[32,32,32] = transpose[permutation=(1, 2, 0)] e
+          i:f32[1024,1,32] = reshape[
+            dimensions=None
+            new_sizes=(1024, 1, 32)
+            sharding=None
+          ] h
+          j:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 32)
+            start_indices=(0, 0, 31)
+            strides=None
+          ] i
+          k:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 1)
+            start_indices=(0, 0, 0)
+            strides=None
+          ] i
+          l:f32[1024,1,34] = concatenate[dimension=2] j i k
+          m:f32[1024,1,32] = conv_general_dilated[
+            batch_group_count=1
+            dimension_numbers=ConvDimensionNumbers(lhs_spec=(0, 1, 2), rhs_spec=(0, 1, 2), out_spec=(0, 1, 2))
+            feature_group_count=1
+            lhs_dilation=(1,)
+            padding=((0, 0),)
+            precision=None
+            preferred_element_type=None
+            rhs_dilation=(1,)
+            window_strides=(1,)
+          ] l g
+          n:f32[32,32,32] = reshape[
+            dimensions=None
+            new_sizes=(32, 32, 32)
+            sharding=None
+          ] m
+          o:f32[32,32,32] = transpose[permutation=(2, 0, 1)] n
+          p:f32[32,32,32] = transpose[permutation=(0, 2, 1)] e
+          q:f32[1024,1,32] = reshape[
+            dimensions=None
+            new_sizes=(1024, 1, 32)
+            sharding=None
+          ] p
+          r:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 32)
+            start_indices=(0, 0, 31)
+            strides=None
+          ] q
+          s:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 1)
+            start_indices=(0, 0, 0)
+            strides=None
+          ] q
+          t:f32[1024,1,34] = concatenate[dimension=2] r q s
+          u:f32[1024,1,32] = conv_general_dilated[
+            batch_group_count=1
+            dimension_numbers=ConvDimensionNumbers(lhs_spec=(0, 1, 2), rhs_spec=(0, 1, 2), out_spec=(0, 1, 2))
+            feature_group_count=1
+            lhs_dilation=(1,)
+            padding=((0, 0),)
+            precision=None
+            preferred_element_type=None
+            rhs_dilation=(1,)
+            window_strides=(1,)
+          ] t g
+          v:f32[32,32,32] = reshape[
+            dimensions=None
+            new_sizes=(32, 32, 32)
+            sharding=None
+          ] u
+          w:f32[32,32,32] = transpose[permutation=(0, 2, 1)] v
+          x:f32[32,32,32] = add o w
+          y:f32[1024,1,32] = reshape[
+            dimensions=None
+            new_sizes=(1024, 1, 32)
+            sharding=None
+          ] e
+          z:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 32)
+            start_indices=(0, 0, 31)
+            strides=None
+          ] y
+          ba:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 1)
+            start_indices=(0, 0, 0)
+            strides=None
+          ] y
+          bb:f32[1024,1,34] = concatenate[dimension=2] z y ba
+          bc:f32[1024,1,32] = conv_general_dilated[
+            batch_group_count=1
+            dimension_numbers=ConvDimensionNumbers(lhs_spec=(0, 1, 2), rhs_spec=(0, 1, 2), out_spec=(0, 1, 2))
+            feature_group_count=1
+            lhs_dilation=(1,)
+            padding=((0, 0),)
+            precision=None
+            preferred_element_type=None
+            rhs_dilation=(1,)
+            window_strides=(1,)
+          ] bb g
+          bd:f32[32,32,32] = reshape[
+            dimensions=None
+            new_sizes=(32, 32, 32)
+            sharding=None
+          ] bc
+          be:f32[32,32,32] = add x bd
+          bf:f32[] = convert_element_type[new_dtype=float32 weak_type=False] f
+          bg:f32[32,32,32] = mul bf be
+          bh:f32[32,32,32] = add e bg
+        in (bh,) }
+    ] b c a
+  in (d,) }

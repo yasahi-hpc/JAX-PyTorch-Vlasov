@@ -1,0 +1,20 @@
+Jax version: 0.7.2
+Starting simulation on TPU v5 lite using float32 precision with Poisson solver and solver type vlasov_step.
+Grid: 256x256, Steps: 10, chunks: 0, diag_freq: 20
+Running simulation without diagnostics (num_steps=0). Steps: 10
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+Elapsed time: 0.09078717231750488 [s]
+
+Memory statistics
+Device memory before main loop : 18.26 MiB
+Device memory after main loop  : 18.52 MiB
+Device peak memory             : 18.52 MiB
+Device memory limit            : 16126.00 MiB
+Host peak RSS                  : 5838.18 MiB
+
+Compiled memory analysis (per chunk, compiler-reported)
+Argument size                  : 0.26 MiB
+Output size                    : 0.26 MiB
+Temp size                      : 2.58 MiB
+Peak memory                    : 35.78 MiB

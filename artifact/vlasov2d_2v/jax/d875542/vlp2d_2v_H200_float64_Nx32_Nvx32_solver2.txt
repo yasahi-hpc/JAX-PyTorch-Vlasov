@@ -1,0 +1,20 @@
+Jax version: 0.8.2
+Starting simulation on NVIDIA GH200 120GB using float64 precision with Poisson solver and solver type vlasov_step_gather_free.
+Grid: 32x32x32x32, Steps: 128, chunks: 0, diag_freq: 2000
+Running simulation without diagnostics (num_steps=0). Steps: 128
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+Elapsed time: 0.01531839370727539 [s]
+
+Memory statistics
+Device memory before main loop : 24.07 MiB
+Device memory after main loop  : 32.11 MiB
+Device peak memory             : 48.13 MiB
+Device memory limit            : 72960.00 MiB
+Host peak RSS                  : 3365.19 MiB
+
+Compiled memory analysis (per chunk, compiler-reported)
+Argument size                  : 8.02 MiB
+Output size                    : 8.03 MiB
+Temp size                      : 16.01 MiB
+Peak memory                    : 32.08 MiB

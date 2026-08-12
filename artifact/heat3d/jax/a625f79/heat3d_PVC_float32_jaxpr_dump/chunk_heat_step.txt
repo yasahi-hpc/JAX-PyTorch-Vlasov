@@ -1,0 +1,187 @@
+let remainder = { lambda ; a:i32[32] b:i32[]. let
+    c:i32[] = convert_element_type[new_dtype=int32 weak_type=False] b
+    d:bool[] = eq c 0
+    e:i32[] = pjit[
+      name=_where
+      jaxpr={ lambda ; f:bool[] g:i32[] h:i32[]. let
+          i:i32[] = select_n f h g
+        in (i,) }
+    ] d 1 c
+    j:i32[32] = rem a e
+    k:bool[32] = ne j 0
+    l:bool[32] = lt j 0
+    m:bool[] = lt e 0
+    n:bool[32] = ne l m
+    o:bool[32] = and n k
+    p:i32[32] = add j e
+    q:i32[32] = select_n o j p
+  in (q,) } in
+let _take = { lambda ; r:f32[32,32,32] s:i32[32]. let
+    t:bool[32] = lt s 0
+    u:i32[32] = add s 32
+    v:i32[32] = pjit[
+      name=_where
+      jaxpr={ lambda ; w:bool[32] x:i32[32] y:i32[32]. let
+          z:i32[32] = select_n w y x
+        in (z,) }
+    ] t u s
+    ba:i32[32,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(32, 1)
+      sharding=None
+    ] v
+    bb:f32[32,32,32] = gather[
+      dimension_numbers=GatherDimensionNumbers(offset_dims=(1, 2), collapsed_slice_dims=(0,), start_index_map=(0,), operand_batching_dims=(), start_indices_batching_dims=())
+      fill_value=nan
+      indices_are_sorted=False
+      mode=GatherScatterMode.FILL_OR_DROP
+      slice_sizes=(1, 32, 32)
+      unique_indices=False
+    ] r ba
+  in (bb,) } in
+let _take1 = { lambda ; bc:f32[32,32,32] bd:i32[32]. let
+    be:bool[32] = lt bd 0
+    bf:i32[32] = add bd 32
+    bg:i32[32] = pjit[
+      name=_where
+      jaxpr={ lambda ; w:bool[32] x:i32[32] y:i32[32]. let
+          z:i32[32] = select_n w y x
+        in (z,) }
+    ] be bf bd
+    bh:i32[32,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(32, 1)
+      sharding=None
+    ] bg
+    bi:f32[32,32,32] = gather[
+      dimension_numbers=GatherDimensionNumbers(offset_dims=(0, 2), collapsed_slice_dims=(1,), start_index_map=(1,), operand_batching_dims=(), start_indices_batching_dims=())
+      fill_value=nan
+      indices_are_sorted=False
+      mode=GatherScatterMode.FILL_OR_DROP
+      slice_sizes=(32, 1, 32)
+      unique_indices=False
+    ] bc bh
+  in (bi,) } in
+let _take2 = { lambda ; bj:f32[32,32,32] bk:i32[32]. let
+    bl:bool[32] = lt bk 0
+    bm:i32[32] = add bk 32
+    bn:i32[32] = pjit[
+      name=_where
+      jaxpr={ lambda ; w:bool[32] x:i32[32] y:i32[32]. let
+          z:i32[32] = select_n w y x
+        in (z,) }
+    ] bl bm bk
+    bo:i32[32,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(32, 1)
+      sharding=None
+    ] bn
+    bp:f32[32,32,32] = gather[
+      dimension_numbers=GatherDimensionNumbers(offset_dims=(0, 1), collapsed_slice_dims=(2,), start_index_map=(2,), operand_batching_dims=(), start_indices_batching_dims=())
+      fill_value=nan
+      indices_are_sorted=False
+      mode=GatherScatterMode.FILL_OR_DROP
+      slice_sizes=(32, 32, 1)
+      unique_indices=False
+    ] bj bo
+  in (bp,) } in
+let _where = { lambda ; f:bool[] g:i32[] h:i32[]. let
+    i:i32[] = select_n f h g
+  in (i,) } in
+let _where1 = { lambda ; w:bool[32] x:i32[32] y:i32[32]. let
+    z:i32[32] = select_n w y x
+  in (z,) } in
+{ lambda ; bq:f32[32] br:f32[32] bs:f32[32] bt:f32[32,32,32] bu:f32[] bv:i32[]. let
+    bw:f32[32] bx:f32[32] by:f32[32] bz:f32[32,32,32] ca:f32[] cb:i32[] = pjit[
+      name=run_chunk
+      jaxpr={ lambda cc:f32[32] cd:f32[32] ce:f32[32]; cf:f32[32] cg:f32[32] ch:f32[32]
+          ci:f32[32,32,32] cj:f32[] ck:i32[]. let
+          _:i32[] cl:f32[32,32,32] = scan[
+            _split_transpose=False
+            jaxpr={ lambda ; cm:i32[] cn:f32[32,32,32]. let
+                co:i32[] = add cm 1
+                cp:f32[32,32,32] = pjit[
+                  name=heat_step
+                  jaxpr={ lambda ; cq:f32[32,32,32] cr:f32[]. let
+                      cs:i32[32] = iota[
+                        dimension=0
+                        dtype=int32
+                        shape=(32,)
+                        sharding=None
+                      ] 
+                      ct:i32[32] = add cs 1
+                      cu:i32[32] = pjit[name=remainder jaxpr=remainder] ct 32
+                      cv:f32[32,32,32] = pjit[name=_take jaxpr=_take] cq cu
+                      cw:i32[32] = iota[
+                        dimension=0
+                        dtype=int32
+                        shape=(32,)
+                        sharding=None
+                      ] 
+                      cx:i32[32] = sub cw 1
+                      cy:i32[32] = pjit[name=remainder jaxpr=remainder] cx 32
+                      cz:f32[32,32,32] = pjit[name=_take jaxpr=_take] cq cy
+                      da:i32[32] = iota[
+                        dimension=0
+                        dtype=int32
+                        shape=(32,)
+                        sharding=None
+                      ] 
+                      db:i32[32] = add da 1
+                      dc:i32[32] = pjit[name=remainder jaxpr=remainder] db 32
+                      dd:f32[32,32,32] = pjit[name=_take jaxpr=_take1] cq dc
+                      de:i32[32] = iota[
+                        dimension=0
+                        dtype=int32
+                        shape=(32,)
+                        sharding=None
+                      ] 
+                      df:i32[32] = sub de 1
+                      dg:i32[32] = pjit[name=remainder jaxpr=remainder] df 32
+                      dh:f32[32,32,32] = pjit[name=_take jaxpr=_take1] cq dg
+                      di:i32[32] = iota[
+                        dimension=0
+                        dtype=int32
+                        shape=(32,)
+                        sharding=None
+                      ] 
+                      dj:i32[32] = add di 1
+                      dk:i32[32] = pjit[name=remainder jaxpr=remainder] dj 32
+                      dl:f32[32,32,32] = pjit[name=_take jaxpr=_take2] cq dk
+                      dm:i32[32] = iota[
+                        dimension=0
+                        dtype=int32
+                        shape=(32,)
+                        sharding=None
+                      ] 
+                      dn:i32[32] = sub dm 1
+                      do:i32[32] = pjit[name=remainder jaxpr=remainder] dn 32
+                      dp:f32[32,32,32] = pjit[name=_take jaxpr=_take2] cq do
+                      dq:f32[32,32,32] = add cv cz
+                      dr:f32[32,32,32] = add dq dd
+                      ds:f32[32,32,32] = add dr dh
+                      dt:f32[32,32,32] = add ds dl
+                      du:f32[32,32,32] = add dt dp
+                      dv:f32[32,32,32] = mul 6.0 cq
+                      dw:f32[32,32,32] = sub du dv
+                      dx:f32[] = convert_element_type[
+                        new_dtype=float32
+                        weak_type=False
+                      ] cr
+                      dy:f32[32,32,32] = mul dx dw
+                      dz:f32[32,32,32] = add cq dy
+                    in (dz,) }
+                ] cn 0.0005187644602487694
+              in (co, cp) }
+            length=100
+            linear=(False, False)
+            num_carry=2
+            num_consts=0
+            reverse=False
+            unroll=1
+          ] 0 ci
+          ea:f32[] = add cj 2.0
+          eb:i32[] = add ck 100
+        in (cc, cd, ce, cl, ea, eb) }
+    ] bq br bs bt bu bv
+  in (bw, bx, by, bz, ca, cb) }

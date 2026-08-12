@@ -1,0 +1,957 @@
+let advect_1d_matrix_diag = { lambda ; a:f32[128,128] b:f32[128] c:f32[] d:f32[]
+    e:i32[6]. let
+    f:f32[] = convert_element_type[new_dtype=float32 weak_type=False] c
+    g:f32[128] = mul b f
+    h:f32[] = convert_element_type[new_dtype=float32 weak_type=False] d
+    i:f32[128] = div g h
+    j:f32[128] = floor i
+    k:f32[128] = sub i j
+    l:i32[128] = convert_element_type[new_dtype=int32 weak_type=False] j
+    m:f32[128,128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128, 128)
+      sharding=None
+    ] 0.0
+    n:f32[128] = mul k k
+    o:f32[128] = mul n k
+    p:f32[128] = mul o k
+    q:f32[128] = mul p k
+    r:f32[128] = div k 20.0
+    s:f32[128] = div n 24.0
+    t:f32[128] = sub r s
+    u:f32[128] = div o 24.0
+    v:f32[128] = sub t u
+    w:f32[128] = div p 24.0
+    x:f32[128] = add v w
+    y:f32[128] = div q 120.0
+    z:f32[128] = sub x y
+    ba:f32[128] = div k 2.0
+    bb:f32[128] = neg ba
+    bc:f32[128] = mul 2.0 n
+    bd:f32[128] = div bc 3.0
+    be:f32[128] = add bb bd
+    bf:f32[128] = div o 24.0
+    bg:f32[128] = sub be bf
+    bh:f32[128] = div p 6.0
+    bi:f32[128] = sub bg bh
+    bj:f32[128] = div q 24.0
+    bk:f32[128] = add bi bj
+    bl:f32[128] = div k 3.0
+    bm:f32[128] = sub 1.0 bl
+    bn:f32[128] = mul 5.0 n
+    bo:f32[128] = div bn 4.0
+    bp:f32[128] = sub bm bo
+    bq:f32[128] = mul 5.0 o
+    br:f32[128] = div bq 12.0
+    bs:f32[128] = add bp br
+    bt:f32[128] = div p 4.0
+    bu:f32[128] = add bs bt
+    bv:f32[128] = div q 12.0
+    bw:f32[128] = sub bu bv
+    bx:f32[128] = mul 2.0 n
+    by:f32[128] = div bx 3.0
+    bz:f32[128] = add k by
+    ca:f32[128] = mul 7.0 o
+    cb:f32[128] = div ca 12.0
+    cc:f32[128] = sub bz cb
+    cd:f32[128] = div p 6.0
+    ce:f32[128] = sub cc cd
+    cf:f32[128] = div q 12.0
+    cg:f32[128] = add ce cf
+    ch:f32[128] = div k 4.0
+    ci:f32[128] = neg ch
+    cj:f32[128] = div n 24.0
+    ck:f32[128] = sub ci cj
+    cl:f32[128] = mul 7.0 o
+    cm:f32[128] = div cl 24.0
+    cn:f32[128] = add ck cm
+    co:f32[128] = div p 24.0
+    cp:f32[128] = add cn co
+    cq:f32[128] = div q 24.0
+    cr:f32[128] = sub cp cq
+    cs:f32[128] = div k 30.0
+    ct:f32[128] = div o 24.0
+    cu:f32[128] = sub cs ct
+    cv:f32[128] = div q 120.0
+    cw:f32[128] = add cu cv
+    cx:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] z
+    cy:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] bk
+    cz:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] bw
+    da:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] cg
+    db:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] cr
+    dc:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] cw
+    dd:f32[6,128] = concatenate[dimension=0] cx cy cz da db dc
+    de:i32[1] = slice[limit_indices=(1,) start_indices=(0,) strides=None] e
+    df:i32[] = squeeze[dimensions=(0,)] de
+    dg:i32[128] = add l df
+    dh:f32[128,128] = pjit[
+      name=_roll_dynamic
+      jaxpr={ lambda ; di:f32[128,128] dj:i32[128]. let
+          dk:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] dj
+          dl:i32[128,1] = slice[
+            limit_indices=(128, 1)
+            start_indices=(0, 0)
+            strides=(1, 1)
+          ] dk
+          dm:i32[128] = squeeze[dimensions=(1,)] dl
+          dn:i32[] = max 128 1
+          do:i32[128] = pjit[
+            name=remainder
+            jaxpr={ lambda ; dp:i32[128] dq:i32[]. let
+                dr:bool[] = eq dq 0
+                ds:i32[] = pjit[
+                  name=_where
+                  jaxpr={ lambda ; dt:bool[] du:i32[] dv:i32[]. let
+                      dw:i32[] = select_n dt dv du
+                    in (dw,) }
+                ] dr 1 dq
+                dx:i32[128] = rem dp ds
+                dy:bool[128] = ne dx 0
+                dz:bool[128] = lt dx 0
+                ea:bool[] = lt ds 0
+                eb:bool[128] = ne dz ea
+                ec:bool[128] = and eb dy
+                ed:i32[128] = add dx ds
+                ee:i32[128] = select_n ec dx ed
+              in (ee,) }
+          ] dm dn
+          ef:f32[128,128] = transpose[permutation=(1, 0)] di
+          eg:f32[128,128] = transpose[permutation=(1, 0)] di
+          eh:f32[128,256] = concatenate[dimension=1] ef eg
+          ei:i32[128] = sub 128 do
+          ej:bool[128] = lt ei 0
+          ek:i32[128] = add ei 256
+          el:i32[128] = select_n ej ei ek
+          em:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] el
+          en:f32[128,128] = gather[
+            dimension_numbers=GatherDimensionNumbers(offset_dims=(np.int64(1),), collapsed_slice_dims=(), start_index_map=(np.int64(1),), operand_batching_dims=(0,), start_indices_batching_dims=(0,))
+            fill_value=None
+            indices_are_sorted=True
+            mode=GatherScatterMode.PROMISE_IN_BOUNDS
+            slice_sizes=(1, 128)
+            unique_indices=True
+          ] eh em
+        in (en,) }
+    ] a dg
+    eo:f32[128,128] = transpose[permutation=(1, 0)] dh
+    ep:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] dd
+    eq:f32[128] = squeeze[dimensions=(0,)] ep
+    er:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] eq
+    es:f32[128,128] = mul eo er
+    et:f32[128,128] = add m es
+    eu:i32[1] = slice[limit_indices=(2,) start_indices=(1,) strides=None] e
+    ev:i32[] = squeeze[dimensions=(0,)] eu
+    ew:i32[128] = add l ev
+    ex:f32[128,128] = pjit[
+      name=_roll_dynamic
+      jaxpr={ lambda ; di:f32[128,128] dj:i32[128]. let
+          dk:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] dj
+          dl:i32[128,1] = slice[
+            limit_indices=(128, 1)
+            start_indices=(0, 0)
+            strides=(1, 1)
+          ] dk
+          dm:i32[128] = squeeze[dimensions=(1,)] dl
+          dn:i32[] = max 128 1
+          do:i32[128] = pjit[
+            name=remainder
+            jaxpr={ lambda ; dp:i32[128] dq:i32[]. let
+                dr:bool[] = eq dq 0
+                ds:i32[] = pjit[
+                  name=_where
+                  jaxpr={ lambda ; dt:bool[] du:i32[] dv:i32[]. let
+                      dw:i32[] = select_n dt dv du
+                    in (dw,) }
+                ] dr 1 dq
+                dx:i32[128] = rem dp ds
+                dy:bool[128] = ne dx 0
+                dz:bool[128] = lt dx 0
+                ea:bool[] = lt ds 0
+                eb:bool[128] = ne dz ea
+                ec:bool[128] = and eb dy
+                ed:i32[128] = add dx ds
+                ee:i32[128] = select_n ec dx ed
+              in (ee,) }
+          ] dm dn
+          ef:f32[128,128] = transpose[permutation=(1, 0)] di
+          eg:f32[128,128] = transpose[permutation=(1, 0)] di
+          eh:f32[128,256] = concatenate[dimension=1] ef eg
+          ei:i32[128] = sub 128 do
+          ej:bool[128] = lt ei 0
+          ek:i32[128] = add ei 256
+          el:i32[128] = select_n ej ei ek
+          em:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] el
+          en:f32[128,128] = gather[
+            dimension_numbers=GatherDimensionNumbers(offset_dims=(np.int64(1),), collapsed_slice_dims=(), start_index_map=(np.int64(1),), operand_batching_dims=(0,), start_indices_batching_dims=(0,))
+            fill_value=None
+            indices_are_sorted=True
+            mode=GatherScatterMode.PROMISE_IN_BOUNDS
+            slice_sizes=(1, 128)
+            unique_indices=True
+          ] eh em
+        in (en,) }
+    ] a ew
+    ey:f32[128,128] = transpose[permutation=(1, 0)] ex
+    ez:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] dd
+    fa:f32[128] = squeeze[dimensions=(0,)] ez
+    fb:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] fa
+    fc:f32[128,128] = mul ey fb
+    fd:f32[128,128] = add et fc
+    fe:i32[1] = slice[limit_indices=(3,) start_indices=(2,) strides=None] e
+    ff:i32[] = squeeze[dimensions=(0,)] fe
+    fg:i32[128] = add l ff
+    fh:f32[128,128] = pjit[
+      name=_roll_dynamic
+      jaxpr={ lambda ; di:f32[128,128] dj:i32[128]. let
+          dk:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] dj
+          dl:i32[128,1] = slice[
+            limit_indices=(128, 1)
+            start_indices=(0, 0)
+            strides=(1, 1)
+          ] dk
+          dm:i32[128] = squeeze[dimensions=(1,)] dl
+          dn:i32[] = max 128 1
+          do:i32[128] = pjit[
+            name=remainder
+            jaxpr={ lambda ; dp:i32[128] dq:i32[]. let
+                dr:bool[] = eq dq 0
+                ds:i32[] = pjit[
+                  name=_where
+                  jaxpr={ lambda ; dt:bool[] du:i32[] dv:i32[]. let
+                      dw:i32[] = select_n dt dv du
+                    in (dw,) }
+                ] dr 1 dq
+                dx:i32[128] = rem dp ds
+                dy:bool[128] = ne dx 0
+                dz:bool[128] = lt dx 0
+                ea:bool[] = lt ds 0
+                eb:bool[128] = ne dz ea
+                ec:bool[128] = and eb dy
+                ed:i32[128] = add dx ds
+                ee:i32[128] = select_n ec dx ed
+              in (ee,) }
+          ] dm dn
+          ef:f32[128,128] = transpose[permutation=(1, 0)] di
+          eg:f32[128,128] = transpose[permutation=(1, 0)] di
+          eh:f32[128,256] = concatenate[dimension=1] ef eg
+          ei:i32[128] = sub 128 do
+          ej:bool[128] = lt ei 0
+          ek:i32[128] = add ei 256
+          el:i32[128] = select_n ej ei ek
+          em:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] el
+          en:f32[128,128] = gather[
+            dimension_numbers=GatherDimensionNumbers(offset_dims=(np.int64(1),), collapsed_slice_dims=(), start_index_map=(np.int64(1),), operand_batching_dims=(0,), start_indices_batching_dims=(0,))
+            fill_value=None
+            indices_are_sorted=True
+            mode=GatherScatterMode.PROMISE_IN_BOUNDS
+            slice_sizes=(1, 128)
+            unique_indices=True
+          ] eh em
+        in (en,) }
+    ] a fg
+    fi:f32[128,128] = transpose[permutation=(1, 0)] fh
+    fj:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] dd
+    fk:f32[128] = squeeze[dimensions=(0,)] fj
+    fl:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] fk
+    fm:f32[128,128] = mul fi fl
+    fn:f32[128,128] = add fd fm
+    fo:i32[1] = slice[limit_indices=(4,) start_indices=(3,) strides=None] e
+    fp:i32[] = squeeze[dimensions=(0,)] fo
+    fq:i32[128] = add l fp
+    fr:f32[128,128] = pjit[
+      name=_roll_dynamic
+      jaxpr={ lambda ; di:f32[128,128] dj:i32[128]. let
+          dk:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] dj
+          dl:i32[128,1] = slice[
+            limit_indices=(128, 1)
+            start_indices=(0, 0)
+            strides=(1, 1)
+          ] dk
+          dm:i32[128] = squeeze[dimensions=(1,)] dl
+          dn:i32[] = max 128 1
+          do:i32[128] = pjit[
+            name=remainder
+            jaxpr={ lambda ; dp:i32[128] dq:i32[]. let
+                dr:bool[] = eq dq 0
+                ds:i32[] = pjit[
+                  name=_where
+                  jaxpr={ lambda ; dt:bool[] du:i32[] dv:i32[]. let
+                      dw:i32[] = select_n dt dv du
+                    in (dw,) }
+                ] dr 1 dq
+                dx:i32[128] = rem dp ds
+                dy:bool[128] = ne dx 0
+                dz:bool[128] = lt dx 0
+                ea:bool[] = lt ds 0
+                eb:bool[128] = ne dz ea
+                ec:bool[128] = and eb dy
+                ed:i32[128] = add dx ds
+                ee:i32[128] = select_n ec dx ed
+              in (ee,) }
+          ] dm dn
+          ef:f32[128,128] = transpose[permutation=(1, 0)] di
+          eg:f32[128,128] = transpose[permutation=(1, 0)] di
+          eh:f32[128,256] = concatenate[dimension=1] ef eg
+          ei:i32[128] = sub 128 do
+          ej:bool[128] = lt ei 0
+          ek:i32[128] = add ei 256
+          el:i32[128] = select_n ej ei ek
+          em:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] el
+          en:f32[128,128] = gather[
+            dimension_numbers=GatherDimensionNumbers(offset_dims=(np.int64(1),), collapsed_slice_dims=(), start_index_map=(np.int64(1),), operand_batching_dims=(0,), start_indices_batching_dims=(0,))
+            fill_value=None
+            indices_are_sorted=True
+            mode=GatherScatterMode.PROMISE_IN_BOUNDS
+            slice_sizes=(1, 128)
+            unique_indices=True
+          ] eh em
+        in (en,) }
+    ] a fq
+    fs:f32[128,128] = transpose[permutation=(1, 0)] fr
+    ft:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] dd
+    fu:f32[128] = squeeze[dimensions=(0,)] ft
+    fv:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] fu
+    fw:f32[128,128] = mul fs fv
+    fx:f32[128,128] = add fn fw
+    fy:i32[1] = slice[limit_indices=(5,) start_indices=(4,) strides=None] e
+    fz:i32[] = squeeze[dimensions=(0,)] fy
+    ga:i32[128] = add l fz
+    gb:f32[128,128] = pjit[
+      name=_roll_dynamic
+      jaxpr={ lambda ; di:f32[128,128] dj:i32[128]. let
+          dk:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] dj
+          dl:i32[128,1] = slice[
+            limit_indices=(128, 1)
+            start_indices=(0, 0)
+            strides=(1, 1)
+          ] dk
+          dm:i32[128] = squeeze[dimensions=(1,)] dl
+          dn:i32[] = max 128 1
+          do:i32[128] = pjit[
+            name=remainder
+            jaxpr={ lambda ; dp:i32[128] dq:i32[]. let
+                dr:bool[] = eq dq 0
+                ds:i32[] = pjit[
+                  name=_where
+                  jaxpr={ lambda ; dt:bool[] du:i32[] dv:i32[]. let
+                      dw:i32[] = select_n dt dv du
+                    in (dw,) }
+                ] dr 1 dq
+                dx:i32[128] = rem dp ds
+                dy:bool[128] = ne dx 0
+                dz:bool[128] = lt dx 0
+                ea:bool[] = lt ds 0
+                eb:bool[128] = ne dz ea
+                ec:bool[128] = and eb dy
+                ed:i32[128] = add dx ds
+                ee:i32[128] = select_n ec dx ed
+              in (ee,) }
+          ] dm dn
+          ef:f32[128,128] = transpose[permutation=(1, 0)] di
+          eg:f32[128,128] = transpose[permutation=(1, 0)] di
+          eh:f32[128,256] = concatenate[dimension=1] ef eg
+          ei:i32[128] = sub 128 do
+          ej:bool[128] = lt ei 0
+          ek:i32[128] = add ei 256
+          el:i32[128] = select_n ej ei ek
+          em:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] el
+          en:f32[128,128] = gather[
+            dimension_numbers=GatherDimensionNumbers(offset_dims=(np.int64(1),), collapsed_slice_dims=(), start_index_map=(np.int64(1),), operand_batching_dims=(0,), start_indices_batching_dims=(0,))
+            fill_value=None
+            indices_are_sorted=True
+            mode=GatherScatterMode.PROMISE_IN_BOUNDS
+            slice_sizes=(1, 128)
+            unique_indices=True
+          ] eh em
+        in (en,) }
+    ] a ga
+    gc:f32[128,128] = transpose[permutation=(1, 0)] gb
+    gd:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] dd
+    ge:f32[128] = squeeze[dimensions=(0,)] gd
+    gf:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] ge
+    gg:f32[128,128] = mul gc gf
+    gh:f32[128,128] = add fx gg
+    gi:i32[1] = slice[limit_indices=(6,) start_indices=(5,) strides=None] e
+    gj:i32[] = squeeze[dimensions=(0,)] gi
+    gk:i32[128] = add l gj
+    gl:f32[128,128] = pjit[
+      name=_roll_dynamic
+      jaxpr={ lambda ; di:f32[128,128] dj:i32[128]. let
+          dk:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] dj
+          dl:i32[128,1] = slice[
+            limit_indices=(128, 1)
+            start_indices=(0, 0)
+            strides=(1, 1)
+          ] dk
+          dm:i32[128] = squeeze[dimensions=(1,)] dl
+          dn:i32[] = max 128 1
+          do:i32[128] = pjit[
+            name=remainder
+            jaxpr={ lambda ; dp:i32[128] dq:i32[]. let
+                dr:bool[] = eq dq 0
+                ds:i32[] = pjit[
+                  name=_where
+                  jaxpr={ lambda ; dt:bool[] du:i32[] dv:i32[]. let
+                      dw:i32[] = select_n dt dv du
+                    in (dw,) }
+                ] dr 1 dq
+                dx:i32[128] = rem dp ds
+                dy:bool[128] = ne dx 0
+                dz:bool[128] = lt dx 0
+                ea:bool[] = lt ds 0
+                eb:bool[128] = ne dz ea
+                ec:bool[128] = and eb dy
+                ed:i32[128] = add dx ds
+                ee:i32[128] = select_n ec dx ed
+              in (ee,) }
+          ] dm dn
+          ef:f32[128,128] = transpose[permutation=(1, 0)] di
+          eg:f32[128,128] = transpose[permutation=(1, 0)] di
+          eh:f32[128,256] = concatenate[dimension=1] ef eg
+          ei:i32[128] = sub 128 do
+          ej:bool[128] = lt ei 0
+          ek:i32[128] = add ei 256
+          el:i32[128] = select_n ej ei ek
+          em:i32[128,1] = broadcast_in_dim[
+            broadcast_dimensions=(0,)
+            shape=(128, 1)
+            sharding=None
+          ] el
+          en:f32[128,128] = gather[
+            dimension_numbers=GatherDimensionNumbers(offset_dims=(np.int64(1),), collapsed_slice_dims=(), start_index_map=(np.int64(1),), operand_batching_dims=(0,), start_indices_batching_dims=(0,))
+            fill_value=None
+            indices_are_sorted=True
+            mode=GatherScatterMode.PROMISE_IN_BOUNDS
+            slice_sizes=(1, 128)
+            unique_indices=True
+          ] eh em
+        in (en,) }
+    ] a gk
+    gm:f32[128,128] = transpose[permutation=(1, 0)] gl
+    gn:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] dd
+    go:f32[128] = squeeze[dimensions=(0,)] gn
+    gp:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] go
+    gq:f32[128,128] = mul gm gp
+    gr:f32[128,128] = add gh gq
+  in (gr,) } in
+let _roll_dynamic = { lambda ; di:f32[128,128] dj:i32[128]. let
+    dk:i32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] dj
+    dl:i32[128,1] = slice[
+      limit_indices=(128, 1)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] dk
+    dm:i32[128] = squeeze[dimensions=(1,)] dl
+    dn:i32[] = max 128 1
+    do:i32[128] = pjit[
+      name=remainder
+      jaxpr={ lambda ; dp:i32[128] dq:i32[]. let
+          dr:bool[] = eq dq 0
+          ds:i32[] = pjit[
+            name=_where
+            jaxpr={ lambda ; dt:bool[] du:i32[] dv:i32[]. let
+                dw:i32[] = select_n dt dv du
+              in (dw,) }
+          ] dr 1 dq
+          dx:i32[128] = rem dp ds
+          dy:bool[128] = ne dx 0
+          dz:bool[128] = lt dx 0
+          ea:bool[] = lt ds 0
+          eb:bool[128] = ne dz ea
+          ec:bool[128] = and eb dy
+          ed:i32[128] = add dx ds
+          ee:i32[128] = select_n ec dx ed
+        in (ee,) }
+    ] dm dn
+    ef:f32[128,128] = transpose[permutation=(1, 0)] di
+    eg:f32[128,128] = transpose[permutation=(1, 0)] di
+    eh:f32[128,256] = concatenate[dimension=1] ef eg
+    ei:i32[128] = sub 128 do
+    ej:bool[128] = lt ei 0
+    ek:i32[128] = add ei 256
+    el:i32[128] = select_n ej ei ek
+    em:i32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] el
+    en:f32[128,128] = gather[
+      dimension_numbers=GatherDimensionNumbers(offset_dims=(np.int64(1),), collapsed_slice_dims=(), start_index_map=(np.int64(1),), operand_batching_dims=(0,), start_indices_batching_dims=(0,))
+      fill_value=None
+      indices_are_sorted=True
+      mode=GatherScatterMode.PROMISE_IN_BOUNDS
+      slice_sizes=(1, 128)
+      unique_indices=True
+    ] eh em
+  in (en,) } in
+let fft = { lambda ; gs:c64[65]. let
+    gt:f32[128] = fft[fft_lengths=(128,) fft_type=3] gs
+  in (gt,) } in
+let _roll_dynamic1 = { lambda ; gu:f32[128,128] gv:i32[128]. let
+    gw:i32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] gv
+    gx:i32[128,1] = slice[
+      limit_indices=(128, 1)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] gw
+    gy:i32[128] = squeeze[dimensions=(1,)] gx
+    gz:i32[] = max 128 1
+    ha:i32[128] = pjit[
+      name=remainder
+      jaxpr={ lambda ; dp:i32[128] dq:i32[]. let
+          dr:bool[] = eq dq 0
+          ds:i32[] = pjit[
+            name=_where
+            jaxpr={ lambda ; dt:bool[] du:i32[] dv:i32[]. let
+                dw:i32[] = select_n dt dv du
+              in (dw,) }
+          ] dr 1 dq
+          dx:i32[128] = rem dp ds
+          dy:bool[128] = ne dx 0
+          dz:bool[128] = lt dx 0
+          ea:bool[] = lt ds 0
+          eb:bool[128] = ne dz ea
+          ec:bool[128] = and eb dy
+          ed:i32[128] = add dx ds
+          ee:i32[128] = select_n ec dx ed
+        in (ee,) }
+    ] gy gz
+    hb:f32[128,256] = concatenate[dimension=1] gu gu
+    hc:i32[128] = sub 128 ha
+    hd:bool[128] = lt hc 0
+    he:i32[128] = add hc 256
+    hf:i32[128] = select_n hd hc he
+    hg:i32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] hf
+    hh:f32[128,128] = gather[
+      dimension_numbers=GatherDimensionNumbers(offset_dims=(np.int64(1),), collapsed_slice_dims=(), start_index_map=(np.int64(1),), operand_batching_dims=(0,), start_indices_batching_dims=(0,))
+      fill_value=None
+      indices_are_sorted=True
+      mode=GatherScatterMode.PROMISE_IN_BOUNDS
+      slice_sizes=(1, 128)
+      unique_indices=True
+    ] hb hg
+  in (hh,) } in
+let remainder = { lambda ; dp:i32[128] dq:i32[]. let
+    dr:bool[] = eq dq 0
+    ds:i32[] = pjit[
+      name=_where
+      jaxpr={ lambda ; dt:bool[] du:i32[] dv:i32[]. let
+          dw:i32[] = select_n dt dv du
+        in (dw,) }
+    ] dr 1 dq
+    dx:i32[128] = rem dp ds
+    dy:bool[128] = ne dx 0
+    dz:bool[128] = lt dx 0
+    ea:bool[] = lt ds 0
+    eb:bool[128] = ne dz ea
+    ec:bool[128] = and eb dy
+    ed:i32[128] = add dx ds
+    ee:i32[128] = select_n ec dx ed
+  in (ee,) } in
+let _where = { lambda ; dt:bool[] du:i32[] dv:i32[]. let
+    dw:i32[] = select_n dt dv du
+  in (dw,) } in
+{ lambda hi:f32[128] hj:i32[6] hk:f32[65]; hl:f32[128,128] hm:f32[128] hn:f32[128]. let
+    ho:f32[128,128] = pjit[
+      name=advect_1d_matrix_diag
+      jaxpr=advect_1d_matrix_diag
+    ] hl hi 0.025 0.09817477042468103 hj
+    hp:f32[128] hq:f32[128] hr:f32[128] = pjit[
+      name=solve_poisson
+      jaxpr={ lambda ; hs:f32[128,128] ht:f32[65] hu:f32[]. let
+          hv:f32[128] = reduce_sum[axes=(1,)] hs
+          hw:f32[] = convert_element_type[new_dtype=float32 weak_type=False] hu
+          hx:f32[128] = mul hv hw
+          hy:f32[128] = sub hx 1.0
+          hz:c64[65] = pjit[
+            name=fft
+            jaxpr={ lambda ; ia:f32[128]. let
+                ib:c64[65] = fft[fft_lengths=(128,) fft_type=2] ia
+              in (ib,) }
+          ] hy
+          ic:c64[65] = mul (-0-1j) hz
+          id:c64[65] = convert_element_type[new_dtype=complex64 weak_type=False] ht
+          ie:c64[65] = mul ic id
+          if:f32[128] = pjit[name=fft jaxpr=fft] ie
+          ig:f32[65] = integer_pow[y=2] ht
+          ih:c64[65] = convert_element_type[new_dtype=complex64 weak_type=False] ig
+          ii:c64[65] = mul hz ih
+          ij:f32[128] = pjit[name=fft jaxpr=fft] ii
+        in (if, hy, ij) }
+    ] ho hk 0.07874015748031496
+    ik:f32[128,128] = pjit[
+      name=advect_1d_matrix_diag
+      jaxpr={ lambda ; il:f32[128,128] im:f32[128] in:f32[] io:f32[] ip:i32[6]. let
+          iq:f32[] = convert_element_type[new_dtype=float32 weak_type=False] in
+          ir:f32[128] = mul im iq
+          is:f32[] = convert_element_type[new_dtype=float32 weak_type=False] io
+          it:f32[128] = div ir is
+          iu:f32[128] = floor it
+          iv:f32[128] = sub it iu
+          iw:i32[128] = convert_element_type[new_dtype=int32 weak_type=False] iu
+          ix:f32[128,128] = broadcast_in_dim[
+            broadcast_dimensions=()
+            shape=(128, 128)
+            sharding=None
+          ] 0.0
+          iy:f32[6,128,128] = pjit[
+            name=build_v_diag_weights
+            jaxpr={ lambda ; iz:i32[6] ja:i32[128] jb:f32[128]. let
+                jc:f32[128] = mul jb jb
+                jd:f32[128] = mul jc jb
+                je:f32[128] = mul jd jb
+                jf:f32[128] = mul je jb
+                jg:f32[128] = div jb 20.0
+                jh:f32[128] = div jc 24.0
+                ji:f32[128] = sub jg jh
+                jj:f32[128] = div jd 24.0
+                jk:f32[128] = sub ji jj
+                jl:f32[128] = div je 24.0
+                jm:f32[128] = add jk jl
+                jn:f32[128] = div jf 120.0
+                jo:f32[128] = sub jm jn
+                jp:f32[128] = div jb 2.0
+                jq:f32[128] = neg jp
+                jr:f32[128] = mul 2.0 jc
+                js:f32[128] = div jr 3.0
+                jt:f32[128] = add jq js
+                ju:f32[128] = div jd 24.0
+                jv:f32[128] = sub jt ju
+                jw:f32[128] = div je 6.0
+                jx:f32[128] = sub jv jw
+                jy:f32[128] = div jf 24.0
+                jz:f32[128] = add jx jy
+                ka:f32[128] = div jb 3.0
+                kb:f32[128] = sub 1.0 ka
+                kc:f32[128] = mul 5.0 jc
+                kd:f32[128] = div kc 4.0
+                ke:f32[128] = sub kb kd
+                kf:f32[128] = mul 5.0 jd
+                kg:f32[128] = div kf 12.0
+                kh:f32[128] = add ke kg
+                ki:f32[128] = div je 4.0
+                kj:f32[128] = add kh ki
+                kk:f32[128] = div jf 12.0
+                kl:f32[128] = sub kj kk
+                km:f32[128] = mul 2.0 jc
+                kn:f32[128] = div km 3.0
+                ko:f32[128] = add jb kn
+                kp:f32[128] = mul 7.0 jd
+                kq:f32[128] = div kp 12.0
+                kr:f32[128] = sub ko kq
+                ks:f32[128] = div je 6.0
+                kt:f32[128] = sub kr ks
+                ku:f32[128] = div jf 12.0
+                kv:f32[128] = add kt ku
+                kw:f32[128] = div jb 4.0
+                kx:f32[128] = neg kw
+                ky:f32[128] = div jc 24.0
+                kz:f32[128] = sub kx ky
+                la:f32[128] = mul 7.0 jd
+                lb:f32[128] = div la 24.0
+                lc:f32[128] = add kz lb
+                ld:f32[128] = div je 24.0
+                le:f32[128] = add lc ld
+                lf:f32[128] = div jf 24.0
+                lg:f32[128] = sub le lf
+                lh:f32[128] = div jb 30.0
+                li:f32[128] = div jd 24.0
+                lj:f32[128] = sub lh li
+                lk:f32[128] = div jf 120.0
+                ll:f32[128] = add lj lk
+                lm:f32[1,128] = broadcast_in_dim[
+                  broadcast_dimensions=(1,)
+                  shape=(1, 128)
+                  sharding=None
+                ] jo
+                ln:f32[1,128] = broadcast_in_dim[
+                  broadcast_dimensions=(1,)
+                  shape=(1, 128)
+                  sharding=None
+                ] jz
+                lo:f32[1,128] = broadcast_in_dim[
+                  broadcast_dimensions=(1,)
+                  shape=(1, 128)
+                  sharding=None
+                ] kl
+                lp:f32[1,128] = broadcast_in_dim[
+                  broadcast_dimensions=(1,)
+                  shape=(1, 128)
+                  sharding=None
+                ] kv
+                lq:f32[1,128] = broadcast_in_dim[
+                  broadcast_dimensions=(1,)
+                  shape=(1, 128)
+                  sharding=None
+                ] lg
+                lr:f32[1,128] = broadcast_in_dim[
+                  broadcast_dimensions=(1,)
+                  shape=(1, 128)
+                  sharding=None
+                ] ll
+                ls:f32[6,128] = concatenate[dimension=0] lm ln lo lp lq lr
+                lt:i32[128] = iota[
+                  dimension=0
+                  dtype=int32
+                  shape=(128,)
+                  sharding=None
+                ] 
+                lu:i32[6,1] = broadcast_in_dim[
+                  broadcast_dimensions=(0,)
+                  shape=(6, 1)
+                  sharding=None
+                ] iz
+                lv:i32[1,128] = broadcast_in_dim[
+                  broadcast_dimensions=(1,)
+                  shape=(1, 128)
+                  sharding=None
+                ] ja
+                lw:i32[6,128] = add lu lv
+                lx:i32[1,1,128] = broadcast_in_dim[
+                  broadcast_dimensions=(2,)
+                  shape=(1, 1, 128)
+                  sharding=None
+                ] lt
+                ly:i32[6,128,1] = broadcast_in_dim[
+                  broadcast_dimensions=(0, 1)
+                  shape=(6, 128, 1)
+                  sharding=None
+                ] lw
+                lz:i32[6,128,128] = sub lx ly
+                ma:bool[6,128,128] = ge lz 0
+                mb:bool[6,128,128] = lt lz 128
+                mc:bool[6,128,128] = and ma mb
+                md:f32[6,128,1] = broadcast_in_dim[
+                  broadcast_dimensions=(0, 1)
+                  shape=(6, 128, 1)
+                  sharding=None
+                ] ls
+                me:f32[6,128,128] = pjit[
+                  name=_where
+                  jaxpr={ lambda ; mf:bool[6,128,128] mg:f32[6,128,1] mh:f32[]. let
+                      mi:f32[] = convert_element_type[
+                        new_dtype=float32
+                        weak_type=False
+                      ] mh
+                      mj:f32[6,128,128] = broadcast_in_dim[
+                        broadcast_dimensions=(0, 1, 2)
+                        shape=(6, 128, 128)
+                        sharding=None
+                      ] mg
+                      mk:f32[6,128,128] = broadcast_in_dim[
+                        broadcast_dimensions=()
+                        shape=(6, 128, 128)
+                        sharding=None
+                      ] mi
+                      ml:f32[6,128,128] = select_n mf mk mj
+                    in (ml,) }
+                ] mc md 0.0
+              in (me,) }
+          ] ip iw iv
+          mm:i32[1] = slice[limit_indices=(1,) start_indices=(0,) strides=None] ip
+          mn:i32[] = squeeze[dimensions=(0,)] mm
+          mo:i32[128] = add iw mn
+          mp:f32[128,128] = pjit[name=_roll_dynamic jaxpr=_roll_dynamic1] il mo
+          mq:f32[1,128,128] = slice[
+            limit_indices=(1, 128, 128)
+            start_indices=(0, 0, 0)
+            strides=None
+          ] iy
+          mr:f32[128,128] = squeeze[dimensions=(0,)] mq
+          ms:f32[128,128] = mul mr mp
+          mt:f32[128,128] = add ix ms
+          mu:i32[1] = slice[limit_indices=(2,) start_indices=(1,) strides=None] ip
+          mv:i32[] = squeeze[dimensions=(0,)] mu
+          mw:i32[128] = add iw mv
+          mx:f32[128,128] = pjit[name=_roll_dynamic jaxpr=_roll_dynamic1] il mw
+          my:f32[1,128,128] = slice[
+            limit_indices=(2, 128, 128)
+            start_indices=(1, 0, 0)
+            strides=None
+          ] iy
+          mz:f32[128,128] = squeeze[dimensions=(0,)] my
+          na:f32[128,128] = mul mz mx
+          nb:f32[128,128] = add mt na
+          nc:i32[1] = slice[limit_indices=(3,) start_indices=(2,) strides=None] ip
+          nd:i32[] = squeeze[dimensions=(0,)] nc
+          ne:i32[128] = add iw nd
+          nf:f32[128,128] = pjit[name=_roll_dynamic jaxpr=_roll_dynamic1] il ne
+          ng:f32[1,128,128] = slice[
+            limit_indices=(3, 128, 128)
+            start_indices=(2, 0, 0)
+            strides=None
+          ] iy
+          nh:f32[128,128] = squeeze[dimensions=(0,)] ng
+          ni:f32[128,128] = mul nh nf
+          nj:f32[128,128] = add nb ni
+          nk:i32[1] = slice[limit_indices=(4,) start_indices=(3,) strides=None] ip
+          nl:i32[] = squeeze[dimensions=(0,)] nk
+          nm:i32[128] = add iw nl
+          nn:f32[128,128] = pjit[name=_roll_dynamic jaxpr=_roll_dynamic1] il nm
+          no:f32[1,128,128] = slice[
+            limit_indices=(4, 128, 128)
+            start_indices=(3, 0, 0)
+            strides=None
+          ] iy
+          np:f32[128,128] = squeeze[dimensions=(0,)] no
+          nq:f32[128,128] = mul np nn
+          nr:f32[128,128] = add nj nq
+          ns:i32[1] = slice[limit_indices=(5,) start_indices=(4,) strides=None] ip
+          nt:i32[] = squeeze[dimensions=(0,)] ns
+          nu:i32[128] = add iw nt
+          nv:f32[128,128] = pjit[name=_roll_dynamic jaxpr=_roll_dynamic1] il nu
+          nw:f32[1,128,128] = slice[
+            limit_indices=(5, 128, 128)
+            start_indices=(4, 0, 0)
+            strides=None
+          ] iy
+          nx:f32[128,128] = squeeze[dimensions=(0,)] nw
+          ny:f32[128,128] = mul nx nv
+          nz:f32[128,128] = add nr ny
+          oa:i32[1] = slice[limit_indices=(6,) start_indices=(5,) strides=None] ip
+          ob:i32[] = squeeze[dimensions=(0,)] oa
+          oc:i32[128] = add iw ob
+          od:f32[128,128] = pjit[name=_roll_dynamic jaxpr=_roll_dynamic1] il oc
+          oe:f32[1,128,128] = slice[
+            limit_indices=(6, 128, 128)
+            start_indices=(5, 0, 0)
+            strides=None
+          ] iy
+          of:f32[128,128] = squeeze[dimensions=(0,)] oe
+          og:f32[128,128] = mul of od
+          oh:f32[128,128] = add nz og
+        in (oh,) }
+    ] ho hp 0.05 0.07874015748031496 hj
+    oi:f32[128,128] = pjit[
+      name=advect_1d_matrix_diag
+      jaxpr=advect_1d_matrix_diag
+    ] ik hi 0.025 0.09817477042468103 hj
+  in (oi, hq, hr) }

@@ -1,0 +1,647 @@
+let advect_1d_vectorized = { lambda ; a:f32[32768,32] b:f32[32768] c:f32[] d:f32[]
+    e:i32[6]. let
+    f:f32[32] = iota[dimension=0 dtype=float32 shape=(32,) sharding=None] 
+    g:f32[32768,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(32768, 1)
+      sharding=None
+    ] b
+    h:f32[] = convert_element_type[new_dtype=float32 weak_type=False] c
+    i:f32[32768,1] = mul g h
+    j:f32[] = convert_element_type[new_dtype=float32 weak_type=False] d
+    k:f32[32768,1] = div i j
+    l:f32[1,32] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 32)
+      sharding=None
+    ] f
+    m:f32[32768,32] = sub l k
+    n:f32[32768,32] = floor m
+    o:f32[32768,32] = sub m n
+    p:i32[32768,32] = convert_element_type[new_dtype=int32 weak_type=False] n
+    q:i32[32768,32,1] = broadcast_in_dim[
+      broadcast_dimensions=(0, 1)
+      shape=(32768, 32, 1)
+      sharding=None
+    ] p
+    r:i32[1,1,6] = broadcast_in_dim[
+      broadcast_dimensions=(2,)
+      shape=(1, 1, 6)
+      sharding=None
+    ] e
+    s:i32[32768,32,6] = add q r
+    t:i32[32768,32,6] = pjit[
+      name=remainder
+      jaxpr={ lambda ; u:i32[32768,32,6] v:i32[]. let
+          w:i32[] = convert_element_type[new_dtype=int32 weak_type=False] v
+          x:bool[] = eq w 0
+          y:i32[] = pjit[
+            name=_where
+            jaxpr={ lambda ; z:bool[] ba:i32[] bb:i32[]. let
+                bc:i32[] = select_n z bb ba
+              in (bc,) }
+          ] x 1 w
+          bd:i32[32768,32,6] = rem u y
+          be:bool[32768,32,6] = ne bd 0
+          bf:bool[32768,32,6] = lt bd 0
+          bg:bool[] = lt y 0
+          bh:bool[32768,32,6] = ne bf bg
+          bi:bool[32768,32,6] = and bh be
+          bj:i32[32768,32,6] = add bd y
+          bk:i32[32768,32,6] = select_n bi bd bj
+        in (bk,) }
+    ] s 32
+    bl:i32[32768] = iota[dimension=0 dtype=int32 shape=(32768,) sharding=None] 
+    bm:i32[32768,1,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(32768, 1, 1)
+      sharding=None
+    ] bl
+    bn:i32[32768,1,1] = mul bm 32
+    bo:i32[32768,32,6] = add bn t
+    bp:f32[1048576] = reshape[
+      dimensions=None
+      new_sizes=(1048576,)
+      sharding=None
+    ] a
+    bq:i32[6291456] = reshape[
+      dimensions=None
+      new_sizes=(6291456,)
+      sharding=None
+    ] bo
+    br:bool[6291456] = lt bq 0
+    bs:i32[6291456] = add bq 1048576
+    bt:i32[6291456] = select_n br bq bs
+    bu:i32[6291456,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(6291456, 1)
+      sharding=None
+    ] bt
+    bv:f32[6291456] = gather[
+      dimension_numbers=GatherDimensionNumbers(offset_dims=(), collapsed_slice_dims=(0,), start_index_map=(0,), operand_batching_dims=(), start_indices_batching_dims=())
+      fill_value=None
+      indices_are_sorted=False
+      mode=GatherScatterMode.PROMISE_IN_BOUNDS
+      slice_sizes=(1,)
+      unique_indices=False
+    ] bp bu
+    bw:f32[32768,32,6] = reshape[
+      dimensions=None
+      new_sizes=(32768, 32, 6)
+      sharding=None
+    ] bv
+    bx:f32[32768,32] = mul o o
+    by:f32[32768,32] = mul bx o
+    bz:f32[32768,32] = mul by o
+    ca:f32[32768,32] = mul bz o
+    cb:f32[32768,32] = div o 20.0
+    cc:f32[32768,32] = div bx 24.0
+    cd:f32[32768,32] = sub cb cc
+    ce:f32[32768,32] = div by 24.0
+    cf:f32[32768,32] = sub cd ce
+    cg:f32[32768,32] = div bz 24.0
+    ch:f32[32768,32] = add cf cg
+    ci:f32[32768,32] = div ca 120.0
+    cj:f32[32768,32] = sub ch ci
+    ck:f32[32768,32] = div o 2.0
+    cl:f32[32768,32] = neg ck
+    cm:f32[32768,32] = mul 2.0 bx
+    cn:f32[32768,32] = div cm 3.0
+    co:f32[32768,32] = add cl cn
+    cp:f32[32768,32] = div by 24.0
+    cq:f32[32768,32] = sub co cp
+    cr:f32[32768,32] = div bz 6.0
+    cs:f32[32768,32] = sub cq cr
+    ct:f32[32768,32] = div ca 24.0
+    cu:f32[32768,32] = add cs ct
+    cv:f32[32768,32] = div o 3.0
+    cw:f32[32768,32] = sub 1.0 cv
+    cx:f32[32768,32] = mul 5.0 bx
+    cy:f32[32768,32] = div cx 4.0
+    cz:f32[32768,32] = sub cw cy
+    da:f32[32768,32] = mul 5.0 by
+    db:f32[32768,32] = div da 12.0
+    dc:f32[32768,32] = add cz db
+    dd:f32[32768,32] = div bz 4.0
+    de:f32[32768,32] = add dc dd
+    df:f32[32768,32] = div ca 12.0
+    dg:f32[32768,32] = sub de df
+    dh:f32[32768,32] = mul 2.0 bx
+    di:f32[32768,32] = div dh 3.0
+    dj:f32[32768,32] = add o di
+    dk:f32[32768,32] = mul 7.0 by
+    dl:f32[32768,32] = div dk 12.0
+    dm:f32[32768,32] = sub dj dl
+    dn:f32[32768,32] = div bz 6.0
+    do:f32[32768,32] = sub dm dn
+    dp:f32[32768,32] = div ca 12.0
+    dq:f32[32768,32] = add do dp
+    dr:f32[32768,32] = div o 4.0
+    ds:f32[32768,32] = neg dr
+    dt:f32[32768,32] = div bx 24.0
+    du:f32[32768,32] = sub ds dt
+    dv:f32[32768,32] = mul 7.0 by
+    dw:f32[32768,32] = div dv 24.0
+    dx:f32[32768,32] = add du dw
+    dy:f32[32768,32] = div bz 24.0
+    dz:f32[32768,32] = add dx dy
+    ea:f32[32768,32] = div ca 24.0
+    eb:f32[32768,32] = sub dz ea
+    ec:f32[32768,32] = div o 30.0
+    ed:f32[32768,32] = div by 24.0
+    ee:f32[32768,32] = sub ec ed
+    ef:f32[32768,32] = div ca 120.0
+    eg:f32[32768,32] = add ee ef
+    eh:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 1)
+      start_indices=(0, 0, 0)
+      strides=None
+    ] bw
+    ei:f32[32768,32] = squeeze[dimensions=(2,)] eh
+    ej:f32[32768,32] = mul cj ei
+    ek:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 2)
+      start_indices=(0, 0, 1)
+      strides=None
+    ] bw
+    el:f32[32768,32] = squeeze[dimensions=(2,)] ek
+    em:f32[32768,32] = mul cu el
+    en:f32[32768,32] = add ej em
+    eo:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 3)
+      start_indices=(0, 0, 2)
+      strides=None
+    ] bw
+    ep:f32[32768,32] = squeeze[dimensions=(2,)] eo
+    eq:f32[32768,32] = mul dg ep
+    er:f32[32768,32] = add en eq
+    es:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 4)
+      start_indices=(0, 0, 3)
+      strides=None
+    ] bw
+    et:f32[32768,32] = squeeze[dimensions=(2,)] es
+    eu:f32[32768,32] = mul dq et
+    ev:f32[32768,32] = add er eu
+    ew:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 5)
+      start_indices=(0, 0, 4)
+      strides=None
+    ] bw
+    ex:f32[32768,32] = squeeze[dimensions=(2,)] ew
+    ey:f32[32768,32] = mul eb ex
+    ez:f32[32768,32] = add ev ey
+    fa:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 6)
+      start_indices=(0, 0, 5)
+      strides=None
+    ] bw
+    fb:f32[32768,32] = squeeze[dimensions=(2,)] fa
+    fc:f32[32768,32] = mul eg fb
+    fd:f32[32768,32] = add ez fc
+  in (fd,) } in
+let advect_1d_vectorized1 = { lambda ; fe:f32[32768,32] ff:f32[32768] fg:f32[] fh:f32[]
+    fi:i32[6]. let
+    fj:f32[32] = iota[dimension=0 dtype=float32 shape=(32,) sharding=None] 
+    fk:f32[32768,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(32768, 1)
+      sharding=None
+    ] ff
+    fl:f32[] = convert_element_type[new_dtype=float32 weak_type=False] fg
+    fm:f32[32768,1] = mul fk fl
+    fn:f32[] = convert_element_type[new_dtype=float32 weak_type=False] fh
+    fo:f32[32768,1] = div fm fn
+    fp:f32[1,32] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 32)
+      sharding=None
+    ] fj
+    fq:f32[32768,32] = sub fp fo
+    fr:f32[32768,32] = floor fq
+    fs:f32[32768,32] = sub fq fr
+    ft:i32[32768,32] = convert_element_type[new_dtype=int32 weak_type=False] fr
+    fu:i32[32768,32,1] = broadcast_in_dim[
+      broadcast_dimensions=(0, 1)
+      shape=(32768, 32, 1)
+      sharding=None
+    ] ft
+    fv:i32[1,1,6] = broadcast_in_dim[
+      broadcast_dimensions=(2,)
+      shape=(1, 1, 6)
+      sharding=None
+    ] fi
+    fw:i32[32768,32,6] = add fu fv
+    fx:bool[32768,32,6] = ge fw 0
+    fy:bool[32768,32,6] = lt fw 32
+    fz:bool[32768,32,6] = and fx fy
+    ga:i32[32768,32,6] = pjit[
+      name=clip
+      jaxpr={ lambda ; gb:i32[32768,32,6] gc:i32[] gd:i32[]. let
+          ge:i32[] = convert_element_type[new_dtype=int32 weak_type=False] gc
+          gf:i32[32768,32,6] = max ge gb
+          gg:i32[] = convert_element_type[new_dtype=int32 weak_type=False] gd
+          gh:i32[32768,32,6] = min gg gf
+        in (gh,) }
+    ] fw 0 31
+    gi:i32[32768] = iota[dimension=0 dtype=int32 shape=(32768,) sharding=None] 
+    gj:i32[32768,1,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(32768, 1, 1)
+      sharding=None
+    ] gi
+    gk:i32[32768,1,1] = mul gj 32
+    gl:i32[32768,32,6] = add gk ga
+    gm:f32[1048576] = reshape[
+      dimensions=None
+      new_sizes=(1048576,)
+      sharding=None
+    ] fe
+    gn:i32[6291456] = reshape[
+      dimensions=None
+      new_sizes=(6291456,)
+      sharding=None
+    ] gl
+    go:bool[6291456] = lt gn 0
+    gp:i32[6291456] = add gn 1048576
+    gq:i32[6291456] = select_n go gn gp
+    gr:i32[6291456,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(6291456, 1)
+      sharding=None
+    ] gq
+    gs:f32[6291456] = gather[
+      dimension_numbers=GatherDimensionNumbers(offset_dims=(), collapsed_slice_dims=(0,), start_index_map=(0,), operand_batching_dims=(), start_indices_batching_dims=())
+      fill_value=None
+      indices_are_sorted=False
+      mode=GatherScatterMode.PROMISE_IN_BOUNDS
+      slice_sizes=(1,)
+      unique_indices=False
+    ] gm gr
+    gt:f32[32768,32,6] = reshape[
+      dimensions=None
+      new_sizes=(32768, 32, 6)
+      sharding=None
+    ] gs
+    gu:f32[32768,32,6] = pjit[
+      name=_where
+      jaxpr={ lambda ; gv:bool[32768,32,6] gw:f32[32768,32,6] gx:f32[]. let
+          gy:f32[] = convert_element_type[new_dtype=float32 weak_type=False] gx
+          gz:f32[32768,32,6] = broadcast_in_dim[
+            broadcast_dimensions=()
+            shape=(32768, 32, 6)
+            sharding=None
+          ] gy
+          ha:f32[32768,32,6] = select_n gv gz gw
+        in (ha,) }
+    ] fz gt 0.0
+    hb:f32[32768,32] = mul fs fs
+    hc:f32[32768,32] = mul hb fs
+    hd:f32[32768,32] = mul hc fs
+    he:f32[32768,32] = mul hd fs
+    hf:f32[32768,32] = div fs 20.0
+    hg:f32[32768,32] = div hb 24.0
+    hh:f32[32768,32] = sub hf hg
+    hi:f32[32768,32] = div hc 24.0
+    hj:f32[32768,32] = sub hh hi
+    hk:f32[32768,32] = div hd 24.0
+    hl:f32[32768,32] = add hj hk
+    hm:f32[32768,32] = div he 120.0
+    hn:f32[32768,32] = sub hl hm
+    ho:f32[32768,32] = div fs 2.0
+    hp:f32[32768,32] = neg ho
+    hq:f32[32768,32] = mul 2.0 hb
+    hr:f32[32768,32] = div hq 3.0
+    hs:f32[32768,32] = add hp hr
+    ht:f32[32768,32] = div hc 24.0
+    hu:f32[32768,32] = sub hs ht
+    hv:f32[32768,32] = div hd 6.0
+    hw:f32[32768,32] = sub hu hv
+    hx:f32[32768,32] = div he 24.0
+    hy:f32[32768,32] = add hw hx
+    hz:f32[32768,32] = div fs 3.0
+    ia:f32[32768,32] = sub 1.0 hz
+    ib:f32[32768,32] = mul 5.0 hb
+    ic:f32[32768,32] = div ib 4.0
+    id:f32[32768,32] = sub ia ic
+    ie:f32[32768,32] = mul 5.0 hc
+    if:f32[32768,32] = div ie 12.0
+    ig:f32[32768,32] = add id if
+    ih:f32[32768,32] = div hd 4.0
+    ii:f32[32768,32] = add ig ih
+    ij:f32[32768,32] = div he 12.0
+    ik:f32[32768,32] = sub ii ij
+    il:f32[32768,32] = mul 2.0 hb
+    im:f32[32768,32] = div il 3.0
+    in:f32[32768,32] = add fs im
+    io:f32[32768,32] = mul 7.0 hc
+    ip:f32[32768,32] = div io 12.0
+    iq:f32[32768,32] = sub in ip
+    ir:f32[32768,32] = div hd 6.0
+    is:f32[32768,32] = sub iq ir
+    it:f32[32768,32] = div he 12.0
+    iu:f32[32768,32] = add is it
+    iv:f32[32768,32] = div fs 4.0
+    iw:f32[32768,32] = neg iv
+    ix:f32[32768,32] = div hb 24.0
+    iy:f32[32768,32] = sub iw ix
+    iz:f32[32768,32] = mul 7.0 hc
+    ja:f32[32768,32] = div iz 24.0
+    jb:f32[32768,32] = add iy ja
+    jc:f32[32768,32] = div hd 24.0
+    jd:f32[32768,32] = add jb jc
+    je:f32[32768,32] = div he 24.0
+    jf:f32[32768,32] = sub jd je
+    jg:f32[32768,32] = div fs 30.0
+    jh:f32[32768,32] = div hc 24.0
+    ji:f32[32768,32] = sub jg jh
+    jj:f32[32768,32] = div he 120.0
+    jk:f32[32768,32] = add ji jj
+    jl:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 1)
+      start_indices=(0, 0, 0)
+      strides=None
+    ] gu
+    jm:f32[32768,32] = squeeze[dimensions=(2,)] jl
+    jn:f32[32768,32] = mul hn jm
+    jo:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 2)
+      start_indices=(0, 0, 1)
+      strides=None
+    ] gu
+    jp:f32[32768,32] = squeeze[dimensions=(2,)] jo
+    jq:f32[32768,32] = mul hy jp
+    jr:f32[32768,32] = add jn jq
+    js:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 3)
+      start_indices=(0, 0, 2)
+      strides=None
+    ] gu
+    jt:f32[32768,32] = squeeze[dimensions=(2,)] js
+    ju:f32[32768,32] = mul ik jt
+    jv:f32[32768,32] = add jr ju
+    jw:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 4)
+      start_indices=(0, 0, 3)
+      strides=None
+    ] gu
+    jx:f32[32768,32] = squeeze[dimensions=(2,)] jw
+    jy:f32[32768,32] = mul iu jx
+    jz:f32[32768,32] = add jv jy
+    ka:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 5)
+      start_indices=(0, 0, 4)
+      strides=None
+    ] gu
+    kb:f32[32768,32] = squeeze[dimensions=(2,)] ka
+    kc:f32[32768,32] = mul jf kb
+    kd:f32[32768,32] = add jz kc
+    ke:f32[32768,32,1] = slice[
+      limit_indices=(32768, 32, 6)
+      start_indices=(0, 0, 5)
+      strides=None
+    ] gu
+    kf:f32[32768,32] = squeeze[dimensions=(2,)] ke
+    kg:f32[32768,32] = mul jk kf
+    kh:f32[32768,32] = add kd kg
+  in (kh,) } in
+let remainder = { lambda ; u:i32[32768,32,6] v:i32[]. let
+    w:i32[] = convert_element_type[new_dtype=int32 weak_type=False] v
+    x:bool[] = eq w 0
+    y:i32[] = pjit[
+      name=_where
+      jaxpr={ lambda ; z:bool[] ba:i32[] bb:i32[]. let
+          bc:i32[] = select_n z bb ba
+        in (bc,) }
+    ] x 1 w
+    bd:i32[32768,32,6] = rem u y
+    be:bool[32768,32,6] = ne bd 0
+    bf:bool[32768,32,6] = lt bd 0
+    bg:bool[] = lt y 0
+    bh:bool[32768,32,6] = ne bf bg
+    bi:bool[32768,32,6] = and bh be
+    bj:i32[32768,32,6] = add bd y
+    bk:i32[32768,32,6] = select_n bi bd bj
+  in (bk,) } in
+let fft = { lambda ; ki:c64[32,17]. let
+    kj:f32[32,32] = fft[fft_lengths=(32, 32) fft_type=3] ki
+  in (kj,) } in
+let clip = { lambda ; gb:i32[32768,32,6] gc:i32[] gd:i32[]. let
+    ge:i32[] = convert_element_type[new_dtype=int32 weak_type=False] gc
+    gf:i32[32768,32,6] = max ge gb
+    gg:i32[] = convert_element_type[new_dtype=int32 weak_type=False] gd
+    gh:i32[32768,32,6] = min gg gf
+  in (gh,) } in
+let _where = { lambda ; gv:bool[32768,32,6] gw:f32[32768,32,6] gx:f32[]. let
+    gy:f32[] = convert_element_type[new_dtype=float32 weak_type=False] gx
+    gz:f32[32768,32,6] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(32768, 32, 6)
+      sharding=None
+    ] gy
+    ha:f32[32768,32,6] = select_n gv gz gw
+  in (ha,) } in
+let _where1 = { lambda ; z:bool[] ba:i32[] bb:i32[]. let
+    bc:i32[] = select_n z bb ba
+  in (bc,) } in
+{ lambda kk:f32[32] kl:i32[6] km:f32[32] kn:f32[32,1] ko:f32[1,17] kp:f32[32,17]; kq:f32[32,32,32,32]
+    kr:f32[32,32] ks:f32[32,32]. let
+    kt:f32[1,32,1] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 32, 1)
+      sharding=None
+    ] kk
+    ku:f32[32,32,32,32] = transpose[permutation=(1, 2, 3, 0)] kq
+    kv:f32[32768,32] = reshape[
+      dimensions=None
+      new_sizes=(32768, 32)
+      sharding=None
+    ] ku
+    kw:f32[32,32,32] = broadcast_in_dim[
+      broadcast_dimensions=(0, 1, 2)
+      shape=(32, 32, 32)
+      sharding=None
+    ] kt
+    kx:f32[32768] = reshape[dimensions=None new_sizes=(32768,) sharding=None] kw
+    ky:f32[32768,32] = pjit[
+      name=advect_1d_vectorized
+      jaxpr=advect_1d_vectorized
+    ] kv kx 0.025 0.39269908169872414 kl
+    kz:f32[32,32,32,32] = reshape[
+      dimensions=None
+      new_sizes=(32, 32, 32, 32)
+      sharding=None
+    ] ky
+    la:f32[32,32,32,32] = transpose[permutation=(3, 0, 1, 2)] kz
+    lb:f32[1,1,32] = broadcast_in_dim[
+      broadcast_dimensions=(2,)
+      shape=(1, 1, 32)
+      sharding=None
+    ] km
+    lc:f32[32,32,32,32] = transpose[permutation=(0, 2, 3, 1)] la
+    ld:f32[32768,32] = reshape[
+      dimensions=None
+      new_sizes=(32768, 32)
+      sharding=None
+    ] lc
+    le:f32[32,32,32] = broadcast_in_dim[
+      broadcast_dimensions=(0, 1, 2)
+      shape=(32, 32, 32)
+      sharding=None
+    ] lb
+    lf:f32[32768] = reshape[dimensions=None new_sizes=(32768,) sharding=None] le
+    lg:f32[32768,32] = pjit[
+      name=advect_1d_vectorized
+      jaxpr=advect_1d_vectorized
+    ] ld lf 0.025 0.39269908169872414 kl
+    lh:f32[32,32,32,32] = reshape[
+      dimensions=None
+      new_sizes=(32, 32, 32, 32)
+      sharding=None
+    ] lg
+    li:f32[32,32,32,32] = transpose[permutation=(0, 3, 1, 2)] lh
+    lj:f32[32,32] lk:f32[32,32] ll:f32[32,32] lm:f32[32,32] = pjit[
+      name=solve_poisson
+      jaxpr={ lambda ; ln:f32[32,32,32,32] lo:f32[32,1] lp:f32[1,17] lq:f32[32,17]
+          lr:f32[] ls:f32[]. let
+          lt:f32[32,32] = reduce_sum[axes=(2, 3)] ln
+          lu:f32[] = convert_element_type[new_dtype=float32 weak_type=False] lr
+          lv:f32[32,32] = mul lt lu
+          lw:f32[] = convert_element_type[new_dtype=float32 weak_type=False] ls
+          lx:f32[32,32] = mul lv lw
+          ly:f32[32,32] = sub lx 1.0
+          lz:c64[32,17] = pjit[
+            name=fft
+            jaxpr={ lambda ; ma:f32[32,32]. let
+                mb:c64[32,17] = fft[fft_lengths=(32, 32) fft_type=2] ma
+              in (mb,) }
+          ] ly
+          mc:c64[32,17] = convert_element_type[
+            new_dtype=complex64
+            weak_type=False
+          ] lq
+          md:c64[32,17] = mul lz mc
+          me:f32[32,32] = pjit[name=fft jaxpr=fft] md
+          mf:c64[32,1] = convert_element_type[
+            new_dtype=complex64
+            weak_type=False
+          ] lo
+          mg:c64[32,1] = mul (-0-1j) mf
+          mh:c64[32,17] = mul mg md
+          mi:c64[1,17] = convert_element_type[
+            new_dtype=complex64
+            weak_type=False
+          ] lp
+          mj:c64[1,17] = mul (-0-1j) mi
+          mk:c64[32,17] = mul mj md
+          ml:f32[32,32] = pjit[name=fft jaxpr=fft] mh
+          mm:f32[32,32] = pjit[name=fft jaxpr=fft] mk
+        in (ml, mm, ly, me) }
+    ] li kn ko kp 0.3225806451612903 0.3225806451612903
+    mn:f32[32,32,1] = broadcast_in_dim[
+      broadcast_dimensions=(0, 1)
+      shape=(32, 32, 1)
+      sharding=None
+    ] lj
+    mo:f32[32,32,32,32] = transpose[permutation=(0, 1, 3, 2)] li
+    mp:f32[32768,32] = reshape[
+      dimensions=None
+      new_sizes=(32768, 32)
+      sharding=None
+    ] mo
+    mq:f32[32,32,32] = broadcast_in_dim[
+      broadcast_dimensions=(0, 1, 2)
+      shape=(32, 32, 32)
+      sharding=None
+    ] mn
+    mr:f32[32768] = reshape[dimensions=None new_sizes=(32768,) sharding=None] mq
+    ms:f32[32768,32] = pjit[
+      name=advect_1d_vectorized
+      jaxpr=advect_1d_vectorized1
+    ] mp mr 0.05 0.3225806451612903 kl
+    mt:f32[32,32,32,32] = reshape[
+      dimensions=None
+      new_sizes=(32, 32, 32, 32)
+      sharding=None
+    ] ms
+    mu:f32[32,32,32,32] = transpose[permutation=(0, 1, 3, 2)] mt
+    mv:f32[32,32,1] = broadcast_in_dim[
+      broadcast_dimensions=(0, 1)
+      shape=(32, 32, 1)
+      sharding=None
+    ] lk
+    mw:f32[32768,32] = reshape[
+      dimensions=None
+      new_sizes=(32768, 32)
+      sharding=None
+    ] mu
+    mx:f32[32,32,32] = broadcast_in_dim[
+      broadcast_dimensions=(0, 1, 2)
+      shape=(32, 32, 32)
+      sharding=None
+    ] mv
+    my:f32[32768] = reshape[dimensions=None new_sizes=(32768,) sharding=None] mx
+    mz:f32[32768,32] = pjit[
+      name=advect_1d_vectorized
+      jaxpr=advect_1d_vectorized1
+    ] mw my 0.05 0.3225806451612903 kl
+    na:f32[32,32,32,32] = reshape[
+      dimensions=None
+      new_sizes=(32, 32, 32, 32)
+      sharding=None
+    ] mz
+    nb:f32[1,1,32] = broadcast_in_dim[
+      broadcast_dimensions=(2,)
+      shape=(1, 1, 32)
+      sharding=None
+    ] km
+    nc:f32[32,32,32,32] = transpose[permutation=(0, 2, 3, 1)] na
+    nd:f32[32768,32] = reshape[
+      dimensions=None
+      new_sizes=(32768, 32)
+      sharding=None
+    ] nc
+    ne:f32[32,32,32] = broadcast_in_dim[
+      broadcast_dimensions=(0, 1, 2)
+      shape=(32, 32, 32)
+      sharding=None
+    ] nb
+    nf:f32[32768] = reshape[dimensions=None new_sizes=(32768,) sharding=None] ne
+    ng:f32[32768,32] = pjit[
+      name=advect_1d_vectorized
+      jaxpr=advect_1d_vectorized
+    ] nd nf 0.025 0.39269908169872414 kl
+    nh:f32[32,32,32,32] = reshape[
+      dimensions=None
+      new_sizes=(32, 32, 32, 32)
+      sharding=None
+    ] ng
+    ni:f32[32,32,32,32] = transpose[permutation=(0, 3, 1, 2)] nh
+    nj:f32[1,32,1] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 32, 1)
+      sharding=None
+    ] kk
+    nk:f32[32,32,32,32] = transpose[permutation=(1, 2, 3, 0)] ni
+    nl:f32[32768,32] = reshape[
+      dimensions=None
+      new_sizes=(32768, 32)
+      sharding=None
+    ] nk
+    nm:f32[32,32,32] = broadcast_in_dim[
+      broadcast_dimensions=(0, 1, 2)
+      shape=(32, 32, 32)
+      sharding=None
+    ] nj
+    nn:f32[32768] = reshape[dimensions=None new_sizes=(32768,) sharding=None] nm
+    no:f32[32768,32] = pjit[
+      name=advect_1d_vectorized
+      jaxpr=advect_1d_vectorized
+    ] nl nn 0.025 0.39269908169872414 kl
+    np:f32[32,32,32,32] = reshape[
+      dimensions=None
+      new_sizes=(32, 32, 32, 32)
+      sharding=None
+    ] no
+    nq:f32[32,32,32,32] = transpose[permutation=(3, 0, 1, 2)] np
+  in (nq, ll, lm) }

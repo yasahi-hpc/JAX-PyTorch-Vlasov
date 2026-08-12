@@ -1,0 +1,3575 @@
+Graph Count: 1
+Graph Break Count: 0
+Op Count: 320
+Break Reasons:
+Ops per Graph:
+  Ops 1:
+    <built-in method tensor of type object at 0x400031cec4a0>
+    <built-in method arange of type object at 0x400031cec4a0>
+    <built-in function sub>
+    <built-in method zeros_like of type object at 0x400031cec4a0>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method sum of type object at 0x400031cec4a0>
+    <built-in function mul>
+    <built-in function sub>
+    <built-in function fft_rfft>
+    <built-in method view_as_real of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function getitem>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in method stack of type object at 0x400031cec4a0>
+    <built-in function mul>
+    <built-in method view_as_complex of type object at 0x400031cec4a0>
+    <built-in method view_as_complex of type object at 0x400031cec4a0>
+    <built-in function fft_irfft>
+    <built-in function fft_irfft>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in method floor of type object at 0x400031cec4a0>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method stack of type object at 0x400031cec4a0>
+    <built-in method zeros_like of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method stack of type object at 0x400031cec4a0>
+    <built-in function pad>
+    <built-in method zeros_like of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method tensor of type object at 0x400031cec4a0>
+    <built-in method arange of type object at 0x400031cec4a0>
+    <built-in function sub>
+    <built-in method zeros_like of type object at 0x400031cec4a0>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x400031cec4a0>
+    <built-in method gather of type object at 0x400031cec4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+Out Guards:
+  Guard 1:
+    Name: "L['blocks'][21][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][21][1] == 1093"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 2:
+    Name: "L['blocks'][64]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][64], 187650800057752)", "len(L['blocks'][64]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 3:
+    Name: "G['torch'].are_deterministic_algorithms_enabled"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].are_deterministic_algorithms_enabled, 70375834286528)"]
+    Object Weakref: <weakref at 0x4004643f3d30; to 'function' at 0x4001a69a79c0>
+    Guarded Class Weakref: <weakref at 0x400023f3b060; to 'type' at 0xaaaadb46fa58 (function)>
+  Guard 4:
+    Name: "L['blocks'][60][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][60][2] == 19"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 5:
+    Name: "L['blocks'][75]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][75], 187650800057752)", "len(L['blocks'][75]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 6:
+    Name: "L['blocks'][72][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][72][0] == 3606"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 7:
+    Name: "L['blocks'][12][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][12][2] == -29"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 8:
+    Name: "L['blocks'][63][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][63][2] == 22"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 9:
+    Name: "L['blocks'][25][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][25][2] == -16"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 10:
+    Name: "G['__import_torch_dot_nn_dot_functional'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_torch_dot_nn_dot_functional'].torch"]
+    Object Weakref: <weakref at 0x40046434a5c0; to 'module' at 0x400024109490>
+    Guarded Class Weakref: <weakref at 0x400023f57010; to 'type' at 0xaaaadb4750a8 (module)>
+  Guard 11:
+    Name: "L['blocks'][27]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][27], 187650800057752)", "len(L['blocks'][27]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 12:
+    Name: "L['blocks'][13][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][13][1] == 691"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 13:
+    Name: "G['__import_torch_dot__dynamo_dot_polyfills_dot_builtins']._SENTINEL_MISSING"
+    Source: global
+    Create Function: ID_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__import_torch_dot__dynamo_dot_polyfills_dot_builtins']._SENTINEL_MISSING, 187652014248896)"]
+    Object Weakref: <weakref at 0x4001b47f9490; to 'type' at 0xaaab23a693c0>
+    Guarded Class Weakref: <weakref at 0x400023f04c20; to 'type' at 0xaaaadb479a68 (type)>
+  Guard 14:
+    Name: "G['torch'].floor"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].floor, 70369357676768)"]
+    Object Weakref: <weakref at 0x400464374950; to 'builtin_function_or_method' at 0x4000249140e0>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 15:
+    Name: "L['blocks'][22][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][22][1] == 1143"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 16:
+    Name: "L['blocks'][19][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][19][2] == -22"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 17:
+    Name: "L['blocks'][8][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][8][1] == 440"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 18:
+    Name: "L['blocks'][6][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][6][0] == 289"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 19:
+    Name: "L['blocks'][58][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][58][1] == 2953"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 20:
+    Name: "L['grid_inv_kx']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_inv_kx'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x40046425d5d0; to 'Tensor' at 0x4001c6f0aa30>
+    Guarded Class Weakref: <weakref at 0x4001a6a2ab60; to 'torch._C._TensorMeta' at 0xaaab20c02000 (Tensor)>
+  Guard 21:
+    Name: "L['blocks'][38][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][38][1] == 1947"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 22:
+    Name: "L['blocks'][47][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][47][2] == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 23:
+    Name: "L['blocks'][7][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][7][1] == 390"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 24:
+    Name: "L['blocks'][26]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][26], 187650800057752)", "len(L['blocks'][26]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 25:
+    Name: "L['blocks'][45]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][45], 187650800057752)", "len(L['blocks'][45]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 26:
+    Name: "L['blocks'][8]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][8], 187650800057752)", "len(L['blocks'][8]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 27:
+    Name: "L['blocks'][15][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][15][2] == -26"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 28:
+    Name: "L['blocks'][71][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][71][2] == 30"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 29:
+    Name: "L['blocks'][78][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][78][1] == 3958"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 30:
+    Name: "L['blocks'][3][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][3][1] == 189"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 31:
+    Name: "L['blocks'][52]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][52], 187650800057752)", "len(L['blocks'][52]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 32:
+    Name: "L['blocks'][0][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][0][0] == 0"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 33:
+    Name: "L['blocks'][23][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][23][0] == 1143"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 34:
+    Name: "L['blocks'][36]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][36], 187650800057752)", "len(L['blocks'][36]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 35:
+    Name: "L['blocks'][67][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][67][1] == 3405"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 36:
+    Name: "G['torch'].long"
+    Source: global
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["G['torch'].long == torch.int64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x4000248da480; to 'type' at 0x400031ce5b10 (dtype)>
+  Guard 37:
+    Name: "L['blocks'][59][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][59][1] == 3003"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 38:
+    Name: "L['blocks'][39][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][39][2] == -2"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 39:
+    Name: "L['blocks'][77]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][77], 187650800057752)", "len(L['blocks'][77]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 40:
+    Name: "L['blocks'][81]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][81], 187650800057752)", "len(L['blocks'][81]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 41:
+    Name: "L['blocks'][72]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][72], 187650800057752)", "len(L['blocks'][72]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 42:
+    Name: "G['torch'].view_as_complex"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].view_as_complex, 70369357533872)"]
+    Object Weakref: <weakref at 0x4004643f0ef0; to 'builtin_function_or_method' at 0x4000248f12b0>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 43:
+    Name: "L['blocks'][65][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][65][0] == 3254"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 44:
+    Name: "L['blocks'][66]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][66], 187650800057752)", "len(L['blocks'][66]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 45:
+    Name: "L['blocks'][41][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][41][0] == 2048"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 46:
+    Name: "G['torch'].zeros_like"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].zeros_like, 70369357565520)"]
+    Object Weakref: <weakref at 0x400464396a20; to 'builtin_function_or_method' at 0x4000248f8e50>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 47:
+    Name: "L['blocks'][42]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][42], 187650800057752)", "len(L['blocks'][42]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 48:
+    Name: "L['blocks'][1]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][1], 187650800057752)", "len(L['blocks'][1]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 49:
+    Name: "L['offsets'][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][0] == -2"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 50:
+    Name: "L['blocks'][58][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][58][0] == 2902"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 51:
+    Name: "G['torch'].arange"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].arange, 70369357534592)"]
+    Object Weakref: <weakref at 0x400464376340; to 'builtin_function_or_method' at 0x4000248f1580>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 52:
+    Name: "L['offsets'][4]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][4] == 2"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 53:
+    Name: "L['blocks'][21]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][21], 187650800057752)", "len(L['blocks'][21]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 54:
+    Name: "L['blocks'][51]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][51], 187650800057752)", "len(L['blocks'][51]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 55:
+    Name: "L['blocks'][14]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][14], 187650800057752)", "len(L['blocks'][14]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 56:
+    Name: "L['blocks'][46][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][46][0] == 2299"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 57:
+    Name: "L['blocks'][30][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][30][1] == 1545"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 58:
+    Name: "L['blocks'][3][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][3][0] == 138"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 59:
+    Name: "L['blocks'][24][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][24][2] == -17"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 60:
+    Name: "L['blocks'][15]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][15], 187650800057752)", "len(L['blocks'][15]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 61:
+    Name: "L['blocks'][13]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][13], 187650800057752)", "len(L['blocks'][13]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 62:
+    Name: "L['blocks'][33][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][33][1] == 1696"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 63:
+    Name: "L['blocks'][1][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][1][1] == 88"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 64:
+    Name: "L['blocks'][16]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][16], 187650800057752)", "len(L['blocks'][16]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 65:
+    Name: "L['blocks'][79]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][79], 187650800057752)", "len(L['blocks'][79]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 66:
+    Name: "L['blocks'][60]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][60], 187650800057752)", "len(L['blocks'][60]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 67:
+    Name: "L['blocks'][73][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][73][0] == 3656"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 68:
+    Name: "L['blocks'][33][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][33][2] == -8"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 69:
+    Name: "L['blocks'][52][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][52][1] == 2651"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 70:
+    Name: "L['f']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['f'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x400410aaab60; to 'Tensor' at 0x4001c6f0ae90>
+    Guarded Class Weakref: <weakref at 0x4001a6a2ab60; to 'torch._C._TensorMeta' at 0xaaab20c02000 (Tensor)>
+  Guard 71:
+    Name: "L['blocks'][29][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][29][1] == 1495"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 72:
+    Name: "L['blocks'][60][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][60][1] == 3053"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 73:
+    Name: "L['blocks'][48][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][48][2] == 7"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 74:
+    Name: "L['blocks'][50][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][50][0] == 2500"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 75:
+    Name: "G['build_v_tap_weights']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 76:
+    Name: "G['torch'].sum"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].sum, 70369357685248)"]
+    Object Weakref: <weakref at 0x4004643747c0; to 'builtin_function_or_method' at 0x400024916200>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 77:
+    Name: "L['blocks'][53]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][53], 187650800057752)", "len(L['blocks'][53]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 78:
+    Name: ''
+    Source: global
+    Create Function: DEFAULT_DEVICE
+    Guard Types: ['DEFAULT_DEVICE']
+    Code List: ['utils_device.CURRENT_DEVICE == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 79:
+    Name: "L['blocks'][45][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][45][2] == 4"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 80:
+    Name: "L['blocks'][55][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][55][2] == 14"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 81:
+    Name: "L['blocks'][12]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][12], 187650800057752)", "len(L['blocks'][12]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 82:
+    Name: "L['blocks'][61]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][61], 187650800057752)", "len(L['blocks'][61]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 83:
+    Name: "L['blocks'][8][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][8][0] == 390"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 84:
+    Name: "L['blocks'][35][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][35][1] == 1797"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 85:
+    Name: "L['blocks'][70][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][70][2] == 29"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 86:
+    Name: "L['blocks'][54]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][54], 187650800057752)", "len(L['blocks'][54]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 87:
+    Name: "L['blocks'][10][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][10][0] == 490"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 88:
+    Name: "L['blocks'][20][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][20][2] == -21"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 89:
+    Name: "L['blocks'][39]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][39], 187650800057752)", "len(L['blocks'][39]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 90:
+    Name: "L['blocks'][9][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][9][0] == 440"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 91:
+    Name: "L['blocks'][26][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][26][1] == 1344"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 92:
+    Name: "L['blocks'][24]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][24], 187650800057752)", "len(L['blocks'][24]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 93:
+    Name: "L['blocks'][35]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][35], 187650800057752)", "len(L['blocks'][35]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 94:
+    Name: "L['blocks'][22][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][22][2] == -19"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 95:
+    Name: "L['offsets'][5]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][5] == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 96:
+    Name: "L['blocks'][11]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][11], 187650800057752)", "len(L['blocks'][11]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 97:
+    Name: "L['blocks'][26][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][26][0] == 1294"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 98:
+    Name: "L['blocks'][38][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][38][2] == -3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 99:
+    Name: "L['blocks'][63]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][63], 187650800057752)", "len(L['blocks'][63]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 100:
+    Name: "L['blocks'][58][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][58][2] == 17"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 101:
+    Name: "L['blocks'][45][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][45][0] == 2249"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 102:
+    Name: ''
+    Source: global
+    Create Function: TORCH_FUNCTION_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 103:
+    Name: "L['blocks'][57][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][57][2] == 16"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 104:
+    Name: "L['physics_mode']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['BOOL_MATCH']
+    Code List: ["L['physics_mode'] == True"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f6ee30; to 'type' at 0xaaaadb460368 (bool)>
+  Guard 105:
+    Name: "L['blocks'][20]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][20], 187650800057752)", "len(L['blocks'][20]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 106:
+    Name: "L['blocks'][19][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][19][1] == 993"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 107:
+    Name: "L['blocks'][42][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][42][0] == 2098"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 108:
+    Name: "L['blocks'][18][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][18][2] == -23"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 109:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'].nn.functional is G['__import_torch_dot_nn_dot_functional']"]
+    Object Weakref: <weakref at 0x4004643f0220; to 'module' at 0x4001a7b97420>
+    Guarded Class Weakref: <weakref at 0x400023f57010; to 'type' at 0xaaaadb4750a8 (module)>
+  Guard 110:
+    Name: "L['blocks'][77][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][77][0] == 3857"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 111:
+    Name: "L['blocks'][41][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][41][2] == 0"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 112:
+    Name: "L['blocks'][6][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][6][1] == 339"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 113:
+    Name: "L['blocks'][20][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][20][0] == 993"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 114:
+    Name: "L['blocks'][47][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][47][1] == 2400"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 115:
+    Name: "G['torch'].Tensor"
+    Source: global
+    Create Function: ID_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].Tensor, 187651965591552)"]
+    Object Weakref: <weakref at 0x4001a6a2ab60; to '_TensorMeta' at 0xaaab20c02000>
+    Guarded Class Weakref: <weakref at 0x4000248dbe20; to 'type' at 0x400031cecc80 (_TensorMeta)>
+  Guard 116:
+    Name: "L['grid_dv']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['grid_dv'] == 0.002442002442002442"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f3a390; to 'type' at 0xaaaadb46ec40 (float)>
+  Guard 117:
+    Name: "L['blocks'][40][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][40][0] == 1998"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 118:
+    Name: "L['blocks'][65]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][65], 187650800057752)", "len(L['blocks'][65]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 119:
+    Name: "L['blocks'][65][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][65][1] == 3304"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 120:
+    Name: "L['blocks'][63][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][63][1] == 3204"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 121:
+    Name: "L['blocks'][19]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][19], 187650800057752)", "len(L['blocks'][19]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 122:
+    Name: "L['blocks'][56]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][56], 187650800057752)", "len(L['blocks'][56]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 123:
+    Name: "G['__builtins_dict___0']['int']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['int'], 187650800030496)"]
+    Object Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320>
+    Guarded Class Weakref: <weakref at 0x400023f04c20; to 'type' at 0xaaaadb479a68 (type)>
+  Guard 124:
+    Name: "L['blocks'][16][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][16][1] == 842"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 125:
+    Name: "L['blocks'][36][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][36][1] == 1847"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 126:
+    Name: "L['blocks'][14][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][14][2] == -27"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 127:
+    Name: ''
+    Source: shape_env
+    Create Function: SHAPE_ENV
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 128:
+    Name: "L['blocks'][62][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][62][2] == 21"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 129:
+    Name: "L['blocks'][32][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][32][0] == 1596"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 130:
+    Name: "L['blocks'][13][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][13][2] == -28"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 131:
+    Name: "L['blocks'][32]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][32], 187650800057752)", "len(L['blocks'][32]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 132:
+    Name: "G['torch'].remainder"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].remainder, 70369357570160)"]
+    Object Weakref: <weakref at 0x40046427a070; to 'builtin_function_or_method' at 0x4000248fa070>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 133:
+    Name: "L['blocks'][4][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][4][0] == 189"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 134:
+    Name: "G['vlasov_step_gather_free_impl']._torchdynamo_inline"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 135:
+    Name: "L['blocks'][57]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][57], 187650800057752)", "len(L['blocks'][57]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 136:
+    Name: "L['blocks'][43][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][43][2] == 2"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 137:
+    Name: "L['blocks'][49][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][49][1] == 2500"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 138:
+    Name: "L['blocks'][46]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][46], 187650800057752)", "len(L['blocks'][46]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 139:
+    Name: "L['blocks'][5]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][5], 187650800057752)", "len(L['blocks'][5]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 140:
+    Name: "L['blocks'][46][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][46][2] == 5"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 141:
+    Name: "L['blocks'][23]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][23], 187650800057752)", "len(L['blocks'][23]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 142:
+    Name: "L['blocks'][37][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][37][1] == 1897"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 143:
+    Name: "L['blocks'][50][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][50][1] == 2551"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 144:
+    Name: "L['blocks'][5][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][5][0] == 239"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 145:
+    Name: "L['blocks'][76][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][76][0] == 3807"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 146:
+    Name: "G['torch'].jit.is_scripting"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].jit.is_scripting, 70375856916256)"]
+    Object Weakref: <weakref at 0x4004643f2020; to 'function' at 0x4001a7f3c720>
+    Guarded Class Weakref: <weakref at 0x400023f3b060; to 'type' at 0xaaaadb46fa58 (function)>
+  Guard 147:
+    Name: "L['blocks'][74][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][74][1] == 3757"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 148:
+    Name: "L['blocks'][23][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][23][2] == -18"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 149:
+    Name: "L['blocks'][70]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][70], 187650800057752)", "len(L['blocks'][70]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 150:
+    Name: "G['__builtins_dict___0']['tuple']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['tuple'], 187650800057752)"]
+    Object Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98>
+    Guarded Class Weakref: <weakref at 0x400023f04c20; to 'type' at 0xaaaadb479a68 (type)>
+  Guard 151:
+    Name: "L['blocks'][42][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][42][2] == 1"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 152:
+    Name: "L['blocks'][40][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][40][2] == -1"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 153:
+    Name: "L['blocks'][0]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][0], 187650800057752)", "len(L['blocks'][0]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 154:
+    Name: "L['blocks'][25][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][25][0] == 1244"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 155:
+    Name: "L['blocks'][14][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][14][0] == 691"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 156:
+    Name: "L['blocks'][30]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][30], 187650800057752)", "len(L['blocks'][30]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 157:
+    Name: "L['blocks'][81][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][81][1] == 4096"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 158:
+    Name: "L['blocks'][25]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][25], 187650800057752)", "len(L['blocks'][25]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 159:
+    Name: "L['blocks'][22][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][22][0] == 1093"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 160:
+    Name: "L['blocks'][67][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][67][0] == 3355"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 161:
+    Name: "L['blocks'][2][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][2][1] == 138"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 162:
+    Name: "L['offsets'][3]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][3] == 1"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 163:
+    Name: "L['blocks'][53][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][53][1] == 2701"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 164:
+    Name: "L['blocks'][19][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][19][0] == 942"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 165:
+    Name: "L['blocks'][13][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][13][0] == 641"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 166:
+    Name: "L['W_x']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['W_x'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x400464238b30; to 'Tensor' at 0x4001c6f0afd0>
+    Guarded Class Weakref: <weakref at 0x4001a6a2ab60; to 'torch._C._TensorMeta' at 0xaaab20c02000 (Tensor)>
+  Guard 167:
+    Name: "L['blocks'][28][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][28][1] == 1445"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 168:
+    Name: "L['blocks'][56][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][56][2] == 15"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 169:
+    Name: "G['__import_torch_dot_nn_dot_functional'].has_torch_function_unary"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__import_torch_dot_nn_dot_functional'].has_torch_function_unary, 70369357418864)"]
+    Object Weakref: <weakref at 0x4004644f8220; to 'builtin_function_or_method' at 0x4000248d5170>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 170:
+    Name: "L['blocks'][69][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][69][1] == 3505"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 171:
+    Name: "L['blocks'][79][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][79][2] == 38"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 172:
+    Name: "L['blocks'][11][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][11][1] == 591"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 173:
+    Name: "L['blocks'][37][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][37][0] == 1847"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 174:
+    Name: "L['blocks'][48][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][48][1] == 2450"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 175:
+    Name: "L['blocks'][64][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][64][1] == 3254"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 176:
+    Name: "L['blocks'][48]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][48], 187650800057752)", "len(L['blocks'][48]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 177:
+    Name: "L['blocks'][69][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][69][2] == 28"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 178:
+    Name: "L['blocks'][58]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][58], 187650800057752)", "len(L['blocks'][58]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 179:
+    Name: "L['blocks'][67][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][67][2] == 26"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 180:
+    Name: "L['blocks'][27][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][27][2] == -14"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 181:
+    Name: "G['torch']._C._nn"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch']._C._nn, 70375833921840)"]
+    Object Weakref: <weakref at 0x4004643759e0; to 'module' at 0x4001a694e930>
+    Guarded Class Weakref: <weakref at 0x400023f57010; to 'type' at 0xaaaadb4750a8 (module)>
+  Guard 182:
+    Name: "G['__builtins_dict___0']['getattr']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['getattr'], 70369347749904)"]
+    Object Weakref: <weakref at 0x4004643f3830; to 'builtin_function_or_method' at 0x400023f9c810>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 183:
+    Name: ''
+    Source: global
+    Create Function: DETERMINISTIC_ALGORITHMS
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 184:
+    Name: "L['blocks'][17][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][17][0] == 842"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 185:
+    Name: ''
+    Source: global
+    Create Function: DETERMINISTIC_ALGORITHMS
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 186:
+    Name: "L['blocks'][53][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][53][0] == 2651"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 187:
+    Name: "L['blocks'][70][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][70][0] == 3505"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 188:
+    Name: "L['blocks'][29][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][29][0] == 1445"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 189:
+    Name: "L['blocks'][42][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][42][1] == 2149"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 190:
+    Name: "L['blocks'][17]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][17], 187650800057752)", "len(L['blocks'][17]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 191:
+    Name: "L['blocks'][55][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][55][0] == 2752"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 192:
+    Name: "L['blocks'][24][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][24][0] == 1194"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 193:
+    Name: "L['blocks']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'], 187650800028704)", "len(L['blocks']) == 82"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f547c0; to 'type' at 0xaaaadb470c20 (list)>
+  Guard 194:
+    Name: "L['blocks']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'], 187650800028704)", "len(L['blocks']) == 82"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f547c0; to 'type' at 0xaaaadb470c20 (list)>
+  Guard 195:
+    Name: "L['blocks'][37]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][37], 187650800057752)", "len(L['blocks'][37]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 196:
+    Name: "L['blocks'][9]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][9], 187650800057752)", "len(L['blocks'][9]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 197:
+    Name: "L['blocks'][11][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][11][0] == 540"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 198:
+    Name: "L['blocks'][34][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][34][0] == 1696"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 199:
+    Name: "L['blocks'][59]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][59], 187650800057752)", "len(L['blocks'][59]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 200:
+    Name: "L['blocks'][32][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][32][1] == 1646"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 201:
+    Name: "G['torch'].nn.functional"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].nn.functional, 70375853093920)"]
+    Object Weakref: <weakref at 0x4004643f0220; to 'module' at 0x4001a7b97420>
+    Guarded Class Weakref: <weakref at 0x400023f57010; to 'type' at 0xaaaadb4750a8 (module)>
+  Guard 202:
+    Name: "L['blocks'][41]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][41], 187650800057752)", "len(L['blocks'][41]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 203:
+    Name: "L['blocks'][68][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][68][1] == 3455"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 204:
+    Name: "L['blocks'][9][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][9][1] == 490"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 205:
+    Name: "L['blocks'][51][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][51][2] == 10"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 206:
+    Name: "L['blocks'][28][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][28][2] == -13"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 207:
+    Name: "G['torch'].view_as_real"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].view_as_real, 70369357578000)"]
+    Object Weakref: <weakref at 0x4004641c2340; to 'builtin_function_or_method' at 0x4000248fbf10>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 208:
+    Name: "L['blocks'][60][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][60][0] == 3003"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 209:
+    Name: "L['blocks'][75][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][75][1] == 3807"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 210:
+    Name: "L['blocks'][62][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][62][0] == 3103"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 211:
+    Name: "L['blocks'][80]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][80], 187650800057752)", "len(L['blocks'][80]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 212:
+    Name: "G['advect_x_static']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 213:
+    Name: "L['offsets'][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][2] == 0"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 214:
+    Name: "G['vlasov_step_gather_free_impl']"
+    Source: global
+    Create Function: TYPE_MATCH
+    Guard Types: ['TYPE_MATCH']
+    Code List: ["___check_type_id(G['vlasov_step_gather_free_impl'], 187650800024152)"]
+    Object Weakref: <weakref at 0x4004643f3740; to 'function' at 0x4001c6f065c0>
+    Guarded Class Weakref: <weakref at 0x400023f3b060; to 'type' at 0xaaaadb46fa58 (function)>
+  Guard 215:
+    Name: "G['__import_torch_dot_nn_dot_functional'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 216:
+    Name: "L['blocks'][16][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][16][0] == 792"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 217:
+    Name: "G['__import_torch_dot__dynamo_dot_polyfills_dot_builtins']"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__import_torch_dot__dynamo_dot_polyfills_dot_builtins'], 70376065657696)"]
+    Object Weakref: <weakref at 0x4004644f80e0; to 'module' at 0x4001b464eb60>
+    Guarded Class Weakref: <weakref at 0x400023f57010; to 'type' at 0xaaaadb4750a8 (module)>
+  Guard 218:
+    Name: "L['blocks'][52][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][52][0] == 2601"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 219:
+    Name: "L['blocks'][78]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][78], 187650800057752)", "len(L['blocks'][78]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 220:
+    Name: "L['blocks'][18][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][18][0] == 892"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 221:
+    Name: "G['lagrange5_weights']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 222:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650800057752)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 223:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650800057752)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 224:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650800057752)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 225:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650800057752)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 226:
+    Name: "G['advect_v_static']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 227:
+    Name: "L['offsets'][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][1] == -1"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 228:
+    Name: "L['blocks'][7]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][7], 187650800057752)", "len(L['blocks'][7]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 229:
+    Name: "L['blocks'][55][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][55][1] == 2802"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 230:
+    Name: "L['blocks'][69][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][69][0] == 3455"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 231:
+    Name: "L['blocks'][50][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][50][2] == 9"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 232:
+    Name: "L['blocks'][76][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][76][1] == 3857"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 233:
+    Name: "L['blocks'][28]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][28], 187650800057752)", "len(L['blocks'][28]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 234:
+    Name: "L['blocks'][34]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][34], 187650800057752)", "len(L['blocks'][34]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 235:
+    Name: "L['blocks'][44][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][44][2] == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 236:
+    Name: "L['blocks'][35][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][35][2] == -6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 237:
+    Name: "L['blocks'][34][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][34][2] == -7"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 238:
+    Name: "L['blocks'][71]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][71], 187650800057752)", "len(L['blocks'][71]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 239:
+    Name: "G['torch'].nn.functional.pad"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 240:
+    Name: "L['blocks'][6]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][6], 187650800057752)", "len(L['blocks'][6]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 241:
+    Name: "L['blocks'][79][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][79][1] == 4008"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 242:
+    Name: "G['torch'].fft"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft, 70375861901712)"]
+    Object Weakref: <weakref at 0x40046434bf10; to 'module' at 0x4001a83fd990>
+    Guarded Class Weakref: <weakref at 0x400023f57010; to 'type' at 0xaaaadb4750a8 (module)>
+  Guard 243:
+    Name: "L['blocks'][29][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][29][2] == -12"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 244:
+    Name: "L['blocks'][48][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][48][0] == 2400"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 245:
+    Name: "L['blocks'][47]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][47], 187650800057752)", "len(L['blocks'][47]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 246:
+    Name: "L['blocks'][33]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][33], 187650800057752)", "len(L['blocks'][33]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 247:
+    Name: "L['blocks'][3]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][3], 187650800057752)", "len(L['blocks'][3]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 248:
+    Name: "L['blocks'][7][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][7][0] == 339"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 249:
+    Name: "L['blocks'][2][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][2][0] == 88"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 250:
+    Name: "L['blocks'][23][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][23][1] == 1194"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 251:
+    Name: "L['blocks'][53][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][53][2] == 12"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 252:
+    Name: "L['blocks'][43]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][43], 187650800057752)", "len(L['blocks'][43]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 253:
+    Name: "G['torch']._C"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch']._C, 70369357341744)"]
+    Object Weakref: <weakref at 0x40046434b0b0; to 'module' at 0x4000248c2430>
+    Guarded Class Weakref: <weakref at 0x400023f57010; to 'type' at 0xaaaadb4750a8 (module)>
+  Guard 254:
+    Name: "L['blocks'][5][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][5][1] == 289"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 255:
+    Name: "L['blocks'][76]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][76], 187650800057752)", "len(L['blocks'][76]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 256:
+    Name: "L['blocks'][78][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][78][2] == 37"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 257:
+    Name: "L['blocks'][79][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][79][0] == 3958"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 258:
+    Name: "G['torch'].nn"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].nn, 70375849089024)"]
+    Object Weakref: <weakref at 0x40046434bab0; to 'module' at 0x4001a77c5800>
+    Guarded Class Weakref: <weakref at 0x400023f57010; to 'type' at 0xaaaadb4750a8 (module)>
+  Guard 259:
+    Name: "L['blocks'][81][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][81][2] == 40"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 260:
+    Name: "L['blocks'][59][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][59][2] == 18"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 261:
+    Name: "L['blocks'][1][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][1][0] == 38"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 262:
+    Name: "L['blocks'][35][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][35][0] == 1746"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 263:
+    Name: "L['blocks'][54][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][54][1] == 2752"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 264:
+    Name: "L['blocks'][12][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][12][1] == 641"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 265:
+    Name: "G['torch'].gather"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].gather, 70369357646240)"]
+    Object Weakref: <weakref at 0x400464376a70; to 'builtin_function_or_method' at 0x40002490c9a0>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 266:
+    Name: "L['blocks'][75][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][75][0] == 3757"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 267:
+    Name: "L['blocks'][4][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][4][2] == -37"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 268:
+    Name: "L['blocks'][54][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][54][2] == 13"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 269:
+    Name: "L['blocks'][71][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][71][0] == 3556"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 270:
+    Name: "G['__builtins_dict___0']['isinstance']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['isinstance'], 70369347750464)"]
+    Object Weakref: <weakref at 0x4004643f3dd0; to 'builtin_function_or_method' at 0x400023f9ca40>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 271:
+    Name: "G['torch']._C._nn.pad"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch']._C._nn.pad, 70375833927440)"]
+    Object Weakref: <weakref at 0x400464394cc0; to 'builtin_function_or_method' at 0x4001a694ff10>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 272:
+    Name: "L['blocks'][49][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][49][2] == 8"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 273:
+    Name: "L['blocks'][68][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][68][0] == 3405"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 274:
+    Name: "L['blocks'][77][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][77][2] == 36"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 275:
+    Name: "G['torch'].tensor"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].tensor, 70369357532112)"]
+    Object Weakref: <weakref at 0x400464376bb0; to 'builtin_function_or_method' at 0x4000248f0bd0>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 276:
+    Name: "L['blocks'][52][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][52][2] == 11"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 277:
+    Name: "L['blocks'][75][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][75][2] == 34"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 278:
+    Name: "L['blocks'][46][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][46][1] == 2350"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 279:
+    Name: "L['blocks'][29]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][29], 187650800057752)", "len(L['blocks'][29]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 280:
+    Name: "L['blocks'][63][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][63][0] == 3154"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 281:
+    Name: "L['blocks'][65][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][65][2] == 24"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 282:
+    Name: "L['blocks'][31][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][31][0] == 1545"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 283:
+    Name: "L['blocks'][50]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][50], 187650800057752)", "len(L['blocks'][50]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 284:
+    Name: "L['blocks'][77][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][77][1] == 3907"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 285:
+    Name: "L['blocks'][51][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][51][0] == 2551"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 286:
+    Name: "L['blocks'][0][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][0][2] == -41"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 287:
+    Name: "L['blocks'][26][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][26][2] == -15"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 288:
+    Name: "L['grid_inv_kx_sq']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_inv_kx_sq'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x40046423b330; to 'Tensor' at 0x4001c6f0aa80>
+    Guarded Class Weakref: <weakref at 0x4001a6a2ab60; to 'torch._C._TensorMeta' at 0xaaab20c02000 (Tensor)>
+  Guard 289:
+    Name: "L['blocks'][80][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][80][2] == 39"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 290:
+    Name: "L['blocks'][12][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][12][0] == 591"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 291:
+    Name: "L['dt']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['dt'] == 0.05"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f3a390; to 'type' at 0xaaaadb46ec40 (float)>
+  Guard 292:
+    Name: "L['blocks'][3][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][3][2] == -38"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 293:
+    Name: "L['blocks'][2][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][2][2] == -39"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 294:
+    Name: "L['blocks'][31]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][31], 187650800057752)", "len(L['blocks'][31]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 295:
+    Name: "G['__builtins_dict___0']['enumerate']"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['enumerate'], 187650799981848)"]
+    Object Weakref: <weakref at 0x400023f393f0; to 'type' at 0xaaaadb465518>
+    Guarded Class Weakref: <weakref at 0x400023f04c20; to 'type' at 0xaaaadb479a68 (type)>
+  Guard 296:
+    Name: "L['blocks'][38][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][38][0] == 1897"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 297:
+    Name: "L['blocks'][74][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][74][2] == 33"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 298:
+    Name: "L['blocks'][20][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][20][1] == 1043"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 299:
+    Name: "L['blocks'][72][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][72][1] == 3656"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 300:
+    Name: "L['blocks'][28][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][28][0] == 1395"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 301:
+    Name: "L['blocks'][22]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][22], 187650800057752)", "len(L['blocks'][22]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 302:
+    Name: "L['blocks'][1][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][1][2] == -40"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 303:
+    Name: "L['blocks'][68][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][68][2] == 27"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 304:
+    Name: "G['static_stencil_offsets']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 305:
+    Name: "L['blocks'][27][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][27][1] == 1395"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 306:
+    Name: "L['blocks'][67]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][67], 187650800057752)", "len(L['blocks'][67]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 307:
+    Name: "L['blocks'][18][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][18][1] == 942"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 308:
+    Name: "L['blocks'][43][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][43][0] == 2149"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 309:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 310:
+    Name: "L['blocks'][49]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][49], 187650800057752)", "len(L['blocks'][49]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 311:
+    Name: "L['blocks'][59][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][59][0] == 2953"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 312:
+    Name: "L['blocks'][18]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][18], 187650800057752)", "len(L['blocks'][18]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 313:
+    Name: "L['blocks'][64][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][64][0] == 3204"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 314:
+    Name: "G['__import_torch_dot_nn_dot_functional'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 315:
+    Name: "L['blocks'][5][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][5][2] == -36"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 316:
+    Name: "L['blocks'][47][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][47][0] == 2350"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 317:
+    Name: "L['blocks'][31][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][31][2] == -10"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 318:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 319:
+    Name: "L['blocks'][78][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][78][0] == 3907"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 320:
+    Name: "L['blocks'][66][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][66][2] == 25"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 321:
+    Name: "L['blocks'][66][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][66][1] == 3355"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 322:
+    Name: "L['blocks'][36][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][36][2] == -5"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 323:
+    Name: "L['blocks'][62]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][62], 187650800057752)", "len(L['blocks'][62]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 324:
+    Name: "L['blocks'][44]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][44], 187650800057752)", "len(L['blocks'][44]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 325:
+    Name: "L['blocks'][17][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][17][2] == -24"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 326:
+    Name: "L['blocks'][2]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][2], 187650800057752)", "len(L['blocks'][2]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 327:
+    Name: "L['blocks'][44][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][44][0] == 2199"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 328:
+    Name: "L['blocks'][80][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][80][1] == 4058"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 329:
+    Name: "L['blocks'][41][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][41][1] == 2098"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 330:
+    Name: "L['blocks'][30][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][30][0] == 1495"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 331:
+    Name: "L['blocks'][39][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][39][1] == 1998"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 332:
+    Name: "L['blocks'][73]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][73], 187650800057752)", "len(L['blocks'][73]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 333:
+    Name: "L['blocks'][54][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][54][0] == 2701"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 334:
+    Name: "L['blocks'][7][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][7][2] == -34"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 335:
+    Name: "L['blocks'][74][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][74][0] == 3706"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 336:
+    Name: "L['blocks'][16][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][16][2] == -25"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 337:
+    Name: "L['blocks'][27][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][27][0] == 1344"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 338:
+    Name: "L['blocks'][51][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][51][1] == 2601"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 339:
+    Name: "L['blocks'][61][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][61][0] == 3053"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 340:
+    Name: "L['blocks'][72][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][72][2] == 31"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 341:
+    Name: "L['blocks'][0][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][0][1] == 38"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 342:
+    Name: "L['blocks'][17][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][17][1] == 892"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 343:
+    Name: "G['solve_poisson_real']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 344:
+    Name: "L['blocks'][6][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][6][2] == -35"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 345:
+    Name: "L['blocks'][8][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][8][2] == -33"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 346:
+    Name: "L['blocks'][32][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][32][2] == -9"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 347:
+    Name: "L['blocks'][34][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][34][1] == 1746"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 348:
+    Name: "G['__builtins_dict___0']['hasattr']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['hasattr'], 70369347750064)"]
+    Object Weakref: <weakref at 0x4004643f3970; to 'builtin_function_or_method' at 0x400023f9c8b0>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 349:
+    Name: "L['blocks'][80][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][80][0] == 4008"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 350:
+    Name: "L['blocks'][81][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][81][0] == 4058"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 351:
+    Name: "L['blocks'][37][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][37][2] == -4"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 352:
+    Name: "G['torch'].fft.rfft"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft.rfft, 70375833931744)"]
+    Object Weakref: <weakref at 0x400464376ca0; to 'builtin_function_or_method' at 0x4001a6950fe0>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 353:
+    Name: "L['blocks'][40][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][40][1] == 2048"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 354:
+    Name: "L['blocks'][24][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][24][1] == 1244"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 355:
+    Name: "L['blocks'][55]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][55], 187650800057752)", "len(L['blocks'][55]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 356:
+    Name: "L['blocks'][21][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][21][2] == -20"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 357:
+    Name: "L['blocks'][30][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][30][2] == -11"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 358:
+    Name: "L['blocks'][76][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][76][2] == 35"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 359:
+    Name: "L['blocks'][4]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][4], 187650800057752)", "len(L['blocks'][4]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 360:
+    Name: "L['blocks'][56][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][56][1] == 2852"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 361:
+    Name: "L['blocks'][73][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][73][2] == 32"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 362:
+    Name: "L['blocks'][45][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][45][1] == 2299"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 363:
+    Name: "L['blocks'][10][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][10][2] == -31"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 364:
+    Name: "L['blocks'][33][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][33][0] == 1646"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 365:
+    Name: "L['blocks'][69]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][69], 187650800057752)", "len(L['blocks'][69]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 366:
+    Name: "L['blocks'][70][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][70][1] == 3556"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 367:
+    Name: "L['blocks'][56][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][56][0] == 2802"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 368:
+    Name: "L['blocks'][38]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][38], 187650800057752)", "len(L['blocks'][38]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 369:
+    Name: "L['blocks'][14][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][14][1] == 741"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 370:
+    Name: "L['blocks'][74]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][74], 187650800057752)", "len(L['blocks'][74]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 371:
+    Name: ''
+    Source: global
+    Create Function: AUTOGRAD_SAVED_TENSORS_HOOKS
+    Guard Types: ['AUTOGRAD_SAVED_TENSORS_HOOKS']
+    Code List: ['torch._functorch.aot_autograd.utils.top_saved_tensors_hooks ids == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 372:
+    Name: "G['torch']"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'], 70369349244048)"]
+    Object Weakref: <weakref at 0x40046434a5c0; to 'module' at 0x400024109490>
+    Guarded Class Weakref: <weakref at 0x400023f57010; to 'type' at 0xaaaadb4750a8 (module)>
+  Guard 373:
+    Name: "L['blocks'][44][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][44][1] == 2249"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 374:
+    Name: "L['blocks'][9][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][9][2] == -32"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 375:
+    Name: "L['blocks'][10]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][10], 187650800057752)", "len(L['blocks'][10]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 376:
+    Name: "L['blocks'][57][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][57][0] == 2852"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 377:
+    Name: "L['blocks'][21][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][21][0] == 1043"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 378:
+    Name: "L['blocks'][71][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][71][1] == 3606"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 379:
+    Name: "L['blocks'][15][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][15][1] == 792"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 380:
+    Name: "L['blocks'][11][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][11][2] == -30"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 381:
+    Name: "L['blocks'][64][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][64][2] == 23"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 382:
+    Name: "L['blocks'][40]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][40], 187650800057752)", "len(L['blocks'][40]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 383:
+    Name: "G['torch'].fft.irfft"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft.irfft, 70375833931504)"]
+    Object Weakref: <weakref at 0x400464376e30; to 'builtin_function_or_method' at 0x4001a6950ef0>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 384:
+    Name: "L['blocks'][15][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][15][0] == 741"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 385:
+    Name: "L['blocks'][4][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][4][1] == 239"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 386:
+    Name: "L['blocks'][61][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][61][1] == 3103"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 387:
+    Name: "G['torch'].stack"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].stack, 70369357623392)"]
+    Object Weakref: <weakref at 0x400464374a90; to 'builtin_function_or_method' at 0x400024907060>
+    Guarded Class Weakref: <weakref at 0x400023f244a0; to 'type' at 0xaaaadb474d50 (builtin_function_or_method)>
+  Guard 388:
+    Name: "L['blocks'][62][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][62][1] == 3154"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 389:
+    Name: "L['blocks'][68]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks'][68], 187650800057752)", "len(L['blocks'][68]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f5e7a0; to 'type' at 0xaaaadb477d98 (tuple)>
+  Guard 390:
+    Name: "L['blocks'][73][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][73][1] == 3706"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 391:
+    Name: "G['torch'].jit"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].jit, 70375861105536)"]
+    Object Weakref: <weakref at 0x400464374680; to 'module' at 0x4001a833b380>
+    Guarded Class Weakref: <weakref at 0x400023f57010; to 'type' at 0xaaaadb4750a8 (module)>
+  Guard 392:
+    Name: "L['blocks'][61][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][61][2] == 20"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 393:
+    Name: "L['blocks'][43][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][43][1] == 2199"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 394:
+    Name: "L['blocks'][49][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][49][0] == 2450"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 395:
+    Name: ''
+    Source: global
+    Create Function: GRAD_MODE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 396:
+    Name: "L['blocks'][36][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][36][0] == 1797"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 397:
+    Name: "G['__builtins_dict___0']['range']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['range'], 187650800051032)"]
+    Object Weakref: <weakref at 0x400023f57ec0; to 'type' at 0xaaaadb476358>
+    Guarded Class Weakref: <weakref at 0x400023f04c20; to 'type' at 0xaaaadb479a68 (type)>
+  Guard 398:
+    Name: "L['blocks'][66][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][66][0] == 3304"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 399:
+    Name: "L['blocks'][31][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][31][1] == 1596"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 400:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 401:
+    Name: "L['blocks'][10][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][10][1] == 540"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 402:
+    Name: "L['blocks'][57][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][57][1] == 2902"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 403:
+    Name: "G['torch'].int64"
+    Source: global
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["G['torch'].int64 == torch.int64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x4000248da480; to 'type' at 0x400031ce5b10 (dtype)>
+  Guard 404:
+    Name: "L['blocks'][39][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][39][0] == 1947"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+  Guard 405:
+    Name: "L['blocks'][25][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks'][25][1] == 1294"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x400023f55c10; to 'type' at 0xaaaadb471320 (int)>
+Compile Times: TorchDynamo compilation metrics:
+Function, Runtimes (s)
+_compile.compile_inner, 0.7190
+compile_attempt_0, 0.6709
+bytecode_tracing, 0.6202
+OutputGraph.call_user_compiler, 0.0002
+build_guards, 0.0461
+gc, 0.0001

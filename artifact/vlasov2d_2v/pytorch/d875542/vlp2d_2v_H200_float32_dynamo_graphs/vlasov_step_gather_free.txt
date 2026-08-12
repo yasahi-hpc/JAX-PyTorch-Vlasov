@@ -1,0 +1,1670 @@
+Graph Count: 1
+Graph Break Count: 0
+Op Count: 647
+Break Reasons:
+Ops per Graph:
+  Ops 1:
+    <built-in method tensor of type object at 0x40003cddc4a0>
+    <built-in method arange of type object at 0x40003cddc4a0>
+    <built-in function sub>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method tensor of type object at 0x40003cddc4a0>
+    <built-in method arange of type object at 0x40003cddc4a0>
+    <built-in function sub>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method sum of type object at 0x40003cddc4a0>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function sub>
+    <built-in function fft_rfft2>
+    <built-in method view_as_real of type object at 0x40003cddc4a0>
+    <built-in function mul>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function getitem>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in method stack of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function getitem>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in method stack of type object at 0x40003cddc4a0>
+    <built-in method view_as_complex of type object at 0x40003cddc4a0>
+    <built-in method view_as_complex of type object at 0x40003cddc4a0>
+    <built-in method view_as_complex of type object at 0x40003cddc4a0>
+    <built-in function fft_irfft2>
+    <built-in function fft_irfft2>
+    <built-in function fft_irfft2>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in method floor of type object at 0x40003cddc4a0>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method stack of type object at 0x40003cddc4a0>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method stack of type object at 0x40003cddc4a0>
+    <built-in function pad>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in method floor of type object at 0x40003cddc4a0>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method stack of type object at 0x40003cddc4a0>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method stack of type object at 0x40003cddc4a0>
+    <built-in function pad>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method tensor of type object at 0x40003cddc4a0>
+    <built-in method arange of type object at 0x40003cddc4a0>
+    <built-in function sub>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method tensor of type object at 0x40003cddc4a0>
+    <built-in method arange of type object at 0x40003cddc4a0>
+    <built-in function sub>
+    <built-in method zeros_like of type object at 0x40003cddc4a0>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x40003cddc4a0>
+    <built-in method gather of type object at 0x40003cddc4a0>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+Out Guards:
+  Guard 1:
+    Name: "G['torch'].sum"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].sum, 70369543022896)"]
+    Object Weakref: <weakref at 0x40041ee635b0; to 'builtin_function_or_method' at 0x40002f9d6930>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 2:
+    Name: "G['torch'].arange"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].arange, 70369542872240)"]
+    Object Weakref: <weakref at 0x40041ee63d80; to 'builtin_function_or_method' at 0x40002f9b1cb0>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 3:
+    Name: "L['offsets'][4]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][4] == 2"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 4:
+    Name: "L['blocks_x'][2]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_x'][2], 187650296937880)", "len(L['blocks_x'][2]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 5:
+    Name: "L['blocks_x'][3][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][3][0] == 114"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 6:
+    Name: "G['torch'].are_deterministic_algorithms_enabled"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].are_deterministic_algorithms_enabled, 70376019901504)"]
+    Object Weakref: <weakref at 0x40041ee66a20; to 'function' at 0x4001b1aabc40>
+    Guarded Class Weakref: <weakref at 0x40002f02b060; to 'type' at 0xaaaabd49fa58 (function)>
+  Guard 7:
+    Name: "G['torch']._C"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch']._C, 70369542646704)"]
+    Object Weakref: <weakref at 0x40041ee63060; to 'module' at 0x40002f97abb0>
+    Guarded Class Weakref: <weakref at 0x40002f047010; to 'type' at 0xaaaabd4a50a8 (module)>
+  Guard 8:
+    Name: "G['__builtins_dict___0']['isinstance']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['isinstance'], 70369533282880)"]
+    Object Weakref: <weakref at 0x40041ee669d0; to 'builtin_function_or_method' at 0x40002f08ca40>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 9:
+    Name: "L['blocks_y'][2][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][2][1] == 114"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 10:
+    Name: "L['blocks_y'][3][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][3][2] == 1"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 11:
+    Name: "G['torch'].stack"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].stack, 70369542944656)"]
+    Object Weakref: <weakref at 0x40041ee63a60; to 'builtin_function_or_method' at 0x40002f9c3790>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 12:
+    Name: "G['torch'].zeros_like"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].zeros_like, 70369542919552)"]
+    Object Weakref: <weakref at 0x40041ee64a90; to 'builtin_function_or_method' at 0x40002f9bd580>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 13:
+    Name: "G['__builtins_dict___0']['getattr']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['getattr'], 70369533282320)"]
+    Object Weakref: <weakref at 0x40041ee66570; to 'builtin_function_or_method' at 0x40002f08c810>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 14:
+    Name: "L['grid_kx']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_kx'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x40041ea7b510; to 'Tensor' at 0x4001d207c140>
+    Guarded Class Weakref: <weakref at 0x4001b1b27470; to 'torch._C._TensorMeta' at 0xaaaafcd584e0 (Tensor)>
+  Guard 15:
+    Name: "L['blocks_x'][0][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][0][2] == -2"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 16:
+    Name: "G['__import_torch_dot__dynamo_dot_polyfills_dot_builtins']._SENTINEL_MISSING"
+    Source: global
+    Create Function: ID_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__import_torch_dot__dynamo_dot_polyfills_dot_builtins']._SENTINEL_MISSING, 187651411787664)"]
+    Object Weakref: <weakref at 0x4001bf8f7920; to 'type' at 0xaaaaffbdbf90>
+    Guarded Class Weakref: <weakref at 0x40002eff4c20; to 'type' at 0xaaaabd4a9a68 (type)>
+  Guard 17:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650296937880)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 18:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650296937880)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 19:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650296937880)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 20:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650296937880)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 21:
+    Name: "G['torch']._C._nn.pad"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch']._C._nn.pad, 70375985973104)"]
+    Object Weakref: <weakref at 0x40041ee647c0; to 'builtin_function_or_method' at 0x4001afa50770>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 22:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650296937880)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 23:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650296937880)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 24:
+    Name: "L['offsets']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['offsets'], 187650296937880)", "len(L['offsets']) == 6"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 25:
+    Name: "L['W_y']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['W_y'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x40041ea33f10; to 'Tensor' at 0x4001d207c7d0>
+    Guarded Class Weakref: <weakref at 0x4001b1b27470; to 'torch._C._TensorMeta' at 0xaaaafcd584e0 (Tensor)>
+  Guard 26:
+    Name: "G['torch'].Tensor"
+    Source: global
+    Create Function: ID_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].Tensor, 187651363013856)"]
+    Object Weakref: <weakref at 0x4001b1b27470; to '_TensorMeta' at 0xaaaafcd584e0>
+    Guarded Class Weakref: <weakref at 0x40002f9a0590; to 'type' at 0x40003cddcc80 (_TensorMeta)>
+  Guard 27:
+    Name: "L['blocks_y'][0][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][0][1] == 14"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 28:
+    Name: "L['dt']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['dt'] == 0.05"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f02a390; to 'type' at 0xaaaabd49ec40 (float)>
+  Guard 29:
+    Name: "G['torch']._C._nn"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch']._C._nn, 70375985950976)"]
+    Object Weakref: <weakref at 0x40041ee63c90; to 'module' at 0x4001afa4b100>
+    Guarded Class Weakref: <weakref at 0x40002f047010; to 'type' at 0xaaaabd4a50a8 (module)>
+  Guard 30:
+    Name: "L['blocks_y'][3]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_y'][3], 187650296937880)", "len(L['blocks_y'][3]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 31:
+    Name: "L['blocks_x'][0][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][0][1] == 14"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 32:
+    Name: "G['torch'].gather"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].gather, 70369542983888)"]
+    Object Weakref: <weakref at 0x40041ee63f60; to 'builtin_function_or_method' at 0x40002f9cd0d0>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 33:
+    Name: "G['static_stencil_offsets']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 34:
+    Name: "L['offsets'][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][1] == -1"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 35:
+    Name: "G['__builtins_dict___0']['range']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['range'], 187650296931160)"]
+    Object Weakref: <weakref at 0x40002f047ec0; to 'type' at 0xaaaabd4a6358>
+    Guarded Class Weakref: <weakref at 0x40002eff4c20; to 'type' at 0xaaaabd4a9a68 (type)>
+  Guard 36:
+    Name: "G['torch'].fft.rfft2"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft.rfft2, 70375985977424)"]
+    Object Weakref: <weakref at 0x40041ee641d0; to 'builtin_function_or_method' at 0x4001afa51850>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 37:
+    Name: "G['torch'].jit"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].jit, 70376046806256)"]
+    Object Weakref: <weakref at 0x40041ee634c0; to 'module' at 0x4001b34544f0>
+    Guarded Class Weakref: <weakref at 0x40002f047010; to 'type' at 0xaaaabd4a50a8 (module)>
+  Guard 38:
+    Name: "L['blocks_x'][1][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][1][2] == -1"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 39:
+    Name: "G['__builtins_dict___0']['tuple']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['tuple'], 187650296937880)"]
+    Object Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98>
+    Guarded Class Weakref: <weakref at 0x40002eff4c20; to 'type' at 0xaaaabd4a9a68 (type)>
+  Guard 40:
+    Name: "G['torch'].nn.functional"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].nn.functional, 70376038794320)"]
+    Object Weakref: <weakref at 0x40041ee653a0; to 'module' at 0x4001b2cb0450>
+    Guarded Class Weakref: <weakref at 0x40002f047010; to 'type' at 0xaaaabd4a50a8 (module)>
+  Guard 41:
+    Name: "L['blocks_x'][2][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][2][2] == 0"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 42:
+    Name: "G['__import_torch_dot_nn_dot_functional'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'] is G['__import_torch_dot_nn_dot_functional'].torch"]
+    Object Weakref: <weakref at 0x40041ee62f20; to 'module' at 0x40002f2a5c60>
+    Guarded Class Weakref: <weakref at 0x40002f047010; to 'type' at 0xaaaabd4a50a8 (module)>
+  Guard 43:
+    Name: "G['__import_torch_dot_nn_dot_functional'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 44:
+    Name: "L['blocks_x'][0][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][0][0] == 0"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 45:
+    Name: "L['physics_mode']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['BOOL_MATCH']
+    Code List: ["L['physics_mode'] == True"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f05ee30; to 'type' at 0xaaaabd490368 (bool)>
+  Guard 46:
+    Name: "L['W_x']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['W_x'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x40041e97e7a0; to 'Tensor' at 0x4001d207c730>
+    Guarded Class Weakref: <weakref at 0x4001b1b27470; to 'torch._C._TensorMeta' at 0xaaaafcd584e0 (Tensor)>
+  Guard 47:
+    Name: "G['torch'].view_as_real"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].view_as_real, 70369542932096)"]
+    Object Weakref: <weakref at 0x40041ee65030; to 'builtin_function_or_method' at 0x40002f9c0680>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 48:
+    Name: "L['blocks_y'][2][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][2][2] == 0"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 49:
+    Name: "L['blocks_x'][2][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][2][0] == 64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 50:
+    Name: "G['torch'].view_as_complex"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].view_as_complex, 70369542871520)"]
+    Object Weakref: <weakref at 0x40041ee65800; to 'builtin_function_or_method' at 0x40002f9b19e0>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 51:
+    Name: "G['__import_torch_dot_nn_dot_functional'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 52:
+    Name: "L['blocks_y'][0]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_y'][0], 187650296937880)", "len(L['blocks_y'][0]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 53:
+    Name: "G['torch'].nn.functional.pad"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 54:
+    Name: "G['vlasov_step_gather_free_impl']._torchdynamo_inline"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 55:
+    Name: "G['__import_torch_dot_nn_dot_functional'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 56:
+    Name: "L['offsets'][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][2] == 0"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 57:
+    Name: "G['advect_x_static']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 58:
+    Name: "L['blocks_y'][1]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_y'][1], 187650296937880)", "len(L['blocks_y'][1]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 59:
+    Name: "L['grid_inv_ksq']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_inv_ksq'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x40041ea7a9d0; to 'Tensor' at 0x4001d207c280>
+    Guarded Class Weakref: <weakref at 0x4001b1b27470; to 'torch._C._TensorMeta' at 0xaaaafcd584e0 (Tensor)>
+  Guard 60:
+    Name: "G['advect_v_static']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 61:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: ['DUPLICATE_INPUT']
+    Code List: ["G['torch'].nn.functional is G['__import_torch_dot_nn_dot_functional']"]
+    Object Weakref: <weakref at 0x40041ee653a0; to 'module' at 0x4001b2cb0450>
+    Guarded Class Weakref: <weakref at 0x40002f047010; to 'type' at 0xaaaabd4a50a8 (module)>
+  Guard 62:
+    Name: "G['__import_torch_dot_nn_dot_functional'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 63:
+    Name: "G['build_v_tap_weights']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 64:
+    Name: "L['offsets'][3]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][3] == 1"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 65:
+    Name: "G['__import_torch_dot_nn_dot_functional'].torch"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 66:
+    Name: "L['blocks_y'][2]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_y'][2], 187650296937880)", "len(L['blocks_y'][2]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 67:
+    Name: "L['blocks_x'][2][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][2][1] == 114"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 68:
+    Name: "G['compute_poisson_real']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 69:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 70:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 71:
+    Name: "L['blocks_x'][1][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][1][1] == 64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 72:
+    Name: "G['compute_rho']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 73:
+    Name: "L['offsets'][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][0] == -2"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 74:
+    Name: "G['vlasov_step_gather_free_impl']"
+    Source: global
+    Create Function: TYPE_MATCH
+    Guard Types: ['TYPE_MATCH']
+    Code List: ["___check_type_id(G['vlasov_step_gather_free_impl'], 187650296904280)"]
+    Object Weakref: <weakref at 0x40041ee66480; to 'function' at 0x4001d2007240>
+    Guarded Class Weakref: <weakref at 0x40002f02b060; to 'type' at 0xaaaabd49fa58 (function)>
+  Guard 75:
+    Name: "G['torch'].floor"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].floor, 70369543014416)"]
+    Object Weakref: <weakref at 0x40041ee63880; to 'builtin_function_or_method' at 0x40002f9d4810>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 76:
+    Name: "L['blocks_x']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_x'], 187650296908832)", "len(L['blocks_x']) == 4"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f0447c0; to 'type' at 0xaaaabd4a0c20 (list)>
+  Guard 77:
+    Name: "L['blocks_x']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_x'], 187650296908832)", "len(L['blocks_x']) == 4"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f0447c0; to 'type' at 0xaaaabd4a0c20 (list)>
+  Guard 78:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 79:
+    Name: "L['blocks_x'][0]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_x'][0], 187650296937880)", "len(L['blocks_x'][0]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 80:
+    Name: "G['torch'].fft.irfft2"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft.irfft2, 70375985977184)"]
+    Object Weakref: <weakref at 0x40041ee648b0; to 'builtin_function_or_method' at 0x4001afa51760>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 81:
+    Name: "L['blocks_y'][3][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][3][0] == 114"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 82:
+    Name: "G['torch'].jit.is_scripting"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].jit.is_scripting, 70376042335424)"]
+    Object Weakref: <weakref at 0x40041ee65ad0; to 'function' at 0x4001b3010cc0>
+    Guarded Class Weakref: <weakref at 0x40002f02b060; to 'type' at 0xaaaabd49fa58 (function)>
+  Guard 83:
+    Name: "L['offsets'][5]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['offsets'][5] == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 84:
+    Name: "L['blocks_y'][1][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][1][2] == -1"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 85:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 86:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 87:
+    Name: "L['blocks_x'][3][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][3][2] == 1"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 88:
+    Name: "L['f']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['f'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x40041e951df0; to 'Tensor' at 0x4001d207c550>
+    Guarded Class Weakref: <weakref at 0x4001b1b27470; to 'torch._C._TensorMeta' at 0xaaaafcd584e0 (Tensor)>
+  Guard 89:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 90:
+    Name: "L['blocks_y'][2][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][2][0] == 64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 91:
+    Name: "L['grid_ky']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_ky'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x40041ea7b9c0; to 'Tensor' at 0x4001d207c190>
+    Guarded Class Weakref: <weakref at 0x4001b1b27470; to 'torch._C._TensorMeta' at 0xaaaafcd584e0 (Tensor)>
+  Guard 92:
+    Name: "G['torch'].tensor"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].tensor, 70369542869760)"]
+    Object Weakref: <weakref at 0x40041ee64090; to 'builtin_function_or_method' at 0x40002f9b1300>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 93:
+    Name: "L['blocks_y'][0][2]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][0][2] == -2"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 94:
+    Name: "G['__import_torch_dot_nn_dot_functional']"
+    Source: global
+    Create Function: DUPLICATE_INPUT
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 95:
+    Name: "L['grid_dvx']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['grid_dvx'] == 0.07874015748031496"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f02a390; to 'type' at 0xaaaabd49ec40 (float)>
+  Guard 96:
+    Name: ''
+    Source: global
+    Create Function: DETERMINISTIC_ALGORITHMS
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 97:
+    Name: ''
+    Source: global
+    Create Function: DETERMINISTIC_ALGORITHMS
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 98:
+    Name: "L['blocks_x'][1]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_x'][1], 187650296937880)", "len(L['blocks_x'][1]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 99:
+    Name: "L['blocks_y'][1][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][1][0] == 14"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 100:
+    Name: "G['torch'].nn"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].nn, 70376034675712)"]
+    Object Weakref: <weakref at 0x40041ee63240; to 'module' at 0x4001b28c2c00>
+    Guarded Class Weakref: <weakref at 0x40002f047010; to 'type' at 0xaaaabd4a50a8 (module)>
+  Guard 101:
+    Name: "L['blocks_y'][3][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][3][1] == 128"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 102:
+    Name: "G['__builtins_dict___0']['hasattr']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['hasattr'], 70369533282480)"]
+    Object Weakref: <weakref at 0x40041ee66660; to 'builtin_function_or_method' at 0x40002f08c8b0>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 103:
+    Name: "L['blocks_y'][1][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][1][1] == 64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 104:
+    Name: "L['blocks_x'][1][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][1][0] == 14"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 105:
+    Name: ''
+    Source: global
+    Create Function: GRAD_MODE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 106:
+    Name: ''
+    Source: shape_env
+    Create Function: SHAPE_ENV
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 107:
+    Name: "G['torch'].int64"
+    Source: global
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["G['torch'].int64 == torch.int64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f99ebb0; to 'type' at 0x40003cdd5b10 (dtype)>
+  Guard 108:
+    Name: ''
+    Source: global
+    Create Function: AUTOGRAD_SAVED_TENSORS_HOOKS
+    Guard Types: ['AUTOGRAD_SAVED_TENSORS_HOOKS']
+    Code List: ['torch._functorch.aot_autograd.utils.top_saved_tensors_hooks ids == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 109:
+    Name: ''
+    Source: global
+    Create Function: TORCH_FUNCTION_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 110:
+    Name: "G['torch'].remainder"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].remainder, 70369542924192)"]
+    Object Weakref: <weakref at 0x40041ee64590; to 'builtin_function_or_method' at 0x40002f9be7a0>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 111:
+    Name: "L['grid_dvy']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['grid_dvy'] == 0.07874015748031496"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f02a390; to 'type' at 0xaaaabd49ec40 (float)>
+  Guard 112:
+    Name: "G['solve_poisson_real']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 113:
+    Name: "G['__import_torch_dot__dynamo_dot_polyfills_dot_builtins']"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__import_torch_dot__dynamo_dot_polyfills_dot_builtins'], 70376252987152)"]
+    Object Weakref: <weakref at 0x40041ee66de0; to 'module' at 0x4001bf8f5710>
+    Guarded Class Weakref: <weakref at 0x40002f047010; to 'type' at 0xaaaabd4a50a8 (module)>
+  Guard 114:
+    Name: "G['torch'].long"
+    Source: global
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["G['torch'].long == torch.int64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f99ebb0; to 'type' at 0x40003cdd5b10 (dtype)>
+  Guard 115:
+    Name: "L['blocks_y']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_y'], 187650296908832)", "len(L['blocks_y']) == 4"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f0447c0; to 'type' at 0xaaaabd4a0c20 (list)>
+  Guard 116:
+    Name: "L['blocks_y']"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_y'], 187650296908832)", "len(L['blocks_y']) == 4"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f0447c0; to 'type' at 0xaaaabd4a0c20 (list)>
+  Guard 117:
+    Name: "L['blocks_x'][3][1]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_x'][3][1] == 128"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+  Guard 118:
+    Name: ''
+    Source: global
+    Create Function: DEFAULT_DEVICE
+    Guard Types: ['DEFAULT_DEVICE']
+    Code List: ['utils_device.CURRENT_DEVICE == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 119:
+    Name: "G['torch'].fft"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft, 70376047504224)"]
+    Object Weakref: <weakref at 0x40041ee632e0; to 'module' at 0x4001b34feb60>
+    Guarded Class Weakref: <weakref at 0x40002f047010; to 'type' at 0xaaaabd4a50a8 (module)>
+  Guard 120:
+    Name: "G['lagrange5_weights']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 121:
+    Name: "G['__builtins_dict___0']['enumerate']"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['enumerate'], 187650296861976)"]
+    Object Weakref: <weakref at 0x40002f0293f0; to 'type' at 0xaaaabd495518>
+    Guarded Class Weakref: <weakref at 0x40002eff4c20; to 'type' at 0xaaaabd4a9a68 (type)>
+  Guard 122:
+    Name: "G['torch']"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'], 70369535482976)"]
+    Object Weakref: <weakref at 0x40041ee62f20; to 'module' at 0x40002f2a5c60>
+    Guarded Class Weakref: <weakref at 0x40002f047010; to 'type' at 0xaaaabd4a50a8 (module)>
+  Guard 123:
+    Name: "G['__import_torch_dot_nn_dot_functional'].has_torch_function_unary"
+    Source: global
+    Create Function: FUNCTION_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__import_torch_dot_nn_dot_functional'].has_torch_function_unary, 70369542756512)"]
+    Object Weakref: <weakref at 0x40041e97e110; to 'builtin_function_or_method' at 0x40002f9958a0>
+    Guarded Class Weakref: <weakref at 0x40002f0144a0; to 'type' at 0xaaaabd4a4d50 (builtin_function_or_method)>
+  Guard 124:
+    Name: "L['blocks_x'][3]"
+    Source: local
+    Create Function: SEQUENCE_LENGTH
+    Guard Types: ['TYPE_MATCH', 'SEQUENCE_LENGTH']
+    Code List: ["___check_type_id(L['blocks_x'][3], 187650296937880)", "len(L['blocks_x'][3]) == 3"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f04e7a0; to 'type' at 0xaaaabd4a7d98 (tuple)>
+  Guard 125:
+    Name: "G['__builtins_dict___0']['int']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['int'], 187650296910624)"]
+    Object Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320>
+    Guarded Class Weakref: <weakref at 0x40002eff4c20; to 'type' at 0xaaaabd4a9a68 (type)>
+  Guard 126:
+    Name: "L['blocks_y'][0][0]"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['blocks_y'][0][0] == 0"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x40002f045c10; to 'type' at 0xaaaabd4a1320 (int)>
+Compile Times: TorchDynamo compilation metrics:
+Function, Runtimes (s)
+_compile.compile_inner, 0.9540
+compile_attempt_0, 0.9351
+bytecode_tracing, 0.8940
+OutputGraph.call_user_compiler, 0.0002
+build_guards, 0.0159
+gc, 0.0006

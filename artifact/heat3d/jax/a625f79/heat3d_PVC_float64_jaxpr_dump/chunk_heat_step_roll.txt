@@ -1,0 +1,136 @@
+{ lambda ; a:f64[32] b:f64[32] c:f64[32] d:f64[32,32,32] e:f64[] f:i64[]. let
+    g:f64[32] h:f64[32] i:f64[32] j:f64[32,32,32] k:f64[] l:i64[] = pjit[
+      name=run_chunk
+      jaxpr={ lambda m:f64[32] n:f64[32] o:f64[32]; p:f64[32] q:f64[32] r:f64[32]
+          s:f64[32,32,32] t:f64[] u:i64[]. let
+          _:i64[] v:f64[32,32,32] = scan[
+            _split_transpose=False
+            jaxpr={ lambda ; w:i64[] x:f64[32,32,32]. let
+                y:i64[] = add w 1
+                z:f64[32,32,32] = pjit[
+                  name=heat_step_roll
+                  jaxpr={ lambda ; ba:f64[32,32,32] bb:f64[]. let
+                      bc:f64[32,32,32] = pjit[
+                        name=_roll_static
+                        jaxpr={ lambda ; bd:f64[32,32,32]. let
+                            be:f64[31,32,32] = slice[
+                              limit_indices=(32, 32, 32)
+                              start_indices=(1, 0, 0)
+                              strides=(1, 1, 1)
+                            ] bd
+                            bf:f64[1,32,32] = slice[
+                              limit_indices=(1, 32, 32)
+                              start_indices=(0, 0, 0)
+                              strides=(1, 1, 1)
+                            ] bd
+                            bg:f64[32,32,32] = concatenate[dimension=0] be bf
+                          in (bg,) }
+                      ] ba
+                      bh:f64[32,32,32] = pjit[
+                        name=_roll_static
+                        jaxpr={ lambda ; bi:f64[32,32,32]. let
+                            bj:f64[1,32,32] = slice[
+                              limit_indices=(32, 32, 32)
+                              start_indices=(31, 0, 0)
+                              strides=(1, 1, 1)
+                            ] bi
+                            bk:f64[31,32,32] = slice[
+                              limit_indices=(31, 32, 32)
+                              start_indices=(0, 0, 0)
+                              strides=(1, 1, 1)
+                            ] bi
+                            bl:f64[32,32,32] = concatenate[dimension=0] bj bk
+                          in (bl,) }
+                      ] ba
+                      bm:f64[32,32,32] = pjit[
+                        name=_roll_static
+                        jaxpr={ lambda ; bn:f64[32,32,32]. let
+                            bo:f64[32,31,32] = slice[
+                              limit_indices=(32, 32, 32)
+                              start_indices=(0, 1, 0)
+                              strides=(1, 1, 1)
+                            ] bn
+                            bp:f64[32,1,32] = slice[
+                              limit_indices=(32, 1, 32)
+                              start_indices=(0, 0, 0)
+                              strides=(1, 1, 1)
+                            ] bn
+                            bq:f64[32,32,32] = concatenate[dimension=1] bo bp
+                          in (bq,) }
+                      ] ba
+                      br:f64[32,32,32] = pjit[
+                        name=_roll_static
+                        jaxpr={ lambda ; bs:f64[32,32,32]. let
+                            bt:f64[32,1,32] = slice[
+                              limit_indices=(32, 32, 32)
+                              start_indices=(0, 31, 0)
+                              strides=(1, 1, 1)
+                            ] bs
+                            bu:f64[32,31,32] = slice[
+                              limit_indices=(32, 31, 32)
+                              start_indices=(0, 0, 0)
+                              strides=(1, 1, 1)
+                            ] bs
+                            bv:f64[32,32,32] = concatenate[dimension=1] bt bu
+                          in (bv,) }
+                      ] ba
+                      bw:f64[32,32,32] = pjit[
+                        name=_roll_static
+                        jaxpr={ lambda ; bx:f64[32,32,32]. let
+                            by:f64[32,32,31] = slice[
+                              limit_indices=(32, 32, 32)
+                              start_indices=(0, 0, 1)
+                              strides=(1, 1, 1)
+                            ] bx
+                            bz:f64[32,32,1] = slice[
+                              limit_indices=(32, 32, 1)
+                              start_indices=(0, 0, 0)
+                              strides=(1, 1, 1)
+                            ] bx
+                            ca:f64[32,32,32] = concatenate[dimension=2] by bz
+                          in (ca,) }
+                      ] ba
+                      cb:f64[32,32,32] = pjit[
+                        name=_roll_static
+                        jaxpr={ lambda ; cc:f64[32,32,32]. let
+                            cd:f64[32,32,1] = slice[
+                              limit_indices=(32, 32, 32)
+                              start_indices=(0, 0, 31)
+                              strides=(1, 1, 1)
+                            ] cc
+                            ce:f64[32,32,31] = slice[
+                              limit_indices=(32, 32, 31)
+                              start_indices=(0, 0, 0)
+                              strides=(1, 1, 1)
+                            ] cc
+                            cf:f64[32,32,32] = concatenate[dimension=2] cd ce
+                          in (cf,) }
+                      ] ba
+                      cg:f64[32,32,32] = add bc bh
+                      ch:f64[32,32,32] = add cg bm
+                      ci:f64[32,32,32] = add ch br
+                      cj:f64[32,32,32] = add ci bw
+                      ck:f64[32,32,32] = add cj cb
+                      cl:f64[32,32,32] = mul 6.0 ba
+                      cm:f64[32,32,32] = sub ck cl
+                      cn:f64[] = convert_element_type[
+                        new_dtype=float64
+                        weak_type=False
+                      ] bb
+                      co:f64[32,32,32] = mul cn cm
+                      cp:f64[32,32,32] = add ba co
+                    in (cp,) }
+                ] x 0.0005187644602487694
+              in (y, z) }
+            length=100
+            linear=(False, False)
+            num_carry=2
+            num_consts=0
+            reverse=False
+            unroll=1
+          ] 0 s
+          cq:f64[] = add t 2.0
+          cr:i64[] = add u 100
+        in (m, n, o, v, cq, cr) }
+    ] a b c d e f
+  in (g, h, i, j, k, l) }

@@ -1,0 +1,19 @@
+Jax version: 0.4.38
+Starting simulation on Intel(R) Data Center GPU Max 1550 using float64 precision with Poisson solver and solver type vlasov_step.
+Grid: 32x32x32x32, Steps: 128, chunks: 0, diag_freq: 2000
+Running simulation without diagnostics (num_steps=0). Steps: 128
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+Elapsed time: 0.6523892879486084 [s]
+
+Memory statistics
+Device memory before main loop : 24.08 MiB
+Device memory after main loop  : 32.11 MiB
+Device peak memory             : 144.12 MiB
+Device memory limit            : 49140.00 MiB
+Host peak RSS                  : 2961.65 MiB
+
+Compiled memory analysis (per chunk, compiler-reported)
+Argument size                  : 8.02 MiB
+Output size                    : 8.03 MiB
+Temp size                      : 112.01 MiB

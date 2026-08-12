@@ -1,0 +1,1175 @@
+let _roll_static = { lambda ; a:f32[128,14]. let
+    b:f32[126,14] = slice[
+      limit_indices=(128, 14)
+      start_indices=(2, 0)
+      strides=(1, 1)
+    ] a
+    c:f32[2,14] = slice[
+      limit_indices=(2, 14)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] a
+    d:f32[128,14] = concatenate[dimension=0] b c
+  in (d,) } in
+let _roll_static1 = { lambda ; e:f32[128,50]. let
+    f:f32[127,50] = slice[
+      limit_indices=(128, 50)
+      start_indices=(1, 0)
+      strides=(1, 1)
+    ] e
+    g:f32[1,50] = slice[
+      limit_indices=(1, 50)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] e
+    h:f32[128,50] = concatenate[dimension=0] f g
+  in (h,) } in
+let _roll_static2 = { lambda ; i:f32[128,50]. let
+    j:f32[128,50] = slice[
+      limit_indices=(128, 50)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] i
+    k:f32[0,50] = slice[
+      limit_indices=(0, 50)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] i
+    l:f32[128,50] = concatenate[dimension=0] j k
+  in (l,) } in
+let _roll_static3 = { lambda ; m:f32[128,14]. let
+    n:f32[1,14] = slice[
+      limit_indices=(128, 14)
+      start_indices=(127, 0)
+      strides=(1, 1)
+    ] m
+    o:f32[127,14] = slice[
+      limit_indices=(127, 14)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] m
+    p:f32[128,14] = concatenate[dimension=0] n o
+  in (p,) } in
+let _roll_static4 = { lambda ; q:f32[128,128]. let
+    r:f32[126,128] = slice[
+      limit_indices=(128, 128)
+      start_indices=(2, 0)
+      strides=(1, 1)
+    ] q
+    s:f32[2,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] q
+    t:f32[128,128] = concatenate[dimension=0] r s
+  in (t,) } in
+let _roll_static5 = { lambda ; u:f32[128,128]. let
+    v:f32[127,128] = slice[
+      limit_indices=(128, 128)
+      start_indices=(1, 0)
+      strides=(1, 1)
+    ] u
+    w:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] u
+    x:f32[128,128] = concatenate[dimension=0] v w
+  in (x,) } in
+let _roll_static6 = { lambda ; y:f32[128,128]. let
+    z:f32[128,128] = slice[
+      limit_indices=(128, 128)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] y
+    ba:f32[0,128] = slice[
+      limit_indices=(0, 128)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] y
+    bb:f32[128,128] = concatenate[dimension=0] z ba
+  in (bb,) } in
+let _roll_static7 = { lambda ; bc:f32[128,128]. let
+    bd:f32[1,128] = slice[
+      limit_indices=(128, 128)
+      start_indices=(127, 0)
+      strides=(1, 1)
+    ] bc
+    be:f32[127,128] = slice[
+      limit_indices=(127, 128)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] bc
+    bf:f32[128,128] = concatenate[dimension=0] bd be
+  in (bf,) } in
+let _roll_static8 = { lambda ; bg:f32[128,128]. let
+    bh:f32[2,128] = slice[
+      limit_indices=(128, 128)
+      start_indices=(126, 0)
+      strides=(1, 1)
+    ] bg
+    bi:f32[126,128] = slice[
+      limit_indices=(126, 128)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] bg
+    bj:f32[128,128] = concatenate[dimension=0] bh bi
+  in (bj,) } in
+let _roll_static9 = { lambda ; bk:f32[128,128]. let
+    bl:f32[3,128] = slice[
+      limit_indices=(128, 128)
+      start_indices=(125, 0)
+      strides=(1, 1)
+    ] bk
+    bm:f32[125,128] = slice[
+      limit_indices=(125, 128)
+      start_indices=(0, 0)
+      strides=(1, 1)
+    ] bk
+    bn:f32[128,128] = concatenate[dimension=0] bl bm
+  in (bn,) } in
+let _where = { lambda ; bo:bool[128] bp:f32[128] bq:f32[]. let
+    br:f32[] = convert_element_type[new_dtype=float32 weak_type=False] bq
+    bs:f32[128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128,)
+      sharding=None
+    ] br
+    bt:f32[128] = select_n bo bs bp
+  in (bt,) } in
+let fft = { lambda ; bu:c64[65]. let
+    bv:f32[128] = fft[fft_lengths=(128,) fft_type=3] bu
+  in (bv,) } in
+{ lambda bw:f32[128] bx:f32[65]; by:f32[128,128] bz:f32[128] ca:f32[128]. let
+    cb:f32[128] = mul bw bw
+    cc:f32[128] = mul cb bw
+    cd:f32[128] = mul cc bw
+    ce:f32[128] = mul cd bw
+    cf:f32[128] = div bw 20.0:f32[]
+    cg:f32[128] = div cb 24.0:f32[]
+    ch:f32[128] = sub cf cg
+    ci:f32[128] = div cc 24.0:f32[]
+    cj:f32[128] = sub ch ci
+    ck:f32[128] = div cd 24.0:f32[]
+    cl:f32[128] = add cj ck
+    cm:f32[128] = div ce 120.0:f32[]
+    cn:f32[128] = sub cl cm
+    co:f32[128] = div bw 2.0:f32[]
+    cp:f32[128] = neg co
+    cq:f32[128] = mul 2.0:f32[] cb
+    cr:f32[128] = div cq 3.0:f32[]
+    cs:f32[128] = add cp cr
+    ct:f32[128] = div cc 24.0:f32[]
+    cu:f32[128] = sub cs ct
+    cv:f32[128] = div cd 6.0:f32[]
+    cw:f32[128] = sub cu cv
+    cx:f32[128] = div ce 24.0:f32[]
+    cy:f32[128] = add cw cx
+    cz:f32[128] = div bw 3.0:f32[]
+    da:f32[128] = sub 1.0:f32[] cz
+    db:f32[128] = mul 5.0:f32[] cb
+    dc:f32[128] = div db 4.0:f32[]
+    dd:f32[128] = sub da dc
+    de:f32[128] = mul 5.0:f32[] cc
+    df:f32[128] = div de 12.0:f32[]
+    dg:f32[128] = add dd df
+    dh:f32[128] = div cd 4.0:f32[]
+    di:f32[128] = add dg dh
+    dj:f32[128] = div ce 12.0:f32[]
+    dk:f32[128] = sub di dj
+    dl:f32[128] = mul 2.0:f32[] cb
+    dm:f32[128] = div dl 3.0:f32[]
+    dn:f32[128] = add bw dm
+    do:f32[128] = mul 7.0:f32[] cc
+    dp:f32[128] = div do 12.0:f32[]
+    dq:f32[128] = sub dn dp
+    dr:f32[128] = div cd 6.0:f32[]
+    ds:f32[128] = sub dq dr
+    dt:f32[128] = div ce 12.0:f32[]
+    du:f32[128] = add ds dt
+    dv:f32[128] = div bw 4.0:f32[]
+    dw:f32[128] = neg dv
+    dx:f32[128] = div cb 24.0:f32[]
+    dy:f32[128] = sub dw dx
+    dz:f32[128] = mul 7.0:f32[] cc
+    ea:f32[128] = div dz 24.0:f32[]
+    eb:f32[128] = add dy ea
+    ec:f32[128] = div cd 24.0:f32[]
+    ed:f32[128] = add eb ec
+    ee:f32[128] = div ce 24.0:f32[]
+    ef:f32[128] = sub ed ee
+    eg:f32[128] = div bw 30.0:f32[]
+    eh:f32[128] = div cc 24.0:f32[]
+    ei:f32[128] = sub eg eh
+    ej:f32[128] = div ce 120.0:f32[]
+    ek:f32[128] = add ei ej
+    el:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] cn
+    em:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] cy
+    en:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] dk
+    eo:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] du
+    ep:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] ef
+    eq:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] ek
+    er:f32[6,128] = concatenate[dimension=0] el em en eo ep eq
+    es:f32[128,14] = slice[
+      limit_indices=(128, 14)
+      start_indices=(0, 0)
+      strides=None
+    ] by
+    et:f32[128,14] = jit[name=_roll_static jaxpr=_roll_static] es
+    eu:f32[128,50] = slice[
+      limit_indices=(128, 64)
+      start_indices=(0, 14)
+      strides=None
+    ] by
+    ev:f32[128,50] = jit[name=_roll_static jaxpr=_roll_static1] eu
+    ew:f32[128,50] = slice[
+      limit_indices=(128, 114)
+      start_indices=(0, 64)
+      strides=None
+    ] by
+    ex:f32[128,50] = jit[name=_roll_static jaxpr=_roll_static2] ew
+    ey:f32[128,14] = slice[
+      limit_indices=(128, 128)
+      start_indices=(0, 114)
+      strides=None
+    ] by
+    ez:f32[128,14] = jit[name=_roll_static jaxpr=_roll_static3] ey
+    fa:f32[128,128] = concatenate[dimension=1] et ev ex ez
+    fb:f32[128,128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128, 128)
+      sharding=None
+    ] 0.0:f32[]
+    fc:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static4] fa
+    fd:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] er
+    fe:f32[128] = squeeze[dimensions=(0,)] fd
+    ff:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] fe
+    fg:f32[128,128] = mul fc ff
+    fh:f32[128,128] = add fb fg
+    fi:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static5] fa
+    fj:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] er
+    fk:f32[128] = squeeze[dimensions=(0,)] fj
+    fl:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] fk
+    fm:f32[128,128] = mul fi fl
+    fn:f32[128,128] = add fh fm
+    fo:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static6] fa
+    fp:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] er
+    fq:f32[128] = squeeze[dimensions=(0,)] fp
+    fr:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] fq
+    fs:f32[128,128] = mul fo fr
+    ft:f32[128,128] = add fn fs
+    fu:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static7] fa
+    fv:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] er
+    fw:f32[128] = squeeze[dimensions=(0,)] fv
+    fx:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] fw
+    fy:f32[128,128] = mul fu fx
+    fz:f32[128,128] = add ft fy
+    ga:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static8] fa
+    gb:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] er
+    gc:f32[128] = squeeze[dimensions=(0,)] gb
+    gd:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] gc
+    ge:f32[128,128] = mul ga gd
+    gf:f32[128,128] = add fz ge
+    gg:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static9] fa
+    gh:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] er
+    gi:f32[128] = squeeze[dimensions=(0,)] gh
+    gj:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] gi
+    gk:f32[128,128] = mul gg gj
+    gl:f32[128,128] = add gf gk
+    gm:f32[128] gn:f32[128] go:f32[128] = jit[
+      name=solve_poisson
+      jaxpr={ lambda ; gl:f32[128,128] bx:f32[65] gp:f32[]. let
+          gq:f32[128] = reduce_sum[axes=(1,) out_sharding=None] gl
+          gr:f32[] = convert_element_type[new_dtype=float32 weak_type=False] gp
+          gs:f32[128] = mul gq gr
+          gn:f32[128] = sub gs 1.0:f32[]
+          gt:c64[65] = jit[
+            name=fft
+            jaxpr={ lambda ; gn:f32[128]. let
+                gt:c64[65] = fft[fft_lengths=(128,) fft_type=2] gn
+              in (gt,) }
+          ] gn
+          gu:c64[65] = mul (-0-1j):c64[] gt
+          gv:c64[65] = convert_element_type[new_dtype=complex64 weak_type=False] bx
+          gw:c64[65] = mul gu gv
+          gm:f32[128] = jit[name=fft jaxpr=fft] gw
+          gx:f32[65] = integer_pow[y=2] bx
+          gy:c64[65] = convert_element_type[new_dtype=complex64 weak_type=False] gx
+          gz:c64[65] = mul gt gy
+          go:f32[128] = jit[name=fft jaxpr=fft] gz
+        in (gm, gn, go) }
+    ] gl bx 0.07874015748031496:f32[]
+    ha:f32[128] = mul gm 0.05000000074505806:f32[]
+    hb:f32[128] = div ha 0.07874015718698502:f32[]
+    hc:f32[128] = floor hb
+    hd:f32[128] = sub hb hc
+    he:i32[128] = convert_element_type[new_dtype=int32 weak_type=False] hc
+    hf:f32[128] = mul hd hd
+    hg:f32[128] = mul hf hd
+    hh:f32[128] = mul hg hd
+    hi:f32[128] = mul hh hd
+    hj:f32[128] = div hd 20.0:f32[]
+    hk:f32[128] = div hf 24.0:f32[]
+    hl:f32[128] = sub hj hk
+    hm:f32[128] = div hg 24.0:f32[]
+    hn:f32[128] = sub hl hm
+    ho:f32[128] = div hh 24.0:f32[]
+    hp:f32[128] = add hn ho
+    hq:f32[128] = div hi 120.0:f32[]
+    hr:f32[128] = sub hp hq
+    hs:f32[128] = div hd 2.0:f32[]
+    ht:f32[128] = neg hs
+    hu:f32[128] = mul 2.0:f32[] hf
+    hv:f32[128] = div hu 3.0:f32[]
+    hw:f32[128] = add ht hv
+    hx:f32[128] = div hg 24.0:f32[]
+    hy:f32[128] = sub hw hx
+    hz:f32[128] = div hh 6.0:f32[]
+    ia:f32[128] = sub hy hz
+    ib:f32[128] = div hi 24.0:f32[]
+    ic:f32[128] = add ia ib
+    id:f32[128] = div hd 3.0:f32[]
+    ie:f32[128] = sub 1.0:f32[] id
+    if:f32[128] = mul 5.0:f32[] hf
+    ig:f32[128] = div if 4.0:f32[]
+    ih:f32[128] = sub ie ig
+    ii:f32[128] = mul 5.0:f32[] hg
+    ij:f32[128] = div ii 12.0:f32[]
+    ik:f32[128] = add ih ij
+    il:f32[128] = div hh 4.0:f32[]
+    im:f32[128] = add ik il
+    in:f32[128] = div hi 12.0:f32[]
+    io:f32[128] = sub im in
+    ip:f32[128] = mul 2.0:f32[] hf
+    iq:f32[128] = div ip 3.0:f32[]
+    ir:f32[128] = add hd iq
+    is:f32[128] = mul 7.0:f32[] hg
+    it:f32[128] = div is 12.0:f32[]
+    iu:f32[128] = sub ir it
+    iv:f32[128] = div hh 6.0:f32[]
+    iw:f32[128] = sub iu iv
+    ix:f32[128] = div hi 12.0:f32[]
+    iy:f32[128] = add iw ix
+    iz:f32[128] = div hd 4.0:f32[]
+    ja:f32[128] = neg iz
+    jb:f32[128] = div hf 24.0:f32[]
+    jc:f32[128] = sub ja jb
+    jd:f32[128] = mul 7.0:f32[] hg
+    je:f32[128] = div jd 24.0:f32[]
+    jf:f32[128] = add jc je
+    jg:f32[128] = div hh 24.0:f32[]
+    jh:f32[128] = add jf jg
+    ji:f32[128] = div hi 24.0:f32[]
+    jj:f32[128] = sub jh ji
+    jk:f32[128] = div hd 30.0:f32[]
+    jl:f32[128] = div hg 24.0:f32[]
+    jm:f32[128] = sub jk jl
+    jn:f32[128] = div hi 120.0:f32[]
+    jo:f32[128] = add jm jn
+    jp:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] hr
+    jq:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] ic
+    jr:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] io
+    js:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] iy
+    jt:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] jj
+    ju:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] jo
+    jv:f32[6,128] = concatenate[dimension=0] jp jq jr js jt ju
+    jw:f32[128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128,)
+      sharding=None
+    ] 0.0:f32[]
+    jx:bool[128] = eq he -1:i32[]
+    jy:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] jv
+    jz:f32[128] = squeeze[dimensions=(0,)] jy
+    ka:f32[128] = jit[name=_where jaxpr=_where] jx jz 0.0:f32[]
+    kb:f32[128] = add jw ka
+    kc:bool[128] = eq he -2:i32[]
+    kd:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] jv
+    ke:f32[128] = squeeze[dimensions=(0,)] kd
+    kf:f32[128] = jit[name=_where jaxpr=_where] kc ke 0.0:f32[]
+    kg:f32[128] = add kb kf
+    kh:bool[128] = eq he -3:i32[]
+    ki:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] jv
+    kj:f32[128] = squeeze[dimensions=(0,)] ki
+    kk:f32[128] = jit[name=_where jaxpr=_where] kh kj 0.0:f32[]
+    kl:f32[128] = add kg kk
+    km:bool[128] = eq he -4:i32[]
+    kn:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] jv
+    ko:f32[128] = squeeze[dimensions=(0,)] kn
+    kp:f32[128] = jit[name=_where jaxpr=_where] km ko 0.0:f32[]
+    kq:f32[128] = add kl kp
+    kr:bool[128] = eq he -5:i32[]
+    ks:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] jv
+    kt:f32[128] = squeeze[dimensions=(0,)] ks
+    ku:f32[128] = jit[name=_where jaxpr=_where] kr kt 0.0:f32[]
+    kv:f32[128] = add kq ku
+    kw:bool[128] = eq he -6:i32[]
+    kx:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] jv
+    ky:f32[128] = squeeze[dimensions=(0,)] kx
+    kz:f32[128] = jit[name=_where jaxpr=_where] kw ky 0.0:f32[]
+    la:f32[128] = add kv kz
+    lb:f32[128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128,)
+      sharding=None
+    ] 0.0:f32[]
+    lc:bool[128] = eq he 0:i32[]
+    ld:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] jv
+    le:f32[128] = squeeze[dimensions=(0,)] ld
+    lf:f32[128] = jit[name=_where jaxpr=_where] lc le 0.0:f32[]
+    lg:f32[128] = add lb lf
+    lh:bool[128] = eq he -1:i32[]
+    li:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] jv
+    lj:f32[128] = squeeze[dimensions=(0,)] li
+    lk:f32[128] = jit[name=_where jaxpr=_where] lh lj 0.0:f32[]
+    ll:f32[128] = add lg lk
+    lm:bool[128] = eq he -2:i32[]
+    ln:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] jv
+    lo:f32[128] = squeeze[dimensions=(0,)] ln
+    lp:f32[128] = jit[name=_where jaxpr=_where] lm lo 0.0:f32[]
+    lq:f32[128] = add ll lp
+    lr:bool[128] = eq he -3:i32[]
+    ls:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] jv
+    lt:f32[128] = squeeze[dimensions=(0,)] ls
+    lu:f32[128] = jit[name=_where jaxpr=_where] lr lt 0.0:f32[]
+    lv:f32[128] = add lq lu
+    lw:bool[128] = eq he -4:i32[]
+    lx:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] jv
+    ly:f32[128] = squeeze[dimensions=(0,)] lx
+    lz:f32[128] = jit[name=_where jaxpr=_where] lw ly 0.0:f32[]
+    ma:f32[128] = add lv lz
+    mb:bool[128] = eq he -5:i32[]
+    mc:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] jv
+    md:f32[128] = squeeze[dimensions=(0,)] mc
+    me:f32[128] = jit[name=_where jaxpr=_where] mb md 0.0:f32[]
+    mf:f32[128] = add ma me
+    mg:f32[128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128,)
+      sharding=None
+    ] 0.0:f32[]
+    mh:bool[128] = eq he 1:i32[]
+    mi:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] jv
+    mj:f32[128] = squeeze[dimensions=(0,)] mi
+    mk:f32[128] = jit[name=_where jaxpr=_where] mh mj 0.0:f32[]
+    ml:f32[128] = add mg mk
+    mm:bool[128] = eq he 0:i32[]
+    mn:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] jv
+    mo:f32[128] = squeeze[dimensions=(0,)] mn
+    mp:f32[128] = jit[name=_where jaxpr=_where] mm mo 0.0:f32[]
+    mq:f32[128] = add ml mp
+    mr:bool[128] = eq he -1:i32[]
+    ms:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] jv
+    mt:f32[128] = squeeze[dimensions=(0,)] ms
+    mu:f32[128] = jit[name=_where jaxpr=_where] mr mt 0.0:f32[]
+    mv:f32[128] = add mq mu
+    mw:bool[128] = eq he -2:i32[]
+    mx:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] jv
+    my:f32[128] = squeeze[dimensions=(0,)] mx
+    mz:f32[128] = jit[name=_where jaxpr=_where] mw my 0.0:f32[]
+    na:f32[128] = add mv mz
+    nb:bool[128] = eq he -3:i32[]
+    nc:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] jv
+    nd:f32[128] = squeeze[dimensions=(0,)] nc
+    ne:f32[128] = jit[name=_where jaxpr=_where] nb nd 0.0:f32[]
+    nf:f32[128] = add na ne
+    ng:bool[128] = eq he -4:i32[]
+    nh:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] jv
+    ni:f32[128] = squeeze[dimensions=(0,)] nh
+    nj:f32[128] = jit[name=_where jaxpr=_where] ng ni 0.0:f32[]
+    nk:f32[128] = add nf nj
+    nl:f32[128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128,)
+      sharding=None
+    ] 0.0:f32[]
+    nm:bool[128] = eq he 2:i32[]
+    nn:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] jv
+    no:f32[128] = squeeze[dimensions=(0,)] nn
+    np:f32[128] = jit[name=_where jaxpr=_where] nm no 0.0:f32[]
+    nq:f32[128] = add nl np
+    nr:bool[128] = eq he 1:i32[]
+    ns:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] jv
+    nt:f32[128] = squeeze[dimensions=(0,)] ns
+    nu:f32[128] = jit[name=_where jaxpr=_where] nr nt 0.0:f32[]
+    nv:f32[128] = add nq nu
+    nw:bool[128] = eq he 0:i32[]
+    nx:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] jv
+    ny:f32[128] = squeeze[dimensions=(0,)] nx
+    nz:f32[128] = jit[name=_where jaxpr=_where] nw ny 0.0:f32[]
+    oa:f32[128] = add nv nz
+    ob:bool[128] = eq he -1:i32[]
+    oc:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] jv
+    od:f32[128] = squeeze[dimensions=(0,)] oc
+    oe:f32[128] = jit[name=_where jaxpr=_where] ob od 0.0:f32[]
+    of:f32[128] = add oa oe
+    og:bool[128] = eq he -2:i32[]
+    oh:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] jv
+    oi:f32[128] = squeeze[dimensions=(0,)] oh
+    oj:f32[128] = jit[name=_where jaxpr=_where] og oi 0.0:f32[]
+    ok:f32[128] = add of oj
+    ol:bool[128] = eq he -3:i32[]
+    om:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] jv
+    on:f32[128] = squeeze[dimensions=(0,)] om
+    oo:f32[128] = jit[name=_where jaxpr=_where] ol on 0.0:f32[]
+    op:f32[128] = add ok oo
+    oq:f32[128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128,)
+      sharding=None
+    ] 0.0:f32[]
+    or:bool[128] = eq he 3:i32[]
+    os:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] jv
+    ot:f32[128] = squeeze[dimensions=(0,)] os
+    ou:f32[128] = jit[name=_where jaxpr=_where] or ot 0.0:f32[]
+    ov:f32[128] = add oq ou
+    ow:bool[128] = eq he 2:i32[]
+    ox:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] jv
+    oy:f32[128] = squeeze[dimensions=(0,)] ox
+    oz:f32[128] = jit[name=_where jaxpr=_where] ow oy 0.0:f32[]
+    pa:f32[128] = add ov oz
+    pb:bool[128] = eq he 1:i32[]
+    pc:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] jv
+    pd:f32[128] = squeeze[dimensions=(0,)] pc
+    pe:f32[128] = jit[name=_where jaxpr=_where] pb pd 0.0:f32[]
+    pf:f32[128] = add pa pe
+    pg:bool[128] = eq he 0:i32[]
+    ph:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] jv
+    pi:f32[128] = squeeze[dimensions=(0,)] ph
+    pj:f32[128] = jit[name=_where jaxpr=_where] pg pi 0.0:f32[]
+    pk:f32[128] = add pf pj
+    pl:bool[128] = eq he -1:i32[]
+    pm:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] jv
+    pn:f32[128] = squeeze[dimensions=(0,)] pm
+    po:f32[128] = jit[name=_where jaxpr=_where] pl pn 0.0:f32[]
+    pp:f32[128] = add pk po
+    pq:bool[128] = eq he -2:i32[]
+    pr:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] jv
+    ps:f32[128] = squeeze[dimensions=(0,)] pr
+    pt:f32[128] = jit[name=_where jaxpr=_where] pq ps 0.0:f32[]
+    pu:f32[128] = add pp pt
+    pv:f32[128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128,)
+      sharding=None
+    ] 0.0:f32[]
+    pw:bool[128] = eq he 4:i32[]
+    px:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] jv
+    py:f32[128] = squeeze[dimensions=(0,)] px
+    pz:f32[128] = jit[name=_where jaxpr=_where] pw py 0.0:f32[]
+    qa:f32[128] = add pv pz
+    qb:bool[128] = eq he 3:i32[]
+    qc:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] jv
+    qd:f32[128] = squeeze[dimensions=(0,)] qc
+    qe:f32[128] = jit[name=_where jaxpr=_where] qb qd 0.0:f32[]
+    qf:f32[128] = add qa qe
+    qg:bool[128] = eq he 2:i32[]
+    qh:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] jv
+    qi:f32[128] = squeeze[dimensions=(0,)] qh
+    qj:f32[128] = jit[name=_where jaxpr=_where] qg qi 0.0:f32[]
+    qk:f32[128] = add qf qj
+    ql:bool[128] = eq he 1:i32[]
+    qm:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] jv
+    qn:f32[128] = squeeze[dimensions=(0,)] qm
+    qo:f32[128] = jit[name=_where jaxpr=_where] ql qn 0.0:f32[]
+    qp:f32[128] = add qk qo
+    qq:bool[128] = eq he 0:i32[]
+    qr:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] jv
+    qs:f32[128] = squeeze[dimensions=(0,)] qr
+    qt:f32[128] = jit[name=_where jaxpr=_where] qq qs 0.0:f32[]
+    qu:f32[128] = add qp qt
+    qv:bool[128] = eq he -1:i32[]
+    qw:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] jv
+    qx:f32[128] = squeeze[dimensions=(0,)] qw
+    qy:f32[128] = jit[name=_where jaxpr=_where] qv qx 0.0:f32[]
+    qz:f32[128] = add qu qy
+    ra:f32[128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128,)
+      sharding=None
+    ] 0.0:f32[]
+    rb:bool[128] = eq he 5:i32[]
+    rc:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] jv
+    rd:f32[128] = squeeze[dimensions=(0,)] rc
+    re:f32[128] = jit[name=_where jaxpr=_where] rb rd 0.0:f32[]
+    rf:f32[128] = add ra re
+    rg:bool[128] = eq he 4:i32[]
+    rh:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] jv
+    ri:f32[128] = squeeze[dimensions=(0,)] rh
+    rj:f32[128] = jit[name=_where jaxpr=_where] rg ri 0.0:f32[]
+    rk:f32[128] = add rf rj
+    rl:bool[128] = eq he 3:i32[]
+    rm:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] jv
+    rn:f32[128] = squeeze[dimensions=(0,)] rm
+    ro:f32[128] = jit[name=_where jaxpr=_where] rl rn 0.0:f32[]
+    rp:f32[128] = add rk ro
+    rq:bool[128] = eq he 2:i32[]
+    rr:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] jv
+    rs:f32[128] = squeeze[dimensions=(0,)] rr
+    rt:f32[128] = jit[name=_where jaxpr=_where] rq rs 0.0:f32[]
+    ru:f32[128] = add rp rt
+    rv:bool[128] = eq he 1:i32[]
+    rw:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] jv
+    rx:f32[128] = squeeze[dimensions=(0,)] rw
+    ry:f32[128] = jit[name=_where jaxpr=_where] rv rx 0.0:f32[]
+    rz:f32[128] = add ru ry
+    sa:bool[128] = eq he 0:i32[]
+    sb:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] jv
+    sc:f32[128] = squeeze[dimensions=(0,)] sb
+    sd:f32[128] = jit[name=_where jaxpr=_where] sa sc 0.0:f32[]
+    se:f32[128] = add rz sd
+    sf:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] la
+    sg:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] mf
+    sh:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] nk
+    si:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] op
+    sj:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] pu
+    sk:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] qz
+    sl:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] se
+    sm:f32[7,128] = concatenate[dimension=0] sf sg sh si sj sk sl
+    sn:f32[128,134] = jit[
+      name=_pad
+      jaxpr={ lambda ; gl:f32[128,128] so:i32[]. let
+          sp:f32[] = convert_element_type[new_dtype=float32 weak_type=False] so
+          sn:f32[128,134] = pad[
+            padding_config=((np.int64(0), np.int64(0), 0), (np.int64(3), np.int64(3), 0))
+          ] gl sp
+        in (sn,) }
+    ] gl 0:i32[]
+    sq:f32[128,128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128, 128)
+      sharding=None
+    ] 0.0:f32[]
+    sr:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] sm
+    ss:f32[128] = squeeze[dimensions=(0,)] sr
+    st:f32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] ss
+    su:f32[128,128] = slice[
+      limit_indices=(128, 134)
+      start_indices=(0, 6)
+      strides=None
+    ] sn
+    sv:f32[128,128] = mul st su
+    sw:f32[128,128] = add sq sv
+    sx:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] sm
+    sy:f32[128] = squeeze[dimensions=(0,)] sx
+    sz:f32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] sy
+    ta:f32[128,128] = slice[
+      limit_indices=(128, 133)
+      start_indices=(0, 5)
+      strides=None
+    ] sn
+    tb:f32[128,128] = mul sz ta
+    tc:f32[128,128] = add sw tb
+    td:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] sm
+    te:f32[128] = squeeze[dimensions=(0,)] td
+    tf:f32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] te
+    tg:f32[128,128] = slice[
+      limit_indices=(128, 132)
+      start_indices=(0, 4)
+      strides=None
+    ] sn
+    th:f32[128,128] = mul tf tg
+    ti:f32[128,128] = add tc th
+    tj:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] sm
+    tk:f32[128] = squeeze[dimensions=(0,)] tj
+    tl:f32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] tk
+    tm:f32[128,128] = slice[
+      limit_indices=(128, 131)
+      start_indices=(0, 3)
+      strides=None
+    ] sn
+    tn:f32[128,128] = mul tl tm
+    to:f32[128,128] = add ti tn
+    tp:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] sm
+    tq:f32[128] = squeeze[dimensions=(0,)] tp
+    tr:f32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] tq
+    ts:f32[128,128] = slice[
+      limit_indices=(128, 130)
+      start_indices=(0, 2)
+      strides=None
+    ] sn
+    tt:f32[128,128] = mul tr ts
+    tu:f32[128,128] = add to tt
+    tv:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] sm
+    tw:f32[128] = squeeze[dimensions=(0,)] tv
+    tx:f32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] tw
+    ty:f32[128,128] = slice[
+      limit_indices=(128, 129)
+      start_indices=(0, 1)
+      strides=None
+    ] sn
+    tz:f32[128,128] = mul tx ty
+    ua:f32[128,128] = add tu tz
+    ub:f32[1,128] = slice[
+      limit_indices=(7, 128)
+      start_indices=(6, 0)
+      strides=None
+    ] sm
+    uc:f32[128] = squeeze[dimensions=(0,)] ub
+    ud:f32[128,1] = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(128, 1)
+      sharding=None
+    ] uc
+    ue:f32[128,128] = slice[
+      limit_indices=(128, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] sn
+    uf:f32[128,128] = mul ud ue
+    ug:f32[128,128] = add ua uf
+    uh:f32[128,14] = slice[
+      limit_indices=(128, 14)
+      start_indices=(0, 0)
+      strides=None
+    ] ug
+    ui:f32[128,14] = jit[name=_roll_static jaxpr=_roll_static] uh
+    uj:f32[128,50] = slice[
+      limit_indices=(128, 64)
+      start_indices=(0, 14)
+      strides=None
+    ] ug
+    uk:f32[128,50] = jit[name=_roll_static jaxpr=_roll_static1] uj
+    ul:f32[128,50] = slice[
+      limit_indices=(128, 114)
+      start_indices=(0, 64)
+      strides=None
+    ] ug
+    um:f32[128,50] = jit[name=_roll_static jaxpr=_roll_static2] ul
+    un:f32[128,14] = slice[
+      limit_indices=(128, 128)
+      start_indices=(0, 114)
+      strides=None
+    ] ug
+    uo:f32[128,14] = jit[name=_roll_static jaxpr=_roll_static3] un
+    up:f32[128,128] = concatenate[dimension=1] ui uk um uo
+    uq:f32[128,128] = broadcast_in_dim[
+      broadcast_dimensions=()
+      shape=(128, 128)
+      sharding=None
+    ] 0.0:f32[]
+    ur:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static4] up
+    us:f32[1,128] = slice[
+      limit_indices=(1, 128)
+      start_indices=(0, 0)
+      strides=None
+    ] er
+    ut:f32[128] = squeeze[dimensions=(0,)] us
+    uu:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] ut
+    uv:f32[128,128] = mul ur uu
+    uw:f32[128,128] = add uq uv
+    ux:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static5] up
+    uy:f32[1,128] = slice[
+      limit_indices=(2, 128)
+      start_indices=(1, 0)
+      strides=None
+    ] er
+    uz:f32[128] = squeeze[dimensions=(0,)] uy
+    va:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] uz
+    vb:f32[128,128] = mul ux va
+    vc:f32[128,128] = add uw vb
+    vd:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static6] up
+    ve:f32[1,128] = slice[
+      limit_indices=(3, 128)
+      start_indices=(2, 0)
+      strides=None
+    ] er
+    vf:f32[128] = squeeze[dimensions=(0,)] ve
+    vg:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] vf
+    vh:f32[128,128] = mul vd vg
+    vi:f32[128,128] = add vc vh
+    vj:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static7] up
+    vk:f32[1,128] = slice[
+      limit_indices=(4, 128)
+      start_indices=(3, 0)
+      strides=None
+    ] er
+    vl:f32[128] = squeeze[dimensions=(0,)] vk
+    vm:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] vl
+    vn:f32[128,128] = mul vj vm
+    vo:f32[128,128] = add vi vn
+    vp:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static8] up
+    vq:f32[1,128] = slice[
+      limit_indices=(5, 128)
+      start_indices=(4, 0)
+      strides=None
+    ] er
+    vr:f32[128] = squeeze[dimensions=(0,)] vq
+    vs:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] vr
+    vt:f32[128,128] = mul vp vs
+    vu:f32[128,128] = add vo vt
+    vv:f32[128,128] = jit[name=_roll_static jaxpr=_roll_static9] up
+    vw:f32[1,128] = slice[
+      limit_indices=(6, 128)
+      start_indices=(5, 0)
+      strides=None
+    ] er
+    vx:f32[128] = squeeze[dimensions=(0,)] vw
+    vy:f32[1,128] = broadcast_in_dim[
+      broadcast_dimensions=(1,)
+      shape=(1, 128)
+      sharding=None
+    ] vx
+    vz:f32[128,128] = mul vv vy
+    wa:f32[128,128] = add vu vz
+  in (wa, gn, go) }

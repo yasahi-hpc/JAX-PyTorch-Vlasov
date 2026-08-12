@@ -1,0 +1,135 @@
+{ lambda ; a:f32[32] b:f32[32] c:f32[32] d:f32[32,32,32] e:f32[] f:i32[]. let
+    g:f32[32] h:f32[32] i:f32[32] j:f32[32,32,32] k:f32[] l:i32[] = pjit[
+      name=run_chunk
+      jaxpr={ lambda m:f32[1,1,3] n:f32[32] o:f32[32] p:f32[32]; q:f32[32] r:f32[32]
+          s:f32[32] t:f32[32,32,32] u:f32[] v:i32[]. let
+          _:i32[] w:f32[32,32,32] = scan[
+            _split_transpose=False
+            jaxpr={ lambda ; x:f32[1,1,3] y:i32[] z:f32[32,32,32]. let
+                ba:i32[] = add y 1
+                bb:f32[32,32,32] = pjit[
+                  name=heat_step_conv
+                  jaxpr={ lambda ; bc:f32[32,32,32] bd:f32[] be:f32[1,1,3]. let
+                      bf:f32[32,32,32] = transpose[permutation=(1, 2, 0)] bc
+                      bg:f32[1024,1,32] = reshape[
+                        dimensions=None
+                        new_sizes=(1024, 1, 32)
+                        sharding=None
+                      ] bf
+                      bh:f32[1024,1,1] = slice[
+                        limit_indices=(1024, 1, 32)
+                        start_indices=(0, 0, 31)
+                        strides=None
+                      ] bg
+                      bi:f32[1024,1,1] = slice[
+                        limit_indices=(1024, 1, 1)
+                        start_indices=(0, 0, 0)
+                        strides=None
+                      ] bg
+                      bj:f32[1024,1,34] = concatenate[dimension=2] bh bg bi
+                      bk:f32[1024,1,32] = conv_general_dilated[
+                        batch_group_count=1
+                        dimension_numbers=ConvDimensionNumbers(lhs_spec=(0, 1, 2), rhs_spec=(0, 1, 2), out_spec=(0, 1, 2))
+                        feature_group_count=1
+                        lhs_dilation=(1,)
+                        padding=((0, 0),)
+                        precision=None
+                        preferred_element_type=None
+                        rhs_dilation=(1,)
+                        window_strides=(1,)
+                      ] bj be
+                      bl:f32[32,32,32] = reshape[
+                        dimensions=None
+                        new_sizes=(32, 32, 32)
+                        sharding=None
+                      ] bk
+                      bm:f32[32,32,32] = transpose[permutation=(2, 0, 1)] bl
+                      bn:f32[32,32,32] = transpose[permutation=(0, 2, 1)] bc
+                      bo:f32[1024,1,32] = reshape[
+                        dimensions=None
+                        new_sizes=(1024, 1, 32)
+                        sharding=None
+                      ] bn
+                      bp:f32[1024,1,1] = slice[
+                        limit_indices=(1024, 1, 32)
+                        start_indices=(0, 0, 31)
+                        strides=None
+                      ] bo
+                      bq:f32[1024,1,1] = slice[
+                        limit_indices=(1024, 1, 1)
+                        start_indices=(0, 0, 0)
+                        strides=None
+                      ] bo
+                      br:f32[1024,1,34] = concatenate[dimension=2] bp bo bq
+                      bs:f32[1024,1,32] = conv_general_dilated[
+                        batch_group_count=1
+                        dimension_numbers=ConvDimensionNumbers(lhs_spec=(0, 1, 2), rhs_spec=(0, 1, 2), out_spec=(0, 1, 2))
+                        feature_group_count=1
+                        lhs_dilation=(1,)
+                        padding=((0, 0),)
+                        precision=None
+                        preferred_element_type=None
+                        rhs_dilation=(1,)
+                        window_strides=(1,)
+                      ] br be
+                      bt:f32[32,32,32] = reshape[
+                        dimensions=None
+                        new_sizes=(32, 32, 32)
+                        sharding=None
+                      ] bs
+                      bu:f32[32,32,32] = transpose[permutation=(0, 2, 1)] bt
+                      bv:f32[32,32,32] = add bm bu
+                      bw:f32[1024,1,32] = reshape[
+                        dimensions=None
+                        new_sizes=(1024, 1, 32)
+                        sharding=None
+                      ] bc
+                      bx:f32[1024,1,1] = slice[
+                        limit_indices=(1024, 1, 32)
+                        start_indices=(0, 0, 31)
+                        strides=None
+                      ] bw
+                      by:f32[1024,1,1] = slice[
+                        limit_indices=(1024, 1, 1)
+                        start_indices=(0, 0, 0)
+                        strides=None
+                      ] bw
+                      bz:f32[1024,1,34] = concatenate[dimension=2] bx bw by
+                      ca:f32[1024,1,32] = conv_general_dilated[
+                        batch_group_count=1
+                        dimension_numbers=ConvDimensionNumbers(lhs_spec=(0, 1, 2), rhs_spec=(0, 1, 2), out_spec=(0, 1, 2))
+                        feature_group_count=1
+                        lhs_dilation=(1,)
+                        padding=((0, 0),)
+                        precision=None
+                        preferred_element_type=None
+                        rhs_dilation=(1,)
+                        window_strides=(1,)
+                      ] bz be
+                      cb:f32[32,32,32] = reshape[
+                        dimensions=None
+                        new_sizes=(32, 32, 32)
+                        sharding=None
+                      ] ca
+                      cc:f32[32,32,32] = add bv cb
+                      cd:f32[] = convert_element_type[
+                        new_dtype=float32
+                        weak_type=False
+                      ] bd
+                      ce:f32[32,32,32] = mul cd cc
+                      cf:f32[32,32,32] = add bc ce
+                    in (cf,) }
+                ] z 0.0005187644602487694 x
+              in (ba, bb) }
+            length=100
+            linear=(False, False, False)
+            num_carry=2
+            num_consts=1
+            reverse=False
+            unroll=1
+          ] m 0 t
+          cg:f32[] = add u 2.0
+          ch:i32[] = add v 100
+        in (n, o, p, w, cg, ch) }
+    ] a b c d e f
+  in (g, h, i, j, k, l) }

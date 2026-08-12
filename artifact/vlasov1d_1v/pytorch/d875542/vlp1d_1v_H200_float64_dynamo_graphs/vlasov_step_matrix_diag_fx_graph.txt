@@ -1,0 +1,1224 @@
+# ===== Dynamo FX graph 0 (readable) =====
+class GraphModule(torch.nn.Module):
+    def forward(self, L_f_: "f64[4096, 4096]", L_grid_v_: "f64[4096]", L_stencil_offsets_: "i64[6]", L_grid_inv_kx_sq_: "f64[2049]", L_grid_inv_kx_: "f64[2049]"):
+        l_f_ = L_f_
+        l_grid_v_ = L_grid_v_
+        l_stencil_offsets_ = L_stencil_offsets_
+        l_grid_inv_kx_sq_ = L_grid_inv_kx_sq_
+        l_grid_inv_kx_ = L_grid_inv_kx_
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:321 in advect_1d_matrix_diag, code: displacement_idx = velocities * dt / dx
+        mul: "f64[4096]" = l_grid_v_ * 0.025
+        displacement_idx: "f64[4096]" = mul / 0.0030679615757712823;  mul = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:323 in advect_1d_matrix_diag, code: idx_left = torch.floor(displacement_idx)
+        idx_left: "f64[4096]" = torch.floor(displacement_idx)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:324 in advect_1d_matrix_diag, code: alpha = displacement_idx - idx_left
+        alpha: "f64[4096]" = displacement_idx - idx_left;  displacement_idx = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:325 in advect_1d_matrix_diag, code: idx_left = idx_left.to(torch.long)
+        idx_left_1: "i64[4096]" = idx_left.to(torch.int64);  idx_left = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:327 in advect_1d_matrix_diag, code: result = torch.zeros_like(f_batch)
+        result: "f64[4096, 4096]" = torch.zeros_like(l_f_)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:202 in lagrange5_weights, code: a2 = a * a
+        a2: "f64[4096]" = alpha * alpha
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:203 in lagrange5_weights, code: a3 = a2 * a
+        a3: "f64[4096]" = a2 * alpha
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:204 in lagrange5_weights, code: a4 = a3 * a
+        a4: "f64[4096]" = a3 * alpha
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:205 in lagrange5_weights, code: a5 = a4 * a
+        a5: "f64[4096]" = a4 * alpha
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:207 in lagrange5_weights, code: w0 = (a / 20.0) - (a2 / 24.0) - (a3 / 24.0) + (a4 / 24.0) - (a5 / 120.0)
+        truediv_1: "f64[4096]" = alpha / 20.0
+        truediv_2: "f64[4096]" = a2 / 24.0
+        sub_1: "f64[4096]" = truediv_1 - truediv_2;  truediv_1 = truediv_2 = None
+        truediv_3: "f64[4096]" = a3 / 24.0
+        sub_2: "f64[4096]" = sub_1 - truediv_3;  sub_1 = truediv_3 = None
+        truediv_4: "f64[4096]" = a4 / 24.0
+        add: "f64[4096]" = sub_2 + truediv_4;  sub_2 = truediv_4 = None
+        truediv_5: "f64[4096]" = a5 / 120.0
+        w0: "f64[4096]" = add - truediv_5;  add = truediv_5 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:208 in lagrange5_weights, code: w1 = -(a / 2.0) + (2.0 * a2 / 3.0) - (a3 / 24.0) - (a4 / 6.0) + (a5 / 24.0)
+        truediv_6: "f64[4096]" = alpha / 2.0
+        neg: "f64[4096]" = -truediv_6;  truediv_6 = None
+        mul_5: "f64[4096]" = 2.0 * a2
+        truediv_7: "f64[4096]" = mul_5 / 3.0;  mul_5 = None
+        add_1: "f64[4096]" = neg + truediv_7;  neg = truediv_7 = None
+        truediv_8: "f64[4096]" = a3 / 24.0
+        sub_4: "f64[4096]" = add_1 - truediv_8;  add_1 = truediv_8 = None
+        truediv_9: "f64[4096]" = a4 / 6.0
+        sub_5: "f64[4096]" = sub_4 - truediv_9;  sub_4 = truediv_9 = None
+        truediv_10: "f64[4096]" = a5 / 24.0
+        w1: "f64[4096]" = sub_5 + truediv_10;  sub_5 = truediv_10 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:209 in lagrange5_weights, code: w2 = 1.0 - (a / 3.0) - (5.0 * a2 / 4.0) + (5.0 * a3 / 12.0) + (a4 / 4.0) - (a5 / 12.0)
+        truediv_11: "f64[4096]" = alpha / 3.0
+        sub_6: "f64[4096]" = 1.0 - truediv_11;  truediv_11 = None
+        mul_6: "f64[4096]" = 5.0 * a2
+        truediv_12: "f64[4096]" = mul_6 / 4.0;  mul_6 = None
+        sub_7: "f64[4096]" = sub_6 - truediv_12;  sub_6 = truediv_12 = None
+        mul_7: "f64[4096]" = 5.0 * a3
+        truediv_13: "f64[4096]" = mul_7 / 12.0;  mul_7 = None
+        add_3: "f64[4096]" = sub_7 + truediv_13;  sub_7 = truediv_13 = None
+        truediv_14: "f64[4096]" = a4 / 4.0
+        add_4: "f64[4096]" = add_3 + truediv_14;  add_3 = truediv_14 = None
+        truediv_15: "f64[4096]" = a5 / 12.0
+        w2: "f64[4096]" = add_4 - truediv_15;  add_4 = truediv_15 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:210 in lagrange5_weights, code: w3 = a + (2.0 * a2 / 3.0) - (7.0 * a3 / 12.0) - (a4 / 6.0) + (a5 / 12.0)
+        mul_8: "f64[4096]" = 2.0 * a2
+        truediv_16: "f64[4096]" = mul_8 / 3.0;  mul_8 = None
+        add_5: "f64[4096]" = alpha + truediv_16;  truediv_16 = None
+        mul_9: "f64[4096]" = 7.0 * a3
+        truediv_17: "f64[4096]" = mul_9 / 12.0;  mul_9 = None
+        sub_9: "f64[4096]" = add_5 - truediv_17;  add_5 = truediv_17 = None
+        truediv_18: "f64[4096]" = a4 / 6.0
+        sub_10: "f64[4096]" = sub_9 - truediv_18;  sub_9 = truediv_18 = None
+        truediv_19: "f64[4096]" = a5 / 12.0
+        w3: "f64[4096]" = sub_10 + truediv_19;  sub_10 = truediv_19 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:211 in lagrange5_weights, code: w4 = -(a / 4.0) - (a2 / 24.0) + (7.0 * a3 / 24.0) + (a4 / 24.0) - (a5 / 24.0)
+        truediv_20: "f64[4096]" = alpha / 4.0
+        neg_1: "f64[4096]" = -truediv_20;  truediv_20 = None
+        truediv_21: "f64[4096]" = a2 / 24.0;  a2 = None
+        sub_11: "f64[4096]" = neg_1 - truediv_21;  neg_1 = truediv_21 = None
+        mul_10: "f64[4096]" = 7.0 * a3
+        truediv_22: "f64[4096]" = mul_10 / 24.0;  mul_10 = None
+        add_7: "f64[4096]" = sub_11 + truediv_22;  sub_11 = truediv_22 = None
+        truediv_23: "f64[4096]" = a4 / 24.0;  a4 = None
+        add_8: "f64[4096]" = add_7 + truediv_23;  add_7 = truediv_23 = None
+        truediv_24: "f64[4096]" = a5 / 24.0
+        w4: "f64[4096]" = add_8 - truediv_24;  add_8 = truediv_24 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:212 in lagrange5_weights, code: w5 = (a / 30.0) - (a3 / 24.0) + (a5 / 120.0)
+        truediv_25: "f64[4096]" = alpha / 30.0;  alpha = None
+        truediv_26: "f64[4096]" = a3 / 24.0;  a3 = None
+        sub_13: "f64[4096]" = truediv_25 - truediv_26;  truediv_25 = truediv_26 = None
+        truediv_27: "f64[4096]" = a5 / 120.0;  a5 = None
+        w5: "f64[4096]" = sub_13 + truediv_27;  sub_13 = truediv_27 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:214 in lagrange5_weights, code: return torch.stack([w0, w1, w2, w3, w4, w5], dim=0)
+        W: "f64[6, 4096]" = torch.stack([w0, w1, w2, w3, w4, w5], dim = 0);  w0 = w1 = w2 = w3 = w4 = w5 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem: "i64[]" = l_stencil_offsets_[0]
+        shifts: "i64[4096]" = idx_left_1 + getitem;  getitem = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx: "i64[4096, 1]" = arange.unsqueeze(1);  arange = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_1: "i64[1, 4096]" = shifts.unsqueeze(0);  shifts = None
+        sub_14: "i64[4096, 4096]" = row_idx - unsqueeze_1;  row_idx = unsqueeze_1 = None
+        idx: "i64[4096, 4096]" = torch.remainder(sub_14, 4096);  sub_14 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted: "f64[4096, 4096]" = torch.gather(l_f_, 0, idx);  idx = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_1: "f64[4096]" = W[0]
+        unsqueeze_2: "f64[1, 4096]" = getitem_1.unsqueeze(0);  getitem_1 = None
+        mul_11: "f64[4096, 4096]" = shifted * unsqueeze_2;  shifted = unsqueeze_2 = None
+        result_1: "f64[4096, 4096]" = result + mul_11;  result = mul_11 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_2: "i64[]" = l_stencil_offsets_[1]
+        shifts_1: "i64[4096]" = idx_left_1 + getitem_2;  getitem_2 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_1: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_1: "i64[4096, 1]" = arange_1.unsqueeze(1);  arange_1 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_4: "i64[1, 4096]" = shifts_1.unsqueeze(0);  shifts_1 = None
+        sub_15: "i64[4096, 4096]" = row_idx_1 - unsqueeze_4;  row_idx_1 = unsqueeze_4 = None
+        idx_1: "i64[4096, 4096]" = torch.remainder(sub_15, 4096);  sub_15 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_1: "f64[4096, 4096]" = torch.gather(l_f_, 0, idx_1);  idx_1 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_3: "f64[4096]" = W[1]
+        unsqueeze_5: "f64[1, 4096]" = getitem_3.unsqueeze(0);  getitem_3 = None
+        mul_12: "f64[4096, 4096]" = shifted_1 * unsqueeze_5;  shifted_1 = unsqueeze_5 = None
+        result_2: "f64[4096, 4096]" = result_1 + mul_12;  result_1 = mul_12 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_4: "i64[]" = l_stencil_offsets_[2]
+        shifts_2: "i64[4096]" = idx_left_1 + getitem_4;  getitem_4 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_2: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_2: "i64[4096, 1]" = arange_2.unsqueeze(1);  arange_2 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_7: "i64[1, 4096]" = shifts_2.unsqueeze(0);  shifts_2 = None
+        sub_16: "i64[4096, 4096]" = row_idx_2 - unsqueeze_7;  row_idx_2 = unsqueeze_7 = None
+        idx_2: "i64[4096, 4096]" = torch.remainder(sub_16, 4096);  sub_16 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_2: "f64[4096, 4096]" = torch.gather(l_f_, 0, idx_2);  idx_2 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_5: "f64[4096]" = W[2]
+        unsqueeze_8: "f64[1, 4096]" = getitem_5.unsqueeze(0);  getitem_5 = None
+        mul_13: "f64[4096, 4096]" = shifted_2 * unsqueeze_8;  shifted_2 = unsqueeze_8 = None
+        result_3: "f64[4096, 4096]" = result_2 + mul_13;  result_2 = mul_13 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_6: "i64[]" = l_stencil_offsets_[3]
+        shifts_3: "i64[4096]" = idx_left_1 + getitem_6;  getitem_6 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_3: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_3: "i64[4096, 1]" = arange_3.unsqueeze(1);  arange_3 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_10: "i64[1, 4096]" = shifts_3.unsqueeze(0);  shifts_3 = None
+        sub_17: "i64[4096, 4096]" = row_idx_3 - unsqueeze_10;  row_idx_3 = unsqueeze_10 = None
+        idx_3: "i64[4096, 4096]" = torch.remainder(sub_17, 4096);  sub_17 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_3: "f64[4096, 4096]" = torch.gather(l_f_, 0, idx_3);  idx_3 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_7: "f64[4096]" = W[3]
+        unsqueeze_11: "f64[1, 4096]" = getitem_7.unsqueeze(0);  getitem_7 = None
+        mul_14: "f64[4096, 4096]" = shifted_3 * unsqueeze_11;  shifted_3 = unsqueeze_11 = None
+        result_4: "f64[4096, 4096]" = result_3 + mul_14;  result_3 = mul_14 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_8: "i64[]" = l_stencil_offsets_[4]
+        shifts_4: "i64[4096]" = idx_left_1 + getitem_8;  getitem_8 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_4: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_4: "i64[4096, 1]" = arange_4.unsqueeze(1);  arange_4 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_13: "i64[1, 4096]" = shifts_4.unsqueeze(0);  shifts_4 = None
+        sub_18: "i64[4096, 4096]" = row_idx_4 - unsqueeze_13;  row_idx_4 = unsqueeze_13 = None
+        idx_4: "i64[4096, 4096]" = torch.remainder(sub_18, 4096);  sub_18 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_4: "f64[4096, 4096]" = torch.gather(l_f_, 0, idx_4);  idx_4 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_9: "f64[4096]" = W[4]
+        unsqueeze_14: "f64[1, 4096]" = getitem_9.unsqueeze(0);  getitem_9 = None
+        mul_15: "f64[4096, 4096]" = shifted_4 * unsqueeze_14;  shifted_4 = unsqueeze_14 = None
+        result_5: "f64[4096, 4096]" = result_4 + mul_15;  result_4 = mul_15 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_10: "i64[]" = l_stencil_offsets_[5]
+        shifts_5: "i64[4096]" = idx_left_1 + getitem_10;  idx_left_1 = getitem_10 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_5: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_5: "i64[4096, 1]" = arange_5.unsqueeze(1);  arange_5 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_16: "i64[1, 4096]" = shifts_5.unsqueeze(0);  shifts_5 = None
+        sub_19: "i64[4096, 4096]" = row_idx_5 - unsqueeze_16;  row_idx_5 = unsqueeze_16 = None
+        idx_5: "i64[4096, 4096]" = torch.remainder(sub_19, 4096);  sub_19 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_5: "f64[4096, 4096]" = torch.gather(l_f_, 0, idx_5);  l_f_ = idx_5 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_11: "f64[4096]" = W[5];  W = None
+        unsqueeze_17: "f64[1, 4096]" = getitem_11.unsqueeze(0);  getitem_11 = None
+        mul_16: "f64[4096, 4096]" = shifted_5 * unsqueeze_17;  shifted_5 = unsqueeze_17 = None
+        result_6: "f64[4096, 4096]" = result_5 + mul_16;  result_5 = mul_16 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:549 in solve_poisson_real, code: n = torch.sum(f, dim=1) * dv
+        sum_1: "f64[4096]" = torch.sum(result_6, dim = 1)
+        n: "f64[4096]" = sum_1 * 0.002442002442002442;  sum_1 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:550 in solve_poisson_real, code: rho = n - 1.0 # Background ion density
+        rho: "f64[4096]" = n - 1.0;  n = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:553 in solve_poisson_real, code: rho_k = torch.fft.rfft(rho)
+        rho_k: "c128[2049]" = torch._C._fft.fft_rfft(rho)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:558 in solve_poisson_real, code: rho_k_real = torch.view_as_real(rho_k)              # [N/2+1, 2]
+        rho_k_real: "f64[2049, 2]" = torch.view_as_real(rho_k);  rho_k = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:559 in solve_poisson_real, code: inv_kx_sq_2d = inv_kx_sq.unsqueeze(-1)              # [N/2+1, 1]
+        inv_kx_sq_2d: "f64[2049, 1]" = l_grid_inv_kx_sq_.unsqueeze(-1);  l_grid_inv_kx_sq_ = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:563 in solve_poisson_real, code: rho_k_real[..., 1] * inv_kx,   #  imag(rho_k) * inv_kx
+        getitem_12: "f64[2049]" = rho_k_real[(Ellipsis, 1)]
+        mul_18: "f64[2049]" = getitem_12 * l_grid_inv_kx_;  getitem_12 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:564 in solve_poisson_real, code: -rho_k_real[..., 0] * inv_kx,   # -real(rho_k) * inv_kx
+        getitem_13: "f64[2049]" = rho_k_real[(Ellipsis, 0)]
+        neg_2: "f64[2049]" = -getitem_13;  getitem_13 = None
+        mul_19: "f64[2049]" = neg_2 * l_grid_inv_kx_;  neg_2 = l_grid_inv_kx_ = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:562 in solve_poisson_real, code: E_k_real = torch.stack([
+        E_k_real: "f64[2049, 2]" = torch.stack([mul_18, mul_19], dim = -1);  mul_18 = mul_19 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:567 in solve_poisson_real, code: Phi_k_real = rho_k_real * inv_kx_sq_2d
+        Phi_k_real: "f64[2049, 2]" = rho_k_real * inv_kx_sq_2d;  rho_k_real = inv_kx_sq_2d = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:569 in solve_poisson_real, code: E_k = torch.view_as_complex(E_k_real)
+        E_k: "c128[2049]" = torch.view_as_complex(E_k_real);  E_k_real = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:570 in solve_poisson_real, code: Phi_k = torch.view_as_complex(Phi_k_real)
+        Phi_k: "c128[2049]" = torch.view_as_complex(Phi_k_real);  Phi_k_real = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:573 in solve_poisson_real, code: E = torch.fft.irfft(E_k, n=rho.shape[0])
+        E: "f64[4096]" = torch._C._fft.fft_irfft(E_k, n = 4096);  E_k = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:574 in solve_poisson_real, code: phi = torch.fft.irfft(Phi_k, n=rho.shape[0])
+        phi: "f64[4096]" = torch._C._fft.fft_irfft(Phi_k, n = 4096);  Phi_k = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:321 in advect_1d_matrix_diag, code: displacement_idx = velocities * dt / dx
+        mul_21: "f64[4096]" = E * 0.05;  E = None
+        displacement_idx_1: "f64[4096]" = mul_21 / 0.002442002442002442;  mul_21 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:323 in advect_1d_matrix_diag, code: idx_left = torch.floor(displacement_idx)
+        idx_left_2: "f64[4096]" = torch.floor(displacement_idx_1)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:324 in advect_1d_matrix_diag, code: alpha = displacement_idx - idx_left
+        alpha_1: "f64[4096]" = displacement_idx_1 - idx_left_2;  displacement_idx_1 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:325 in advect_1d_matrix_diag, code: idx_left = idx_left.to(torch.long)
+        idx_left_3: "i64[4096]" = idx_left_2.to(torch.int64);  idx_left_2 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:327 in advect_1d_matrix_diag, code: result = torch.zeros_like(f_batch)
+        result_7: "f64[4096, 4096]" = torch.zeros_like(result_6)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:202 in lagrange5_weights, code: a2 = a * a
+        a2_1: "f64[4096]" = alpha_1 * alpha_1
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:203 in lagrange5_weights, code: a3 = a2 * a
+        a3_1: "f64[4096]" = a2_1 * alpha_1
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:204 in lagrange5_weights, code: a4 = a3 * a
+        a4_1: "f64[4096]" = a3_1 * alpha_1
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:205 in lagrange5_weights, code: a5 = a4 * a
+        a5_1: "f64[4096]" = a4_1 * alpha_1
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:207 in lagrange5_weights, code: w0 = (a / 20.0) - (a2 / 24.0) - (a3 / 24.0) + (a4 / 24.0) - (a5 / 120.0)
+        truediv_29: "f64[4096]" = alpha_1 / 20.0
+        truediv_30: "f64[4096]" = a2_1 / 24.0
+        sub_22: "f64[4096]" = truediv_29 - truediv_30;  truediv_29 = truediv_30 = None
+        truediv_31: "f64[4096]" = a3_1 / 24.0
+        sub_23: "f64[4096]" = sub_22 - truediv_31;  sub_22 = truediv_31 = None
+        truediv_32: "f64[4096]" = a4_1 / 24.0
+        add_22: "f64[4096]" = sub_23 + truediv_32;  sub_23 = truediv_32 = None
+        truediv_33: "f64[4096]" = a5_1 / 120.0
+        w0_1: "f64[4096]" = add_22 - truediv_33;  add_22 = truediv_33 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:208 in lagrange5_weights, code: w1 = -(a / 2.0) + (2.0 * a2 / 3.0) - (a3 / 24.0) - (a4 / 6.0) + (a5 / 24.0)
+        truediv_34: "f64[4096]" = alpha_1 / 2.0
+        neg_3: "f64[4096]" = -truediv_34;  truediv_34 = None
+        mul_26: "f64[4096]" = 2.0 * a2_1
+        truediv_35: "f64[4096]" = mul_26 / 3.0;  mul_26 = None
+        add_23: "f64[4096]" = neg_3 + truediv_35;  neg_3 = truediv_35 = None
+        truediv_36: "f64[4096]" = a3_1 / 24.0
+        sub_25: "f64[4096]" = add_23 - truediv_36;  add_23 = truediv_36 = None
+        truediv_37: "f64[4096]" = a4_1 / 6.0
+        sub_26: "f64[4096]" = sub_25 - truediv_37;  sub_25 = truediv_37 = None
+        truediv_38: "f64[4096]" = a5_1 / 24.0
+        w1_1: "f64[4096]" = sub_26 + truediv_38;  sub_26 = truediv_38 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:209 in lagrange5_weights, code: w2 = 1.0 - (a / 3.0) - (5.0 * a2 / 4.0) + (5.0 * a3 / 12.0) + (a4 / 4.0) - (a5 / 12.0)
+        truediv_39: "f64[4096]" = alpha_1 / 3.0
+        sub_27: "f64[4096]" = 1.0 - truediv_39;  truediv_39 = None
+        mul_27: "f64[4096]" = 5.0 * a2_1
+        truediv_40: "f64[4096]" = mul_27 / 4.0;  mul_27 = None
+        sub_28: "f64[4096]" = sub_27 - truediv_40;  sub_27 = truediv_40 = None
+        mul_28: "f64[4096]" = 5.0 * a3_1
+        truediv_41: "f64[4096]" = mul_28 / 12.0;  mul_28 = None
+        add_25: "f64[4096]" = sub_28 + truediv_41;  sub_28 = truediv_41 = None
+        truediv_42: "f64[4096]" = a4_1 / 4.0
+        add_26: "f64[4096]" = add_25 + truediv_42;  add_25 = truediv_42 = None
+        truediv_43: "f64[4096]" = a5_1 / 12.0
+        w2_1: "f64[4096]" = add_26 - truediv_43;  add_26 = truediv_43 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:210 in lagrange5_weights, code: w3 = a + (2.0 * a2 / 3.0) - (7.0 * a3 / 12.0) - (a4 / 6.0) + (a5 / 12.0)
+        mul_29: "f64[4096]" = 2.0 * a2_1
+        truediv_44: "f64[4096]" = mul_29 / 3.0;  mul_29 = None
+        add_27: "f64[4096]" = alpha_1 + truediv_44;  truediv_44 = None
+        mul_30: "f64[4096]" = 7.0 * a3_1
+        truediv_45: "f64[4096]" = mul_30 / 12.0;  mul_30 = None
+        sub_30: "f64[4096]" = add_27 - truediv_45;  add_27 = truediv_45 = None
+        truediv_46: "f64[4096]" = a4_1 / 6.0
+        sub_31: "f64[4096]" = sub_30 - truediv_46;  sub_30 = truediv_46 = None
+        truediv_47: "f64[4096]" = a5_1 / 12.0
+        w3_1: "f64[4096]" = sub_31 + truediv_47;  sub_31 = truediv_47 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:211 in lagrange5_weights, code: w4 = -(a / 4.0) - (a2 / 24.0) + (7.0 * a3 / 24.0) + (a4 / 24.0) - (a5 / 24.0)
+        truediv_48: "f64[4096]" = alpha_1 / 4.0
+        neg_4: "f64[4096]" = -truediv_48;  truediv_48 = None
+        truediv_49: "f64[4096]" = a2_1 / 24.0;  a2_1 = None
+        sub_32: "f64[4096]" = neg_4 - truediv_49;  neg_4 = truediv_49 = None
+        mul_31: "f64[4096]" = 7.0 * a3_1
+        truediv_50: "f64[4096]" = mul_31 / 24.0;  mul_31 = None
+        add_29: "f64[4096]" = sub_32 + truediv_50;  sub_32 = truediv_50 = None
+        truediv_51: "f64[4096]" = a4_1 / 24.0;  a4_1 = None
+        add_30: "f64[4096]" = add_29 + truediv_51;  add_29 = truediv_51 = None
+        truediv_52: "f64[4096]" = a5_1 / 24.0
+        w4_1: "f64[4096]" = add_30 - truediv_52;  add_30 = truediv_52 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:212 in lagrange5_weights, code: w5 = (a / 30.0) - (a3 / 24.0) + (a5 / 120.0)
+        truediv_53: "f64[4096]" = alpha_1 / 30.0;  alpha_1 = None
+        truediv_54: "f64[4096]" = a3_1 / 24.0;  a3_1 = None
+        sub_34: "f64[4096]" = truediv_53 - truediv_54;  truediv_53 = truediv_54 = None
+        truediv_55: "f64[4096]" = a5_1 / 120.0;  a5_1 = None
+        w5_1: "f64[4096]" = sub_34 + truediv_55;  sub_34 = truediv_55 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:214 in lagrange5_weights, code: return torch.stack([w0, w1, w2, w3, w4, w5], dim=0)
+        W_1: "f64[6, 4096]" = torch.stack([w0_1, w1_1, w2_1, w3_1, w4_1, w5_1], dim = 0);  w0_1 = w1_1 = w2_1 = w3_1 = w4_1 = w5_1 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:295 in build_v_diag_weights, code: v = torch.arange(n_points, device=alpha.device)
+        v: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:296 in build_v_diag_weights, code: total_shifts = stencil_offsets.unsqueeze(1) + shifts.unsqueeze(0)
+        unsqueeze_19: "i64[6, 1]" = l_stencil_offsets_.unsqueeze(1)
+        unsqueeze_20: "i64[1, 4096]" = idx_left_3.unsqueeze(0)
+        total_shifts: "i64[6, 4096]" = unsqueeze_19 + unsqueeze_20;  unsqueeze_19 = unsqueeze_20 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:298 in build_v_diag_weights, code: source_idx = v.view(1, 1, -1) - total_shifts.unsqueeze(-1)
+        view: "i64[1, 1, 4096]" = v.view(1, 1, -1);  v = None
+        unsqueeze_21: "i64[6, 4096, 1]" = total_shifts.unsqueeze(-1);  total_shifts = None
+        source_idx: "i64[6, 4096, 4096]" = view - unsqueeze_21;  view = unsqueeze_21 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:299 in build_v_diag_weights, code: valid = (source_idx >= 0) & (source_idx < n_points)
+        ge: "b8[6, 4096, 4096]" = source_idx >= 0
+        lt: "b8[6, 4096, 4096]" = source_idx < 4096;  source_idx = None
+        valid: "b8[6, 4096, 4096]" = ge & lt;  ge = lt = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:300 in build_v_diag_weights, code: return valid.to(W.dtype) * W.unsqueeze(-1)
+        to_2: "f64[6, 4096, 4096]" = valid.to(torch.float64);  valid = None
+        unsqueeze_22: "f64[6, 4096, 1]" = W_1.unsqueeze(-1);  W_1 = None
+        diag_weights: "f64[6, 4096, 4096]" = to_2 * unsqueeze_22;  to_2 = unsqueeze_22 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:338 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_14: "i64[]" = l_stencil_offsets_[0]
+        shifts_6: "i64[4096]" = idx_left_3 + getitem_14;  getitem_14 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:279 in _roll_rows, code: col_idx = torch.arange(m, device=x.device).unsqueeze(0) # [1, M]
+        arange_7: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        col_idx: "i64[1, 4096]" = arange_7.unsqueeze(0);  arange_7 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:280 in _roll_rows, code: idx = torch.remainder(col_idx - shifts.unsqueeze(1), m) # [N, M]
+        unsqueeze_24: "i64[4096, 1]" = shifts_6.unsqueeze(1);  shifts_6 = None
+        sub_36: "i64[4096, 4096]" = col_idx - unsqueeze_24;  col_idx = unsqueeze_24 = None
+        idx_6: "i64[4096, 4096]" = torch.remainder(sub_36, 4096);  sub_36 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:281 in _roll_rows, code: return torch.gather(x, 1, idx)
+        shifted_6: "f64[4096, 4096]" = torch.gather(result_6, 1, idx_6);  idx_6 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:340 in advect_1d_matrix_diag, code: result = result + diag_weights[k] * shifted
+        getitem_15: "f64[4096, 4096]" = diag_weights[0]
+        mul_33: "f64[4096, 4096]" = getitem_15 * shifted_6;  getitem_15 = shifted_6 = None
+        result_8: "f64[4096, 4096]" = result_7 + mul_33;  result_7 = mul_33 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:338 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_16: "i64[]" = l_stencil_offsets_[1]
+        shifts_7: "i64[4096]" = idx_left_3 + getitem_16;  getitem_16 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:279 in _roll_rows, code: col_idx = torch.arange(m, device=x.device).unsqueeze(0) # [1, M]
+        arange_8: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        col_idx_1: "i64[1, 4096]" = arange_8.unsqueeze(0);  arange_8 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:280 in _roll_rows, code: idx = torch.remainder(col_idx - shifts.unsqueeze(1), m) # [N, M]
+        unsqueeze_26: "i64[4096, 1]" = shifts_7.unsqueeze(1);  shifts_7 = None
+        sub_37: "i64[4096, 4096]" = col_idx_1 - unsqueeze_26;  col_idx_1 = unsqueeze_26 = None
+        idx_7: "i64[4096, 4096]" = torch.remainder(sub_37, 4096);  sub_37 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:281 in _roll_rows, code: return torch.gather(x, 1, idx)
+        shifted_7: "f64[4096, 4096]" = torch.gather(result_6, 1, idx_7);  idx_7 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:340 in advect_1d_matrix_diag, code: result = result + diag_weights[k] * shifted
+        getitem_17: "f64[4096, 4096]" = diag_weights[1]
+        mul_34: "f64[4096, 4096]" = getitem_17 * shifted_7;  getitem_17 = shifted_7 = None
+        result_9: "f64[4096, 4096]" = result_8 + mul_34;  result_8 = mul_34 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:338 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_18: "i64[]" = l_stencil_offsets_[2]
+        shifts_8: "i64[4096]" = idx_left_3 + getitem_18;  getitem_18 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:279 in _roll_rows, code: col_idx = torch.arange(m, device=x.device).unsqueeze(0) # [1, M]
+        arange_9: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        col_idx_2: "i64[1, 4096]" = arange_9.unsqueeze(0);  arange_9 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:280 in _roll_rows, code: idx = torch.remainder(col_idx - shifts.unsqueeze(1), m) # [N, M]
+        unsqueeze_28: "i64[4096, 1]" = shifts_8.unsqueeze(1);  shifts_8 = None
+        sub_38: "i64[4096, 4096]" = col_idx_2 - unsqueeze_28;  col_idx_2 = unsqueeze_28 = None
+        idx_8: "i64[4096, 4096]" = torch.remainder(sub_38, 4096);  sub_38 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:281 in _roll_rows, code: return torch.gather(x, 1, idx)
+        shifted_8: "f64[4096, 4096]" = torch.gather(result_6, 1, idx_8);  idx_8 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:340 in advect_1d_matrix_diag, code: result = result + diag_weights[k] * shifted
+        getitem_19: "f64[4096, 4096]" = diag_weights[2]
+        mul_35: "f64[4096, 4096]" = getitem_19 * shifted_8;  getitem_19 = shifted_8 = None
+        result_10: "f64[4096, 4096]" = result_9 + mul_35;  result_9 = mul_35 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:338 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_20: "i64[]" = l_stencil_offsets_[3]
+        shifts_9: "i64[4096]" = idx_left_3 + getitem_20;  getitem_20 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:279 in _roll_rows, code: col_idx = torch.arange(m, device=x.device).unsqueeze(0) # [1, M]
+        arange_10: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        col_idx_3: "i64[1, 4096]" = arange_10.unsqueeze(0);  arange_10 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:280 in _roll_rows, code: idx = torch.remainder(col_idx - shifts.unsqueeze(1), m) # [N, M]
+        unsqueeze_30: "i64[4096, 1]" = shifts_9.unsqueeze(1);  shifts_9 = None
+        sub_39: "i64[4096, 4096]" = col_idx_3 - unsqueeze_30;  col_idx_3 = unsqueeze_30 = None
+        idx_9: "i64[4096, 4096]" = torch.remainder(sub_39, 4096);  sub_39 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:281 in _roll_rows, code: return torch.gather(x, 1, idx)
+        shifted_9: "f64[4096, 4096]" = torch.gather(result_6, 1, idx_9);  idx_9 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:340 in advect_1d_matrix_diag, code: result = result + diag_weights[k] * shifted
+        getitem_21: "f64[4096, 4096]" = diag_weights[3]
+        mul_36: "f64[4096, 4096]" = getitem_21 * shifted_9;  getitem_21 = shifted_9 = None
+        result_11: "f64[4096, 4096]" = result_10 + mul_36;  result_10 = mul_36 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:338 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_22: "i64[]" = l_stencil_offsets_[4]
+        shifts_10: "i64[4096]" = idx_left_3 + getitem_22;  getitem_22 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:279 in _roll_rows, code: col_idx = torch.arange(m, device=x.device).unsqueeze(0) # [1, M]
+        arange_11: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        col_idx_4: "i64[1, 4096]" = arange_11.unsqueeze(0);  arange_11 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:280 in _roll_rows, code: idx = torch.remainder(col_idx - shifts.unsqueeze(1), m) # [N, M]
+        unsqueeze_32: "i64[4096, 1]" = shifts_10.unsqueeze(1);  shifts_10 = None
+        sub_40: "i64[4096, 4096]" = col_idx_4 - unsqueeze_32;  col_idx_4 = unsqueeze_32 = None
+        idx_10: "i64[4096, 4096]" = torch.remainder(sub_40, 4096);  sub_40 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:281 in _roll_rows, code: return torch.gather(x, 1, idx)
+        shifted_10: "f64[4096, 4096]" = torch.gather(result_6, 1, idx_10);  idx_10 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:340 in advect_1d_matrix_diag, code: result = result + diag_weights[k] * shifted
+        getitem_23: "f64[4096, 4096]" = diag_weights[4]
+        mul_37: "f64[4096, 4096]" = getitem_23 * shifted_10;  getitem_23 = shifted_10 = None
+        result_12: "f64[4096, 4096]" = result_11 + mul_37;  result_11 = mul_37 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:338 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_24: "i64[]" = l_stencil_offsets_[5]
+        shifts_11: "i64[4096]" = idx_left_3 + getitem_24;  idx_left_3 = getitem_24 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:279 in _roll_rows, code: col_idx = torch.arange(m, device=x.device).unsqueeze(0) # [1, M]
+        arange_12: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        col_idx_5: "i64[1, 4096]" = arange_12.unsqueeze(0);  arange_12 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:280 in _roll_rows, code: idx = torch.remainder(col_idx - shifts.unsqueeze(1), m) # [N, M]
+        unsqueeze_34: "i64[4096, 1]" = shifts_11.unsqueeze(1);  shifts_11 = None
+        sub_41: "i64[4096, 4096]" = col_idx_5 - unsqueeze_34;  col_idx_5 = unsqueeze_34 = None
+        idx_11: "i64[4096, 4096]" = torch.remainder(sub_41, 4096);  sub_41 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:281 in _roll_rows, code: return torch.gather(x, 1, idx)
+        shifted_11: "f64[4096, 4096]" = torch.gather(result_6, 1, idx_11);  result_6 = idx_11 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:340 in advect_1d_matrix_diag, code: result = result + diag_weights[k] * shifted
+        getitem_25: "f64[4096, 4096]" = diag_weights[5];  diag_weights = None
+        mul_38: "f64[4096, 4096]" = getitem_25 * shifted_11;  getitem_25 = shifted_11 = None
+        result_13: "f64[4096, 4096]" = result_12 + mul_38;  result_12 = mul_38 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:321 in advect_1d_matrix_diag, code: displacement_idx = velocities * dt / dx
+        mul_39: "f64[4096]" = l_grid_v_ * 0.025;  l_grid_v_ = None
+        displacement_idx_2: "f64[4096]" = mul_39 / 0.0030679615757712823;  mul_39 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:323 in advect_1d_matrix_diag, code: idx_left = torch.floor(displacement_idx)
+        idx_left_4: "f64[4096]" = torch.floor(displacement_idx_2)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:324 in advect_1d_matrix_diag, code: alpha = displacement_idx - idx_left
+        alpha_2: "f64[4096]" = displacement_idx_2 - idx_left_4;  displacement_idx_2 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:325 in advect_1d_matrix_diag, code: idx_left = idx_left.to(torch.long)
+        idx_left_5: "i64[4096]" = idx_left_4.to(torch.int64);  idx_left_4 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:327 in advect_1d_matrix_diag, code: result = torch.zeros_like(f_batch)
+        result_14: "f64[4096, 4096]" = torch.zeros_like(result_13)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:202 in lagrange5_weights, code: a2 = a * a
+        a2_2: "f64[4096]" = alpha_2 * alpha_2
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:203 in lagrange5_weights, code: a3 = a2 * a
+        a3_2: "f64[4096]" = a2_2 * alpha_2
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:204 in lagrange5_weights, code: a4 = a3 * a
+        a4_2: "f64[4096]" = a3_2 * alpha_2
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:205 in lagrange5_weights, code: a5 = a4 * a
+        a5_2: "f64[4096]" = a4_2 * alpha_2
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:207 in lagrange5_weights, code: w0 = (a / 20.0) - (a2 / 24.0) - (a3 / 24.0) + (a4 / 24.0) - (a5 / 120.0)
+        truediv_57: "f64[4096]" = alpha_2 / 20.0
+        truediv_58: "f64[4096]" = a2_2 / 24.0
+        sub_43: "f64[4096]" = truediv_57 - truediv_58;  truediv_57 = truediv_58 = None
+        truediv_59: "f64[4096]" = a3_2 / 24.0
+        sub_44: "f64[4096]" = sub_43 - truediv_59;  sub_43 = truediv_59 = None
+        truediv_60: "f64[4096]" = a4_2 / 24.0
+        add_45: "f64[4096]" = sub_44 + truediv_60;  sub_44 = truediv_60 = None
+        truediv_61: "f64[4096]" = a5_2 / 120.0
+        w0_2: "f64[4096]" = add_45 - truediv_61;  add_45 = truediv_61 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:208 in lagrange5_weights, code: w1 = -(a / 2.0) + (2.0 * a2 / 3.0) - (a3 / 24.0) - (a4 / 6.0) + (a5 / 24.0)
+        truediv_62: "f64[4096]" = alpha_2 / 2.0
+        neg_5: "f64[4096]" = -truediv_62;  truediv_62 = None
+        mul_44: "f64[4096]" = 2.0 * a2_2
+        truediv_63: "f64[4096]" = mul_44 / 3.0;  mul_44 = None
+        add_46: "f64[4096]" = neg_5 + truediv_63;  neg_5 = truediv_63 = None
+        truediv_64: "f64[4096]" = a3_2 / 24.0
+        sub_46: "f64[4096]" = add_46 - truediv_64;  add_46 = truediv_64 = None
+        truediv_65: "f64[4096]" = a4_2 / 6.0
+        sub_47: "f64[4096]" = sub_46 - truediv_65;  sub_46 = truediv_65 = None
+        truediv_66: "f64[4096]" = a5_2 / 24.0
+        w1_2: "f64[4096]" = sub_47 + truediv_66;  sub_47 = truediv_66 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:209 in lagrange5_weights, code: w2 = 1.0 - (a / 3.0) - (5.0 * a2 / 4.0) + (5.0 * a3 / 12.0) + (a4 / 4.0) - (a5 / 12.0)
+        truediv_67: "f64[4096]" = alpha_2 / 3.0
+        sub_48: "f64[4096]" = 1.0 - truediv_67;  truediv_67 = None
+        mul_45: "f64[4096]" = 5.0 * a2_2
+        truediv_68: "f64[4096]" = mul_45 / 4.0;  mul_45 = None
+        sub_49: "f64[4096]" = sub_48 - truediv_68;  sub_48 = truediv_68 = None
+        mul_46: "f64[4096]" = 5.0 * a3_2
+        truediv_69: "f64[4096]" = mul_46 / 12.0;  mul_46 = None
+        add_48: "f64[4096]" = sub_49 + truediv_69;  sub_49 = truediv_69 = None
+        truediv_70: "f64[4096]" = a4_2 / 4.0
+        add_49: "f64[4096]" = add_48 + truediv_70;  add_48 = truediv_70 = None
+        truediv_71: "f64[4096]" = a5_2 / 12.0
+        w2_2: "f64[4096]" = add_49 - truediv_71;  add_49 = truediv_71 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:210 in lagrange5_weights, code: w3 = a + (2.0 * a2 / 3.0) - (7.0 * a3 / 12.0) - (a4 / 6.0) + (a5 / 12.0)
+        mul_47: "f64[4096]" = 2.0 * a2_2
+        truediv_72: "f64[4096]" = mul_47 / 3.0;  mul_47 = None
+        add_50: "f64[4096]" = alpha_2 + truediv_72;  truediv_72 = None
+        mul_48: "f64[4096]" = 7.0 * a3_2
+        truediv_73: "f64[4096]" = mul_48 / 12.0;  mul_48 = None
+        sub_51: "f64[4096]" = add_50 - truediv_73;  add_50 = truediv_73 = None
+        truediv_74: "f64[4096]" = a4_2 / 6.0
+        sub_52: "f64[4096]" = sub_51 - truediv_74;  sub_51 = truediv_74 = None
+        truediv_75: "f64[4096]" = a5_2 / 12.0
+        w3_2: "f64[4096]" = sub_52 + truediv_75;  sub_52 = truediv_75 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:211 in lagrange5_weights, code: w4 = -(a / 4.0) - (a2 / 24.0) + (7.0 * a3 / 24.0) + (a4 / 24.0) - (a5 / 24.0)
+        truediv_76: "f64[4096]" = alpha_2 / 4.0
+        neg_6: "f64[4096]" = -truediv_76;  truediv_76 = None
+        truediv_77: "f64[4096]" = a2_2 / 24.0;  a2_2 = None
+        sub_53: "f64[4096]" = neg_6 - truediv_77;  neg_6 = truediv_77 = None
+        mul_49: "f64[4096]" = 7.0 * a3_2
+        truediv_78: "f64[4096]" = mul_49 / 24.0;  mul_49 = None
+        add_52: "f64[4096]" = sub_53 + truediv_78;  sub_53 = truediv_78 = None
+        truediv_79: "f64[4096]" = a4_2 / 24.0;  a4_2 = None
+        add_53: "f64[4096]" = add_52 + truediv_79;  add_52 = truediv_79 = None
+        truediv_80: "f64[4096]" = a5_2 / 24.0
+        w4_2: "f64[4096]" = add_53 - truediv_80;  add_53 = truediv_80 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:212 in lagrange5_weights, code: w5 = (a / 30.0) - (a3 / 24.0) + (a5 / 120.0)
+        truediv_81: "f64[4096]" = alpha_2 / 30.0;  alpha_2 = None
+        truediv_82: "f64[4096]" = a3_2 / 24.0;  a3_2 = None
+        sub_55: "f64[4096]" = truediv_81 - truediv_82;  truediv_81 = truediv_82 = None
+        truediv_83: "f64[4096]" = a5_2 / 120.0;  a5_2 = None
+        w5_2: "f64[4096]" = sub_55 + truediv_83;  sub_55 = truediv_83 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:214 in lagrange5_weights, code: return torch.stack([w0, w1, w2, w3, w4, w5], dim=0)
+        W_2: "f64[6, 4096]" = torch.stack([w0_2, w1_2, w2_2, w3_2, w4_2, w5_2], dim = 0);  w0_2 = w1_2 = w2_2 = w3_2 = w4_2 = w5_2 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_26: "i64[]" = l_stencil_offsets_[0]
+        shifts_12: "i64[4096]" = idx_left_5 + getitem_26;  getitem_26 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_13: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_6: "i64[4096, 1]" = arange_13.unsqueeze(1);  arange_13 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_36: "i64[1, 4096]" = shifts_12.unsqueeze(0);  shifts_12 = None
+        sub_56: "i64[4096, 4096]" = row_idx_6 - unsqueeze_36;  row_idx_6 = unsqueeze_36 = None
+        idx_12: "i64[4096, 4096]" = torch.remainder(sub_56, 4096);  sub_56 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_12: "f64[4096, 4096]" = torch.gather(result_13, 0, idx_12);  idx_12 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_27: "f64[4096]" = W_2[0]
+        unsqueeze_37: "f64[1, 4096]" = getitem_27.unsqueeze(0);  getitem_27 = None
+        mul_50: "f64[4096, 4096]" = shifted_12 * unsqueeze_37;  shifted_12 = unsqueeze_37 = None
+        result_15: "f64[4096, 4096]" = result_14 + mul_50;  result_14 = mul_50 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_28: "i64[]" = l_stencil_offsets_[1]
+        shifts_13: "i64[4096]" = idx_left_5 + getitem_28;  getitem_28 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_14: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_7: "i64[4096, 1]" = arange_14.unsqueeze(1);  arange_14 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_39: "i64[1, 4096]" = shifts_13.unsqueeze(0);  shifts_13 = None
+        sub_57: "i64[4096, 4096]" = row_idx_7 - unsqueeze_39;  row_idx_7 = unsqueeze_39 = None
+        idx_13: "i64[4096, 4096]" = torch.remainder(sub_57, 4096);  sub_57 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_13: "f64[4096, 4096]" = torch.gather(result_13, 0, idx_13);  idx_13 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_29: "f64[4096]" = W_2[1]
+        unsqueeze_40: "f64[1, 4096]" = getitem_29.unsqueeze(0);  getitem_29 = None
+        mul_51: "f64[4096, 4096]" = shifted_13 * unsqueeze_40;  shifted_13 = unsqueeze_40 = None
+        result_16: "f64[4096, 4096]" = result_15 + mul_51;  result_15 = mul_51 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_30: "i64[]" = l_stencil_offsets_[2]
+        shifts_14: "i64[4096]" = idx_left_5 + getitem_30;  getitem_30 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_15: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_8: "i64[4096, 1]" = arange_15.unsqueeze(1);  arange_15 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_42: "i64[1, 4096]" = shifts_14.unsqueeze(0);  shifts_14 = None
+        sub_58: "i64[4096, 4096]" = row_idx_8 - unsqueeze_42;  row_idx_8 = unsqueeze_42 = None
+        idx_14: "i64[4096, 4096]" = torch.remainder(sub_58, 4096);  sub_58 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_14: "f64[4096, 4096]" = torch.gather(result_13, 0, idx_14);  idx_14 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_31: "f64[4096]" = W_2[2]
+        unsqueeze_43: "f64[1, 4096]" = getitem_31.unsqueeze(0);  getitem_31 = None
+        mul_52: "f64[4096, 4096]" = shifted_14 * unsqueeze_43;  shifted_14 = unsqueeze_43 = None
+        result_17: "f64[4096, 4096]" = result_16 + mul_52;  result_16 = mul_52 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_32: "i64[]" = l_stencil_offsets_[3]
+        shifts_15: "i64[4096]" = idx_left_5 + getitem_32;  getitem_32 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_16: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_9: "i64[4096, 1]" = arange_16.unsqueeze(1);  arange_16 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_45: "i64[1, 4096]" = shifts_15.unsqueeze(0);  shifts_15 = None
+        sub_59: "i64[4096, 4096]" = row_idx_9 - unsqueeze_45;  row_idx_9 = unsqueeze_45 = None
+        idx_15: "i64[4096, 4096]" = torch.remainder(sub_59, 4096);  sub_59 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_15: "f64[4096, 4096]" = torch.gather(result_13, 0, idx_15);  idx_15 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_33: "f64[4096]" = W_2[3]
+        unsqueeze_46: "f64[1, 4096]" = getitem_33.unsqueeze(0);  getitem_33 = None
+        mul_53: "f64[4096, 4096]" = shifted_15 * unsqueeze_46;  shifted_15 = unsqueeze_46 = None
+        result_18: "f64[4096, 4096]" = result_17 + mul_53;  result_17 = mul_53 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_34: "i64[]" = l_stencil_offsets_[4]
+        shifts_16: "i64[4096]" = idx_left_5 + getitem_34;  getitem_34 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_17: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_10: "i64[4096, 1]" = arange_17.unsqueeze(1);  arange_17 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_48: "i64[1, 4096]" = shifts_16.unsqueeze(0);  shifts_16 = None
+        sub_60: "i64[4096, 4096]" = row_idx_10 - unsqueeze_48;  row_idx_10 = unsqueeze_48 = None
+        idx_16: "i64[4096, 4096]" = torch.remainder(sub_60, 4096);  sub_60 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_16: "f64[4096, 4096]" = torch.gather(result_13, 0, idx_16);  idx_16 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_35: "f64[4096]" = W_2[4]
+        unsqueeze_49: "f64[1, 4096]" = getitem_35.unsqueeze(0);  getitem_35 = None
+        mul_54: "f64[4096, 4096]" = shifted_16 * unsqueeze_49;  shifted_16 = unsqueeze_49 = None
+        result_19: "f64[4096, 4096]" = result_18 + mul_54;  result_18 = mul_54 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:331 in advect_1d_matrix_diag, code: shifts = idx_left + stencil_offsets[k]
+        getitem_36: "i64[]" = l_stencil_offsets_[5];  l_stencil_offsets_ = None
+        shifts_17: "i64[4096]" = idx_left_5 + getitem_36;  idx_left_5 = getitem_36 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:269 in _roll_columns, code: row_idx = torch.arange(n, device=x.device).unsqueeze(1) # [N, 1]
+        arange_18: "i64[4096]" = torch.arange(4096, device = device(type='cuda', index=0))
+        row_idx_11: "i64[4096, 1]" = arange_18.unsqueeze(1);  arange_18 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:270 in _roll_columns, code: idx = torch.remainder(row_idx - shifts.unsqueeze(0), n) # [N, M]
+        unsqueeze_51: "i64[1, 4096]" = shifts_17.unsqueeze(0);  shifts_17 = None
+        sub_61: "i64[4096, 4096]" = row_idx_11 - unsqueeze_51;  row_idx_11 = unsqueeze_51 = None
+        idx_17: "i64[4096, 4096]" = torch.remainder(sub_61, 4096);  sub_61 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:271 in _roll_columns, code: return torch.gather(x, 0, idx)
+        shifted_17: "f64[4096, 4096]" = torch.gather(result_13, 0, idx_17);  result_13 = idx_17 = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:333 in advect_1d_matrix_diag, code: result = result + shifted * W[k].unsqueeze(0)
+        getitem_37: "f64[4096]" = W_2[5];  W_2 = None
+        unsqueeze_52: "f64[1, 4096]" = getitem_37.unsqueeze(0);  getitem_37 = None
+        mul_55: "f64[4096, 4096]" = shifted_17 * unsqueeze_52;  shifted_17 = unsqueeze_52 = None
+        result_20: "f64[4096, 4096]" = result_19 + mul_55;  result_19 = mul_55 = None
+        return (result_20, rho, phi)
+        
+# ===== Dynamo FX graph 0 (node table) =====
+graph():
+    %l_f_ : torch.Tensor [num_users=7] = placeholder[target=L_f_]
+    %l_grid_v_ : torch.Tensor [num_users=2] = placeholder[target=L_grid_v_]
+    %l_stencil_offsets_ : torch.Tensor [num_users=19] = placeholder[target=L_stencil_offsets_]
+    %l_grid_inv_kx_sq_ : torch.Tensor [num_users=1] = placeholder[target=L_grid_inv_kx_sq_]
+    %l_grid_inv_kx_ : torch.Tensor [num_users=2] = placeholder[target=L_grid_inv_kx_]
+    %mul : [num_users=1] = call_function[target=operator.mul](args = (%l_grid_v_, 0.025), kwargs = {})
+    %displacement_idx : [num_users=2] = call_function[target=operator.truediv](args = (%mul, 0.0030679615757712823), kwargs = {})
+    %idx_left : [num_users=2] = call_function[target=torch.floor](args = (%displacement_idx,), kwargs = {})
+    %alpha : [num_users=10] = call_function[target=operator.sub](args = (%displacement_idx, %idx_left), kwargs = {})
+    %idx_left_1 : [num_users=6] = call_method[target=to](args = (%idx_left, torch.int64), kwargs = {})
+    %result : [num_users=1] = call_function[target=torch.zeros_like](args = (%l_f_,), kwargs = {})
+    %a2 : [num_users=6] = call_function[target=operator.mul](args = (%alpha, %alpha), kwargs = {})
+    %a3 : [num_users=7] = call_function[target=operator.mul](args = (%a2, %alpha), kwargs = {})
+    %a4 : [num_users=6] = call_function[target=operator.mul](args = (%a3, %alpha), kwargs = {})
+    %a5 : [num_users=6] = call_function[target=operator.mul](args = (%a4, %alpha), kwargs = {})
+    %truediv_1 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha, 20.0), kwargs = {})
+    %truediv_2 : [num_users=1] = call_function[target=operator.truediv](args = (%a2, 24.0), kwargs = {})
+    %sub_1 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_1, %truediv_2), kwargs = {})
+    %truediv_3 : [num_users=1] = call_function[target=operator.truediv](args = (%a3, 24.0), kwargs = {})
+    %sub_2 : [num_users=1] = call_function[target=operator.sub](args = (%sub_1, %truediv_3), kwargs = {})
+    %truediv_4 : [num_users=1] = call_function[target=operator.truediv](args = (%a4, 24.0), kwargs = {})
+    %add : [num_users=1] = call_function[target=operator.add](args = (%sub_2, %truediv_4), kwargs = {})
+    %truediv_5 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 120.0), kwargs = {})
+    %w0 : [num_users=1] = call_function[target=operator.sub](args = (%add, %truediv_5), kwargs = {})
+    %truediv_6 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha, 2.0), kwargs = {})
+    %neg : [num_users=1] = call_function[target=operator.neg](args = (%truediv_6,), kwargs = {})
+    %mul_5 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2), kwargs = {})
+    %truediv_7 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_5, 3.0), kwargs = {})
+    %add_1 : [num_users=1] = call_function[target=operator.add](args = (%neg, %truediv_7), kwargs = {})
+    %truediv_8 : [num_users=1] = call_function[target=operator.truediv](args = (%a3, 24.0), kwargs = {})
+    %sub_4 : [num_users=1] = call_function[target=operator.sub](args = (%add_1, %truediv_8), kwargs = {})
+    %truediv_9 : [num_users=1] = call_function[target=operator.truediv](args = (%a4, 6.0), kwargs = {})
+    %sub_5 : [num_users=1] = call_function[target=operator.sub](args = (%sub_4, %truediv_9), kwargs = {})
+    %truediv_10 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 24.0), kwargs = {})
+    %w1 : [num_users=1] = call_function[target=operator.add](args = (%sub_5, %truediv_10), kwargs = {})
+    %truediv_11 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha, 3.0), kwargs = {})
+    %sub_6 : [num_users=1] = call_function[target=operator.sub](args = (1.0, %truediv_11), kwargs = {})
+    %mul_6 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a2), kwargs = {})
+    %truediv_12 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_6, 4.0), kwargs = {})
+    %sub_7 : [num_users=1] = call_function[target=operator.sub](args = (%sub_6, %truediv_12), kwargs = {})
+    %mul_7 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a3), kwargs = {})
+    %truediv_13 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_7, 12.0), kwargs = {})
+    %add_3 : [num_users=1] = call_function[target=operator.add](args = (%sub_7, %truediv_13), kwargs = {})
+    %truediv_14 : [num_users=1] = call_function[target=operator.truediv](args = (%a4, 4.0), kwargs = {})
+    %add_4 : [num_users=1] = call_function[target=operator.add](args = (%add_3, %truediv_14), kwargs = {})
+    %truediv_15 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 12.0), kwargs = {})
+    %w2 : [num_users=1] = call_function[target=operator.sub](args = (%add_4, %truediv_15), kwargs = {})
+    %mul_8 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2), kwargs = {})
+    %truediv_16 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_8, 3.0), kwargs = {})
+    %add_5 : [num_users=1] = call_function[target=operator.add](args = (%alpha, %truediv_16), kwargs = {})
+    %mul_9 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3), kwargs = {})
+    %truediv_17 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_9, 12.0), kwargs = {})
+    %sub_9 : [num_users=1] = call_function[target=operator.sub](args = (%add_5, %truediv_17), kwargs = {})
+    %truediv_18 : [num_users=1] = call_function[target=operator.truediv](args = (%a4, 6.0), kwargs = {})
+    %sub_10 : [num_users=1] = call_function[target=operator.sub](args = (%sub_9, %truediv_18), kwargs = {})
+    %truediv_19 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 12.0), kwargs = {})
+    %w3 : [num_users=1] = call_function[target=operator.add](args = (%sub_10, %truediv_19), kwargs = {})
+    %truediv_20 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha, 4.0), kwargs = {})
+    %neg_1 : [num_users=1] = call_function[target=operator.neg](args = (%truediv_20,), kwargs = {})
+    %truediv_21 : [num_users=1] = call_function[target=operator.truediv](args = (%a2, 24.0), kwargs = {})
+    %sub_11 : [num_users=1] = call_function[target=operator.sub](args = (%neg_1, %truediv_21), kwargs = {})
+    %mul_10 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3), kwargs = {})
+    %truediv_22 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_10, 24.0), kwargs = {})
+    %add_7 : [num_users=1] = call_function[target=operator.add](args = (%sub_11, %truediv_22), kwargs = {})
+    %truediv_23 : [num_users=1] = call_function[target=operator.truediv](args = (%a4, 24.0), kwargs = {})
+    %add_8 : [num_users=1] = call_function[target=operator.add](args = (%add_7, %truediv_23), kwargs = {})
+    %truediv_24 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 24.0), kwargs = {})
+    %w4 : [num_users=1] = call_function[target=operator.sub](args = (%add_8, %truediv_24), kwargs = {})
+    %truediv_25 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha, 30.0), kwargs = {})
+    %truediv_26 : [num_users=1] = call_function[target=operator.truediv](args = (%a3, 24.0), kwargs = {})
+    %sub_13 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_25, %truediv_26), kwargs = {})
+    %truediv_27 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 120.0), kwargs = {})
+    %w5 : [num_users=1] = call_function[target=operator.add](args = (%sub_13, %truediv_27), kwargs = {})
+    %W : [num_users=6] = call_function[target=torch.stack](args = ([%w0, %w1, %w2, %w3, %w4, %w5],), kwargs = {dim: 0})
+    %getitem : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 0), kwargs = {})
+    %shifts : [num_users=1] = call_function[target=operator.add](args = (%idx_left_1, %getitem), kwargs = {})
+    %arange : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx : [num_users=1] = call_method[target=unsqueeze](args = (%arange, 1), kwargs = {})
+    %unsqueeze_1 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts, 0), kwargs = {})
+    %sub_14 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx, %unsqueeze_1), kwargs = {})
+    %idx : [num_users=1] = call_function[target=torch.remainder](args = (%sub_14, 4096), kwargs = {})
+    %shifted : [num_users=1] = call_function[target=torch.gather](args = (%l_f_, 0, %idx), kwargs = {})
+    %getitem_1 : [num_users=1] = call_function[target=operator.getitem](args = (%W, 0), kwargs = {})
+    %unsqueeze_2 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_1, 0), kwargs = {})
+    %mul_11 : [num_users=1] = call_function[target=operator.mul](args = (%shifted, %unsqueeze_2), kwargs = {})
+    %result_1 : [num_users=1] = call_function[target=operator.add](args = (%result, %mul_11), kwargs = {})
+    %getitem_2 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 1), kwargs = {})
+    %shifts_1 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_1, %getitem_2), kwargs = {})
+    %arange_1 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_1 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_1, 1), kwargs = {})
+    %unsqueeze_4 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_1, 0), kwargs = {})
+    %sub_15 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_1, %unsqueeze_4), kwargs = {})
+    %idx_1 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_15, 4096), kwargs = {})
+    %shifted_1 : [num_users=1] = call_function[target=torch.gather](args = (%l_f_, 0, %idx_1), kwargs = {})
+    %getitem_3 : [num_users=1] = call_function[target=operator.getitem](args = (%W, 1), kwargs = {})
+    %unsqueeze_5 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_3, 0), kwargs = {})
+    %mul_12 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_1, %unsqueeze_5), kwargs = {})
+    %result_2 : [num_users=1] = call_function[target=operator.add](args = (%result_1, %mul_12), kwargs = {})
+    %getitem_4 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 2), kwargs = {})
+    %shifts_2 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_1, %getitem_4), kwargs = {})
+    %arange_2 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_2 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_2, 1), kwargs = {})
+    %unsqueeze_7 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_2, 0), kwargs = {})
+    %sub_16 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_2, %unsqueeze_7), kwargs = {})
+    %idx_2 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_16, 4096), kwargs = {})
+    %shifted_2 : [num_users=1] = call_function[target=torch.gather](args = (%l_f_, 0, %idx_2), kwargs = {})
+    %getitem_5 : [num_users=1] = call_function[target=operator.getitem](args = (%W, 2), kwargs = {})
+    %unsqueeze_8 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_5, 0), kwargs = {})
+    %mul_13 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_2, %unsqueeze_8), kwargs = {})
+    %result_3 : [num_users=1] = call_function[target=operator.add](args = (%result_2, %mul_13), kwargs = {})
+    %getitem_6 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 3), kwargs = {})
+    %shifts_3 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_1, %getitem_6), kwargs = {})
+    %arange_3 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_3 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_3, 1), kwargs = {})
+    %unsqueeze_10 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_3, 0), kwargs = {})
+    %sub_17 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_3, %unsqueeze_10), kwargs = {})
+    %idx_3 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_17, 4096), kwargs = {})
+    %shifted_3 : [num_users=1] = call_function[target=torch.gather](args = (%l_f_, 0, %idx_3), kwargs = {})
+    %getitem_7 : [num_users=1] = call_function[target=operator.getitem](args = (%W, 3), kwargs = {})
+    %unsqueeze_11 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_7, 0), kwargs = {})
+    %mul_14 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_3, %unsqueeze_11), kwargs = {})
+    %result_4 : [num_users=1] = call_function[target=operator.add](args = (%result_3, %mul_14), kwargs = {})
+    %getitem_8 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 4), kwargs = {})
+    %shifts_4 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_1, %getitem_8), kwargs = {})
+    %arange_4 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_4 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_4, 1), kwargs = {})
+    %unsqueeze_13 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_4, 0), kwargs = {})
+    %sub_18 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_4, %unsqueeze_13), kwargs = {})
+    %idx_4 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_18, 4096), kwargs = {})
+    %shifted_4 : [num_users=1] = call_function[target=torch.gather](args = (%l_f_, 0, %idx_4), kwargs = {})
+    %getitem_9 : [num_users=1] = call_function[target=operator.getitem](args = (%W, 4), kwargs = {})
+    %unsqueeze_14 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_9, 0), kwargs = {})
+    %mul_15 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_4, %unsqueeze_14), kwargs = {})
+    %result_5 : [num_users=1] = call_function[target=operator.add](args = (%result_4, %mul_15), kwargs = {})
+    %getitem_10 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 5), kwargs = {})
+    %shifts_5 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_1, %getitem_10), kwargs = {})
+    %arange_5 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_5 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_5, 1), kwargs = {})
+    %unsqueeze_16 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_5, 0), kwargs = {})
+    %sub_19 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_5, %unsqueeze_16), kwargs = {})
+    %idx_5 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_19, 4096), kwargs = {})
+    %shifted_5 : [num_users=1] = call_function[target=torch.gather](args = (%l_f_, 0, %idx_5), kwargs = {})
+    %getitem_11 : [num_users=1] = call_function[target=operator.getitem](args = (%W, 5), kwargs = {})
+    %unsqueeze_17 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_11, 0), kwargs = {})
+    %mul_16 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_5, %unsqueeze_17), kwargs = {})
+    %result_6 : [num_users=8] = call_function[target=operator.add](args = (%result_5, %mul_16), kwargs = {})
+    %sum_1 : [num_users=1] = call_function[target=torch.sum](args = (%result_6,), kwargs = {dim: 1})
+    %n : [num_users=1] = call_function[target=operator.mul](args = (%sum_1, 0.002442002442002442), kwargs = {})
+    %rho : [num_users=2] = call_function[target=operator.sub](args = (%n, 1.0), kwargs = {})
+    %rho_k : [num_users=1] = call_function[target=torch._C._fft.fft_rfft](args = (%rho,), kwargs = {})
+    %rho_k_real : [num_users=3] = call_function[target=torch.view_as_real](args = (%rho_k,), kwargs = {})
+    %inv_kx_sq_2d : [num_users=1] = call_method[target=unsqueeze](args = (%l_grid_inv_kx_sq_, -1), kwargs = {})
+    %getitem_12 : [num_users=1] = call_function[target=operator.getitem](args = (%rho_k_real, (Ellipsis, 1)), kwargs = {})
+    %mul_18 : [num_users=1] = call_function[target=operator.mul](args = (%getitem_12, %l_grid_inv_kx_), kwargs = {})
+    %getitem_13 : [num_users=1] = call_function[target=operator.getitem](args = (%rho_k_real, (Ellipsis, 0)), kwargs = {})
+    %neg_2 : [num_users=1] = call_function[target=operator.neg](args = (%getitem_13,), kwargs = {})
+    %mul_19 : [num_users=1] = call_function[target=operator.mul](args = (%neg_2, %l_grid_inv_kx_), kwargs = {})
+    %E_k_real : [num_users=1] = call_function[target=torch.stack](args = ([%mul_18, %mul_19],), kwargs = {dim: -1})
+    %Phi_k_real : [num_users=1] = call_function[target=operator.mul](args = (%rho_k_real, %inv_kx_sq_2d), kwargs = {})
+    %E_k : [num_users=1] = call_function[target=torch.view_as_complex](args = (%E_k_real,), kwargs = {})
+    %Phi_k : [num_users=1] = call_function[target=torch.view_as_complex](args = (%Phi_k_real,), kwargs = {})
+    %E : [num_users=1] = call_function[target=torch._C._fft.fft_irfft](args = (%E_k,), kwargs = {n: 4096})
+    %phi : [num_users=1] = call_function[target=torch._C._fft.fft_irfft](args = (%Phi_k,), kwargs = {n: 4096})
+    %mul_21 : [num_users=1] = call_function[target=operator.mul](args = (%E, 0.05), kwargs = {})
+    %displacement_idx_1 : [num_users=2] = call_function[target=operator.truediv](args = (%mul_21, 0.002442002442002442), kwargs = {})
+    %idx_left_2 : [num_users=2] = call_function[target=torch.floor](args = (%displacement_idx_1,), kwargs = {})
+    %alpha_1 : [num_users=10] = call_function[target=operator.sub](args = (%displacement_idx_1, %idx_left_2), kwargs = {})
+    %idx_left_3 : [num_users=7] = call_method[target=to](args = (%idx_left_2, torch.int64), kwargs = {})
+    %result_7 : [num_users=1] = call_function[target=torch.zeros_like](args = (%result_6,), kwargs = {})
+    %a2_1 : [num_users=6] = call_function[target=operator.mul](args = (%alpha_1, %alpha_1), kwargs = {})
+    %a3_1 : [num_users=7] = call_function[target=operator.mul](args = (%a2_1, %alpha_1), kwargs = {})
+    %a4_1 : [num_users=6] = call_function[target=operator.mul](args = (%a3_1, %alpha_1), kwargs = {})
+    %a5_1 : [num_users=6] = call_function[target=operator.mul](args = (%a4_1, %alpha_1), kwargs = {})
+    %truediv_29 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_1, 20.0), kwargs = {})
+    %truediv_30 : [num_users=1] = call_function[target=operator.truediv](args = (%a2_1, 24.0), kwargs = {})
+    %sub_22 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_29, %truediv_30), kwargs = {})
+    %truediv_31 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_1, 24.0), kwargs = {})
+    %sub_23 : [num_users=1] = call_function[target=operator.sub](args = (%sub_22, %truediv_31), kwargs = {})
+    %truediv_32 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_1, 24.0), kwargs = {})
+    %add_22 : [num_users=1] = call_function[target=operator.add](args = (%sub_23, %truediv_32), kwargs = {})
+    %truediv_33 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 120.0), kwargs = {})
+    %w0_1 : [num_users=1] = call_function[target=operator.sub](args = (%add_22, %truediv_33), kwargs = {})
+    %truediv_34 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_1, 2.0), kwargs = {})
+    %neg_3 : [num_users=1] = call_function[target=operator.neg](args = (%truediv_34,), kwargs = {})
+    %mul_26 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2_1), kwargs = {})
+    %truediv_35 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_26, 3.0), kwargs = {})
+    %add_23 : [num_users=1] = call_function[target=operator.add](args = (%neg_3, %truediv_35), kwargs = {})
+    %truediv_36 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_1, 24.0), kwargs = {})
+    %sub_25 : [num_users=1] = call_function[target=operator.sub](args = (%add_23, %truediv_36), kwargs = {})
+    %truediv_37 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_1, 6.0), kwargs = {})
+    %sub_26 : [num_users=1] = call_function[target=operator.sub](args = (%sub_25, %truediv_37), kwargs = {})
+    %truediv_38 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 24.0), kwargs = {})
+    %w1_1 : [num_users=1] = call_function[target=operator.add](args = (%sub_26, %truediv_38), kwargs = {})
+    %truediv_39 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_1, 3.0), kwargs = {})
+    %sub_27 : [num_users=1] = call_function[target=operator.sub](args = (1.0, %truediv_39), kwargs = {})
+    %mul_27 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a2_1), kwargs = {})
+    %truediv_40 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_27, 4.0), kwargs = {})
+    %sub_28 : [num_users=1] = call_function[target=operator.sub](args = (%sub_27, %truediv_40), kwargs = {})
+    %mul_28 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a3_1), kwargs = {})
+    %truediv_41 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_28, 12.0), kwargs = {})
+    %add_25 : [num_users=1] = call_function[target=operator.add](args = (%sub_28, %truediv_41), kwargs = {})
+    %truediv_42 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_1, 4.0), kwargs = {})
+    %add_26 : [num_users=1] = call_function[target=operator.add](args = (%add_25, %truediv_42), kwargs = {})
+    %truediv_43 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 12.0), kwargs = {})
+    %w2_1 : [num_users=1] = call_function[target=operator.sub](args = (%add_26, %truediv_43), kwargs = {})
+    %mul_29 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2_1), kwargs = {})
+    %truediv_44 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_29, 3.0), kwargs = {})
+    %add_27 : [num_users=1] = call_function[target=operator.add](args = (%alpha_1, %truediv_44), kwargs = {})
+    %mul_30 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3_1), kwargs = {})
+    %truediv_45 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_30, 12.0), kwargs = {})
+    %sub_30 : [num_users=1] = call_function[target=operator.sub](args = (%add_27, %truediv_45), kwargs = {})
+    %truediv_46 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_1, 6.0), kwargs = {})
+    %sub_31 : [num_users=1] = call_function[target=operator.sub](args = (%sub_30, %truediv_46), kwargs = {})
+    %truediv_47 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 12.0), kwargs = {})
+    %w3_1 : [num_users=1] = call_function[target=operator.add](args = (%sub_31, %truediv_47), kwargs = {})
+    %truediv_48 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_1, 4.0), kwargs = {})
+    %neg_4 : [num_users=1] = call_function[target=operator.neg](args = (%truediv_48,), kwargs = {})
+    %truediv_49 : [num_users=1] = call_function[target=operator.truediv](args = (%a2_1, 24.0), kwargs = {})
+    %sub_32 : [num_users=1] = call_function[target=operator.sub](args = (%neg_4, %truediv_49), kwargs = {})
+    %mul_31 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3_1), kwargs = {})
+    %truediv_50 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_31, 24.0), kwargs = {})
+    %add_29 : [num_users=1] = call_function[target=operator.add](args = (%sub_32, %truediv_50), kwargs = {})
+    %truediv_51 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_1, 24.0), kwargs = {})
+    %add_30 : [num_users=1] = call_function[target=operator.add](args = (%add_29, %truediv_51), kwargs = {})
+    %truediv_52 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 24.0), kwargs = {})
+    %w4_1 : [num_users=1] = call_function[target=operator.sub](args = (%add_30, %truediv_52), kwargs = {})
+    %truediv_53 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_1, 30.0), kwargs = {})
+    %truediv_54 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_1, 24.0), kwargs = {})
+    %sub_34 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_53, %truediv_54), kwargs = {})
+    %truediv_55 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 120.0), kwargs = {})
+    %w5_1 : [num_users=1] = call_function[target=operator.add](args = (%sub_34, %truediv_55), kwargs = {})
+    %W_1 : [num_users=1] = call_function[target=torch.stack](args = ([%w0_1, %w1_1, %w2_1, %w3_1, %w4_1, %w5_1],), kwargs = {dim: 0})
+    %v : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %unsqueeze_19 : [num_users=1] = call_method[target=unsqueeze](args = (%l_stencil_offsets_, 1), kwargs = {})
+    %unsqueeze_20 : [num_users=1] = call_method[target=unsqueeze](args = (%idx_left_3, 0), kwargs = {})
+    %total_shifts : [num_users=1] = call_function[target=operator.add](args = (%unsqueeze_19, %unsqueeze_20), kwargs = {})
+    %view : [num_users=1] = call_method[target=view](args = (%v, 1, 1, -1), kwargs = {})
+    %unsqueeze_21 : [num_users=1] = call_method[target=unsqueeze](args = (%total_shifts, -1), kwargs = {})
+    %source_idx : [num_users=2] = call_function[target=operator.sub](args = (%view, %unsqueeze_21), kwargs = {})
+    %ge : [num_users=1] = call_function[target=operator.ge](args = (%source_idx, 0), kwargs = {})
+    %lt : [num_users=1] = call_function[target=operator.lt](args = (%source_idx, 4096), kwargs = {})
+    %valid : [num_users=1] = call_function[target=operator.and_](args = (%ge, %lt), kwargs = {})
+    %to_2 : [num_users=1] = call_method[target=to](args = (%valid, torch.float64), kwargs = {})
+    %unsqueeze_22 : [num_users=1] = call_method[target=unsqueeze](args = (%W_1, -1), kwargs = {})
+    %diag_weights : [num_users=6] = call_function[target=operator.mul](args = (%to_2, %unsqueeze_22), kwargs = {})
+    %getitem_14 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 0), kwargs = {})
+    %shifts_6 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_3, %getitem_14), kwargs = {})
+    %arange_7 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %col_idx : [num_users=1] = call_method[target=unsqueeze](args = (%arange_7, 0), kwargs = {})
+    %unsqueeze_24 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_6, 1), kwargs = {})
+    %sub_36 : [num_users=1] = call_function[target=operator.sub](args = (%col_idx, %unsqueeze_24), kwargs = {})
+    %idx_6 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_36, 4096), kwargs = {})
+    %shifted_6 : [num_users=1] = call_function[target=torch.gather](args = (%result_6, 1, %idx_6), kwargs = {})
+    %getitem_15 : [num_users=1] = call_function[target=operator.getitem](args = (%diag_weights, 0), kwargs = {})
+    %mul_33 : [num_users=1] = call_function[target=operator.mul](args = (%getitem_15, %shifted_6), kwargs = {})
+    %result_8 : [num_users=1] = call_function[target=operator.add](args = (%result_7, %mul_33), kwargs = {})
+    %getitem_16 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 1), kwargs = {})
+    %shifts_7 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_3, %getitem_16), kwargs = {})
+    %arange_8 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %col_idx_1 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_8, 0), kwargs = {})
+    %unsqueeze_26 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_7, 1), kwargs = {})
+    %sub_37 : [num_users=1] = call_function[target=operator.sub](args = (%col_idx_1, %unsqueeze_26), kwargs = {})
+    %idx_7 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_37, 4096), kwargs = {})
+    %shifted_7 : [num_users=1] = call_function[target=torch.gather](args = (%result_6, 1, %idx_7), kwargs = {})
+    %getitem_17 : [num_users=1] = call_function[target=operator.getitem](args = (%diag_weights, 1), kwargs = {})
+    %mul_34 : [num_users=1] = call_function[target=operator.mul](args = (%getitem_17, %shifted_7), kwargs = {})
+    %result_9 : [num_users=1] = call_function[target=operator.add](args = (%result_8, %mul_34), kwargs = {})
+    %getitem_18 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 2), kwargs = {})
+    %shifts_8 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_3, %getitem_18), kwargs = {})
+    %arange_9 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %col_idx_2 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_9, 0), kwargs = {})
+    %unsqueeze_28 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_8, 1), kwargs = {})
+    %sub_38 : [num_users=1] = call_function[target=operator.sub](args = (%col_idx_2, %unsqueeze_28), kwargs = {})
+    %idx_8 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_38, 4096), kwargs = {})
+    %shifted_8 : [num_users=1] = call_function[target=torch.gather](args = (%result_6, 1, %idx_8), kwargs = {})
+    %getitem_19 : [num_users=1] = call_function[target=operator.getitem](args = (%diag_weights, 2), kwargs = {})
+    %mul_35 : [num_users=1] = call_function[target=operator.mul](args = (%getitem_19, %shifted_8), kwargs = {})
+    %result_10 : [num_users=1] = call_function[target=operator.add](args = (%result_9, %mul_35), kwargs = {})
+    %getitem_20 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 3), kwargs = {})
+    %shifts_9 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_3, %getitem_20), kwargs = {})
+    %arange_10 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %col_idx_3 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_10, 0), kwargs = {})
+    %unsqueeze_30 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_9, 1), kwargs = {})
+    %sub_39 : [num_users=1] = call_function[target=operator.sub](args = (%col_idx_3, %unsqueeze_30), kwargs = {})
+    %idx_9 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_39, 4096), kwargs = {})
+    %shifted_9 : [num_users=1] = call_function[target=torch.gather](args = (%result_6, 1, %idx_9), kwargs = {})
+    %getitem_21 : [num_users=1] = call_function[target=operator.getitem](args = (%diag_weights, 3), kwargs = {})
+    %mul_36 : [num_users=1] = call_function[target=operator.mul](args = (%getitem_21, %shifted_9), kwargs = {})
+    %result_11 : [num_users=1] = call_function[target=operator.add](args = (%result_10, %mul_36), kwargs = {})
+    %getitem_22 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 4), kwargs = {})
+    %shifts_10 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_3, %getitem_22), kwargs = {})
+    %arange_11 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %col_idx_4 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_11, 0), kwargs = {})
+    %unsqueeze_32 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_10, 1), kwargs = {})
+    %sub_40 : [num_users=1] = call_function[target=operator.sub](args = (%col_idx_4, %unsqueeze_32), kwargs = {})
+    %idx_10 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_40, 4096), kwargs = {})
+    %shifted_10 : [num_users=1] = call_function[target=torch.gather](args = (%result_6, 1, %idx_10), kwargs = {})
+    %getitem_23 : [num_users=1] = call_function[target=operator.getitem](args = (%diag_weights, 4), kwargs = {})
+    %mul_37 : [num_users=1] = call_function[target=operator.mul](args = (%getitem_23, %shifted_10), kwargs = {})
+    %result_12 : [num_users=1] = call_function[target=operator.add](args = (%result_11, %mul_37), kwargs = {})
+    %getitem_24 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 5), kwargs = {})
+    %shifts_11 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_3, %getitem_24), kwargs = {})
+    %arange_12 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %col_idx_5 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_12, 0), kwargs = {})
+    %unsqueeze_34 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_11, 1), kwargs = {})
+    %sub_41 : [num_users=1] = call_function[target=operator.sub](args = (%col_idx_5, %unsqueeze_34), kwargs = {})
+    %idx_11 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_41, 4096), kwargs = {})
+    %shifted_11 : [num_users=1] = call_function[target=torch.gather](args = (%result_6, 1, %idx_11), kwargs = {})
+    %getitem_25 : [num_users=1] = call_function[target=operator.getitem](args = (%diag_weights, 5), kwargs = {})
+    %mul_38 : [num_users=1] = call_function[target=operator.mul](args = (%getitem_25, %shifted_11), kwargs = {})
+    %result_13 : [num_users=7] = call_function[target=operator.add](args = (%result_12, %mul_38), kwargs = {})
+    %mul_39 : [num_users=1] = call_function[target=operator.mul](args = (%l_grid_v_, 0.025), kwargs = {})
+    %displacement_idx_2 : [num_users=2] = call_function[target=operator.truediv](args = (%mul_39, 0.0030679615757712823), kwargs = {})
+    %idx_left_4 : [num_users=2] = call_function[target=torch.floor](args = (%displacement_idx_2,), kwargs = {})
+    %alpha_2 : [num_users=10] = call_function[target=operator.sub](args = (%displacement_idx_2, %idx_left_4), kwargs = {})
+    %idx_left_5 : [num_users=6] = call_method[target=to](args = (%idx_left_4, torch.int64), kwargs = {})
+    %result_14 : [num_users=1] = call_function[target=torch.zeros_like](args = (%result_13,), kwargs = {})
+    %a2_2 : [num_users=6] = call_function[target=operator.mul](args = (%alpha_2, %alpha_2), kwargs = {})
+    %a3_2 : [num_users=7] = call_function[target=operator.mul](args = (%a2_2, %alpha_2), kwargs = {})
+    %a4_2 : [num_users=6] = call_function[target=operator.mul](args = (%a3_2, %alpha_2), kwargs = {})
+    %a5_2 : [num_users=6] = call_function[target=operator.mul](args = (%a4_2, %alpha_2), kwargs = {})
+    %truediv_57 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_2, 20.0), kwargs = {})
+    %truediv_58 : [num_users=1] = call_function[target=operator.truediv](args = (%a2_2, 24.0), kwargs = {})
+    %sub_43 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_57, %truediv_58), kwargs = {})
+    %truediv_59 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_2, 24.0), kwargs = {})
+    %sub_44 : [num_users=1] = call_function[target=operator.sub](args = (%sub_43, %truediv_59), kwargs = {})
+    %truediv_60 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_2, 24.0), kwargs = {})
+    %add_45 : [num_users=1] = call_function[target=operator.add](args = (%sub_44, %truediv_60), kwargs = {})
+    %truediv_61 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 120.0), kwargs = {})
+    %w0_2 : [num_users=1] = call_function[target=operator.sub](args = (%add_45, %truediv_61), kwargs = {})
+    %truediv_62 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_2, 2.0), kwargs = {})
+    %neg_5 : [num_users=1] = call_function[target=operator.neg](args = (%truediv_62,), kwargs = {})
+    %mul_44 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2_2), kwargs = {})
+    %truediv_63 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_44, 3.0), kwargs = {})
+    %add_46 : [num_users=1] = call_function[target=operator.add](args = (%neg_5, %truediv_63), kwargs = {})
+    %truediv_64 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_2, 24.0), kwargs = {})
+    %sub_46 : [num_users=1] = call_function[target=operator.sub](args = (%add_46, %truediv_64), kwargs = {})
+    %truediv_65 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_2, 6.0), kwargs = {})
+    %sub_47 : [num_users=1] = call_function[target=operator.sub](args = (%sub_46, %truediv_65), kwargs = {})
+    %truediv_66 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 24.0), kwargs = {})
+    %w1_2 : [num_users=1] = call_function[target=operator.add](args = (%sub_47, %truediv_66), kwargs = {})
+    %truediv_67 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_2, 3.0), kwargs = {})
+    %sub_48 : [num_users=1] = call_function[target=operator.sub](args = (1.0, %truediv_67), kwargs = {})
+    %mul_45 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a2_2), kwargs = {})
+    %truediv_68 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_45, 4.0), kwargs = {})
+    %sub_49 : [num_users=1] = call_function[target=operator.sub](args = (%sub_48, %truediv_68), kwargs = {})
+    %mul_46 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a3_2), kwargs = {})
+    %truediv_69 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_46, 12.0), kwargs = {})
+    %add_48 : [num_users=1] = call_function[target=operator.add](args = (%sub_49, %truediv_69), kwargs = {})
+    %truediv_70 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_2, 4.0), kwargs = {})
+    %add_49 : [num_users=1] = call_function[target=operator.add](args = (%add_48, %truediv_70), kwargs = {})
+    %truediv_71 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 12.0), kwargs = {})
+    %w2_2 : [num_users=1] = call_function[target=operator.sub](args = (%add_49, %truediv_71), kwargs = {})
+    %mul_47 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2_2), kwargs = {})
+    %truediv_72 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_47, 3.0), kwargs = {})
+    %add_50 : [num_users=1] = call_function[target=operator.add](args = (%alpha_2, %truediv_72), kwargs = {})
+    %mul_48 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3_2), kwargs = {})
+    %truediv_73 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_48, 12.0), kwargs = {})
+    %sub_51 : [num_users=1] = call_function[target=operator.sub](args = (%add_50, %truediv_73), kwargs = {})
+    %truediv_74 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_2, 6.0), kwargs = {})
+    %sub_52 : [num_users=1] = call_function[target=operator.sub](args = (%sub_51, %truediv_74), kwargs = {})
+    %truediv_75 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 12.0), kwargs = {})
+    %w3_2 : [num_users=1] = call_function[target=operator.add](args = (%sub_52, %truediv_75), kwargs = {})
+    %truediv_76 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_2, 4.0), kwargs = {})
+    %neg_6 : [num_users=1] = call_function[target=operator.neg](args = (%truediv_76,), kwargs = {})
+    %truediv_77 : [num_users=1] = call_function[target=operator.truediv](args = (%a2_2, 24.0), kwargs = {})
+    %sub_53 : [num_users=1] = call_function[target=operator.sub](args = (%neg_6, %truediv_77), kwargs = {})
+    %mul_49 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3_2), kwargs = {})
+    %truediv_78 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_49, 24.0), kwargs = {})
+    %add_52 : [num_users=1] = call_function[target=operator.add](args = (%sub_53, %truediv_78), kwargs = {})
+    %truediv_79 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_2, 24.0), kwargs = {})
+    %add_53 : [num_users=1] = call_function[target=operator.add](args = (%add_52, %truediv_79), kwargs = {})
+    %truediv_80 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 24.0), kwargs = {})
+    %w4_2 : [num_users=1] = call_function[target=operator.sub](args = (%add_53, %truediv_80), kwargs = {})
+    %truediv_81 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_2, 30.0), kwargs = {})
+    %truediv_82 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_2, 24.0), kwargs = {})
+    %sub_55 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_81, %truediv_82), kwargs = {})
+    %truediv_83 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 120.0), kwargs = {})
+    %w5_2 : [num_users=1] = call_function[target=operator.add](args = (%sub_55, %truediv_83), kwargs = {})
+    %W_2 : [num_users=6] = call_function[target=torch.stack](args = ([%w0_2, %w1_2, %w2_2, %w3_2, %w4_2, %w5_2],), kwargs = {dim: 0})
+    %getitem_26 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 0), kwargs = {})
+    %shifts_12 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_5, %getitem_26), kwargs = {})
+    %arange_13 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_6 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_13, 1), kwargs = {})
+    %unsqueeze_36 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_12, 0), kwargs = {})
+    %sub_56 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_6, %unsqueeze_36), kwargs = {})
+    %idx_12 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_56, 4096), kwargs = {})
+    %shifted_12 : [num_users=1] = call_function[target=torch.gather](args = (%result_13, 0, %idx_12), kwargs = {})
+    %getitem_27 : [num_users=1] = call_function[target=operator.getitem](args = (%W_2, 0), kwargs = {})
+    %unsqueeze_37 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_27, 0), kwargs = {})
+    %mul_50 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_12, %unsqueeze_37), kwargs = {})
+    %result_15 : [num_users=1] = call_function[target=operator.add](args = (%result_14, %mul_50), kwargs = {})
+    %getitem_28 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 1), kwargs = {})
+    %shifts_13 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_5, %getitem_28), kwargs = {})
+    %arange_14 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_7 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_14, 1), kwargs = {})
+    %unsqueeze_39 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_13, 0), kwargs = {})
+    %sub_57 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_7, %unsqueeze_39), kwargs = {})
+    %idx_13 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_57, 4096), kwargs = {})
+    %shifted_13 : [num_users=1] = call_function[target=torch.gather](args = (%result_13, 0, %idx_13), kwargs = {})
+    %getitem_29 : [num_users=1] = call_function[target=operator.getitem](args = (%W_2, 1), kwargs = {})
+    %unsqueeze_40 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_29, 0), kwargs = {})
+    %mul_51 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_13, %unsqueeze_40), kwargs = {})
+    %result_16 : [num_users=1] = call_function[target=operator.add](args = (%result_15, %mul_51), kwargs = {})
+    %getitem_30 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 2), kwargs = {})
+    %shifts_14 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_5, %getitem_30), kwargs = {})
+    %arange_15 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_8 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_15, 1), kwargs = {})
+    %unsqueeze_42 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_14, 0), kwargs = {})
+    %sub_58 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_8, %unsqueeze_42), kwargs = {})
+    %idx_14 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_58, 4096), kwargs = {})
+    %shifted_14 : [num_users=1] = call_function[target=torch.gather](args = (%result_13, 0, %idx_14), kwargs = {})
+    %getitem_31 : [num_users=1] = call_function[target=operator.getitem](args = (%W_2, 2), kwargs = {})
+    %unsqueeze_43 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_31, 0), kwargs = {})
+    %mul_52 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_14, %unsqueeze_43), kwargs = {})
+    %result_17 : [num_users=1] = call_function[target=operator.add](args = (%result_16, %mul_52), kwargs = {})
+    %getitem_32 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 3), kwargs = {})
+    %shifts_15 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_5, %getitem_32), kwargs = {})
+    %arange_16 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_9 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_16, 1), kwargs = {})
+    %unsqueeze_45 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_15, 0), kwargs = {})
+    %sub_59 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_9, %unsqueeze_45), kwargs = {})
+    %idx_15 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_59, 4096), kwargs = {})
+    %shifted_15 : [num_users=1] = call_function[target=torch.gather](args = (%result_13, 0, %idx_15), kwargs = {})
+    %getitem_33 : [num_users=1] = call_function[target=operator.getitem](args = (%W_2, 3), kwargs = {})
+    %unsqueeze_46 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_33, 0), kwargs = {})
+    %mul_53 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_15, %unsqueeze_46), kwargs = {})
+    %result_18 : [num_users=1] = call_function[target=operator.add](args = (%result_17, %mul_53), kwargs = {})
+    %getitem_34 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 4), kwargs = {})
+    %shifts_16 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_5, %getitem_34), kwargs = {})
+    %arange_17 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_10 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_17, 1), kwargs = {})
+    %unsqueeze_48 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_16, 0), kwargs = {})
+    %sub_60 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_10, %unsqueeze_48), kwargs = {})
+    %idx_16 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_60, 4096), kwargs = {})
+    %shifted_16 : [num_users=1] = call_function[target=torch.gather](args = (%result_13, 0, %idx_16), kwargs = {})
+    %getitem_35 : [num_users=1] = call_function[target=operator.getitem](args = (%W_2, 4), kwargs = {})
+    %unsqueeze_49 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_35, 0), kwargs = {})
+    %mul_54 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_16, %unsqueeze_49), kwargs = {})
+    %result_19 : [num_users=1] = call_function[target=operator.add](args = (%result_18, %mul_54), kwargs = {})
+    %getitem_36 : [num_users=1] = call_function[target=operator.getitem](args = (%l_stencil_offsets_, 5), kwargs = {})
+    %shifts_17 : [num_users=1] = call_function[target=operator.add](args = (%idx_left_5, %getitem_36), kwargs = {})
+    %arange_18 : [num_users=1] = call_function[target=torch.arange](args = (4096,), kwargs = {device: cuda:0})
+    %row_idx_11 : [num_users=1] = call_method[target=unsqueeze](args = (%arange_18, 1), kwargs = {})
+    %unsqueeze_51 : [num_users=1] = call_method[target=unsqueeze](args = (%shifts_17, 0), kwargs = {})
+    %sub_61 : [num_users=1] = call_function[target=operator.sub](args = (%row_idx_11, %unsqueeze_51), kwargs = {})
+    %idx_17 : [num_users=1] = call_function[target=torch.remainder](args = (%sub_61, 4096), kwargs = {})
+    %shifted_17 : [num_users=1] = call_function[target=torch.gather](args = (%result_13, 0, %idx_17), kwargs = {})
+    %getitem_37 : [num_users=1] = call_function[target=operator.getitem](args = (%W_2, 5), kwargs = {})
+    %unsqueeze_52 : [num_users=1] = call_method[target=unsqueeze](args = (%getitem_37, 0), kwargs = {})
+    %mul_55 : [num_users=1] = call_function[target=operator.mul](args = (%shifted_17, %unsqueeze_52), kwargs = {})
+    %result_20 : [num_users=1] = call_function[target=operator.add](args = (%result_19, %mul_55), kwargs = {})
+    return (result_20, rho, phi)

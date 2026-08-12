@@ -1,0 +1,134 @@
+let remainder = { [34;1mlambda [39;22m; a[35m:i32[32][39m b[35m:i32[][39m. [34;1mlet
+    [39;22mc[35m:i32[][39m = convert_element_type[new_dtype=int32 weak_type=False] b
+    d[35m:bool[][39m = eq c 0:i32[]
+    e[35m:i32[][39m = jit[
+      name=_where
+      jaxpr={ [34;1mlambda [39;22m; d[35m:bool[][39m f[35m:i32[][39m c[35m:i32[][39m. [34;1mlet
+          [39;22me[35m:i32[][39m = select_n d c f
+        [34;1min [39;22m(e,) }
+    ] d 1:i32[] c
+    g[35m:i32[32][39m = rem a e
+    h[35m:bool[32][39m = ne g 0:i32[]
+    i[35m:bool[32][39m = lt g 0:i32[]
+    j[35m:bool[][39m = lt e 0:i32[]
+    k[35m:bool[32][39m = ne i j
+    l[35m:bool[32][39m = and k h
+    m[35m:i32[32][39m = add g e
+    n[35m:i32[32][39m = select_n l g m
+  [34;1min [39;22m(n,) } in
+let _take = { [34;1mlambda [39;22m; o[35m:f32[32,32,32][39m p[35m:i32[32][39m. [34;1mlet
+    [39;22mq[35m:bool[32][39m = lt p 0:i32[]
+    r[35m:i32[32][39m = add p 32:i32[]
+    s[35m:i32[32][39m = jit[
+      name=_where
+      jaxpr={ [34;1mlambda [39;22m; q[35m:bool[32][39m r[35m:i32[32][39m p[35m:i32[32][39m. [34;1mlet
+          [39;22ms[35m:i32[32][39m = select_n q p r
+        [34;1min [39;22m(s,) }
+    ] q r p
+    t[35m:i32[32,1][39m = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(32, 1)
+      sharding=None
+    ] s
+    u[35m:f32[32,32,32][39m = gather[
+      dimension_numbers=GatherDimensionNumbers(offset_dims=(1, 2), collapsed_slice_dims=(0,), start_index_map=(0,), operand_batching_dims=(), start_indices_batching_dims=())
+      fill_value=nan
+      indices_are_sorted=False
+      mode=GatherScatterMode.FILL_OR_DROP
+      slice_sizes=(1, 32, 32)
+      unique_indices=False
+    ] o t
+  [34;1min [39;22m(u,) } in
+let _take1 = { [34;1mlambda [39;22m; v[35m:f32[32,32,32][39m w[35m:i32[32][39m. [34;1mlet
+    [39;22mx[35m:bool[32][39m = lt w 0:i32[]
+    y[35m:i32[32][39m = add w 32:i32[]
+    z[35m:i32[32][39m = jit[
+      name=_where
+      jaxpr={ [34;1mlambda [39;22m; q[35m:bool[32][39m r[35m:i32[32][39m p[35m:i32[32][39m. [34;1mlet
+          [39;22ms[35m:i32[32][39m = select_n q p r
+        [34;1min [39;22m(s,) }
+    ] x y w
+    ba[35m:i32[32,1][39m = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(32, 1)
+      sharding=None
+    ] z
+    bb[35m:f32[32,32,32][39m = gather[
+      dimension_numbers=GatherDimensionNumbers(offset_dims=(0, 2), collapsed_slice_dims=(1,), start_index_map=(1,), operand_batching_dims=(), start_indices_batching_dims=())
+      fill_value=nan
+      indices_are_sorted=False
+      mode=GatherScatterMode.FILL_OR_DROP
+      slice_sizes=(32, 1, 32)
+      unique_indices=False
+    ] v ba
+  [34;1min [39;22m(bb,) } in
+let _take2 = { [34;1mlambda [39;22m; bc[35m:f32[32,32,32][39m bd[35m:i32[32][39m. [34;1mlet
+    [39;22mbe[35m:bool[32][39m = lt bd 0:i32[]
+    bf[35m:i32[32][39m = add bd 32:i32[]
+    bg[35m:i32[32][39m = jit[
+      name=_where
+      jaxpr={ [34;1mlambda [39;22m; q[35m:bool[32][39m r[35m:i32[32][39m p[35m:i32[32][39m. [34;1mlet
+          [39;22ms[35m:i32[32][39m = select_n q p r
+        [34;1min [39;22m(s,) }
+    ] be bf bd
+    bh[35m:i32[32,1][39m = broadcast_in_dim[
+      broadcast_dimensions=(0,)
+      shape=(32, 1)
+      sharding=None
+    ] bg
+    bi[35m:f32[32,32,32][39m = gather[
+      dimension_numbers=GatherDimensionNumbers(offset_dims=(0, 1), collapsed_slice_dims=(2,), start_index_map=(2,), operand_batching_dims=(), start_indices_batching_dims=())
+      fill_value=nan
+      indices_are_sorted=False
+      mode=GatherScatterMode.FILL_OR_DROP
+      slice_sizes=(32, 32, 1)
+      unique_indices=False
+    ] bc bh
+  [34;1min [39;22m(bi,) } in
+let _where = { [34;1mlambda [39;22m; d[35m:bool[][39m f[35m:i32[][39m c[35m:i32[][39m. [34;1mlet
+    [39;22me[35m:i32[][39m = select_n d c f
+  [34;1min [39;22m(e,) } in
+let _where1 = { [34;1mlambda [39;22m; q[35m:bool[32][39m r[35m:i32[32][39m p[35m:i32[32][39m. [34;1mlet
+    [39;22ms[35m:i32[32][39m = select_n q p r
+  [34;1min [39;22m(s,) } in
+{ [34;1mlambda [39;22m; bj[35m:f32[32,32,32][39m bk[35m:f32[][39m. [34;1mlet
+    [39;22mbl[35m:f32[32,32,32][39m = jit[
+      name=heat_step
+      jaxpr={ [34;1mlambda [39;22m; bj[35m:f32[32,32,32][39m bk[35m:f32[][39m. [34;1mlet
+          [39;22mbm[35m:i32[32][39m = iota[dimension=0 dtype=int32 shape=(32,) sharding=None] 
+          bn[35m:i32[32][39m = add bm 1:i32[]
+          bo[35m:i32[32][39m = jit[name=remainder jaxpr=remainder] bn 32:i32[]
+          bp[35m:f32[32,32,32][39m = jit[name=_take jaxpr=_take] bj bo
+          bq[35m:i32[32][39m = iota[dimension=0 dtype=int32 shape=(32,) sharding=None] 
+          br[35m:i32[32][39m = sub bq 1:i32[]
+          bs[35m:i32[32][39m = jit[name=remainder jaxpr=remainder] br 32:i32[]
+          bt[35m:f32[32,32,32][39m = jit[name=_take jaxpr=_take] bj bs
+          bu[35m:i32[32][39m = iota[dimension=0 dtype=int32 shape=(32,) sharding=None] 
+          bv[35m:i32[32][39m = add bu 1:i32[]
+          bw[35m:i32[32][39m = jit[name=remainder jaxpr=remainder] bv 32:i32[]
+          bx[35m:f32[32,32,32][39m = jit[name=_take jaxpr=_take1] bj bw
+          by[35m:i32[32][39m = iota[dimension=0 dtype=int32 shape=(32,) sharding=None] 
+          bz[35m:i32[32][39m = sub by 1:i32[]
+          ca[35m:i32[32][39m = jit[name=remainder jaxpr=remainder] bz 32:i32[]
+          cb[35m:f32[32,32,32][39m = jit[name=_take jaxpr=_take1] bj ca
+          cc[35m:i32[32][39m = iota[dimension=0 dtype=int32 shape=(32,) sharding=None] 
+          cd[35m:i32[32][39m = add cc 1:i32[]
+          ce[35m:i32[32][39m = jit[name=remainder jaxpr=remainder] cd 32:i32[]
+          cf[35m:f32[32,32,32][39m = jit[name=_take jaxpr=_take2] bj ce
+          cg[35m:i32[32][39m = iota[dimension=0 dtype=int32 shape=(32,) sharding=None] 
+          ch[35m:i32[32][39m = sub cg 1:i32[]
+          ci[35m:i32[32][39m = jit[name=remainder jaxpr=remainder] ch 32:i32[]
+          cj[35m:f32[32,32,32][39m = jit[name=_take jaxpr=_take2] bj ci
+          ck[35m:f32[32,32,32][39m = add bp bt
+          cl[35m:f32[32,32,32][39m = add ck bx
+          cm[35m:f32[32,32,32][39m = add cl cb
+          cn[35m:f32[32,32,32][39m = add cm cf
+          co[35m:f32[32,32,32][39m = add cn cj
+          cp[35m:f32[32,32,32][39m = mul 6.0:f32[] bj
+          cq[35m:f32[32,32,32][39m = sub co cp
+          cr[35m:f32[][39m = convert_element_type[new_dtype=float32 weak_type=False] bk
+          cs[35m:f32[32,32,32][39m = mul cr cq
+          bl[35m:f32[32,32,32][39m = add bj cs
+        [34;1min [39;22m(bl,) }
+    ] bj bk
+  [34;1min [39;22m(bl,) }

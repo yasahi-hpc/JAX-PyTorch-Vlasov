@@ -1,0 +1,878 @@
+# ===== Dynamo FX graph 0 (readable) =====
+class GraphModule(torch.nn.Module):
+    def forward(self, L_f_: "f32[4096, 4096]", L_grid_v_: "f32[4096]", L_x_indices_: "f32[4096]", L_stencil_offsets_: "i64[6]", L_x_batch_offsets_: "i64[4096, 1, 1]", L_grid_inv_kx_sq_: "f32[2049]", L_grid_inv_kx_: "f32[2049]", L_v_indices_: "f32[4096]", L_v_batch_offsets_: "i64[4096, 1, 1]"):
+        l_f_ = L_f_
+        l_grid_v_ = L_grid_v_
+        l_x_indices_ = L_x_indices_
+        l_stencil_offsets_ = L_stencil_offsets_
+        l_x_batch_offsets_ = L_x_batch_offsets_
+        l_grid_inv_kx_sq_ = L_grid_inv_kx_sq_
+        l_grid_inv_kx_ = L_grid_inv_kx_
+        l_v_indices_ = L_v_indices_
+        l_v_batch_offsets_ = L_v_batch_offsets_
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:604 in vlasov_step, code: f.T, grid_v, dt / 2.0, x_indices, x_batch_offsets, stencil_offsets, grid_dx, periodic=True
+        getattr_1: "f32[4096, 4096]" = l_f_.T;  l_f_ = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:232 in advect_1d_vectorized, code: velocities = velocities.unsqueeze(1)
+        velocities: "f32[4096, 1]" = l_grid_v_.unsqueeze(1)
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:234 in advect_1d_vectorized, code: displacement_idx = (velocities * dt) / dx
+        mul: "f32[4096, 1]" = velocities * 0.025;  velocities = None
+        displacement_idx: "f32[4096, 1]" = mul / 0.0030679615757712823;  mul = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:235 in advect_1d_vectorized, code: depart_idx = point_indices.unsqueeze(0) - displacement_idx
+        unsqueeze_1: "f32[1, 4096]" = l_x_indices_.unsqueeze(0)
+        depart_idx: "f32[4096, 4096]" = unsqueeze_1 - displacement_idx;  unsqueeze_1 = displacement_idx = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:238 in advect_1d_vectorized, code: idx_left = torch.floor(depart_idx)
+        idx_left: "f32[4096, 4096]" = torch.floor(depart_idx)
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:239 in advect_1d_vectorized, code: alpha = depart_idx - idx_left # Fractional part [0, 1)
+        alpha: "f32[4096, 4096]" = depart_idx - idx_left;  depart_idx = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:240 in advect_1d_vectorized, code: idx_left = idx_left.to(torch.long)
+        idx_left_1: "i64[4096, 4096]" = idx_left.to(torch.int64);  idx_left = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:244 in advect_1d_vectorized, code: stencil_indices = idx_left.unsqueeze(-1) + stencil_offsets
+        unsqueeze_2: "i64[4096, 4096, 1]" = idx_left_1.unsqueeze(-1);  idx_left_1 = None
+        stencil_indices: "i64[4096, 4096, 6]" = unsqueeze_2 + l_stencil_offsets_;  unsqueeze_2 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:246 in advect_1d_vectorized, code: f_batch = f_batch.reshape(-1)
+        f_batch: "f32[16777216]" = getattr_1.reshape(-1);  getattr_1 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:249 in advect_1d_vectorized, code: safe_indices = torch.remainder(stencil_indices, n_points)
+        safe_indices: "i64[4096, 4096, 6]" = torch.remainder(stencil_indices, 4096);  stencil_indices = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:250 in advect_1d_vectorized, code: gather_idx = (batch_offsets + safe_indices).reshape(-1)
+        add_1: "i64[4096, 4096, 6]" = l_x_batch_offsets_ + safe_indices;  safe_indices = None
+        gather_idx: "i64[100663296]" = add_1.reshape(-1);  add_1 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:251 in advect_1d_vectorized, code: f_vals = f_batch[gather_idx].reshape(batch_size, n_points, 6)
+        getitem: "f32[100663296]" = f_batch[gather_idx];  f_batch = gather_idx = None
+        f_vals: "f32[4096, 4096, 6]" = getitem.reshape(4096, 4096, 6);  getitem = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:174 in lagrange5_interp_sum, code: a2 = a * a
+        a2: "f32[4096, 4096]" = alpha * alpha
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:175 in lagrange5_interp_sum, code: a3 = a2 * a
+        a3: "f32[4096, 4096]" = a2 * alpha
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:176 in lagrange5_interp_sum, code: a4 = a3 * a
+        a4: "f32[4096, 4096]" = a3 * alpha
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:177 in lagrange5_interp_sum, code: a5 = a4 * a
+        a5: "f32[4096, 4096]" = a4 * alpha
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:179 in lagrange5_interp_sum, code: w0 = (a / 20.0) - (a2 / 24.0) - (a3 / 24.0) + (a4 / 24.0) - (a5 / 120.0)
+        truediv_1: "f32[4096, 4096]" = alpha / 20.0
+        truediv_2: "f32[4096, 4096]" = a2 / 24.0
+        sub_2: "f32[4096, 4096]" = truediv_1 - truediv_2;  truediv_1 = truediv_2 = None
+        truediv_3: "f32[4096, 4096]" = a3 / 24.0
+        sub_3: "f32[4096, 4096]" = sub_2 - truediv_3;  sub_2 = truediv_3 = None
+        truediv_4: "f32[4096, 4096]" = a4 / 24.0
+        add_2: "f32[4096, 4096]" = sub_3 + truediv_4;  sub_3 = truediv_4 = None
+        truediv_5: "f32[4096, 4096]" = a5 / 120.0
+        w0: "f32[4096, 4096]" = add_2 - truediv_5;  add_2 = truediv_5 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:180 in lagrange5_interp_sum, code: w1 = -(a / 2.0) + (2.0 * a2 / 3.0) - (a3 / 24.0) - (a4 / 6.0) + (a5 / 24.0)
+        truediv_6: "f32[4096, 4096]" = alpha / 2.0
+        neg: "f32[4096, 4096]" = -truediv_6;  truediv_6 = None
+        mul_5: "f32[4096, 4096]" = 2.0 * a2
+        truediv_7: "f32[4096, 4096]" = mul_5 / 3.0;  mul_5 = None
+        add_3: "f32[4096, 4096]" = neg + truediv_7;  neg = truediv_7 = None
+        truediv_8: "f32[4096, 4096]" = a3 / 24.0
+        sub_5: "f32[4096, 4096]" = add_3 - truediv_8;  add_3 = truediv_8 = None
+        truediv_9: "f32[4096, 4096]" = a4 / 6.0
+        sub_6: "f32[4096, 4096]" = sub_5 - truediv_9;  sub_5 = truediv_9 = None
+        truediv_10: "f32[4096, 4096]" = a5 / 24.0
+        w1: "f32[4096, 4096]" = sub_6 + truediv_10;  sub_6 = truediv_10 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:181 in lagrange5_interp_sum, code: w2 = 1.0 - (a / 3.0) - (5.0 * a2 / 4.0) + (5.0 * a3 / 12.0) + (a4 / 4.0) - (a5 / 12.0)
+        truediv_11: "f32[4096, 4096]" = alpha / 3.0
+        sub_7: "f32[4096, 4096]" = 1.0 - truediv_11;  truediv_11 = None
+        mul_6: "f32[4096, 4096]" = 5.0 * a2
+        truediv_12: "f32[4096, 4096]" = mul_6 / 4.0;  mul_6 = None
+        sub_8: "f32[4096, 4096]" = sub_7 - truediv_12;  sub_7 = truediv_12 = None
+        mul_7: "f32[4096, 4096]" = 5.0 * a3
+        truediv_13: "f32[4096, 4096]" = mul_7 / 12.0;  mul_7 = None
+        add_5: "f32[4096, 4096]" = sub_8 + truediv_13;  sub_8 = truediv_13 = None
+        truediv_14: "f32[4096, 4096]" = a4 / 4.0
+        add_6: "f32[4096, 4096]" = add_5 + truediv_14;  add_5 = truediv_14 = None
+        truediv_15: "f32[4096, 4096]" = a5 / 12.0
+        w2: "f32[4096, 4096]" = add_6 - truediv_15;  add_6 = truediv_15 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:182 in lagrange5_interp_sum, code: w3 = a + (2.0 * a2 / 3.0) - (7.0 * a3 / 12.0) - (a4 / 6.0) + (a5 / 12.0)
+        mul_8: "f32[4096, 4096]" = 2.0 * a2
+        truediv_16: "f32[4096, 4096]" = mul_8 / 3.0;  mul_8 = None
+        add_7: "f32[4096, 4096]" = alpha + truediv_16;  truediv_16 = None
+        mul_9: "f32[4096, 4096]" = 7.0 * a3
+        truediv_17: "f32[4096, 4096]" = mul_9 / 12.0;  mul_9 = None
+        sub_10: "f32[4096, 4096]" = add_7 - truediv_17;  add_7 = truediv_17 = None
+        truediv_18: "f32[4096, 4096]" = a4 / 6.0
+        sub_11: "f32[4096, 4096]" = sub_10 - truediv_18;  sub_10 = truediv_18 = None
+        truediv_19: "f32[4096, 4096]" = a5 / 12.0
+        w3: "f32[4096, 4096]" = sub_11 + truediv_19;  sub_11 = truediv_19 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:183 in lagrange5_interp_sum, code: w4 = -(a / 4.0) - (a2 / 24.0) + (7.0 * a3 / 24.0) + (a4 / 24.0) - (a5 / 24.0)
+        truediv_20: "f32[4096, 4096]" = alpha / 4.0
+        neg_1: "f32[4096, 4096]" = -truediv_20;  truediv_20 = None
+        truediv_21: "f32[4096, 4096]" = a2 / 24.0;  a2 = None
+        sub_12: "f32[4096, 4096]" = neg_1 - truediv_21;  neg_1 = truediv_21 = None
+        mul_10: "f32[4096, 4096]" = 7.0 * a3
+        truediv_22: "f32[4096, 4096]" = mul_10 / 24.0;  mul_10 = None
+        add_9: "f32[4096, 4096]" = sub_12 + truediv_22;  sub_12 = truediv_22 = None
+        truediv_23: "f32[4096, 4096]" = a4 / 24.0;  a4 = None
+        add_10: "f32[4096, 4096]" = add_9 + truediv_23;  add_9 = truediv_23 = None
+        truediv_24: "f32[4096, 4096]" = a5 / 24.0
+        w4: "f32[4096, 4096]" = add_10 - truediv_24;  add_10 = truediv_24 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:184 in lagrange5_interp_sum, code: w5 = (a / 30.0) - (a3 / 24.0) + (a5 / 120.0)
+        truediv_25: "f32[4096, 4096]" = alpha / 30.0;  alpha = None
+        truediv_26: "f32[4096, 4096]" = a3 / 24.0;  a3 = None
+        sub_14: "f32[4096, 4096]" = truediv_25 - truediv_26;  truediv_25 = truediv_26 = None
+        truediv_27: "f32[4096, 4096]" = a5 / 120.0;  a5 = None
+        w5: "f32[4096, 4096]" = sub_14 + truediv_27;  sub_14 = truediv_27 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        getitem_1: "f32[4096, 4096]" = f_vals[(Ellipsis, 0)]
+        mul_11: "f32[4096, 4096]" = w0 * getitem_1;  w0 = getitem_1 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:188 in lagrange5_interp_sum, code: + w1 * gather_vals[..., 1]
+        getitem_2: "f32[4096, 4096]" = f_vals[(Ellipsis, 1)]
+        mul_12: "f32[4096, 4096]" = w1 * getitem_2;  w1 = getitem_2 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_12: "f32[4096, 4096]" = mul_11 + mul_12;  mul_11 = mul_12 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:189 in lagrange5_interp_sum, code: + w2 * gather_vals[..., 2]
+        getitem_3: "f32[4096, 4096]" = f_vals[(Ellipsis, 2)]
+        mul_13: "f32[4096, 4096]" = w2 * getitem_3;  w2 = getitem_3 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_13: "f32[4096, 4096]" = add_12 + mul_13;  add_12 = mul_13 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:190 in lagrange5_interp_sum, code: + w3 * gather_vals[..., 3]
+        getitem_4: "f32[4096, 4096]" = f_vals[(Ellipsis, 3)]
+        mul_14: "f32[4096, 4096]" = w3 * getitem_4;  w3 = getitem_4 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_14: "f32[4096, 4096]" = add_13 + mul_14;  add_13 = mul_14 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:191 in lagrange5_interp_sum, code: + w4 * gather_vals[..., 4]
+        getitem_5: "f32[4096, 4096]" = f_vals[(Ellipsis, 4)]
+        mul_15: "f32[4096, 4096]" = w4 * getitem_5;  w4 = getitem_5 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_15: "f32[4096, 4096]" = add_14 + mul_15;  add_14 = mul_15 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:192 in lagrange5_interp_sum, code: + w5 * gather_vals[..., 5]
+        getitem_6: "f32[4096, 4096]" = f_vals[(Ellipsis, 5)];  f_vals = None
+        mul_16: "f32[4096, 4096]" = w5 * getitem_6;  w5 = getitem_6 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        f_new: "f32[4096, 4096]" = add_15 + mul_16;  add_15 = mul_16 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:605 in vlasov_step, code: ).T
+        f: "f32[4096, 4096]" = f_new.T;  f_new = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:549 in solve_poisson_real, code: n = torch.sum(f, dim=1) * dv
+        sum_1: "f32[4096]" = torch.sum(f, dim = 1)
+        n: "f32[4096]" = sum_1 * 0.002442002442002442;  sum_1 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:550 in solve_poisson_real, code: rho = n - 1.0 # Background ion density
+        rho: "f32[4096]" = n - 1.0;  n = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:553 in solve_poisson_real, code: rho_k = torch.fft.rfft(rho)
+        rho_k: "c64[2049]" = torch._C._fft.fft_rfft(rho)
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:558 in solve_poisson_real, code: rho_k_real = torch.view_as_real(rho_k)              # [N/2+1, 2]
+        rho_k_real: "f32[2049, 2]" = torch.view_as_real(rho_k);  rho_k = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:559 in solve_poisson_real, code: inv_kx_sq_2d = inv_kx_sq.unsqueeze(-1)              # [N/2+1, 1]
+        inv_kx_sq_2d: "f32[2049, 1]" = l_grid_inv_kx_sq_.unsqueeze(-1);  l_grid_inv_kx_sq_ = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:563 in solve_poisson_real, code: rho_k_real[..., 1] * inv_kx,   #  imag(rho_k) * inv_kx
+        getitem_7: "f32[2049]" = rho_k_real[(Ellipsis, 1)]
+        mul_18: "f32[2049]" = getitem_7 * l_grid_inv_kx_;  getitem_7 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:564 in solve_poisson_real, code: -rho_k_real[..., 0] * inv_kx,   # -real(rho_k) * inv_kx
+        getitem_8: "f32[2049]" = rho_k_real[(Ellipsis, 0)]
+        neg_2: "f32[2049]" = -getitem_8;  getitem_8 = None
+        mul_19: "f32[2049]" = neg_2 * l_grid_inv_kx_;  neg_2 = l_grid_inv_kx_ = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:562 in solve_poisson_real, code: E_k_real = torch.stack([
+        E_k_real: "f32[2049, 2]" = torch.stack([mul_18, mul_19], dim = -1);  mul_18 = mul_19 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:567 in solve_poisson_real, code: Phi_k_real = rho_k_real * inv_kx_sq_2d
+        Phi_k_real: "f32[2049, 2]" = rho_k_real * inv_kx_sq_2d;  rho_k_real = inv_kx_sq_2d = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:569 in solve_poisson_real, code: E_k = torch.view_as_complex(E_k_real)
+        E_k: "c64[2049]" = torch.view_as_complex(E_k_real);  E_k_real = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:570 in solve_poisson_real, code: Phi_k = torch.view_as_complex(Phi_k_real)
+        Phi_k: "c64[2049]" = torch.view_as_complex(Phi_k_real);  Phi_k_real = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:573 in solve_poisson_real, code: E = torch.fft.irfft(E_k, n=rho.shape[0])
+        E: "f32[4096]" = torch._C._fft.fft_irfft(E_k, n = 4096);  E_k = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:574 in solve_poisson_real, code: phi = torch.fft.irfft(Phi_k, n=rho.shape[0])
+        phi: "f32[4096]" = torch._C._fft.fft_irfft(Phi_k, n = 4096);  Phi_k = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:232 in advect_1d_vectorized, code: velocities = velocities.unsqueeze(1)
+        velocities_1: "f32[4096, 1]" = E.unsqueeze(1);  E = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:234 in advect_1d_vectorized, code: displacement_idx = (velocities * dt) / dx
+        mul_21: "f32[4096, 1]" = velocities_1 * 0.05;  velocities_1 = None
+        displacement_idx_1: "f32[4096, 1]" = mul_21 / 0.002442002442002442;  mul_21 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:235 in advect_1d_vectorized, code: depart_idx = point_indices.unsqueeze(0) - displacement_idx
+        unsqueeze_5: "f32[1, 4096]" = l_v_indices_.unsqueeze(0);  l_v_indices_ = None
+        depart_idx_1: "f32[4096, 4096]" = unsqueeze_5 - displacement_idx_1;  unsqueeze_5 = displacement_idx_1 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:238 in advect_1d_vectorized, code: idx_left = torch.floor(depart_idx)
+        idx_left_2: "f32[4096, 4096]" = torch.floor(depart_idx_1)
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:239 in advect_1d_vectorized, code: alpha = depart_idx - idx_left # Fractional part [0, 1)
+        alpha_1: "f32[4096, 4096]" = depart_idx_1 - idx_left_2;  depart_idx_1 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:240 in advect_1d_vectorized, code: idx_left = idx_left.to(torch.long)
+        idx_left_3: "i64[4096, 4096]" = idx_left_2.to(torch.int64);  idx_left_2 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:244 in advect_1d_vectorized, code: stencil_indices = idx_left.unsqueeze(-1) + stencil_offsets
+        unsqueeze_6: "i64[4096, 4096, 1]" = idx_left_3.unsqueeze(-1);  idx_left_3 = None
+        stencil_indices_1: "i64[4096, 4096, 6]" = unsqueeze_6 + l_stencil_offsets_;  unsqueeze_6 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:246 in advect_1d_vectorized, code: f_batch = f_batch.reshape(-1)
+        f_batch_1: "f32[16777216]" = f.reshape(-1);  f = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:253 in advect_1d_vectorized, code: valid_mask = (stencil_indices >= 0) & (stencil_indices < n_points)
+        ge: "b8[4096, 4096, 6]" = stencil_indices_1 >= 0
+        lt: "b8[4096, 4096, 6]" = stencil_indices_1 < 4096
+        valid_mask: "b8[4096, 4096, 6]" = ge & lt;  ge = lt = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:254 in advect_1d_vectorized, code: safe_indices = torch.clamp(stencil_indices, 0, n_points - 1)
+        safe_indices_1: "i64[4096, 4096, 6]" = torch.clamp(stencil_indices_1, 0, 4095);  stencil_indices_1 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:255 in advect_1d_vectorized, code: gather_idx = (batch_offsets + safe_indices).reshape(-1)
+        add_18: "i64[4096, 4096, 6]" = l_v_batch_offsets_ + safe_indices_1;  l_v_batch_offsets_ = safe_indices_1 = None
+        gather_idx_1: "i64[100663296]" = add_18.reshape(-1);  add_18 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:256 in advect_1d_vectorized, code: f_vals = f_batch[gather_idx].reshape(batch_size, n_points, 6)
+        getitem_9: "f32[100663296]" = f_batch_1[gather_idx_1];  f_batch_1 = gather_idx_1 = None
+        f_vals_1: "f32[4096, 4096, 6]" = getitem_9.reshape(4096, 4096, 6);  getitem_9 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:257 in advect_1d_vectorized, code: f_vals = f_vals * valid_mask.to(dtype=f_batch.dtype)
+        to_2: "f32[4096, 4096, 6]" = valid_mask.to(dtype = torch.float32);  valid_mask = None
+        f_vals_2: "f32[4096, 4096, 6]" = f_vals_1 * to_2;  f_vals_1 = to_2 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:174 in lagrange5_interp_sum, code: a2 = a * a
+        a2_1: "f32[4096, 4096]" = alpha_1 * alpha_1
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:175 in lagrange5_interp_sum, code: a3 = a2 * a
+        a3_1: "f32[4096, 4096]" = a2_1 * alpha_1
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:176 in lagrange5_interp_sum, code: a4 = a3 * a
+        a4_1: "f32[4096, 4096]" = a3_1 * alpha_1
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:177 in lagrange5_interp_sum, code: a5 = a4 * a
+        a5_1: "f32[4096, 4096]" = a4_1 * alpha_1
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:179 in lagrange5_interp_sum, code: w0 = (a / 20.0) - (a2 / 24.0) - (a3 / 24.0) + (a4 / 24.0) - (a5 / 120.0)
+        truediv_29: "f32[4096, 4096]" = alpha_1 / 20.0
+        truediv_30: "f32[4096, 4096]" = a2_1 / 24.0
+        sub_18: "f32[4096, 4096]" = truediv_29 - truediv_30;  truediv_29 = truediv_30 = None
+        truediv_31: "f32[4096, 4096]" = a3_1 / 24.0
+        sub_19: "f32[4096, 4096]" = sub_18 - truediv_31;  sub_18 = truediv_31 = None
+        truediv_32: "f32[4096, 4096]" = a4_1 / 24.0
+        add_19: "f32[4096, 4096]" = sub_19 + truediv_32;  sub_19 = truediv_32 = None
+        truediv_33: "f32[4096, 4096]" = a5_1 / 120.0
+        w0_1: "f32[4096, 4096]" = add_19 - truediv_33;  add_19 = truediv_33 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:180 in lagrange5_interp_sum, code: w1 = -(a / 2.0) + (2.0 * a2 / 3.0) - (a3 / 24.0) - (a4 / 6.0) + (a5 / 24.0)
+        truediv_34: "f32[4096, 4096]" = alpha_1 / 2.0
+        neg_3: "f32[4096, 4096]" = -truediv_34;  truediv_34 = None
+        mul_27: "f32[4096, 4096]" = 2.0 * a2_1
+        truediv_35: "f32[4096, 4096]" = mul_27 / 3.0;  mul_27 = None
+        add_20: "f32[4096, 4096]" = neg_3 + truediv_35;  neg_3 = truediv_35 = None
+        truediv_36: "f32[4096, 4096]" = a3_1 / 24.0
+        sub_21: "f32[4096, 4096]" = add_20 - truediv_36;  add_20 = truediv_36 = None
+        truediv_37: "f32[4096, 4096]" = a4_1 / 6.0
+        sub_22: "f32[4096, 4096]" = sub_21 - truediv_37;  sub_21 = truediv_37 = None
+        truediv_38: "f32[4096, 4096]" = a5_1 / 24.0
+        w1_1: "f32[4096, 4096]" = sub_22 + truediv_38;  sub_22 = truediv_38 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:181 in lagrange5_interp_sum, code: w2 = 1.0 - (a / 3.0) - (5.0 * a2 / 4.0) + (5.0 * a3 / 12.0) + (a4 / 4.0) - (a5 / 12.0)
+        truediv_39: "f32[4096, 4096]" = alpha_1 / 3.0
+        sub_23: "f32[4096, 4096]" = 1.0 - truediv_39;  truediv_39 = None
+        mul_28: "f32[4096, 4096]" = 5.0 * a2_1
+        truediv_40: "f32[4096, 4096]" = mul_28 / 4.0;  mul_28 = None
+        sub_24: "f32[4096, 4096]" = sub_23 - truediv_40;  sub_23 = truediv_40 = None
+        mul_29: "f32[4096, 4096]" = 5.0 * a3_1
+        truediv_41: "f32[4096, 4096]" = mul_29 / 12.0;  mul_29 = None
+        add_22: "f32[4096, 4096]" = sub_24 + truediv_41;  sub_24 = truediv_41 = None
+        truediv_42: "f32[4096, 4096]" = a4_1 / 4.0
+        add_23: "f32[4096, 4096]" = add_22 + truediv_42;  add_22 = truediv_42 = None
+        truediv_43: "f32[4096, 4096]" = a5_1 / 12.0
+        w2_1: "f32[4096, 4096]" = add_23 - truediv_43;  add_23 = truediv_43 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:182 in lagrange5_interp_sum, code: w3 = a + (2.0 * a2 / 3.0) - (7.0 * a3 / 12.0) - (a4 / 6.0) + (a5 / 12.0)
+        mul_30: "f32[4096, 4096]" = 2.0 * a2_1
+        truediv_44: "f32[4096, 4096]" = mul_30 / 3.0;  mul_30 = None
+        add_24: "f32[4096, 4096]" = alpha_1 + truediv_44;  truediv_44 = None
+        mul_31: "f32[4096, 4096]" = 7.0 * a3_1
+        truediv_45: "f32[4096, 4096]" = mul_31 / 12.0;  mul_31 = None
+        sub_26: "f32[4096, 4096]" = add_24 - truediv_45;  add_24 = truediv_45 = None
+        truediv_46: "f32[4096, 4096]" = a4_1 / 6.0
+        sub_27: "f32[4096, 4096]" = sub_26 - truediv_46;  sub_26 = truediv_46 = None
+        truediv_47: "f32[4096, 4096]" = a5_1 / 12.0
+        w3_1: "f32[4096, 4096]" = sub_27 + truediv_47;  sub_27 = truediv_47 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:183 in lagrange5_interp_sum, code: w4 = -(a / 4.0) - (a2 / 24.0) + (7.0 * a3 / 24.0) + (a4 / 24.0) - (a5 / 24.0)
+        truediv_48: "f32[4096, 4096]" = alpha_1 / 4.0
+        neg_4: "f32[4096, 4096]" = -truediv_48;  truediv_48 = None
+        truediv_49: "f32[4096, 4096]" = a2_1 / 24.0;  a2_1 = None
+        sub_28: "f32[4096, 4096]" = neg_4 - truediv_49;  neg_4 = truediv_49 = None
+        mul_32: "f32[4096, 4096]" = 7.0 * a3_1
+        truediv_50: "f32[4096, 4096]" = mul_32 / 24.0;  mul_32 = None
+        add_26: "f32[4096, 4096]" = sub_28 + truediv_50;  sub_28 = truediv_50 = None
+        truediv_51: "f32[4096, 4096]" = a4_1 / 24.0;  a4_1 = None
+        add_27: "f32[4096, 4096]" = add_26 + truediv_51;  add_26 = truediv_51 = None
+        truediv_52: "f32[4096, 4096]" = a5_1 / 24.0
+        w4_1: "f32[4096, 4096]" = add_27 - truediv_52;  add_27 = truediv_52 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:184 in lagrange5_interp_sum, code: w5 = (a / 30.0) - (a3 / 24.0) + (a5 / 120.0)
+        truediv_53: "f32[4096, 4096]" = alpha_1 / 30.0;  alpha_1 = None
+        truediv_54: "f32[4096, 4096]" = a3_1 / 24.0;  a3_1 = None
+        sub_30: "f32[4096, 4096]" = truediv_53 - truediv_54;  truediv_53 = truediv_54 = None
+        truediv_55: "f32[4096, 4096]" = a5_1 / 120.0;  a5_1 = None
+        w5_1: "f32[4096, 4096]" = sub_30 + truediv_55;  sub_30 = truediv_55 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        getitem_10: "f32[4096, 4096]" = f_vals_2[(Ellipsis, 0)]
+        mul_33: "f32[4096, 4096]" = w0_1 * getitem_10;  w0_1 = getitem_10 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:188 in lagrange5_interp_sum, code: + w1 * gather_vals[..., 1]
+        getitem_11: "f32[4096, 4096]" = f_vals_2[(Ellipsis, 1)]
+        mul_34: "f32[4096, 4096]" = w1_1 * getitem_11;  w1_1 = getitem_11 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_29: "f32[4096, 4096]" = mul_33 + mul_34;  mul_33 = mul_34 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:189 in lagrange5_interp_sum, code: + w2 * gather_vals[..., 2]
+        getitem_12: "f32[4096, 4096]" = f_vals_2[(Ellipsis, 2)]
+        mul_35: "f32[4096, 4096]" = w2_1 * getitem_12;  w2_1 = getitem_12 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_30: "f32[4096, 4096]" = add_29 + mul_35;  add_29 = mul_35 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:190 in lagrange5_interp_sum, code: + w3 * gather_vals[..., 3]
+        getitem_13: "f32[4096, 4096]" = f_vals_2[(Ellipsis, 3)]
+        mul_36: "f32[4096, 4096]" = w3_1 * getitem_13;  w3_1 = getitem_13 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_31: "f32[4096, 4096]" = add_30 + mul_36;  add_30 = mul_36 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:191 in lagrange5_interp_sum, code: + w4 * gather_vals[..., 4]
+        getitem_14: "f32[4096, 4096]" = f_vals_2[(Ellipsis, 4)]
+        mul_37: "f32[4096, 4096]" = w4_1 * getitem_14;  w4_1 = getitem_14 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_32: "f32[4096, 4096]" = add_31 + mul_37;  add_31 = mul_37 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:192 in lagrange5_interp_sum, code: + w5 * gather_vals[..., 5]
+        getitem_15: "f32[4096, 4096]" = f_vals_2[(Ellipsis, 5)];  f_vals_2 = None
+        mul_38: "f32[4096, 4096]" = w5_1 * getitem_15;  w5_1 = getitem_15 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        f_new_1: "f32[4096, 4096]" = add_32 + mul_38;  add_32 = mul_38 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:625 in vlasov_step, code: f.T, grid_v, dt / 2.0, x_indices, x_batch_offsets, stencil_offsets, grid_dx, periodic=True
+        getattr_3: "f32[4096, 4096]" = f_new_1.T;  f_new_1 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:232 in advect_1d_vectorized, code: velocities = velocities.unsqueeze(1)
+        velocities_2: "f32[4096, 1]" = l_grid_v_.unsqueeze(1);  l_grid_v_ = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:234 in advect_1d_vectorized, code: displacement_idx = (velocities * dt) / dx
+        mul_39: "f32[4096, 1]" = velocities_2 * 0.025;  velocities_2 = None
+        displacement_idx_2: "f32[4096, 1]" = mul_39 / 0.0030679615757712823;  mul_39 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:235 in advect_1d_vectorized, code: depart_idx = point_indices.unsqueeze(0) - displacement_idx
+        unsqueeze_8: "f32[1, 4096]" = l_x_indices_.unsqueeze(0);  l_x_indices_ = None
+        depart_idx_2: "f32[4096, 4096]" = unsqueeze_8 - displacement_idx_2;  unsqueeze_8 = displacement_idx_2 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:238 in advect_1d_vectorized, code: idx_left = torch.floor(depart_idx)
+        idx_left_4: "f32[4096, 4096]" = torch.floor(depart_idx_2)
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:239 in advect_1d_vectorized, code: alpha = depart_idx - idx_left # Fractional part [0, 1)
+        alpha_2: "f32[4096, 4096]" = depart_idx_2 - idx_left_4;  depart_idx_2 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:240 in advect_1d_vectorized, code: idx_left = idx_left.to(torch.long)
+        idx_left_5: "i64[4096, 4096]" = idx_left_4.to(torch.int64);  idx_left_4 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:244 in advect_1d_vectorized, code: stencil_indices = idx_left.unsqueeze(-1) + stencil_offsets
+        unsqueeze_9: "i64[4096, 4096, 1]" = idx_left_5.unsqueeze(-1);  idx_left_5 = None
+        stencil_indices_2: "i64[4096, 4096, 6]" = unsqueeze_9 + l_stencil_offsets_;  unsqueeze_9 = l_stencil_offsets_ = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:246 in advect_1d_vectorized, code: f_batch = f_batch.reshape(-1)
+        f_batch_2: "f32[16777216]" = getattr_3.reshape(-1);  getattr_3 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:249 in advect_1d_vectorized, code: safe_indices = torch.remainder(stencil_indices, n_points)
+        safe_indices_2: "i64[4096, 4096, 6]" = torch.remainder(stencil_indices_2, 4096);  stencil_indices_2 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:250 in advect_1d_vectorized, code: gather_idx = (batch_offsets + safe_indices).reshape(-1)
+        add_35: "i64[4096, 4096, 6]" = l_x_batch_offsets_ + safe_indices_2;  l_x_batch_offsets_ = safe_indices_2 = None
+        gather_idx_2: "i64[100663296]" = add_35.reshape(-1);  add_35 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:251 in advect_1d_vectorized, code: f_vals = f_batch[gather_idx].reshape(batch_size, n_points, 6)
+        getitem_16: "f32[100663296]" = f_batch_2[gather_idx_2];  f_batch_2 = gather_idx_2 = None
+        f_vals_3: "f32[4096, 4096, 6]" = getitem_16.reshape(4096, 4096, 6);  getitem_16 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:174 in lagrange5_interp_sum, code: a2 = a * a
+        a2_2: "f32[4096, 4096]" = alpha_2 * alpha_2
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:175 in lagrange5_interp_sum, code: a3 = a2 * a
+        a3_2: "f32[4096, 4096]" = a2_2 * alpha_2
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:176 in lagrange5_interp_sum, code: a4 = a3 * a
+        a4_2: "f32[4096, 4096]" = a3_2 * alpha_2
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:177 in lagrange5_interp_sum, code: a5 = a4 * a
+        a5_2: "f32[4096, 4096]" = a4_2 * alpha_2
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:179 in lagrange5_interp_sum, code: w0 = (a / 20.0) - (a2 / 24.0) - (a3 / 24.0) + (a4 / 24.0) - (a5 / 120.0)
+        truediv_57: "f32[4096, 4096]" = alpha_2 / 20.0
+        truediv_58: "f32[4096, 4096]" = a2_2 / 24.0
+        sub_33: "f32[4096, 4096]" = truediv_57 - truediv_58;  truediv_57 = truediv_58 = None
+        truediv_59: "f32[4096, 4096]" = a3_2 / 24.0
+        sub_34: "f32[4096, 4096]" = sub_33 - truediv_59;  sub_33 = truediv_59 = None
+        truediv_60: "f32[4096, 4096]" = a4_2 / 24.0
+        add_36: "f32[4096, 4096]" = sub_34 + truediv_60;  sub_34 = truediv_60 = None
+        truediv_61: "f32[4096, 4096]" = a5_2 / 120.0
+        w0_2: "f32[4096, 4096]" = add_36 - truediv_61;  add_36 = truediv_61 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:180 in lagrange5_interp_sum, code: w1 = -(a / 2.0) + (2.0 * a2 / 3.0) - (a3 / 24.0) - (a4 / 6.0) + (a5 / 24.0)
+        truediv_62: "f32[4096, 4096]" = alpha_2 / 2.0
+        neg_5: "f32[4096, 4096]" = -truediv_62;  truediv_62 = None
+        mul_44: "f32[4096, 4096]" = 2.0 * a2_2
+        truediv_63: "f32[4096, 4096]" = mul_44 / 3.0;  mul_44 = None
+        add_37: "f32[4096, 4096]" = neg_5 + truediv_63;  neg_5 = truediv_63 = None
+        truediv_64: "f32[4096, 4096]" = a3_2 / 24.0
+        sub_36: "f32[4096, 4096]" = add_37 - truediv_64;  add_37 = truediv_64 = None
+        truediv_65: "f32[4096, 4096]" = a4_2 / 6.0
+        sub_37: "f32[4096, 4096]" = sub_36 - truediv_65;  sub_36 = truediv_65 = None
+        truediv_66: "f32[4096, 4096]" = a5_2 / 24.0
+        w1_2: "f32[4096, 4096]" = sub_37 + truediv_66;  sub_37 = truediv_66 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:181 in lagrange5_interp_sum, code: w2 = 1.0 - (a / 3.0) - (5.0 * a2 / 4.0) + (5.0 * a3 / 12.0) + (a4 / 4.0) - (a5 / 12.0)
+        truediv_67: "f32[4096, 4096]" = alpha_2 / 3.0
+        sub_38: "f32[4096, 4096]" = 1.0 - truediv_67;  truediv_67 = None
+        mul_45: "f32[4096, 4096]" = 5.0 * a2_2
+        truediv_68: "f32[4096, 4096]" = mul_45 / 4.0;  mul_45 = None
+        sub_39: "f32[4096, 4096]" = sub_38 - truediv_68;  sub_38 = truediv_68 = None
+        mul_46: "f32[4096, 4096]" = 5.0 * a3_2
+        truediv_69: "f32[4096, 4096]" = mul_46 / 12.0;  mul_46 = None
+        add_39: "f32[4096, 4096]" = sub_39 + truediv_69;  sub_39 = truediv_69 = None
+        truediv_70: "f32[4096, 4096]" = a4_2 / 4.0
+        add_40: "f32[4096, 4096]" = add_39 + truediv_70;  add_39 = truediv_70 = None
+        truediv_71: "f32[4096, 4096]" = a5_2 / 12.0
+        w2_2: "f32[4096, 4096]" = add_40 - truediv_71;  add_40 = truediv_71 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:182 in lagrange5_interp_sum, code: w3 = a + (2.0 * a2 / 3.0) - (7.0 * a3 / 12.0) - (a4 / 6.0) + (a5 / 12.0)
+        mul_47: "f32[4096, 4096]" = 2.0 * a2_2
+        truediv_72: "f32[4096, 4096]" = mul_47 / 3.0;  mul_47 = None
+        add_41: "f32[4096, 4096]" = alpha_2 + truediv_72;  truediv_72 = None
+        mul_48: "f32[4096, 4096]" = 7.0 * a3_2
+        truediv_73: "f32[4096, 4096]" = mul_48 / 12.0;  mul_48 = None
+        sub_41: "f32[4096, 4096]" = add_41 - truediv_73;  add_41 = truediv_73 = None
+        truediv_74: "f32[4096, 4096]" = a4_2 / 6.0
+        sub_42: "f32[4096, 4096]" = sub_41 - truediv_74;  sub_41 = truediv_74 = None
+        truediv_75: "f32[4096, 4096]" = a5_2 / 12.0
+        w3_2: "f32[4096, 4096]" = sub_42 + truediv_75;  sub_42 = truediv_75 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:183 in lagrange5_interp_sum, code: w4 = -(a / 4.0) - (a2 / 24.0) + (7.0 * a3 / 24.0) + (a4 / 24.0) - (a5 / 24.0)
+        truediv_76: "f32[4096, 4096]" = alpha_2 / 4.0
+        neg_6: "f32[4096, 4096]" = -truediv_76;  truediv_76 = None
+        truediv_77: "f32[4096, 4096]" = a2_2 / 24.0;  a2_2 = None
+        sub_43: "f32[4096, 4096]" = neg_6 - truediv_77;  neg_6 = truediv_77 = None
+        mul_49: "f32[4096, 4096]" = 7.0 * a3_2
+        truediv_78: "f32[4096, 4096]" = mul_49 / 24.0;  mul_49 = None
+        add_43: "f32[4096, 4096]" = sub_43 + truediv_78;  sub_43 = truediv_78 = None
+        truediv_79: "f32[4096, 4096]" = a4_2 / 24.0;  a4_2 = None
+        add_44: "f32[4096, 4096]" = add_43 + truediv_79;  add_43 = truediv_79 = None
+        truediv_80: "f32[4096, 4096]" = a5_2 / 24.0
+        w4_2: "f32[4096, 4096]" = add_44 - truediv_80;  add_44 = truediv_80 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:184 in lagrange5_interp_sum, code: w5 = (a / 30.0) - (a3 / 24.0) + (a5 / 120.0)
+        truediv_81: "f32[4096, 4096]" = alpha_2 / 30.0;  alpha_2 = None
+        truediv_82: "f32[4096, 4096]" = a3_2 / 24.0;  a3_2 = None
+        sub_45: "f32[4096, 4096]" = truediv_81 - truediv_82;  truediv_81 = truediv_82 = None
+        truediv_83: "f32[4096, 4096]" = a5_2 / 120.0;  a5_2 = None
+        w5_2: "f32[4096, 4096]" = sub_45 + truediv_83;  sub_45 = truediv_83 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        getitem_17: "f32[4096, 4096]" = f_vals_3[(Ellipsis, 0)]
+        mul_50: "f32[4096, 4096]" = w0_2 * getitem_17;  w0_2 = getitem_17 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:188 in lagrange5_interp_sum, code: + w1 * gather_vals[..., 1]
+        getitem_18: "f32[4096, 4096]" = f_vals_3[(Ellipsis, 1)]
+        mul_51: "f32[4096, 4096]" = w1_2 * getitem_18;  w1_2 = getitem_18 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_46: "f32[4096, 4096]" = mul_50 + mul_51;  mul_50 = mul_51 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:189 in lagrange5_interp_sum, code: + w2 * gather_vals[..., 2]
+        getitem_19: "f32[4096, 4096]" = f_vals_3[(Ellipsis, 2)]
+        mul_52: "f32[4096, 4096]" = w2_2 * getitem_19;  w2_2 = getitem_19 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_47: "f32[4096, 4096]" = add_46 + mul_52;  add_46 = mul_52 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:190 in lagrange5_interp_sum, code: + w3 * gather_vals[..., 3]
+        getitem_20: "f32[4096, 4096]" = f_vals_3[(Ellipsis, 3)]
+        mul_53: "f32[4096, 4096]" = w3_2 * getitem_20;  w3_2 = getitem_20 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_48: "f32[4096, 4096]" = add_47 + mul_53;  add_47 = mul_53 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:191 in lagrange5_interp_sum, code: + w4 * gather_vals[..., 4]
+        getitem_21: "f32[4096, 4096]" = f_vals_3[(Ellipsis, 4)]
+        mul_54: "f32[4096, 4096]" = w4_2 * getitem_21;  w4_2 = getitem_21 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        add_49: "f32[4096, 4096]" = add_48 + mul_54;  add_48 = mul_54 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:192 in lagrange5_interp_sum, code: + w5 * gather_vals[..., 5]
+        getitem_22: "f32[4096, 4096]" = f_vals_3[(Ellipsis, 5)];  f_vals_3 = None
+        mul_55: "f32[4096, 4096]" = w5_2 * getitem_22;  w5_2 = getitem_22 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:187 in lagrange5_interp_sum, code: w0 * gather_vals[..., 0]
+        f_new_2: "f32[4096, 4096]" = add_49 + mul_55;  add_49 = mul_55 = None
+        
+        # File: /home/yasahi/develop/Paper/vlp4d_tuto/simulations/vlasov1d_1v/pytorch/src/vlasov1D1V.py:626 in vlasov_step, code: ).T
+        f_1: "f32[4096, 4096]" = f_new_2.T;  f_new_2 = None
+        return (f_1, rho, phi)
+        
+# ===== Dynamo FX graph 0 (node table) =====
+graph():
+    %l_f_ : torch.Tensor [num_users=1] = placeholder[target=L_f_]
+    %l_grid_v_ : torch.Tensor [num_users=2] = placeholder[target=L_grid_v_]
+    %l_x_indices_ : torch.Tensor [num_users=2] = placeholder[target=L_x_indices_]
+    %l_stencil_offsets_ : torch.Tensor [num_users=3] = placeholder[target=L_stencil_offsets_]
+    %l_x_batch_offsets_ : torch.Tensor [num_users=2] = placeholder[target=L_x_batch_offsets_]
+    %l_grid_inv_kx_sq_ : torch.Tensor [num_users=1] = placeholder[target=L_grid_inv_kx_sq_]
+    %l_grid_inv_kx_ : torch.Tensor [num_users=2] = placeholder[target=L_grid_inv_kx_]
+    %l_v_indices_ : torch.Tensor [num_users=1] = placeholder[target=L_v_indices_]
+    %l_v_batch_offsets_ : torch.Tensor [num_users=1] = placeholder[target=L_v_batch_offsets_]
+    %getattr_1 : [num_users=1] = call_function[target=builtins.getattr](args = (%l_f_, T), kwargs = {})
+    %velocities : [num_users=1] = call_method[target=unsqueeze](args = (%l_grid_v_, 1), kwargs = {})
+    %mul : [num_users=1] = call_function[target=operator.mul](args = (%velocities, 0.025), kwargs = {})
+    %displacement_idx : [num_users=1] = call_function[target=operator.truediv](args = (%mul, 0.0030679615757712823), kwargs = {})
+    %unsqueeze_1 : [num_users=1] = call_method[target=unsqueeze](args = (%l_x_indices_, 0), kwargs = {})
+    %depart_idx : [num_users=2] = call_function[target=operator.sub](args = (%unsqueeze_1, %displacement_idx), kwargs = {})
+    %idx_left : [num_users=2] = call_function[target=torch.floor](args = (%depart_idx,), kwargs = {})
+    %alpha : [num_users=10] = call_function[target=operator.sub](args = (%depart_idx, %idx_left), kwargs = {})
+    %idx_left_1 : [num_users=1] = call_method[target=to](args = (%idx_left, torch.int64), kwargs = {})
+    %unsqueeze_2 : [num_users=1] = call_method[target=unsqueeze](args = (%idx_left_1, -1), kwargs = {})
+    %stencil_indices : [num_users=1] = call_function[target=operator.add](args = (%unsqueeze_2, %l_stencil_offsets_), kwargs = {})
+    %f_batch : [num_users=1] = call_method[target=reshape](args = (%getattr_1, -1), kwargs = {})
+    %safe_indices : [num_users=1] = call_function[target=torch.remainder](args = (%stencil_indices, 4096), kwargs = {})
+    %add_1 : [num_users=1] = call_function[target=operator.add](args = (%l_x_batch_offsets_, %safe_indices), kwargs = {})
+    %gather_idx : [num_users=1] = call_method[target=reshape](args = (%add_1, -1), kwargs = {})
+    %getitem : [num_users=1] = call_function[target=operator.getitem](args = (%f_batch, %gather_idx), kwargs = {})
+    %f_vals : [num_users=6] = call_method[target=reshape](args = (%getitem, 4096, 4096, 6), kwargs = {})
+    %a2 : [num_users=6] = call_function[target=operator.mul](args = (%alpha, %alpha), kwargs = {})
+    %a3 : [num_users=7] = call_function[target=operator.mul](args = (%a2, %alpha), kwargs = {})
+    %a4 : [num_users=6] = call_function[target=operator.mul](args = (%a3, %alpha), kwargs = {})
+    %a5 : [num_users=6] = call_function[target=operator.mul](args = (%a4, %alpha), kwargs = {})
+    %truediv_1 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha, 20.0), kwargs = {})
+    %truediv_2 : [num_users=1] = call_function[target=operator.truediv](args = (%a2, 24.0), kwargs = {})
+    %sub_2 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_1, %truediv_2), kwargs = {})
+    %truediv_3 : [num_users=1] = call_function[target=operator.truediv](args = (%a3, 24.0), kwargs = {})
+    %sub_3 : [num_users=1] = call_function[target=operator.sub](args = (%sub_2, %truediv_3), kwargs = {})
+    %truediv_4 : [num_users=1] = call_function[target=operator.truediv](args = (%a4, 24.0), kwargs = {})
+    %add_2 : [num_users=1] = call_function[target=operator.add](args = (%sub_3, %truediv_4), kwargs = {})
+    %truediv_5 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 120.0), kwargs = {})
+    %w0 : [num_users=1] = call_function[target=operator.sub](args = (%add_2, %truediv_5), kwargs = {})
+    %truediv_6 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha, 2.0), kwargs = {})
+    %neg : [num_users=1] = call_function[target=operator.neg](args = (%truediv_6,), kwargs = {})
+    %mul_5 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2), kwargs = {})
+    %truediv_7 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_5, 3.0), kwargs = {})
+    %add_3 : [num_users=1] = call_function[target=operator.add](args = (%neg, %truediv_7), kwargs = {})
+    %truediv_8 : [num_users=1] = call_function[target=operator.truediv](args = (%a3, 24.0), kwargs = {})
+    %sub_5 : [num_users=1] = call_function[target=operator.sub](args = (%add_3, %truediv_8), kwargs = {})
+    %truediv_9 : [num_users=1] = call_function[target=operator.truediv](args = (%a4, 6.0), kwargs = {})
+    %sub_6 : [num_users=1] = call_function[target=operator.sub](args = (%sub_5, %truediv_9), kwargs = {})
+    %truediv_10 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 24.0), kwargs = {})
+    %w1 : [num_users=1] = call_function[target=operator.add](args = (%sub_6, %truediv_10), kwargs = {})
+    %truediv_11 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha, 3.0), kwargs = {})
+    %sub_7 : [num_users=1] = call_function[target=operator.sub](args = (1.0, %truediv_11), kwargs = {})
+    %mul_6 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a2), kwargs = {})
+    %truediv_12 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_6, 4.0), kwargs = {})
+    %sub_8 : [num_users=1] = call_function[target=operator.sub](args = (%sub_7, %truediv_12), kwargs = {})
+    %mul_7 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a3), kwargs = {})
+    %truediv_13 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_7, 12.0), kwargs = {})
+    %add_5 : [num_users=1] = call_function[target=operator.add](args = (%sub_8, %truediv_13), kwargs = {})
+    %truediv_14 : [num_users=1] = call_function[target=operator.truediv](args = (%a4, 4.0), kwargs = {})
+    %add_6 : [num_users=1] = call_function[target=operator.add](args = (%add_5, %truediv_14), kwargs = {})
+    %truediv_15 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 12.0), kwargs = {})
+    %w2 : [num_users=1] = call_function[target=operator.sub](args = (%add_6, %truediv_15), kwargs = {})
+    %mul_8 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2), kwargs = {})
+    %truediv_16 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_8, 3.0), kwargs = {})
+    %add_7 : [num_users=1] = call_function[target=operator.add](args = (%alpha, %truediv_16), kwargs = {})
+    %mul_9 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3), kwargs = {})
+    %truediv_17 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_9, 12.0), kwargs = {})
+    %sub_10 : [num_users=1] = call_function[target=operator.sub](args = (%add_7, %truediv_17), kwargs = {})
+    %truediv_18 : [num_users=1] = call_function[target=operator.truediv](args = (%a4, 6.0), kwargs = {})
+    %sub_11 : [num_users=1] = call_function[target=operator.sub](args = (%sub_10, %truediv_18), kwargs = {})
+    %truediv_19 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 12.0), kwargs = {})
+    %w3 : [num_users=1] = call_function[target=operator.add](args = (%sub_11, %truediv_19), kwargs = {})
+    %truediv_20 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha, 4.0), kwargs = {})
+    %neg_1 : [num_users=1] = call_function[target=operator.neg](args = (%truediv_20,), kwargs = {})
+    %truediv_21 : [num_users=1] = call_function[target=operator.truediv](args = (%a2, 24.0), kwargs = {})
+    %sub_12 : [num_users=1] = call_function[target=operator.sub](args = (%neg_1, %truediv_21), kwargs = {})
+    %mul_10 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3), kwargs = {})
+    %truediv_22 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_10, 24.0), kwargs = {})
+    %add_9 : [num_users=1] = call_function[target=operator.add](args = (%sub_12, %truediv_22), kwargs = {})
+    %truediv_23 : [num_users=1] = call_function[target=operator.truediv](args = (%a4, 24.0), kwargs = {})
+    %add_10 : [num_users=1] = call_function[target=operator.add](args = (%add_9, %truediv_23), kwargs = {})
+    %truediv_24 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 24.0), kwargs = {})
+    %w4 : [num_users=1] = call_function[target=operator.sub](args = (%add_10, %truediv_24), kwargs = {})
+    %truediv_25 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha, 30.0), kwargs = {})
+    %truediv_26 : [num_users=1] = call_function[target=operator.truediv](args = (%a3, 24.0), kwargs = {})
+    %sub_14 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_25, %truediv_26), kwargs = {})
+    %truediv_27 : [num_users=1] = call_function[target=operator.truediv](args = (%a5, 120.0), kwargs = {})
+    %w5 : [num_users=1] = call_function[target=operator.add](args = (%sub_14, %truediv_27), kwargs = {})
+    %getitem_1 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals, (Ellipsis, 0)), kwargs = {})
+    %mul_11 : [num_users=1] = call_function[target=operator.mul](args = (%w0, %getitem_1), kwargs = {})
+    %getitem_2 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals, (Ellipsis, 1)), kwargs = {})
+    %mul_12 : [num_users=1] = call_function[target=operator.mul](args = (%w1, %getitem_2), kwargs = {})
+    %add_12 : [num_users=1] = call_function[target=operator.add](args = (%mul_11, %mul_12), kwargs = {})
+    %getitem_3 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals, (Ellipsis, 2)), kwargs = {})
+    %mul_13 : [num_users=1] = call_function[target=operator.mul](args = (%w2, %getitem_3), kwargs = {})
+    %add_13 : [num_users=1] = call_function[target=operator.add](args = (%add_12, %mul_13), kwargs = {})
+    %getitem_4 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals, (Ellipsis, 3)), kwargs = {})
+    %mul_14 : [num_users=1] = call_function[target=operator.mul](args = (%w3, %getitem_4), kwargs = {})
+    %add_14 : [num_users=1] = call_function[target=operator.add](args = (%add_13, %mul_14), kwargs = {})
+    %getitem_5 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals, (Ellipsis, 4)), kwargs = {})
+    %mul_15 : [num_users=1] = call_function[target=operator.mul](args = (%w4, %getitem_5), kwargs = {})
+    %add_15 : [num_users=1] = call_function[target=operator.add](args = (%add_14, %mul_15), kwargs = {})
+    %getitem_6 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals, (Ellipsis, 5)), kwargs = {})
+    %mul_16 : [num_users=1] = call_function[target=operator.mul](args = (%w5, %getitem_6), kwargs = {})
+    %f_new : [num_users=1] = call_function[target=operator.add](args = (%add_15, %mul_16), kwargs = {})
+    %f : [num_users=2] = call_function[target=builtins.getattr](args = (%f_new, T), kwargs = {})
+    %sum_1 : [num_users=1] = call_function[target=torch.sum](args = (%f,), kwargs = {dim: 1})
+    %n : [num_users=1] = call_function[target=operator.mul](args = (%sum_1, 0.002442002442002442), kwargs = {})
+    %rho : [num_users=2] = call_function[target=operator.sub](args = (%n, 1.0), kwargs = {})
+    %rho_k : [num_users=1] = call_function[target=torch._C._fft.fft_rfft](args = (%rho,), kwargs = {})
+    %rho_k_real : [num_users=3] = call_function[target=torch.view_as_real](args = (%rho_k,), kwargs = {})
+    %inv_kx_sq_2d : [num_users=1] = call_method[target=unsqueeze](args = (%l_grid_inv_kx_sq_, -1), kwargs = {})
+    %getitem_7 : [num_users=1] = call_function[target=operator.getitem](args = (%rho_k_real, (Ellipsis, 1)), kwargs = {})
+    %mul_18 : [num_users=1] = call_function[target=operator.mul](args = (%getitem_7, %l_grid_inv_kx_), kwargs = {})
+    %getitem_8 : [num_users=1] = call_function[target=operator.getitem](args = (%rho_k_real, (Ellipsis, 0)), kwargs = {})
+    %neg_2 : [num_users=1] = call_function[target=operator.neg](args = (%getitem_8,), kwargs = {})
+    %mul_19 : [num_users=1] = call_function[target=operator.mul](args = (%neg_2, %l_grid_inv_kx_), kwargs = {})
+    %E_k_real : [num_users=1] = call_function[target=torch.stack](args = ([%mul_18, %mul_19],), kwargs = {dim: -1})
+    %Phi_k_real : [num_users=1] = call_function[target=operator.mul](args = (%rho_k_real, %inv_kx_sq_2d), kwargs = {})
+    %E_k : [num_users=1] = call_function[target=torch.view_as_complex](args = (%E_k_real,), kwargs = {})
+    %Phi_k : [num_users=1] = call_function[target=torch.view_as_complex](args = (%Phi_k_real,), kwargs = {})
+    %E : [num_users=1] = call_function[target=torch._C._fft.fft_irfft](args = (%E_k,), kwargs = {n: 4096})
+    %phi : [num_users=1] = call_function[target=torch._C._fft.fft_irfft](args = (%Phi_k,), kwargs = {n: 4096})
+    %velocities_1 : [num_users=1] = call_method[target=unsqueeze](args = (%E, 1), kwargs = {})
+    %mul_21 : [num_users=1] = call_function[target=operator.mul](args = (%velocities_1, 0.05), kwargs = {})
+    %displacement_idx_1 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_21, 0.002442002442002442), kwargs = {})
+    %unsqueeze_5 : [num_users=1] = call_method[target=unsqueeze](args = (%l_v_indices_, 0), kwargs = {})
+    %depart_idx_1 : [num_users=2] = call_function[target=operator.sub](args = (%unsqueeze_5, %displacement_idx_1), kwargs = {})
+    %idx_left_2 : [num_users=2] = call_function[target=torch.floor](args = (%depart_idx_1,), kwargs = {})
+    %alpha_1 : [num_users=10] = call_function[target=operator.sub](args = (%depart_idx_1, %idx_left_2), kwargs = {})
+    %idx_left_3 : [num_users=1] = call_method[target=to](args = (%idx_left_2, torch.int64), kwargs = {})
+    %unsqueeze_6 : [num_users=1] = call_method[target=unsqueeze](args = (%idx_left_3, -1), kwargs = {})
+    %stencil_indices_1 : [num_users=3] = call_function[target=operator.add](args = (%unsqueeze_6, %l_stencil_offsets_), kwargs = {})
+    %f_batch_1 : [num_users=1] = call_method[target=reshape](args = (%f, -1), kwargs = {})
+    %ge : [num_users=1] = call_function[target=operator.ge](args = (%stencil_indices_1, 0), kwargs = {})
+    %lt : [num_users=1] = call_function[target=operator.lt](args = (%stencil_indices_1, 4096), kwargs = {})
+    %valid_mask : [num_users=1] = call_function[target=operator.and_](args = (%ge, %lt), kwargs = {})
+    %safe_indices_1 : [num_users=1] = call_function[target=torch.clamp](args = (%stencil_indices_1, 0, 4095), kwargs = {})
+    %add_18 : [num_users=1] = call_function[target=operator.add](args = (%l_v_batch_offsets_, %safe_indices_1), kwargs = {})
+    %gather_idx_1 : [num_users=1] = call_method[target=reshape](args = (%add_18, -1), kwargs = {})
+    %getitem_9 : [num_users=1] = call_function[target=operator.getitem](args = (%f_batch_1, %gather_idx_1), kwargs = {})
+    %f_vals_1 : [num_users=1] = call_method[target=reshape](args = (%getitem_9, 4096, 4096, 6), kwargs = {})
+    %to_2 : [num_users=1] = call_method[target=to](args = (%valid_mask,), kwargs = {dtype: torch.float32})
+    %f_vals_2 : [num_users=6] = call_function[target=operator.mul](args = (%f_vals_1, %to_2), kwargs = {})
+    %a2_1 : [num_users=6] = call_function[target=operator.mul](args = (%alpha_1, %alpha_1), kwargs = {})
+    %a3_1 : [num_users=7] = call_function[target=operator.mul](args = (%a2_1, %alpha_1), kwargs = {})
+    %a4_1 : [num_users=6] = call_function[target=operator.mul](args = (%a3_1, %alpha_1), kwargs = {})
+    %a5_1 : [num_users=6] = call_function[target=operator.mul](args = (%a4_1, %alpha_1), kwargs = {})
+    %truediv_29 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_1, 20.0), kwargs = {})
+    %truediv_30 : [num_users=1] = call_function[target=operator.truediv](args = (%a2_1, 24.0), kwargs = {})
+    %sub_18 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_29, %truediv_30), kwargs = {})
+    %truediv_31 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_1, 24.0), kwargs = {})
+    %sub_19 : [num_users=1] = call_function[target=operator.sub](args = (%sub_18, %truediv_31), kwargs = {})
+    %truediv_32 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_1, 24.0), kwargs = {})
+    %add_19 : [num_users=1] = call_function[target=operator.add](args = (%sub_19, %truediv_32), kwargs = {})
+    %truediv_33 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 120.0), kwargs = {})
+    %w0_1 : [num_users=1] = call_function[target=operator.sub](args = (%add_19, %truediv_33), kwargs = {})
+    %truediv_34 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_1, 2.0), kwargs = {})
+    %neg_3 : [num_users=1] = call_function[target=operator.neg](args = (%truediv_34,), kwargs = {})
+    %mul_27 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2_1), kwargs = {})
+    %truediv_35 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_27, 3.0), kwargs = {})
+    %add_20 : [num_users=1] = call_function[target=operator.add](args = (%neg_3, %truediv_35), kwargs = {})
+    %truediv_36 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_1, 24.0), kwargs = {})
+    %sub_21 : [num_users=1] = call_function[target=operator.sub](args = (%add_20, %truediv_36), kwargs = {})
+    %truediv_37 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_1, 6.0), kwargs = {})
+    %sub_22 : [num_users=1] = call_function[target=operator.sub](args = (%sub_21, %truediv_37), kwargs = {})
+    %truediv_38 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 24.0), kwargs = {})
+    %w1_1 : [num_users=1] = call_function[target=operator.add](args = (%sub_22, %truediv_38), kwargs = {})
+    %truediv_39 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_1, 3.0), kwargs = {})
+    %sub_23 : [num_users=1] = call_function[target=operator.sub](args = (1.0, %truediv_39), kwargs = {})
+    %mul_28 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a2_1), kwargs = {})
+    %truediv_40 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_28, 4.0), kwargs = {})
+    %sub_24 : [num_users=1] = call_function[target=operator.sub](args = (%sub_23, %truediv_40), kwargs = {})
+    %mul_29 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a3_1), kwargs = {})
+    %truediv_41 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_29, 12.0), kwargs = {})
+    %add_22 : [num_users=1] = call_function[target=operator.add](args = (%sub_24, %truediv_41), kwargs = {})
+    %truediv_42 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_1, 4.0), kwargs = {})
+    %add_23 : [num_users=1] = call_function[target=operator.add](args = (%add_22, %truediv_42), kwargs = {})
+    %truediv_43 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 12.0), kwargs = {})
+    %w2_1 : [num_users=1] = call_function[target=operator.sub](args = (%add_23, %truediv_43), kwargs = {})
+    %mul_30 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2_1), kwargs = {})
+    %truediv_44 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_30, 3.0), kwargs = {})
+    %add_24 : [num_users=1] = call_function[target=operator.add](args = (%alpha_1, %truediv_44), kwargs = {})
+    %mul_31 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3_1), kwargs = {})
+    %truediv_45 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_31, 12.0), kwargs = {})
+    %sub_26 : [num_users=1] = call_function[target=operator.sub](args = (%add_24, %truediv_45), kwargs = {})
+    %truediv_46 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_1, 6.0), kwargs = {})
+    %sub_27 : [num_users=1] = call_function[target=operator.sub](args = (%sub_26, %truediv_46), kwargs = {})
+    %truediv_47 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 12.0), kwargs = {})
+    %w3_1 : [num_users=1] = call_function[target=operator.add](args = (%sub_27, %truediv_47), kwargs = {})
+    %truediv_48 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_1, 4.0), kwargs = {})
+    %neg_4 : [num_users=1] = call_function[target=operator.neg](args = (%truediv_48,), kwargs = {})
+    %truediv_49 : [num_users=1] = call_function[target=operator.truediv](args = (%a2_1, 24.0), kwargs = {})
+    %sub_28 : [num_users=1] = call_function[target=operator.sub](args = (%neg_4, %truediv_49), kwargs = {})
+    %mul_32 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3_1), kwargs = {})
+    %truediv_50 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_32, 24.0), kwargs = {})
+    %add_26 : [num_users=1] = call_function[target=operator.add](args = (%sub_28, %truediv_50), kwargs = {})
+    %truediv_51 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_1, 24.0), kwargs = {})
+    %add_27 : [num_users=1] = call_function[target=operator.add](args = (%add_26, %truediv_51), kwargs = {})
+    %truediv_52 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 24.0), kwargs = {})
+    %w4_1 : [num_users=1] = call_function[target=operator.sub](args = (%add_27, %truediv_52), kwargs = {})
+    %truediv_53 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_1, 30.0), kwargs = {})
+    %truediv_54 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_1, 24.0), kwargs = {})
+    %sub_30 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_53, %truediv_54), kwargs = {})
+    %truediv_55 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_1, 120.0), kwargs = {})
+    %w5_1 : [num_users=1] = call_function[target=operator.add](args = (%sub_30, %truediv_55), kwargs = {})
+    %getitem_10 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_2, (Ellipsis, 0)), kwargs = {})
+    %mul_33 : [num_users=1] = call_function[target=operator.mul](args = (%w0_1, %getitem_10), kwargs = {})
+    %getitem_11 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_2, (Ellipsis, 1)), kwargs = {})
+    %mul_34 : [num_users=1] = call_function[target=operator.mul](args = (%w1_1, %getitem_11), kwargs = {})
+    %add_29 : [num_users=1] = call_function[target=operator.add](args = (%mul_33, %mul_34), kwargs = {})
+    %getitem_12 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_2, (Ellipsis, 2)), kwargs = {})
+    %mul_35 : [num_users=1] = call_function[target=operator.mul](args = (%w2_1, %getitem_12), kwargs = {})
+    %add_30 : [num_users=1] = call_function[target=operator.add](args = (%add_29, %mul_35), kwargs = {})
+    %getitem_13 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_2, (Ellipsis, 3)), kwargs = {})
+    %mul_36 : [num_users=1] = call_function[target=operator.mul](args = (%w3_1, %getitem_13), kwargs = {})
+    %add_31 : [num_users=1] = call_function[target=operator.add](args = (%add_30, %mul_36), kwargs = {})
+    %getitem_14 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_2, (Ellipsis, 4)), kwargs = {})
+    %mul_37 : [num_users=1] = call_function[target=operator.mul](args = (%w4_1, %getitem_14), kwargs = {})
+    %add_32 : [num_users=1] = call_function[target=operator.add](args = (%add_31, %mul_37), kwargs = {})
+    %getitem_15 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_2, (Ellipsis, 5)), kwargs = {})
+    %mul_38 : [num_users=1] = call_function[target=operator.mul](args = (%w5_1, %getitem_15), kwargs = {})
+    %f_new_1 : [num_users=1] = call_function[target=operator.add](args = (%add_32, %mul_38), kwargs = {})
+    %getattr_3 : [num_users=1] = call_function[target=builtins.getattr](args = (%f_new_1, T), kwargs = {})
+    %velocities_2 : [num_users=1] = call_method[target=unsqueeze](args = (%l_grid_v_, 1), kwargs = {})
+    %mul_39 : [num_users=1] = call_function[target=operator.mul](args = (%velocities_2, 0.025), kwargs = {})
+    %displacement_idx_2 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_39, 0.0030679615757712823), kwargs = {})
+    %unsqueeze_8 : [num_users=1] = call_method[target=unsqueeze](args = (%l_x_indices_, 0), kwargs = {})
+    %depart_idx_2 : [num_users=2] = call_function[target=operator.sub](args = (%unsqueeze_8, %displacement_idx_2), kwargs = {})
+    %idx_left_4 : [num_users=2] = call_function[target=torch.floor](args = (%depart_idx_2,), kwargs = {})
+    %alpha_2 : [num_users=10] = call_function[target=operator.sub](args = (%depart_idx_2, %idx_left_4), kwargs = {})
+    %idx_left_5 : [num_users=1] = call_method[target=to](args = (%idx_left_4, torch.int64), kwargs = {})
+    %unsqueeze_9 : [num_users=1] = call_method[target=unsqueeze](args = (%idx_left_5, -1), kwargs = {})
+    %stencil_indices_2 : [num_users=1] = call_function[target=operator.add](args = (%unsqueeze_9, %l_stencil_offsets_), kwargs = {})
+    %f_batch_2 : [num_users=1] = call_method[target=reshape](args = (%getattr_3, -1), kwargs = {})
+    %safe_indices_2 : [num_users=1] = call_function[target=torch.remainder](args = (%stencil_indices_2, 4096), kwargs = {})
+    %add_35 : [num_users=1] = call_function[target=operator.add](args = (%l_x_batch_offsets_, %safe_indices_2), kwargs = {})
+    %gather_idx_2 : [num_users=1] = call_method[target=reshape](args = (%add_35, -1), kwargs = {})
+    %getitem_16 : [num_users=1] = call_function[target=operator.getitem](args = (%f_batch_2, %gather_idx_2), kwargs = {})
+    %f_vals_3 : [num_users=6] = call_method[target=reshape](args = (%getitem_16, 4096, 4096, 6), kwargs = {})
+    %a2_2 : [num_users=6] = call_function[target=operator.mul](args = (%alpha_2, %alpha_2), kwargs = {})
+    %a3_2 : [num_users=7] = call_function[target=operator.mul](args = (%a2_2, %alpha_2), kwargs = {})
+    %a4_2 : [num_users=6] = call_function[target=operator.mul](args = (%a3_2, %alpha_2), kwargs = {})
+    %a5_2 : [num_users=6] = call_function[target=operator.mul](args = (%a4_2, %alpha_2), kwargs = {})
+    %truediv_57 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_2, 20.0), kwargs = {})
+    %truediv_58 : [num_users=1] = call_function[target=operator.truediv](args = (%a2_2, 24.0), kwargs = {})
+    %sub_33 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_57, %truediv_58), kwargs = {})
+    %truediv_59 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_2, 24.0), kwargs = {})
+    %sub_34 : [num_users=1] = call_function[target=operator.sub](args = (%sub_33, %truediv_59), kwargs = {})
+    %truediv_60 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_2, 24.0), kwargs = {})
+    %add_36 : [num_users=1] = call_function[target=operator.add](args = (%sub_34, %truediv_60), kwargs = {})
+    %truediv_61 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 120.0), kwargs = {})
+    %w0_2 : [num_users=1] = call_function[target=operator.sub](args = (%add_36, %truediv_61), kwargs = {})
+    %truediv_62 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_2, 2.0), kwargs = {})
+    %neg_5 : [num_users=1] = call_function[target=operator.neg](args = (%truediv_62,), kwargs = {})
+    %mul_44 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2_2), kwargs = {})
+    %truediv_63 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_44, 3.0), kwargs = {})
+    %add_37 : [num_users=1] = call_function[target=operator.add](args = (%neg_5, %truediv_63), kwargs = {})
+    %truediv_64 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_2, 24.0), kwargs = {})
+    %sub_36 : [num_users=1] = call_function[target=operator.sub](args = (%add_37, %truediv_64), kwargs = {})
+    %truediv_65 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_2, 6.0), kwargs = {})
+    %sub_37 : [num_users=1] = call_function[target=operator.sub](args = (%sub_36, %truediv_65), kwargs = {})
+    %truediv_66 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 24.0), kwargs = {})
+    %w1_2 : [num_users=1] = call_function[target=operator.add](args = (%sub_37, %truediv_66), kwargs = {})
+    %truediv_67 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_2, 3.0), kwargs = {})
+    %sub_38 : [num_users=1] = call_function[target=operator.sub](args = (1.0, %truediv_67), kwargs = {})
+    %mul_45 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a2_2), kwargs = {})
+    %truediv_68 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_45, 4.0), kwargs = {})
+    %sub_39 : [num_users=1] = call_function[target=operator.sub](args = (%sub_38, %truediv_68), kwargs = {})
+    %mul_46 : [num_users=1] = call_function[target=operator.mul](args = (5.0, %a3_2), kwargs = {})
+    %truediv_69 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_46, 12.0), kwargs = {})
+    %add_39 : [num_users=1] = call_function[target=operator.add](args = (%sub_39, %truediv_69), kwargs = {})
+    %truediv_70 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_2, 4.0), kwargs = {})
+    %add_40 : [num_users=1] = call_function[target=operator.add](args = (%add_39, %truediv_70), kwargs = {})
+    %truediv_71 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 12.0), kwargs = {})
+    %w2_2 : [num_users=1] = call_function[target=operator.sub](args = (%add_40, %truediv_71), kwargs = {})
+    %mul_47 : [num_users=1] = call_function[target=operator.mul](args = (2.0, %a2_2), kwargs = {})
+    %truediv_72 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_47, 3.0), kwargs = {})
+    %add_41 : [num_users=1] = call_function[target=operator.add](args = (%alpha_2, %truediv_72), kwargs = {})
+    %mul_48 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3_2), kwargs = {})
+    %truediv_73 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_48, 12.0), kwargs = {})
+    %sub_41 : [num_users=1] = call_function[target=operator.sub](args = (%add_41, %truediv_73), kwargs = {})
+    %truediv_74 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_2, 6.0), kwargs = {})
+    %sub_42 : [num_users=1] = call_function[target=operator.sub](args = (%sub_41, %truediv_74), kwargs = {})
+    %truediv_75 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 12.0), kwargs = {})
+    %w3_2 : [num_users=1] = call_function[target=operator.add](args = (%sub_42, %truediv_75), kwargs = {})
+    %truediv_76 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_2, 4.0), kwargs = {})
+    %neg_6 : [num_users=1] = call_function[target=operator.neg](args = (%truediv_76,), kwargs = {})
+    %truediv_77 : [num_users=1] = call_function[target=operator.truediv](args = (%a2_2, 24.0), kwargs = {})
+    %sub_43 : [num_users=1] = call_function[target=operator.sub](args = (%neg_6, %truediv_77), kwargs = {})
+    %mul_49 : [num_users=1] = call_function[target=operator.mul](args = (7.0, %a3_2), kwargs = {})
+    %truediv_78 : [num_users=1] = call_function[target=operator.truediv](args = (%mul_49, 24.0), kwargs = {})
+    %add_43 : [num_users=1] = call_function[target=operator.add](args = (%sub_43, %truediv_78), kwargs = {})
+    %truediv_79 : [num_users=1] = call_function[target=operator.truediv](args = (%a4_2, 24.0), kwargs = {})
+    %add_44 : [num_users=1] = call_function[target=operator.add](args = (%add_43, %truediv_79), kwargs = {})
+    %truediv_80 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 24.0), kwargs = {})
+    %w4_2 : [num_users=1] = call_function[target=operator.sub](args = (%add_44, %truediv_80), kwargs = {})
+    %truediv_81 : [num_users=1] = call_function[target=operator.truediv](args = (%alpha_2, 30.0), kwargs = {})
+    %truediv_82 : [num_users=1] = call_function[target=operator.truediv](args = (%a3_2, 24.0), kwargs = {})
+    %sub_45 : [num_users=1] = call_function[target=operator.sub](args = (%truediv_81, %truediv_82), kwargs = {})
+    %truediv_83 : [num_users=1] = call_function[target=operator.truediv](args = (%a5_2, 120.0), kwargs = {})
+    %w5_2 : [num_users=1] = call_function[target=operator.add](args = (%sub_45, %truediv_83), kwargs = {})
+    %getitem_17 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_3, (Ellipsis, 0)), kwargs = {})
+    %mul_50 : [num_users=1] = call_function[target=operator.mul](args = (%w0_2, %getitem_17), kwargs = {})
+    %getitem_18 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_3, (Ellipsis, 1)), kwargs = {})
+    %mul_51 : [num_users=1] = call_function[target=operator.mul](args = (%w1_2, %getitem_18), kwargs = {})
+    %add_46 : [num_users=1] = call_function[target=operator.add](args = (%mul_50, %mul_51), kwargs = {})
+    %getitem_19 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_3, (Ellipsis, 2)), kwargs = {})
+    %mul_52 : [num_users=1] = call_function[target=operator.mul](args = (%w2_2, %getitem_19), kwargs = {})
+    %add_47 : [num_users=1] = call_function[target=operator.add](args = (%add_46, %mul_52), kwargs = {})
+    %getitem_20 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_3, (Ellipsis, 3)), kwargs = {})
+    %mul_53 : [num_users=1] = call_function[target=operator.mul](args = (%w3_2, %getitem_20), kwargs = {})
+    %add_48 : [num_users=1] = call_function[target=operator.add](args = (%add_47, %mul_53), kwargs = {})
+    %getitem_21 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_3, (Ellipsis, 4)), kwargs = {})
+    %mul_54 : [num_users=1] = call_function[target=operator.mul](args = (%w4_2, %getitem_21), kwargs = {})
+    %add_49 : [num_users=1] = call_function[target=operator.add](args = (%add_48, %mul_54), kwargs = {})
+    %getitem_22 : [num_users=1] = call_function[target=operator.getitem](args = (%f_vals_3, (Ellipsis, 5)), kwargs = {})
+    %mul_55 : [num_users=1] = call_function[target=operator.mul](args = (%w5_2, %getitem_22), kwargs = {})
+    %f_new_2 : [num_users=1] = call_function[target=operator.add](args = (%add_49, %mul_55), kwargs = {})
+    %f_1 : [num_users=1] = call_function[target=builtins.getattr](args = (%f_new_2, T), kwargs = {})
+    return (f_1, rho, phi)

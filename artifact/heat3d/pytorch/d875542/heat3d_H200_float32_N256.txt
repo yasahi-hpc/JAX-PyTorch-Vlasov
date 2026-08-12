@@ -1,0 +1,15 @@
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+PyTorch version: 2.9.1+cu128
+Device: NVIDIA GH200 120GB (cuda:0)
+Grid: 256 x 256 x 256 (N=16,777,216 points), dtype=torch.float32
+Times (s): best=0.004859, avg=0.005007 over 10 runs
+Estimated bandwidth (GB/s): best=2762.00, avg=2680.62
+
+Memory statistics
+Allocated before benchmark : 128.00 MiB
+Reserved before benchmark  : 514.00 MiB
+Peak allocated             : 192.00 MiB
+Peak reserved              : 514.00 MiB
+
+Errors vs analytical PDE at t=2.000000e+00: L2rel=8.229e-07, Linf=1.013e-06

@@ -1,0 +1,21 @@
+Device Execution Space:
+  KOKKOS_ENABLE_CUDA: yes
+Cuda Options:
+  KOKKOS_ENABLE_CUDA_RELOCATABLE_DEVICE_CODE: no
+  KOKKOS_ENABLE_IMPL_CUDA_MALLOC_ASYNC: no
+
+Cuda Runtime Configuration:
+macro  KOKKOS_ENABLE_CUDA      : defined
+macro  CUDA_VERSION          : 13000 = version 13.0
+Kokkos::Cuda[ 0 ] NVIDIA GH200 120GB : Selected
+  Capability: 9.0
+  Total Global Memory: 95 GiB
+  Shared Memory per Block: 48 KiB
+  Shared Memory per Block (Optin): 227 KiB
+  Reserved Shared Memory per Block: 1 KiB
+  Can access system allocated memory: 1
+    via Address Translation Service: 1
+Grid: 128 x 128 x 128 (N=2097152), dtype=float
+Times (s): best=2.540088e-02, avg=2.546648e-02 over 10 runs
+Estimated bandwidth (GB/s): best=660.4975, avg=658.7959
+Errors vs analytical PDE at t=20.0003: L2rel=1.770691e-05, Linf=1.382828e-05

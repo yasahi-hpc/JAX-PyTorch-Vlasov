@@ -1,0 +1,600 @@
+Graph Count: 1
+Graph Break Count: 0
+Op Count: 288
+Break Reasons:
+Ops per Graph:
+  Ops 1:
+    <built-in function getattr>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in method floor of type object at 0x14e7d51b1620>
+    <built-in function sub>
+    <built-in function add>
+    <built-in method remainder of type object at 0x14e7d51b1620>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getattr>
+    <built-in method sum of type object at 0x14e7d51b1620>
+    <built-in function mul>
+    <built-in function sub>
+    <built-in function fft_rfft>
+    <built-in method view_as_real of type object at 0x14e7d51b1620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function getitem>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in method stack of type object at 0x14e7d51b1620>
+    <built-in function mul>
+    <built-in method view_as_complex of type object at 0x14e7d51b1620>
+    <built-in method view_as_complex of type object at 0x14e7d51b1620>
+    <built-in function fft_irfft>
+    <built-in function fft_irfft>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in method floor of type object at 0x14e7d51b1620>
+    <built-in function sub>
+    <built-in function add>
+    <built-in function ge>
+    <built-in function lt>
+    <built-in function and_>
+    <built-in method clamp of type object at 0x14e7d51b1620>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getattr>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in method floor of type object at 0x14e7d51b1620>
+    <built-in function sub>
+    <built-in function add>
+    <built-in method remainder of type object at 0x14e7d51b1620>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getattr>
+Out Guards:
+  Guard 1:
+    Name: ''
+    Source: shape_env
+    Create Function: SHAPE_ENV
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 2:
+    Name: ''
+    Source: global
+    Create Function: DETERMINISTIC_ALGORITHMS
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 3:
+    Name: ''
+    Source: global
+    Create Function: GRAD_MODE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 4:
+    Name: ''
+    Source: global
+    Create Function: DEFAULT_DEVICE
+    Guard Types: ['DEFAULT_DEVICE']
+    Code List: ['utils_device.CURRENT_DEVICE == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 5:
+    Name: ''
+    Source: global
+    Create Function: GLOBAL_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 6:
+    Name: ''
+    Source: global
+    Create Function: TORCH_FUNCTION_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 7:
+    Name: ''
+    Source: global
+    Create Function: AUTOGRAD_SAVED_TENSORS_HOOKS
+    Guard Types: ['AUTOGRAD_SAVED_TENSORS_HOOKS']
+    Code List: ['torch._functorch.aot_autograd.utils.top_saved_tensors_hooks ids == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 8:
+    Name: "L['f']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['f'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14e6aa9ebec0; to 'Tensor' at 0x14e6b2c8b070>
+    Guarded Class Weakref: <weakref at 0x14e70769e840; to 'torch._C._TensorMeta' at 0x560dba353050 (Tensor)>
+  Guard 9:
+    Name: "L['dt']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['dt'] == 0.05"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14e7dcdfe390; to 'type' at 0x560db08244a0 (float)>
+  Guard 10:
+    Name: "G['advect_1d_vectorized']"
+    Source: global
+    Create Function: TYPE_MATCH
+    Guard Types: ['TYPE_MATCH']
+    Code List: ["___check_type_id(G['advect_1d_vectorized'], 94616795888352), type=<class 'function'>"]
+    Object Weakref: <weakref at 0x14e6aa6c9f30; to 'function' at 0x14e6b2a9e7a0>
+    Guarded Class Weakref: <weakref at 0x14e7dcdff060; to 'type' at 0x560db0823ae0 (function)>
+  Guard 11:
+    Name: "G['__builtins_dict___0']['getattr']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['getattr'], 22986076063760), type=<built-in function getattr>"]
+    Object Weakref: <weakref at 0x14e6aa8881d0; to 'builtin_function_or_method' at 0x14e7dce60810>
+    Guarded Class Weakref: <weakref at 0x14e7dcde84a0; to 'type' at 0x560db081e300 (builtin_function_or_method)>
+  Guard 12:
+    Name: "G['advect_1d_vectorized']._torchdynamo_inline"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 13:
+    Name: "L['grid_v']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_v'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14e6aa902430; to 'Tensor' at 0x14e6b2c8ac10>
+    Guarded Class Weakref: <weakref at 0x14e70769e840; to 'torch._C._TensorMeta' at 0x560dba353050 (Tensor)>
+  Guard 14:
+    Name: "L['grid_dx']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['grid_dx'] == 0.0030679615757712823"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14e7dcdfe390; to 'type' at 0x560db08244a0 (float)>
+  Guard 15:
+    Name: "L['x_indices']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['x_indices'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14e6aa902d40; to 'Tensor' at 0x14e6b2c8ad50>
+    Guarded Class Weakref: <weakref at 0x14e70769e840; to 'torch._C._TensorMeta' at 0x560dba353050 (Tensor)>
+  Guard 16:
+    Name: "G['torch']"
+    Source: global
+    Create Function: MODULE_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'], 22986065384112), type=<module 'torch' from '/opt/aurora/26.26.0/frameworks/aurora_frameworks-2025.3.1/lib/python3.12/site-packages/torch/__init__.py'>"]
+    Object Weakref: <weakref at 0x14e6aa8036f0; to 'module' at 0x14e7dc4312b0>
+    Guarded Class Weakref: <weakref at 0x14e7dce1b010; to 'type' at 0x560db081ddc0 (module)>
+  Guard 17:
+    Name: "G['torch'].floor"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].floor, 22986058759632), type=<built-in method floor of type object at 0x14e7d51b1620>"]
+    Object Weakref: <weakref at 0x14e6aa6cdf30; to 'builtin_function_or_method' at 0x14e7dbddfdd0>
+    Guarded Class Weakref: <weakref at 0x14e7dcde84a0; to 'type' at 0x560db081e300 (builtin_function_or_method)>
+  Guard 18:
+    Name: "G['torch'].long"
+    Source: global
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["G['torch'].long == torch.int64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14e7dbda5cb0; to 'type' at 0x14e7d51ab560 (dtype)>
+  Guard 19:
+    Name: "L['stencil_offsets']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['stencil_offsets'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14e6aa982b10; to 'Tensor' at 0x14e6b2c8af80>
+    Guarded Class Weakref: <weakref at 0x14e70769e840; to 'torch._C._TensorMeta' at 0x560dba353050 (Tensor)>
+  Guard 20:
+    Name: "G['torch'].remainder"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].remainder, 22986058685856), type=<built-in method remainder of type object at 0x14e7d51b1620>"]
+    Object Weakref: <weakref at 0x14e6aa6c9990; to 'builtin_function_or_method' at 0x14e7dbdcdda0>
+    Guarded Class Weakref: <weakref at 0x14e7dcde84a0; to 'type' at 0x560db081e300 (builtin_function_or_method)>
+  Guard 21:
+    Name: "L['x_batch_offsets']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['x_batch_offsets'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14e6aa983470; to 'Tensor' at 0x14e6b2c8ae40>
+    Guarded Class Weakref: <weakref at 0x14e70769e840; to 'torch._C._TensorMeta' at 0x560dba353050 (Tensor)>
+  Guard 22:
+    Name: "G['lagrange5_interp_sum']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 23:
+    Name: "L['physics_mode']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['BOOL_MATCH']
+    Code List: ["L['physics_mode'] == True"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14e7dce32e30; to 'type' at 0x560db0833300 (bool)>
+  Guard 24:
+    Name: "G['solve_poisson_real']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 25:
+    Name: "G['torch'].sum"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].sum, 22986058784560), type=<built-in method sum of type object at 0x14e7d51b1620>"]
+    Object Weakref: <weakref at 0x14e6aa6cdad0; to 'builtin_function_or_method' at 0x14e7dbde5f30>
+    Guarded Class Weakref: <weakref at 0x14e7dcde84a0; to 'type' at 0x560db081e300 (builtin_function_or_method)>
+  Guard 26:
+    Name: "L['grid_dv']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['grid_dv'] == 0.002442002442002442"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14e7dcdfe390; to 'type' at 0x560db08244a0 (float)>
+  Guard 27:
+    Name: "G['torch'].fft"
+    Source: global
+    Create Function: MODULE_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft, 22982468179568), type=<module 'torch.fft' from '/opt/aurora/26.26.0/frameworks/aurora_frameworks-2025.3.1/lib/python3.12/site-packages/torch/fft/__init__.py'>"]
+    Object Weakref: <weakref at 0x14e6aa803f60; to 'module' at 0x14e705da1670>
+    Guarded Class Weakref: <weakref at 0x14e7dce1b010; to 'type' at 0x560db081ddc0 (module)>
+  Guard 28:
+    Name: "G['torch'].fft.rfft"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft.rfft, 22982495624448), type=<built-in function fft_rfft>"]
+    Object Weakref: <weakref at 0x14e6aa6ce2a0; to 'builtin_function_or_method' at 0x14e7077cdd00>
+    Guarded Class Weakref: <weakref at 0x14e7dcde84a0; to 'type' at 0x560db081e300 (builtin_function_or_method)>
+  Guard 29:
+    Name: "G['torch'].view_as_real"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].view_as_real, 22986058693696), type=<built-in method view_as_real of type object at 0x14e7d51b1620>"]
+    Object Weakref: <weakref at 0x14e6aa6c9d50; to 'builtin_function_or_method' at 0x14e7dbdcfc40>
+    Guarded Class Weakref: <weakref at 0x14e7dcde84a0; to 'type' at 0x560db081e300 (builtin_function_or_method)>
+  Guard 30:
+    Name: "L['grid_inv_kx_sq']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_inv_kx_sq'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14e6aa842d90; to 'Tensor' at 0x14e6b2c8adf0>
+    Guarded Class Weakref: <weakref at 0x14e70769e840; to 'torch._C._TensorMeta' at 0x560dba353050 (Tensor)>
+  Guard 31:
+    Name: "L['grid_inv_kx']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_inv_kx'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14e6aa7bca90; to 'Tensor' at 0x14e6b2c8ada0>
+    Guarded Class Weakref: <weakref at 0x14e70769e840; to 'torch._C._TensorMeta' at 0x560dba353050 (Tensor)>
+  Guard 32:
+    Name: "G['torch'].stack"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].stack, 22986058739088), type=<built-in method stack of type object at 0x14e7d51b1620>"]
+    Object Weakref: <weakref at 0x14e6aa6ce160; to 'builtin_function_or_method' at 0x14e7dbddad90>
+    Guarded Class Weakref: <weakref at 0x14e7dcde84a0; to 'type' at 0x560db081e300 (builtin_function_or_method)>
+  Guard 33:
+    Name: "G['torch'].view_as_complex"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].view_as_complex, 22986058633104), type=<built-in method view_as_complex of type object at 0x14e7d51b1620>"]
+    Object Weakref: <weakref at 0x14e6aa6ca200; to 'builtin_function_or_method' at 0x14e7dbdc0f90>
+    Guarded Class Weakref: <weakref at 0x14e7dcde84a0; to 'type' at 0x560db081e300 (builtin_function_or_method)>
+  Guard 34:
+    Name: "G['torch'].fft.irfft"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft.irfft, 22982495624208), type=<built-in function fft_irfft>"]
+    Object Weakref: <weakref at 0x14e6aa6c9850; to 'builtin_function_or_method' at 0x14e7077cdc10>
+    Guarded Class Weakref: <weakref at 0x14e7dcde84a0; to 'type' at 0x560db081e300 (builtin_function_or_method)>
+  Guard 35:
+    Name: "L['v_indices']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['v_indices'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14e6aa7be660; to 'Tensor' at 0x14e6b2c8ac60>
+    Guarded Class Weakref: <weakref at 0x14e70769e840; to 'torch._C._TensorMeta' at 0x560dba353050 (Tensor)>
+  Guard 36:
+    Name: "G['torch'].clamp"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].clamp, 22986058729008), type=<built-in method clamp of type object at 0x14e7d51b1620>"]
+    Object Weakref: <weakref at 0x14e6aa6cdda0; to 'builtin_function_or_method' at 0x14e7dbdd8630>
+    Guarded Class Weakref: <weakref at 0x14e7dcde84a0; to 'type' at 0x560db081e300 (builtin_function_or_method)>
+  Guard 37:
+    Name: "L['v_batch_offsets']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['v_batch_offsets'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14e6aa7bf970; to 'Tensor' at 0x14e6b2c8aee0>
+    Guarded Class Weakref: <weakref at 0x14e70769e840; to 'torch._C._TensorMeta' at 0x560dba353050 (Tensor)>
+Compile Times: TorchDynamo compilation metrics:
+Function                          Runtimes (s)
+------------------------------  --------------
+_compile.compile_inner                  0.4128
+compile_attempt_0                       0.3967
+bytecode_tracing                        0.3797
+OutputGraph.call_user_compiler          0.0002
+build_guards                            0.0146
+gc                                      0.0003

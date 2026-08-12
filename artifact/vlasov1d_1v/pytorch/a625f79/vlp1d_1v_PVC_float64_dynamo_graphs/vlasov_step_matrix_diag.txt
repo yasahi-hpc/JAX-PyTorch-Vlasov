@@ -1,0 +1,717 @@
+Graph Count: 1
+Graph Break Count: 0
+Op Count: 389
+Break Reasons:
+Ops per Graph:
+  Ops 1:
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in method floor of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method zeros_like of type object at 0x14a260a36620>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method stack of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in method sum of type object at 0x14a260a36620>
+    <built-in function mul>
+    <built-in function sub>
+    <built-in function fft_rfft>
+    <built-in method view_as_real of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function getitem>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in method stack of type object at 0x14a260a36620>
+    <built-in function mul>
+    <built-in method view_as_complex of type object at 0x14a260a36620>
+    <built-in method view_as_complex of type object at 0x14a260a36620>
+    <built-in function fft_irfft>
+    <built-in function fft_irfft>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in method floor of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method zeros_like of type object at 0x14a260a36620>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method stack of type object at 0x14a260a36620>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function add>
+    <built-in function sub>
+    <built-in function ge>
+    <built-in function lt>
+    <built-in function and_>
+    <built-in function mul>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in method floor of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method zeros_like of type object at 0x14a260a36620>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function neg>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function truediv>
+    <built-in function sub>
+    <built-in function truediv>
+    <built-in function add>
+    <built-in method stack of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+    <built-in function getitem>
+    <built-in function add>
+    <built-in method arange of type object at 0x14a260a36620>
+    <built-in function sub>
+    <built-in method remainder of type object at 0x14a260a36620>
+    <built-in method gather of type object at 0x14a260a36620>
+    <built-in function getitem>
+    <built-in function mul>
+    <built-in function add>
+Out Guards:
+  Guard 1:
+    Name: ''
+    Source: shape_env
+    Create Function: SHAPE_ENV
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 2:
+    Name: ''
+    Source: global
+    Create Function: DETERMINISTIC_ALGORITHMS
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 3:
+    Name: ''
+    Source: global
+    Create Function: GRAD_MODE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 4:
+    Name: ''
+    Source: global
+    Create Function: DEFAULT_DEVICE
+    Guard Types: ['DEFAULT_DEVICE']
+    Code List: ['utils_device.CURRENT_DEVICE == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 5:
+    Name: ''
+    Source: global
+    Create Function: GLOBAL_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 6:
+    Name: ''
+    Source: global
+    Create Function: TORCH_FUNCTION_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 7:
+    Name: ''
+    Source: global
+    Create Function: AUTOGRAD_SAVED_TENSORS_HOOKS
+    Guard Types: ['AUTOGRAD_SAVED_TENSORS_HOOKS']
+    Code List: ['torch._functorch.aot_autograd.utils.top_saved_tensors_hooks ids == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 8:
+    Name: "L['dt']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['dt'] == 0.05"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14a268682390; to 'type' at 0x5643d3b504a0 (float)>
+  Guard 9:
+    Name: "G['advect_1d_matrix_diag']"
+    Source: global
+    Create Function: TYPE_MATCH
+    Guard Types: ['TYPE_MATCH']
+    Code List: ["___check_type_id(G['advect_1d_matrix_diag'], 94849314650848), type=<class 'function'>"]
+    Object Weakref: <weakref at 0x14a135b0d4e0; to 'function' at 0x14a156d98540>
+    Guarded Class Weakref: <weakref at 0x14a268683060; to 'type' at 0x5643d3b4fae0 (function)>
+  Guard 10:
+    Name: "G['__builtins_dict___0']['getattr']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['getattr'], 22687769315344), type=<built-in function getattr>"]
+    Object Weakref: <weakref at 0x14a135b0dad0; to 'builtin_function_or_method' at 0x14a2686e4810>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 11:
+    Name: "G['advect_1d_matrix_diag']._torchdynamo_inline"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 12:
+    Name: "L['f']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['f'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14a135e92930; to 'Tensor' at 0x14a156f772a0>
+    Guarded Class Weakref: <weakref at 0x14a192f1ea20; to 'torch._C._TensorMeta' at 0x5643dc9ec050 (Tensor)>
+  Guard 13:
+    Name: "L['grid_v']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_v'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14a135cf3e20; to 'Tensor' at 0x14a156f76df0>
+    Guarded Class Weakref: <weakref at 0x14a192f1ea20; to 'torch._C._TensorMeta' at 0x5643dc9ec050 (Tensor)>
+  Guard 14:
+    Name: "L['grid_dx']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['grid_dx'] == 0.0030679615757712823"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14a268682390; to 'type' at 0x5643d3b504a0 (float)>
+  Guard 15:
+    Name: "G['torch']"
+    Source: global
+    Create Function: MODULE_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'], 22687758652080), type=<module 'torch' from '/opt/aurora/26.26.0/frameworks/aurora_frameworks-2025.3.1/lib/python3.12/site-packages/torch/__init__.py'>"]
+    Object Weakref: <weakref at 0x14a135c704f0; to 'module' at 0x14a267cb92b0>
+    Guarded Class Weakref: <weakref at 0x14a26869f010; to 'type' at 0x5643d3b49dc0 (module)>
+  Guard 16:
+    Name: "G['torch'].floor"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].floor, 22687752027600), type=<built-in method floor of type object at 0x14a260a36620>"]
+    Object Weakref: <weakref at 0x14a135c731a0; to 'builtin_function_or_method' at 0x14a267667dd0>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 17:
+    Name: "G['torch'].long"
+    Source: global
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["G['torch'].long == torch.int64"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14a26762dcb0; to 'type' at 0x14a260a30560 (dtype)>
+  Guard 18:
+    Name: "G['torch'].zeros_like"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].zeros_like, 22687751949104), type=<built-in method zeros_like of type object at 0x14a260a36620>"]
+    Object Weakref: <weakref at 0x14a135c03f10; to 'builtin_function_or_method' at 0x14a267654b30>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 19:
+    Name: "G['lagrange5_weights']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 20:
+    Name: "G['torch'].stack"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].stack, 22687752007056), type=<built-in method stack of type object at 0x14a260a36620>"]
+    Object Weakref: <weakref at 0x14a135c738d0; to 'builtin_function_or_method' at 0x14a267662d90>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 21:
+    Name: "G['__builtins_dict___0']['range']"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['__builtins_dict___0']['range'], 94849314622400), type=<class 'range'>"]
+    Object Weakref: <weakref at 0x14a26869fec0; to 'type' at 0x5643d3b48bc0>
+    Guarded Class Weakref: <weakref at 0x14a26864cc20; to 'type' at 0x5643d3b46ae0 (type)>
+  Guard 22:
+    Name: "L['stencil_offsets']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['stencil_offsets'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14a135d73920; to 'Tensor' at 0x14a156f77160>
+    Guarded Class Weakref: <weakref at 0x14a192f1ea20; to 'torch._C._TensorMeta' at 0x5643dc9ec050 (Tensor)>
+  Guard 23:
+    Name: "G['_roll_columns']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 24:
+    Name: "G['torch'].arange"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].arange, 22687751901792), type=<built-in method arange of type object at 0x14a260a36620>"]
+    Object Weakref: <weakref at 0x14a135c73740; to 'builtin_function_or_method' at 0x14a267649260>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 25:
+    Name: "G['torch'].remainder"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].remainder, 22687751953824), type=<built-in method remainder of type object at 0x14a260a36620>"]
+    Object Weakref: <weakref at 0x14a135c03b50; to 'builtin_function_or_method' at 0x14a267655da0>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 26:
+    Name: "G['torch'].gather"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].gather, 22687752013520), type=<built-in method gather of type object at 0x14a260a36620>"]
+    Object Weakref: <weakref at 0x14a135c715d0; to 'builtin_function_or_method' at 0x14a2676646d0>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 27:
+    Name: "L['physics_mode']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['BOOL_MATCH']
+    Code List: ["L['physics_mode'] == True"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14a2686b6e30; to 'type' at 0x5643d3b5f300 (bool)>
+  Guard 28:
+    Name: "G['solve_poisson_real']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 29:
+    Name: "G['torch'].sum"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].sum, 22687752052528), type=<built-in method sum of type object at 0x14a260a36620>"]
+    Object Weakref: <weakref at 0x14a135c71bc0; to 'builtin_function_or_method' at 0x14a26766df30>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 30:
+    Name: "L['grid_dv']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['grid_dv'] == 0.002442002442002442"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14a268682390; to 'type' at 0x5643d3b504a0 (float)>
+  Guard 31:
+    Name: "G['torch'].fft"
+    Source: global
+    Create Function: MODULE_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft, 22684159497280), type=<module 'torch.fft' from '/opt/aurora/26.26.0/frameworks/aurora_frameworks-2025.3.1/lib/python3.12/site-packages/torch/fft/__init__.py'>"]
+    Object Weakref: <weakref at 0x14a135c71350; to 'module' at 0x14a19144d440>
+    Guarded Class Weakref: <weakref at 0x14a26869f010; to 'type' at 0x5643d3b49dc0 (module)>
+  Guard 32:
+    Name: "G['torch'].fft.rfft"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft.rfft, 22684188859888), type=<built-in function fft_rfft>"]
+    Object Weakref: <weakref at 0x14a135c00d60; to 'builtin_function_or_method' at 0x14a19304ddf0>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 33:
+    Name: "G['torch'].view_as_real"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].view_as_real, 22687751961664), type=<built-in method view_as_real of type object at 0x14a260a36620>"]
+    Object Weakref: <weakref at 0x14a135b0c4f0; to 'builtin_function_or_method' at 0x14a267657c40>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 34:
+    Name: "L['grid_inv_kx_sq']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_inv_kx_sq'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14a135c036a0; to 'Tensor' at 0x14a156f76fd0>
+    Guarded Class Weakref: <weakref at 0x14a192f1ea20; to 'torch._C._TensorMeta' at 0x5643dc9ec050 (Tensor)>
+  Guard 35:
+    Name: "L['grid_inv_kx']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['grid_inv_kx'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14a135c01260; to 'Tensor' at 0x14a156f76f80>
+    Guarded Class Weakref: <weakref at 0x14a192f1ea20; to 'torch._C._TensorMeta' at 0x5643dc9ec050 (Tensor)>
+  Guard 36:
+    Name: "G['torch'].view_as_complex"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].view_as_complex, 22687751901072), type=<built-in method view_as_complex of type object at 0x14a260a36620>"]
+    Object Weakref: <weakref at 0x14a135b0c630; to 'builtin_function_or_method' at 0x14a267648f90>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 37:
+    Name: "G['torch'].fft.irfft"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].fft.irfft, 22684188859648), type=<built-in function fft_irfft>"]
+    Object Weakref: <weakref at 0x14a135c031a0; to 'builtin_function_or_method' at 0x14a19304dd00>
+    Guarded Class Weakref: <weakref at 0x14a26866c4a0; to 'type' at 0x5643d3b4a300 (builtin_function_or_method)>
+  Guard 38:
+    Name: "G['build_v_diag_weights']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 39:
+    Name: "G['_roll_rows']"
+    Source: global
+    Create Function: CLOSURE_MATCH
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+Compile Times: TorchDynamo compilation metrics:
+Function                          Runtimes (s)
+------------------------------  --------------
+_compile.compile_inner                  0.4902
+compile_attempt_0                       0.4738
+bytecode_tracing                        0.4524
+OutputGraph.call_user_compiler          0.0002
+build_guards                            0.0145
+gc                                      0.0005
