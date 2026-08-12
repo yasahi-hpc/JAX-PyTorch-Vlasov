@@ -1,13 +1,13 @@
 # AI frameworks for Performance Portable Vlasov code
 
-Evaluating the capability of AI frameworks (JAX, pytorch) as a performance portability framework
+Evaluating the capability of AI frameworks (JAX, pytorch) as a performance portability framework.
 
 ## Using
 
 First of all, you need to clone this repo.
 
 ```bash
-git clone --recursive git@github.com:yasahi-hpc/JAX-PyTorch-Vlasov.git
+git clone --recursive https://github.com/yasahi-hpc/JAX-PyTorch-Vlasov.git
 ```
 
 ## Prerequisites
@@ -22,7 +22,7 @@ We need the following for Kokkos codes.
 * `nvcc 11.0.0+` (NVIDIA GPUs)
 * `rocm 5.6.0+` (AMD GPUs)
 
-For python codes, we need
+For JAX/PyTorch codes, we need
 
 * `python 3.10+`
 * `numpy`
