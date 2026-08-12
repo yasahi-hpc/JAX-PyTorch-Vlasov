@@ -1,0 +1,56 @@
+# ===== Dynamo FX graph 0 (readable) =====
+class GraphModule(torch.nn.Module):
+    def forward(self, L_u_: "f64[512, 512, 512]"):
+        l_u_ = L_u_
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/heat3d/pytorch/src/heat3d.py:127 in step, code: left   = torch.roll(u, -1, 0)
+        left: "f64[512, 512, 512]" = torch.roll(l_u_, -1, 0)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/heat3d/pytorch/src/heat3d.py:128 in step, code: right  = torch.roll(u,  1, 0)
+        right: "f64[512, 512, 512]" = torch.roll(l_u_, 1, 0)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/heat3d/pytorch/src/heat3d.py:129 in step, code: up     = torch.roll(u, -1, 1)
+        up: "f64[512, 512, 512]" = torch.roll(l_u_, -1, 1)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/heat3d/pytorch/src/heat3d.py:130 in step, code: down   = torch.roll(u,  1, 1)
+        down: "f64[512, 512, 512]" = torch.roll(l_u_, 1, 1)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/heat3d/pytorch/src/heat3d.py:131 in step, code: front  = torch.roll(u, -1, 2)
+        front: "f64[512, 512, 512]" = torch.roll(l_u_, -1, 2)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/heat3d/pytorch/src/heat3d.py:132 in step, code: back   = torch.roll(u,  1, 2)
+        back: "f64[512, 512, 512]" = torch.roll(l_u_, 1, 2)
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/heat3d/pytorch/src/heat3d.py:135 in step, code: laplacian = (left + right + up + down + front + back) - (6.0 * u)
+        add: "f64[512, 512, 512]" = left + right;  left = right = None
+        add_1: "f64[512, 512, 512]" = add + up;  add = up = None
+        add_2: "f64[512, 512, 512]" = add_1 + down;  add_1 = down = None
+        add_3: "f64[512, 512, 512]" = add_2 + front;  add_2 = front = None
+        add_4: "f64[512, 512, 512]" = add_3 + back;  add_3 = back = None
+        mul: "f64[512, 512, 512]" = 6.0 * l_u_
+        laplacian: "f64[512, 512, 512]" = add_4 - mul;  add_4 = mul = None
+        
+         # File: /work/jh220036/i18048/develop/vlp4d_tuto/simulations/heat3d/pytorch/src/heat3d.py:137 in step, code: return u + coeff * laplacian
+        mul_1: "f64[512, 512, 512]" = 0.13280370182368498 * laplacian;  laplacian = None
+        add_5: "f64[512, 512, 512]" = l_u_ + mul_1;  l_u_ = mul_1 = None
+        return (add_5,)
+        
+# ===== Dynamo FX graph 0 (node table) =====
+graph():
+    %l_u_ : torch.Tensor [num_users=8] = placeholder[target=L_u_]
+    %left : [num_users=1] = call_function[target=torch.roll](args = (%l_u_, -1, 0), kwargs = {})
+    %right : [num_users=1] = call_function[target=torch.roll](args = (%l_u_, 1, 0), kwargs = {})
+    %up : [num_users=1] = call_function[target=torch.roll](args = (%l_u_, -1, 1), kwargs = {})
+    %down : [num_users=1] = call_function[target=torch.roll](args = (%l_u_, 1, 1), kwargs = {})
+    %front : [num_users=1] = call_function[target=torch.roll](args = (%l_u_, -1, 2), kwargs = {})
+    %back : [num_users=1] = call_function[target=torch.roll](args = (%l_u_, 1, 2), kwargs = {})
+    %add : [num_users=1] = call_function[target=operator.add](args = (%left, %right), kwargs = {})
+    %add_1 : [num_users=1] = call_function[target=operator.add](args = (%add, %up), kwargs = {})
+    %add_2 : [num_users=1] = call_function[target=operator.add](args = (%add_1, %down), kwargs = {})
+    %add_3 : [num_users=1] = call_function[target=operator.add](args = (%add_2, %front), kwargs = {})
+    %add_4 : [num_users=1] = call_function[target=operator.add](args = (%add_3, %back), kwargs = {})
+    %mul : [num_users=1] = call_function[target=operator.mul](args = (6.0, %l_u_), kwargs = {})
+    %laplacian : [num_users=1] = call_function[target=operator.sub](args = (%add_4, %mul), kwargs = {})
+    %mul_1 : [num_users=1] = call_function[target=operator.mul](args = (0.13280370182368498, %laplacian), kwargs = {})
+    %add_5 : [num_users=1] = call_function[target=operator.add](args = (%l_u_, %mul_1), kwargs = {})
+    return (add_5,)

@@ -1,0 +1,24 @@
+Solver: heat_step (type=0)
+Running simulation without diagnostics (num_steps=0). Steps: 100
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+
+Jax version: 0.8.2
+Device: NVIDIA GH200 120GB
+Grid: 256 x 256 x 256 (N=16,777,216 points), dtype=float32
+Times (s): best=0.008642, avg=0.008660 over 10 runs
+Estimated bandwidth (GB/s): best=1553.05, avg=1549.78
+Errors vs analytical PDE at t=2.000000e+00: L2rel=8.101e-07, Linf=1.013e-06
+
+Memory statistics
+Device memory before main loop : 128.01 MiB
+Device memory after main loop  : 128.01 MiB
+Device peak memory             : 576.00 MiB
+Device memory limit            : 72960.00 MiB
+Host peak RSS                  : 3176.62 MiB
+
+Compiled memory analysis (per chunk, compiler-reported)
+Argument size                  : 64.00 MiB
+Output size                    : 64.00 MiB
+Temp size                      : 64.00 MiB
+Peak memory                    : 192.00 MiB

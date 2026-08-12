@@ -1,0 +1,24 @@
+Solver: heat_step_roll (type=1)
+Running simulation without diagnostics (num_steps=0). Steps: 100
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+
+Jax version: 0.8.2
+Device: AMD Instinct MI250X
+Grid: 256 x 256 x 256 (N=16,777,216 points), dtype=float64
+Times (s): best=0.067281, avg=0.067804 over 10 runs
+Estimated bandwidth (GB/s): best=398.98, avg=395.90
+Errors vs analytical PDE at t=2.000000e+00: L2rel=1.212e-07, Linf=1.205e-07
+
+Memory statistics
+Device memory before main loop : 256.01 MiB
+Device memory after main loop  : 256.02 MiB
+Device peak memory             : 1152.01 MiB
+Device memory limit            : 49140.00 MiB
+Host peak RSS                  : 8430.03 MiB
+
+Compiled memory analysis (per chunk, compiler-reported)
+Argument size                  : 128.00 MiB
+Output size                    : 128.01 MiB
+Temp size                      : 128.00 MiB
+Peak memory                    : 384.01 MiB

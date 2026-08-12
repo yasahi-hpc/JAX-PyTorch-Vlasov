@@ -1,0 +1,119 @@
+Graph Count: 1
+Graph Break Count: 0
+Op Count: 15
+Break Reasons:
+Ops per Graph:
+  Ops 1:
+    <built-in method roll of type object at 0x14d1e3b59620>
+    <built-in method roll of type object at 0x14d1e3b59620>
+    <built-in method roll of type object at 0x14d1e3b59620>
+    <built-in method roll of type object at 0x14d1e3b59620>
+    <built-in method roll of type object at 0x14d1e3b59620>
+    <built-in method roll of type object at 0x14d1e3b59620>
+    <built-in function add>
+    <built-in function add>
+    <built-in function add>
+    <built-in function add>
+    <built-in function add>
+    <built-in function mul>
+    <built-in function sub>
+    <built-in function mul>
+    <built-in function add>
+Out Guards:
+  Guard 1:
+    Name: ''
+    Source: shape_env
+    Create Function: SHAPE_ENV
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 2:
+    Name: ''
+    Source: global
+    Create Function: DETERMINISTIC_ALGORITHMS
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 3:
+    Name: ''
+    Source: global
+    Create Function: GRAD_MODE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 4:
+    Name: ''
+    Source: global
+    Create Function: DEFAULT_DEVICE
+    Guard Types: ['DEFAULT_DEVICE']
+    Code List: ['utils_device.CURRENT_DEVICE == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 5:
+    Name: ''
+    Source: global
+    Create Function: GLOBAL_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 6:
+    Name: ''
+    Source: global
+    Create Function: TORCH_FUNCTION_STATE
+    Guard Types: None
+    Code List: None
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 7:
+    Name: ''
+    Source: global
+    Create Function: AUTOGRAD_SAVED_TENSORS_HOOKS
+    Guard Types: ['AUTOGRAD_SAVED_TENSORS_HOOKS']
+    Code List: ['torch._functorch.aot_autograd.utils.top_saved_tensors_hooks ids == None']
+    Object Weakref: None
+    Guarded Class Weakref: None
+  Guard 8:
+    Name: "G['torch']"
+    Source: global
+    Create Function: MODULE_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'], 22891820911088), type=<module 'torch' from '/opt/aurora/26.26.0/frameworks/aurora_frameworks-2025.3.1/lib/python3.12/site-packages/torch/__init__.py'>"]
+    Object Weakref: <weakref at 0x14d0d95d5940; to 'module' at 0x14d1eada89f0>
+    Guarded Class Weakref: <weakref at 0x14d1eb7c3010; to 'type' at 0x55f0518c4dc0 (module)>
+  Guard 9:
+    Name: "G['torch'].roll"
+    Source: global
+    Create Function: BUILTIN_MATCH
+    Guard Types: ['ID_MATCH']
+    Code List: ["___check_obj_id(G['torch'].roll, 22891814158096), type=<built-in method roll of type object at 0x14d1e3b59620>"]
+    Object Weakref: <weakref at 0x14d0d95d5b70; to 'builtin_function_or_method' at 0x14d1ea737f10>
+    Guarded Class Weakref: <weakref at 0x14d1eb7904a0; to 'type' at 0x55f0518c5300 (builtin_function_or_method)>
+  Guard 10:
+    Name: "L['u']"
+    Source: local
+    Create Function: TENSOR_MATCH
+    Guard Types: ['TENSOR_MATCH']
+    Code List: ["hasattr(L['u'], '_dynamo_dynamic_indices') == False"]
+    Object Weakref: <weakref at 0x14d0d95621b0; to 'Tensor' at 0x14d0da293520>
+    Guarded Class Weakref: <weakref at 0x14d116032520; to 'torch._C._TensorMeta' at 0x55f05ad73280 (Tensor)>
+  Guard 11:
+    Name: "L['coeff']"
+    Source: local
+    Create Function: CONSTANT_MATCH
+    Guard Types: ['EQUALS_MATCH']
+    Code List: ["L['coeff'] == 0.13280370182368498"]
+    Object Weakref: None
+    Guarded Class Weakref: <weakref at 0x14d1eb7a6390; to 'type' at 0x55f0518cb4a0 (float)>
+Compile Times: TorchDynamo compilation metrics:
+Function                          Runtimes (s)
+------------------------------  --------------
+_compile.compile_inner                  0.0934
+compile_attempt_0                       0.0799
+bytecode_tracing                        0.0733
+OutputGraph.call_user_compiler          0.0001
+build_guards                            0.0123
+gc                                      0.0002

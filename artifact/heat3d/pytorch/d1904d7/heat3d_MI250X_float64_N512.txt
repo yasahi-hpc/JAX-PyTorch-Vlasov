@@ -1,0 +1,15 @@
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+PyTorch version: 2.12.0+rocm7.2
+Device: AMD Instinct MI250X (cuda:0)
+Grid: 512 x 512 x 512 (N=134,217,728 points), dtype=torch.float64
+Times (s): best=0.272344, avg=0.272895 over 10 runs
+Estimated bandwidth (GB/s): best=788.52, avg=786.93
+
+Memory statistics
+Allocated before benchmark : 2048.01 MiB
+Reserved before benchmark  : 8194.00 MiB
+Peak allocated             : 3072.01 MiB
+Peak reserved              : 8194.00 MiB
+
+Errors vs analytical PDE at t=2.000000e+00: L2rel=1.047e-07, Linf=1.041e-07

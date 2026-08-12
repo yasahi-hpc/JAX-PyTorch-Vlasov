@@ -1,0 +1,158 @@
+Generating SQLite file nsys_vlp1d_1v_fp64_N4096_solver0.sqlite from nsys_vlp1d_1v_fp64_N4096_solver0.nsys-rep
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/nvtx_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain NV Tools Extension (NVTX) data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/osrt_sum.py]... 
+
+ ** OS Runtime Summary (osrt_sum):
+
+ Time (%)  Total Time (ns)  Num Calls    Avg (ns)      Med (ns)     Min (ns)   Max (ns)    StdDev (ns)            Name         
+ --------  ---------------  ---------  ------------  -------------  --------  -----------  ------------  ----------------------
+     93.7    1,849,802,496         30  61,660,083.2  100,103,248.0     1,728  100,109,696  45,975,572.0  poll                  
+      5.2      102,812,224        660     155,776.1        7,712.0     1,024   15,557,792     760,715.4  ioctl                 
+      0.6       11,930,880          4   2,982,720.0       38,544.0    32,160   11,821,632   5,892,610.2  writev                
+      0.3        5,663,328          5   1,132,665.6      501,920.0   365,184    2,959,040   1,095,344.3  fopen64               
+      0.1        1,229,888         40      30,747.2        3,184.0     1,600      191,200      58,969.5  fopen                 
+      0.1        1,042,304         24      43,429.3        2,288.0     1,024      152,544      57,415.9  fclose                
+      0.0          327,936          4      81,984.0       81,472.0    75,328       89,664       6,260.5  fcntl                 
+      0.0          312,832         10      31,283.2       14,512.0     8,896      134,144      40,670.0  sem_timedwait         
+      0.0          226,688         39       5,812.5        5,344.0     1,216       12,160       2,084.5  mmap64                
+      0.0          206,240         33       6,249.7        4,800.0     1,184       40,128       6,776.8  mmap                  
+      0.0          198,464         57       3,481.8        3,264.0     1,088       12,768       1,732.5  open64                
+      0.0          187,968         11      17,088.0        2,272.0     1,696      161,504      47,906.0  write                 
+      0.0          145,888          2      72,944.0       72,944.0     5,728      140,160      95,057.8  stat                  
+      0.0          108,512          3      36,170.7       38,272.0    29,920       40,320       5,509.2  pthread_create        
+      0.0          108,320         12       9,026.7        7,952.0     3,904       18,048       4,595.8  fread                 
+      0.0           47,936          1      47,936.0       47,936.0    47,936       47,936           0.0  pthread_cond_wait     
+      0.0           44,896          7       6,413.7        6,240.0     1,216       13,888       4,826.6  munmap                
+      0.0           42,656          3      14,218.7        8,864.0     1,568       32,224      16,014.1  fgets                 
+      0.0           26,080          8       3,260.0        2,992.0     1,376        6,048       1,576.6  open                  
+      0.0           21,760         11       1,978.2        1,472.0     1,088        4,896       1,130.7  read                  
+      0.0           14,112          4       3,528.0        3,456.0     2,304        4,896       1,401.0  pipe2                 
+      0.0           13,056          6       2,176.0        2,096.0     1,152        3,584         942.6  close                 
+      0.0           10,752          2       5,376.0        5,376.0     3,520        7,232       2,624.8  socket                
+      0.0            8,416          1       8,416.0        8,416.0     8,416        8,416           0.0  connect               
+      0.0            3,360          1       3,360.0        3,360.0     3,360        3,360           0.0  pthread_cond_broadcast
+      0.0            2,464          1       2,464.0        2,464.0     2,464        2,464           0.0  bind                  
+      0.0            1,728          1       1,728.0        1,728.0     1,728        1,728           0.0  fwrite                
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/cuda_api_sum.py]... 
+
+ ** CUDA API Summary (cuda_api_sum):
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)               Name             
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  ------------------------------
+     95.9      821,999,968      1,036    793,436.3    821,440.0      1,696    829,696    147,483.7  cudaStreamSynchronize         
+      2.0       17,490,080      6,009      2,910.6      2,752.0      2,016    160,128      2,121.2  cudaLaunchKernel              
+      0.8        6,585,568      3,003      2,193.0      2,112.0      1,536     12,256        433.5  cuLaunchKernel                
+      0.6        4,995,264         13    384,251.1     11,744.0      3,456  4,865,824  1,346,551.5  cudaMemcpy                    
+      0.3        2,323,616          2  1,161,808.0  1,161,808.0  1,101,792  1,221,824     84,875.4  cuModuleLoadData              
+      0.2        1,369,696      4,023        340.5         64.0         32    324,928      8,565.3  cudaMalloc                    
+      0.1          754,272         22     34,285.1      2,672.0      1,408    231,072     66,299.8  cudaFree                      
+      0.1          459,424          3    153,141.3      6,944.0      6,080    446,400    253,969.8  cuMemcpyHtoD_v2               
+      0.0          292,512      6,009         48.7         32.0         32        256         23.0  cuKernelGetName               
+      0.0          183,840         35      5,252.6      2,976.0        640     80,384     13,240.2  cudaDeviceSynchronize         
+      0.0          149,664          2     74,832.0     74,832.0      1,856    147,808    103,203.6  cudaHostAlloc                 
+      0.0          107,936          1    107,936.0    107,936.0    107,936    107,936          0.0  cuMemAlloc_v2                 
+      0.0           98,944          2     49,472.0     49,472.0     12,992     85,952     51,590.5  cudaStreamCreate              
+      0.0           93,760         14      6,697.1      5,360.0      2,272     16,512      4,506.8  cudaMemsetAsync               
+      0.0           89,600          3     29,866.7      5,376.0      2,720     81,504     44,739.0  cudaFreeHost                  
+      0.0           88,160          2     44,080.0     44,080.0     34,976     53,184     12,875.0  cuModuleUnload                
+      0.0           85,024         17      5,001.4      2,912.0      1,728     11,680      3,720.9  cudaMemcpyAsync               
+      0.0           78,816          4     19,704.0      7,872.0      5,280     57,792     25,474.6  cudaMemcpyToSymbol            
+      0.0           54,080          1     54,080.0     54,080.0     54,080     54,080          0.0  cuLibraryLoadData             
+      0.0           49,376          3     16,458.7        224.0        128     49,024     28,202.4  cuMemFree_v2                  
+      0.0           33,184          2     16,592.0     16,592.0     15,968     17,216        882.5  cuMemGetInfo_v2               
+      0.0           11,040          2      5,520.0      5,520.0      2,752      8,288      3,914.5  cudaMemset                    
+      0.0           10,304          2      5,152.0      5,152.0      4,992      5,312        226.3  cudaStreamDestroy             
+      0.0            2,880          1      2,880.0      2,880.0      2,880      2,880          0.0  cudaMallocHost                
+      0.0            1,760          1      1,760.0      1,760.0      1,760      1,760          0.0  cuInit                        
+      0.0            1,696          1      1,696.0      1,696.0      1,696      1,696          0.0  cudaEventCreateWithFlags      
+      0.0            1,536          1      1,536.0      1,536.0      1,536      1,536          0.0  cudaEventDestroy              
+      0.0            1,504          2        752.0        752.0        384      1,120        520.4  cuLibraryGetKernel            
+      0.0            1,344          2        672.0        672.0        448        896        316.8  cudaGetDeviceProperties_v12000
+      0.0              512          1        512.0        512.0        512        512          0.0  cuModuleGetLoadingMode        
+      0.0              160          2         80.0         80.0         64         96         22.6  cuCtxSetCurrent               
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/cuda_gpu_kern_sum.py]... 
+
+ ** CUDA GPU Kernel Summary (cuda_gpu_kern_sum):
+
+ Time (%)  Total Time (ns)  Instances  Avg (ns)   Med (ns)   Min (ns)  Max (ns)  StdDev (ns)                                                  Name                                                
+ --------  ---------------  ---------  ---------  ---------  --------  --------  -----------  ----------------------------------------------------------------------------------------------------
+     77.8      652,159,008      2,000  326,079.5  326,048.0   322,624   330,656      1,125.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<void advect_1d_core<…
+     13.6      113,650,592      1,000  113,650.6  113,632.0   111,104   115,680        685.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<void advect_1d_core<…
+      6.6       55,004,992      1,001   54,950.0   54,944.0    54,112    56,384        400.3  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<void Efield<Kokkos::…
+      1.0        8,564,352      2,002    4,277.9    4,320.0     4,064     5,088        136.4  void vector_fft_c2r<(unsigned int)4096, EPT<(unsigned int)32>, (unsigned int)1, (unsigned int)3, (p…
+      0.6        5,071,200      1,001    5,066.1    5,056.0     4,896     5,856        135.9  void vector_fft_r2c<(unsigned int)4096, EPT<(unsigned int)32>, (unsigned int)1, (unsigned int)3, (p…
+      0.2        1,462,592      1,001    1,461.1    1,408.0     1,376     2,112         93.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<Efield<Kokkos::Cuda,…
+      0.2        1,403,456      1,001    1,402.1    1,408.0     1,248     2,048        104.5  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<Efield<Kokkos::Cuda,…
+      0.1          439,104          1  439,104.0  439,104.0   439,104   439,104          0.0  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelForMDRange<VlasovPoisson…
+      0.0            4,640          1    4,640.0    4,640.0     4,640     4,640          0.0  desul::<unnamed>::init_lock_arrays_cuda_kernel()                                                    
+      0.0            2,656          3      885.3      896.0       864       896         18.5  void Kokkos::Impl::cuda_parallel_launch_local_memory<Kokkos::Impl::ParallelFor<Kokkos::Impl::ViewVa…
+      0.0              768          1      768.0      768.0       768       768          0.0  Kokkos::Impl::<unnamed>::query_cuda_kernel_arch(int *)                                              
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/cuda_gpu_mem_time_sum.py]... 
+
+ ** CUDA GPU MemOps Summary (by Time) (cuda_gpu_mem_time_sum):
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)   Med (ns)  Min (ns)  Max (ns)  StdDev (ns)            Operation           
+ --------  ---------------  -----  ---------  --------  --------  --------  -----------  ------------------------------
+     72.8          663,104      5  132,620.8   3,136.0     1,632   652,896    290,844.2  [CUDA memcpy Device-to-Host]  
+     12.9          117,504     16    7,344.0     928.0       864    35,648     13,765.1  [CUDA memset]                 
+      8.9           80,640      4   20,160.0   1,328.0     1,088    76,896     37,824.2  [CUDA memcpy Device-to-Device]
+      5.5           49,824     28    1,779.4     800.0       736    22,400      4,070.2  [CUDA memcpy Host-to-Device]  
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/cuda_gpu_mem_size_sum.py]... 
+
+ ** CUDA GPU MemOps Summary (by Size) (cuda_gpu_mem_size_sum):
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)            Operation           
+ ----------  -----  --------  --------  --------  --------  -----------  ------------------------------
+    404.087     16    25.255     0.033     0.008   134.218       54.061  [CUDA memset]                 
+    134.316      5    26.863     0.033     0.000   134.218       60.013  [CUDA memcpy Device-to-Host]  
+    134.316      4    33.579     0.033     0.033   134.218       67.092  [CUDA memcpy Device-to-Device]
+      4.420     28     0.158     0.000     0.000     4.336        0.819  [CUDA memcpy Host-to-Device]  
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/openmp_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain OpenMP event data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/opengl_khr_range_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain KHR Extension (KHR_DEBUG) data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/opengl_khr_gpu_range_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain GPU KHR Extension (KHR_DEBUG) data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/vulkan_marker_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain Vulkan Debug Extension (Vulkan Debug Util) data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/vulkan_gpu_marker_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain GPU Vulkan Debug Extension (GPU Vulkan Debug markers) data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/dx11_pix_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain DX11 CPU debug markers.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/dx12_gpu_marker_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain DX12 GPU debug markers.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/dx12_pix_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain DX12 CPU debug markers.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/wddm_queue_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain WDDM context data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/um_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/um_total_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/um_cpu_page_faults_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/openacc_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain OpenACC event data.
+
+Processing [nsys_vlp1d_1v_fp64_N4096_solver0.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/syscall_sum.py]... 
+SKIPPED: nsys_vlp1d_1v_fp64_N4096_solver0.sqlite does not contain syscall data.
+

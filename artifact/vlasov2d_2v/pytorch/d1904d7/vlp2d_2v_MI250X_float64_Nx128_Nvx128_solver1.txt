@@ -1,0 +1,13 @@
+PyTorch version: 2.12.0+rocm7.2
+Starting simulation on cuda with torch.float64 precision with Poisson solver and solver type vlasov_step_matrix_diag.
+Grid: 128x128x128x128, Steps: 128, chunks: 0, diag_freq: 2000
+Warming up torch.compile...
+Compilation done. Starting timed run...
+Elapsed time: 34.8639 [s]
+
+Memory statistics
+Allocated before benchmark : 4096.82 MiB
+Reserved before benchmark  : 35108.00 MiB
+Peak allocated             : 24593.57 MiB
+Peak reserved              : 35108.00 MiB
+

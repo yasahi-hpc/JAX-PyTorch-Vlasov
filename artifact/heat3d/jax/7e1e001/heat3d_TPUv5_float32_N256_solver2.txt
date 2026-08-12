@@ -1,0 +1,24 @@
+Solver: heat_step_conv (type=2)
+Running simulation without diagnostics (num_steps=0). Steps: 20
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+
+Jax version: 0.7.2
+Device: TPU v5 lite
+Grid: 256 x 256 x 256 (N=16,777,216 points), dtype=float32
+Times (s): best=0.064893, avg=0.064893 over 1 runs
+Estimated bandwidth (GB/s): best=41.37, avg=41.37
+Errors vs analytical PDE at t=2.000000e-02: L2rel=inf, Linf=1.423e+22
+
+Memory statistics
+Device memory before main loop : 140.33 MiB
+Device memory after main loop  : 140.33 MiB
+Device peak memory             : 1099.18 MiB
+Device memory limit            : 16126.00 MiB
+Host peak RSS                  : 5277.82 MiB
+
+Compiled memory analysis (per chunk, compiler-reported)
+Argument size                  : 64.00 MiB
+Output size                    : 64.00 MiB
+Temp size                      : 192.25 MiB
+Peak memory                    : 320.01 MiB

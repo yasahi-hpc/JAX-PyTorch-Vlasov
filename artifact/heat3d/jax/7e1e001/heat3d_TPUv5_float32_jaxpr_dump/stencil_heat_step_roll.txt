@@ -1,0 +1,113 @@
+{ [34;1mlambda [39;22m; a[35m:f32[32,32,32][39m b[35m:f32[][39m. [34;1mlet
+    [39;22mc[35m:f32[32,32,32][39m = jit[
+      name=heat_step_roll
+      jaxpr={ [34;1mlambda [39;22m; a[35m:f32[32,32,32][39m b[35m:f32[][39m. [34;1mlet
+          [39;22md[35m:f32[32,32,32][39m = jit[
+            name=_roll_static
+            jaxpr={ [34;1mlambda [39;22m; a[35m:f32[32,32,32][39m. [34;1mlet
+                [39;22me[35m:f32[31,32,32][39m = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(1, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                f[35m:f32[1,32,32][39m = slice[
+                  limit_indices=(1, 32, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                d[35m:f32[32,32,32][39m = concatenate[dimension=0] e f
+              [34;1min [39;22m(d,) }
+          ] a
+          g[35m:f32[32,32,32][39m = jit[
+            name=_roll_static
+            jaxpr={ [34;1mlambda [39;22m; a[35m:f32[32,32,32][39m. [34;1mlet
+                [39;22mh[35m:f32[1,32,32][39m = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(31, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                i[35m:f32[31,32,32][39m = slice[
+                  limit_indices=(31, 32, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                g[35m:f32[32,32,32][39m = concatenate[dimension=0] h i
+              [34;1min [39;22m(g,) }
+          ] a
+          j[35m:f32[32,32,32][39m = jit[
+            name=_roll_static
+            jaxpr={ [34;1mlambda [39;22m; a[35m:f32[32,32,32][39m. [34;1mlet
+                [39;22mk[35m:f32[32,31,32][39m = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 1, 0)
+                  strides=(1, 1, 1)
+                ] a
+                l[35m:f32[32,1,32][39m = slice[
+                  limit_indices=(32, 1, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                j[35m:f32[32,32,32][39m = concatenate[dimension=1] k l
+              [34;1min [39;22m(j,) }
+          ] a
+          m[35m:f32[32,32,32][39m = jit[
+            name=_roll_static
+            jaxpr={ [34;1mlambda [39;22m; a[35m:f32[32,32,32][39m. [34;1mlet
+                [39;22mn[35m:f32[32,1,32][39m = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 31, 0)
+                  strides=(1, 1, 1)
+                ] a
+                o[35m:f32[32,31,32][39m = slice[
+                  limit_indices=(32, 31, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                m[35m:f32[32,32,32][39m = concatenate[dimension=1] n o
+              [34;1min [39;22m(m,) }
+          ] a
+          p[35m:f32[32,32,32][39m = jit[
+            name=_roll_static
+            jaxpr={ [34;1mlambda [39;22m; a[35m:f32[32,32,32][39m. [34;1mlet
+                [39;22mq[35m:f32[32,32,31][39m = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 0, 1)
+                  strides=(1, 1, 1)
+                ] a
+                r[35m:f32[32,32,1][39m = slice[
+                  limit_indices=(32, 32, 1)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                p[35m:f32[32,32,32][39m = concatenate[dimension=2] q r
+              [34;1min [39;22m(p,) }
+          ] a
+          s[35m:f32[32,32,32][39m = jit[
+            name=_roll_static
+            jaxpr={ [34;1mlambda [39;22m; a[35m:f32[32,32,32][39m. [34;1mlet
+                [39;22mt[35m:f32[32,32,1][39m = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 0, 31)
+                  strides=(1, 1, 1)
+                ] a
+                u[35m:f32[32,32,31][39m = slice[
+                  limit_indices=(32, 32, 31)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                s[35m:f32[32,32,32][39m = concatenate[dimension=2] t u
+              [34;1min [39;22m(s,) }
+          ] a
+          v[35m:f32[32,32,32][39m = add d g
+          w[35m:f32[32,32,32][39m = add v j
+          x[35m:f32[32,32,32][39m = add w m
+          y[35m:f32[32,32,32][39m = add x p
+          z[35m:f32[32,32,32][39m = add y s
+          ba[35m:f32[32,32,32][39m = mul 6.0:f32[] a
+          bb[35m:f32[32,32,32][39m = sub z ba
+          bc[35m:f32[][39m = convert_element_type[new_dtype=float32 weak_type=False] b
+          bd[35m:f32[32,32,32][39m = mul bc bb
+          c[35m:f32[32,32,32][39m = add a bd
+        [34;1min [39;22m(c,) }
+    ] a b
+  [34;1min [39;22m(c,) }

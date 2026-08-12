@@ -1,0 +1,20 @@
+Jax version: 0.8.2
+Starting simulation on AMD Instinct MI250X using float32 precision with Poisson solver and solver type vlasov_step.
+Grid: 32x32x64x64, Steps: 128, chunks: 0, diag_freq: 2000
+Running simulation without diagnostics (num_steps=0). Steps: 128
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+Elapsed time: 0.20268535614013672 [s]
+
+Memory statistics
+Device memory before main loop : 48.07 MiB
+Device memory after main loop  : 64.09 MiB
+Device peak memory             : 129.11 MiB
+Device memory limit            : 49140.00 MiB
+Host peak RSS                  : 8867.41 MiB
+
+Compiled memory analysis (per chunk, compiler-reported)
+Argument size                  : 16.02 MiB
+Output size                    : 16.03 MiB
+Temp size                      : 65.01 MiB
+Peak memory                    : 97.07 MiB

@@ -1,0 +1,206 @@
+Generating SQLite file nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite from nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.nsys-rep
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/nvtx_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain NV Tools Extension (NVTX) data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/osrt_sum.py]... 
+
+ ** OS Runtime Summary (osrt_sum):
+
+ Time (%)  Total Time (ns)  Num Calls     Avg (ns)         Med (ns)      Min (ns)     Max (ns)       StdDev (ns)             Name         
+ --------  ---------------  ---------  ---------------  ---------------  ---------  -------------  ---------------  ----------------------
+     74.6  195,436,842,560         73  2,677,217,021.4  2,752,620,576.0     58,752  2,753,953,504    452,433,304.5  pthread_cond_wait     
+     11.5   30,190,383,136        285    105,931,168.9    100,104,352.0      1,824  3,333,175,904    193,088,855.3  poll                  
+      6.1   16,000,720,640         17    941,218,861.2         24,704.0      7,232  4,000,042,976  1,748,938,786.9  pthread_cond_timedwait
+      3.9   10,299,239,616     15,329        671,879.4         11,872.0      1,024  3,366,277,696     46,787,321.3  read                  
+      1.3    3,343,239,104          8    417,904,888.0        294,816.0     21,632  3,334,203,232  1,178,365,433.9  sem_wait              
+      1.3    3,313,834,560         14    236,702,468.6     50,053,328.0  1,056,352  1,000,064,288    414,156,831.9  clock_nanosleep       
+      0.5    1,369,847,264      8,208        166,891.7        145,488.0      1,600    141,289,568      1,558,998.9  open64                
+      0.3      677,587,072      7,715         87,827.2         88,000.0      1,024      2,629,920         40,965.4  close                 
+      0.2      653,289,088        116      5,631,802.5          1,552.0      1,024    327,031,616     42,651,062.6  pwrite                
+      0.1      382,194,656     73,155          5,224.5          5,760.0      1,120         86,688          2,666.0  munmap                
+      0.1      167,947,680        935        179,623.2          9,056.0      1,024     15,625,184        720,787.7  ioctl                 
+      0.0       64,927,776         56      1,159,424.6         17,728.0      2,560     62,289,152      8,317,678.4  fopen64               
+      0.0       59,556,192         32      1,861,131.0      1,651,120.0  1,531,936      7,735,328      1,079,510.8  fork                  
+      0.0       39,980,800         34      1,175,905.9          4,128.0      1,216     19,886,720      4,659,431.8  open                  
+      0.0       25,087,744     13,745          1,825.2          1,408.0      1,024         32,480          1,126.0  mmap64                
+      0.0       10,114,656          2      5,057,328.0      5,057,328.0  5,056,256      5,058,400          1,516.0  nanosleep             
+      0.0        7,936,384         83         95,619.1          2,560.0      1,024      6,749,568        740,009.9  waitpid               
+      0.0        4,660,352         55         84,733.7          6,496.0      5,632      3,745,408        505,915.0  pthread_join          
+      0.0        2,863,968        139         20,604.1          3,872.0      1,312        250,720         49,122.4  fopen                 
+      0.0        2,236,288          2      1,118,144.0      1,118,144.0    410,176      1,826,112      1,001,217.9  ftruncate             
+      0.0        1,876,864        128         14,663.0          2,160.0      1,024        507,424         51,648.3  fclose                
+      0.0          829,728         30         27,657.6          4,608.0      1,568        289,536         72,441.5  write                 
+      0.0          688,576         69          9,979.4         11,392.0      1,984         29,664          5,635.7  fread                 
+      0.0          670,848         14         47,917.7         78,512.0      1,024         91,680         42,033.9  fcntl                 
+      0.0          498,624         53          9,408.0          4,512.0      1,696         34,112          9,011.6  fgets                 
+      0.0          371,552          2        185,776.0        185,776.0    183,616        187,936          3,054.7  popen                 
+      0.0          368,864          8         46,108.0         45,280.0     36,128         56,640          7,283.3  pthread_create        
+      0.0          341,536         11         31,048.7         14,240.0      8,768        133,984         40,372.6  sem_timedwait         
+      0.0          312,096         84          3,715.4          3,328.0      1,760         12,640          2,132.5  pipe2                 
+      0.0          301,216         85          3,543.7          2,720.0      1,248         78,784          8,284.1  pthread_cond_signal   
+      0.0          248,928         43          5,789.0          5,024.0      1,696         19,872          3,679.4  mmap                  
+      0.0          185,888          2         92,944.0         92,944.0     92,096         93,792          1,199.3  flock                 
+      0.0           27,264          4          6,816.0          6,064.0      4,512         10,624          2,865.9  socket                
+      0.0           23,424          1         23,424.0         23,424.0     23,424         23,424              0.0  lstat64               
+      0.0           20,032          2         10,016.0         10,016.0      3,936         16,096          8,598.4  pthread_mutex_lock    
+      0.0           19,808          2          9,904.0          9,904.0      9,568         10,240            475.2  connect               
+      0.0           16,704          5          3,340.8          1,440.0      1,184         10,528          4,038.8  sigaction             
+      0.0           14,752          3          4,917.3          3,488.0      1,600          9,664          4,217.7  stat64                
+      0.0           10,944          2          5,472.0          5,472.0      4,832          6,112            905.1  pread                 
+      0.0           10,464          1         10,464.0         10,464.0     10,464         10,464              0.0  fstat64               
+      0.0           10,016          5          2,003.2          1,248.0      1,024          5,024          1,702.7  pread64               
+      0.0            7,648          2          3,824.0          3,824.0      2,976          4,672          1,199.3  pthread_cond_broadcast
+      0.0            4,992          3          1,664.0          1,568.0      1,248          2,176            471.4  fwrite                
+      0.0            2,912          2          1,456.0          1,456.0      1,440          1,472             22.6  bind                  
+      0.0            2,080          2          1,040.0          1,040.0      1,024          1,056             22.6  dup2                  
+      0.0            1,824          1          1,824.0          1,824.0      1,824          1,824              0.0  openat64              
+      0.0            1,408          1          1,408.0          1,408.0      1,408          1,408              0.0  mprotect              
+      0.0            1,248          1          1,248.0          1,248.0      1,248          1,248              0.0  getentropy            
+      0.0            1,120          1          1,120.0          1,120.0      1,120          1,120              0.0  fflush                
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/cuda_api_sum.py]... 
+
+ ** CUDA API Summary (cuda_api_sum):
+
+ Time (%)  Total Time (ns)  Num Calls    Avg (ns)     Med (ns)    Min (ns)     Max (ns)      StdDev (ns)                Name              
+ --------  ---------------  ---------  ------------  -----------  ---------  -------------  -------------  -------------------------------
+     33.9    2,405,267,712         94  25,587,954.4     13,264.0      7,936  1,217,136,288  174,342,355.2  cudaMemcpyAsync                
+     30.7    2,175,373,312      5,942     366,101.2      4,672.0      2,176      3,935,808      919,033.8  cuLaunchKernel                 
+     20.9    1,482,034,176         26  57,001,314.5      9,920.0      3,264    682,974,816  184,446,382.2  cudaDeviceSynchronize          
+     11.0      778,503,296      2,577     302,096.7      5,280.0      2,656     24,119,136    1,139,285.8  cudaLaunchKernel               
+      3.1      217,941,472         50   4,358,829.4      6,000.0      1,792     62,797,856   12,348,619.3  cudaStreamSynchronize          
+      0.3       21,096,704          9   2,344,078.2  3,373,408.0    130,048      3,613,056    1,626,501.6  cudaMalloc                     
+      0.1        4,166,880          4   1,041,720.0    982,048.0    907,424      1,295,360      178,101.9  cuModuleLoadData               
+      0.0        3,109,056          2   1,554,528.0  1,554,528.0  1,546,496      1,562,560       11,359.0  cudaGetDeviceProperties_v12000 
+      0.0          955,648         12      79,637.3     68,960.0     62,240        117,696       20,651.1  cuModuleLoad                   
+      0.0          467,424          5      93,484.8      7,264.0      6,912        438,816      193,046.1  cuMemcpyHtoD_v2                
+      0.0          277,600      1,040         266.9        288.0         96            448           65.1  cuStreamIsCapturing            
+      0.0          200,736          1     200,736.0    200,736.0    200,736        200,736            0.0  cuMemFree_v2                   
+      0.0          136,160         40       3,404.0      3,408.0      2,368          8,032          933.1  cudaEventRecordWithFlags_v11010
+      0.0          123,616          1     123,616.0    123,616.0    123,616        123,616            0.0  cuMemAlloc_v2                  
+      0.0           85,824         40       2,145.6      2,048.0      1,216         10,496        1,452.0  cudaEventCreateWithFlags       
+      0.0           75,456          4      18,864.0     16,544.0     15,168         27,200        5,607.0  cuMemGetInfo_v2                
+      0.0           53,472         58         921.9        624.0        288          4,896          824.8  cudaStreamIsCapturing_v10000   
+      0.0           28,736         40         718.4        592.0        448          2,784          436.0  cudaEventQuery                 
+      0.0           23,808         40         595.2        448.0        320          2,560          437.4  cudaEventDestroy               
+      0.0            2,464          1       2,464.0      2,464.0      2,464          2,464            0.0  cuInit                         
+      0.0            1,696          2         848.0        848.0        736            960          158.4  cuModuleGetLoadingMode         
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/cuda_gpu_kern_sum.py]... 
+
+ ** CUDA GPU Kernel Summary (cuda_gpu_kern_sum):
+
+ Time (%)  Total Time (ns)  Instances   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)                                                  Name                                                
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  ----------------------------------------------------------------------------------------------------
+     42.4    2,038,850,112        512  3,982,129.1  3,981,952.0  3,979,168  3,991,392      1,312.9  triton_poi_fused_add_arange_expand_gather_lift_fresh_mul_remainder_select_sub_view_0                
+     19.2      924,322,048        278  3,324,899.5  3,303,856.0  3,294,208  3,799,520     96,219.9  triton_red_fused_add_arange_expand_gather_lift_fresh_mul_remainder_select_sub_sum_view_1            
+      9.3      447,851,296        256  1,749,419.1  1,749,440.0  1,747,456  1,754,816      1,040.6  triton_poi_fused_add_constant_pad_nd_mul_select_slice_stack_unsqueeze_8                             
+      9.3      445,800,384        256  1,741,407.8  1,742,800.0  1,709,120  1,757,280     10,395.7  triton_poi_fused_add_arange_expand_gather_lift_fresh_mul_remainder_select_sub_view_10               
+      6.6      315,178,688        256  1,231,166.8  1,231,104.0  1,229,152  1,233,792        849.2  triton_poi_fused_add_mul_select_slice_stack_unsqueeze_9                                             
+      6.4      307,047,744        256  1,199,405.3  1,199,040.0  1,196,896  1,206,400      1,338.2  triton_poi_fused_add_constant_pad_nd_mul_select_slice_stack_unsqueeze_7                             
+      2.8      132,398,336        380    348,416.7      1,248.0      1,024  1,740,928    695,280.9  void at::native::vectorized_elementwise_kernel<(int)2, at::native::CUDAFunctor_add<double>, std::ar…
+      2.0       98,482,880        128    769,397.5    670,752.0      1,312  1,276,384    445,419.3  void at::native::elementwise_kernel<(int)128, (int)2, void at::native::gpu_kernel_impl_nocast<at::n…
+      1.3       63,862,720         48  1,330,473.3  1,337,888.0  1,276,608  1,826,912    108,408.1  void at::native::_scatter_gather_elementwise_kernel<(int)128, (int)8, void at::native::_cuda_scatte…
+      0.2        8,853,088         48    184,439.3        832.0        800    589,760    235,131.3  void at::native::vectorized_elementwise_kernel<(int)2, at::native::FillFunctor<double>, std::array<…
+      0.1        5,476,352          8    684,544.0    683,984.0    625,440    744,864     61,103.2  void at::native::elementwise_kernel<(int)128, (int)2, void at::native::gpu_kernel_impl_nocast<at::n…
+      0.1        4,163,136      1,036      4,018.5      3,936.0      3,712      4,768        208.4  void regular_fft<(unsigned int)128, EPT<(unsigned int)8>, (unsigned int)16, (unsigned int)4, (paddi…
+      0.1        3,730,752        222     16,805.2     16,736.0     15,648     18,208        469.0  void at::native::vectorized_elementwise_kernel<(int)4, at::native::FillFunctor<int>, std::array<cha…
+      0.1        2,898,976        780      3,716.6      3,632.0      3,456      4,352        175.9  void regular_fft_c2r<(unsigned int)128, EPT<(unsigned int)8>, (unsigned int)16, (unsigned int)4, (p…
+      0.0        2,257,600          4    564,400.0    564,272.0    562,720    566,336      1,837.6  void at::native::reduce_kernel<(int)512, (int)1, at::native::ReduceOp<double, at::native::func_wrap…
+      0.0        1,140,352        512      2,227.3      2,208.0      2,112      2,784         61.9  triton_poi_fused__to_copy_add_div_eq_floor_mul_select_stack_6                                       
+      0.0          918,464        512      1,793.9      1,792.0      1,728      1,888         26.2  triton_poi_fused_add_div_floor_mul_neg_rsub_stack_sub_4                                             
+      0.0          878,368        843      1,042.0      1,024.0        896      2,080         61.1  void at::native::vectorized_elementwise_kernel<(int)2, at::native::AUnaryFunctor<double, double, do…
+      0.0          715,968        512      1,398.4      1,392.0      1,312      1,664         62.0  triton_poi_fused__to_copy_add_div_eq_floor_mul_select_stack_5                                       
+      0.0          659,648        260      2,537.1      2,496.0      2,336      3,808        203.6  void vector_fft_r2c<(unsigned int)128, EPT<(unsigned int)8>, (unsigned int)2, (unsigned int)32, (pa…
+      0.0          411,296        168      2,448.2      2,432.0      2,400      2,848         58.3  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIterator…
+      0.0          370,976        256      1,449.1      1,440.0      1,312      1,728         68.0  triton_poi_fused_mul_unsqueeze_2                                                                    
+      0.0          327,392        256      1,278.9      1,280.0      1,184      1,536         79.0  triton_poi_fused_mul_neg_select_squeeze_stack_unsqueeze_view_as_complex_3                           
+      0.0          249,792        192      1,301.0      1,312.0      1,024      1,376         60.6  void at::native::vectorized_elementwise_kernel<(int)2, at::native::BinaryFunctor<double, double, do…
+      0.0          171,552        168      1,021.1      1,024.0        992      1,120         20.7  void at::native::vectorized_elementwise_kernel<(int)4, at::native::AUnaryFunctor<long, long, bool, …
+      0.0          166,368        166      1,002.2        992.0        928      1,120         37.5  void at::native::vectorized_elementwise_kernel<(int)2, at::native::BUnaryFunctor<double, double, do…
+      0.0          101,504         48      2,114.7      2,128.0      1,792      2,464        195.8  void at::native::vectorized_elementwise_kernel<(int)2, at::native::BUnaryFunctor<long, long, long, …
+      0.0           78,048         48      1,626.0      1,568.0      1,440      2,592        242.7  void at::native::vectorized_elementwise_kernel<(int)2, at::native::CUDAFunctorOnSelf_add<long>, std…
+      0.0           19,712          8      2,464.0      2,480.0      2,368      2,528         59.3  void at::native::<unnamed>::CatArrayBatchedCopy<at::native::<unnamed>::OpaqueType<(unsigned int)8>,…
+      0.0           14,944         14      1,067.4      1,072.0        960      1,376        106.2  void at::native::vectorized_elementwise_kernel<(int)2, at::native::neg_kernel_cuda(at::TensorIterat…
+      0.0           12,992          8      1,624.0      1,616.0      1,568      1,696         41.0  void at::native::<unnamed>::CatArrayBatchedCopy_alignedK_contig<at::native::<unnamed>::OpaqueType<(…
+      0.0           11,552          8      1,444.0      1,424.0      1,344      1,568        103.3  void at::native::elementwise_kernel<(int)128, (int)2, void at::native::gpu_kernel_impl_nocast<at::n…
+      0.0           11,104          8      1,388.0      1,408.0      1,248      1,568        127.9  void at::native::elementwise_kernel<(int)128, (int)2, void at::native::gpu_kernel_impl_nocast<at::n…
+      0.0           10,560          4      2,640.0      2,624.0      2,528      2,784        109.3  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIterator…
+      0.0            9,408          4      2,352.0      2,336.0      2,304      2,432         61.3  void vector_fft<(unsigned int)128, EPT<(unsigned int)8>, (unsigned int)2, (unsigned int)24, (paddin…
+      0.0            8,160          4      2,040.0      2,000.0      1,728      2,432        366.1  void at::native::vectorized_elementwise_kernel<(int)2, at::native::cos_kernel_cuda(at::TensorIterat…
+      0.0            7,328          9        814.2        736.0        704      1,280        191.4  void <unnamed>::elementwise_kernel_with_index<int, at::native::arange_cuda_out(const c10::Scalar &,…
+      0.0            6,656          6      1,109.3      1,104.0      1,056      1,216         59.6  void at::native::vectorized_elementwise_kernel<(int)2, at::native::CUDAFunctorOnSelf_add<double>, s…
+      0.0            6,336          6      1,056.0      1,088.0        960      1,120         75.7  void at::native::vectorized_elementwise_kernel<(int)2, at::native::CUDAFunctorOnOther_add<double>, …
+      0.0            6,272          6      1,045.3      1,056.0        864      1,248        136.8  void at::native::vectorized_elementwise_kernel<(int)2, void at::native::<unnamed>::pow_tensor_scala…
+      0.0            5,056          7        722.3        704.0        704        832         48.4  void <unnamed>::elementwise_kernel_with_index<int, at::native::arange_cuda_out(const c10::Scalar &,…
+      0.0            4,608          4      1,152.0      1,104.0      1,088      1,312        107.7  void at::native::vectorized_elementwise_kernel<(int)2, at::native::floor_kernel_cuda(at::TensorIter…
+      0.0            4,288          3      1,429.3      1,472.0      1,344      1,472         73.9  void at::native::elementwise_kernel<(int)128, (int)2, void at::native::gpu_kernel_impl_nocast<at::n…
+      0.0            3,648          2      1,824.0      1,824.0      1,696      1,952        181.0  void at::native::vectorized_elementwise_kernel<(int)2, at::native::exp_kernel_cuda(at::TensorIterat…
+      0.0            2,976          4        744.0        720.0        704        832         60.6  void <unnamed>::elementwise_kernel_with_index<int, at::native::linspace_cuda_out(const c10::Scalar …
+      0.0            2,080          2      1,040.0      1,040.0        992      1,088         67.9  void at::native::<unnamed>::CatArrayBatchedCopy_alignedK_contig<at::native::<unnamed>::OpaqueType<(…
+      0.0            1,696          1      1,696.0      1,696.0      1,696      1,696          0.0  void at::native::elementwise_kernel<(int)128, (int)2, void at::native::gpu_kernel_impl_nocast<at::n…
+      0.0            1,280          1      1,280.0      1,280.0      1,280      1,280          0.0  void at::native::vectorized_elementwise_kernel<(int)2, at::native::reciprocal_kernel_cuda(at::Tenso…
+      0.0            1,088          1      1,088.0      1,088.0      1,088      1,088          0.0  void at::native::vectorized_elementwise_kernel<(int)4, at::native::AUnaryFunctor<double, double, bo…
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/cuda_gpu_mem_time_sum.py]... 
+
+ ** CUDA GPU MemOps Summary (by Time) (cuda_gpu_mem_time_sum):
+
+ Time (%)  Total Time (ns)  Count    Avg (ns)     Med (ns)   Min (ns)    Max (ns)      StdDev (ns)             Operation           
+ --------  ---------------  -----  -------------  ---------  --------  -------------  -------------  ------------------------------
+     98.9    2,403,832,128     19  126,517,480.4    2,464.0     1,536  1,217,085,920  378,886,808.0  [CUDA memcpy Device-to-Host]  
+      1.1       25,817,024     44      586,750.5  586,208.0     1,344      1,176,064      592,032.4  [CUDA memcpy Device-to-Device]
+      0.0           50,624     36        1,406.2      832.0       736         21,504        3,446.0  [CUDA memcpy Host-to-Device]  
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/cuda_gpu_mem_size_sum.py]... 
+
+ ** CUDA GPU MemOps Summary (by Size) (cuda_gpu_mem_size_sum):
+
+ Total (MB)  Count  Avg (MB)   Med (MB)   Min (MB)  Max (MB)   StdDev (MB)            Operation           
+ ----------  -----  ---------  ---------  --------  ---------  -----------  ------------------------------
+ 47,247.524     44  1,073.807  1,073.807     0.131  2,147.484    1,086.089  [CUDA memcpy Device-to-Device]
+  4,295.764     19    226.093      0.001     0.000  2,147.484      677.091  [CUDA memcpy Device-to-Host]  
+      4.106     36      0.114      0.001     0.000      4.075        0.679  [CUDA memcpy Host-to-Device]  
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/openmp_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain OpenMP event data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/opengl_khr_range_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain KHR Extension (KHR_DEBUG) data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/opengl_khr_gpu_range_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain GPU KHR Extension (KHR_DEBUG) data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/vulkan_marker_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain Vulkan Debug Extension (Vulkan Debug Util) data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/vulkan_gpu_marker_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain GPU Vulkan Debug Extension (GPU Vulkan Debug markers) data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/dx11_pix_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain DX11 CPU debug markers.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/dx12_gpu_marker_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain DX12 GPU debug markers.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/dx12_pix_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain DX12 CPU debug markers.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/wddm_queue_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain WDDM context data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/um_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/um_total_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/um_cpu_page_faults_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/openacc_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain OpenACC event data.
+
+Processing [nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite] with [/work/opt/local/aarch64/cores/nvidia/25.9/Linux_aarch64/25.9/profilers/13.0/Nsight_Systems/host-linux-armv8/reports/syscall_sum.py]... 
+SKIPPED: nsys_vlp2d_2v_float64_Nx128_Nvx128_solver2.sqlite does not contain syscall data.
+

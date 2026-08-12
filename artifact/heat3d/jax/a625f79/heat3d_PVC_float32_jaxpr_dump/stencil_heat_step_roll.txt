@@ -1,0 +1,113 @@
+{ lambda ; a:f32[32,32,32] b:f32[]. let
+    c:f32[32,32,32] = pjit[
+      name=heat_step_roll
+      jaxpr={ lambda ; d:f32[32,32,32] e:f32[]. let
+          f:f32[32,32,32] = pjit[
+            name=_roll_static
+            jaxpr={ lambda ; g:f32[32,32,32]. let
+                h:f32[31,32,32] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(1, 0, 0)
+                  strides=(1, 1, 1)
+                ] g
+                i:f32[1,32,32] = slice[
+                  limit_indices=(1, 32, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] g
+                j:f32[32,32,32] = concatenate[dimension=0] h i
+              in (j,) }
+          ] d
+          k:f32[32,32,32] = pjit[
+            name=_roll_static
+            jaxpr={ lambda ; l:f32[32,32,32]. let
+                m:f32[1,32,32] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(31, 0, 0)
+                  strides=(1, 1, 1)
+                ] l
+                n:f32[31,32,32] = slice[
+                  limit_indices=(31, 32, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] l
+                o:f32[32,32,32] = concatenate[dimension=0] m n
+              in (o,) }
+          ] d
+          p:f32[32,32,32] = pjit[
+            name=_roll_static
+            jaxpr={ lambda ; q:f32[32,32,32]. let
+                r:f32[32,31,32] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 1, 0)
+                  strides=(1, 1, 1)
+                ] q
+                s:f32[32,1,32] = slice[
+                  limit_indices=(32, 1, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] q
+                t:f32[32,32,32] = concatenate[dimension=1] r s
+              in (t,) }
+          ] d
+          u:f32[32,32,32] = pjit[
+            name=_roll_static
+            jaxpr={ lambda ; v:f32[32,32,32]. let
+                w:f32[32,1,32] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 31, 0)
+                  strides=(1, 1, 1)
+                ] v
+                x:f32[32,31,32] = slice[
+                  limit_indices=(32, 31, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] v
+                y:f32[32,32,32] = concatenate[dimension=1] w x
+              in (y,) }
+          ] d
+          z:f32[32,32,32] = pjit[
+            name=_roll_static
+            jaxpr={ lambda ; ba:f32[32,32,32]. let
+                bb:f32[32,32,31] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 0, 1)
+                  strides=(1, 1, 1)
+                ] ba
+                bc:f32[32,32,1] = slice[
+                  limit_indices=(32, 32, 1)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] ba
+                bd:f32[32,32,32] = concatenate[dimension=2] bb bc
+              in (bd,) }
+          ] d
+          be:f32[32,32,32] = pjit[
+            name=_roll_static
+            jaxpr={ lambda ; bf:f32[32,32,32]. let
+                bg:f32[32,32,1] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 0, 31)
+                  strides=(1, 1, 1)
+                ] bf
+                bh:f32[32,32,31] = slice[
+                  limit_indices=(32, 32, 31)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] bf
+                bi:f32[32,32,32] = concatenate[dimension=2] bg bh
+              in (bi,) }
+          ] d
+          bj:f32[32,32,32] = add f k
+          bk:f32[32,32,32] = add bj p
+          bl:f32[32,32,32] = add bk u
+          bm:f32[32,32,32] = add bl z
+          bn:f32[32,32,32] = add bm be
+          bo:f32[32,32,32] = mul 6.0 d
+          bp:f32[32,32,32] = sub bn bo
+          bq:f32[] = convert_element_type[new_dtype=float32 weak_type=False] e
+          br:f32[32,32,32] = mul bq bp
+          bs:f32[32,32,32] = add d br
+        in (bs,) }
+    ] a b
+  in (c,) }

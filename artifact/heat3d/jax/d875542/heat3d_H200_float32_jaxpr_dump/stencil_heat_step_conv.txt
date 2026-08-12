@@ -1,0 +1,115 @@
+{ lambda a:f32[1,1,3]; b:f32[32,32,32] c:f32[]. let
+    d:f32[32,32,32] = jit[
+      name=heat_step_conv
+      jaxpr={ lambda ; b:f32[32,32,32] c:f32[] a:f32[1,1,3]. let
+          e:f32[32,32,32] = transpose[permutation=(1, 2, 0)] b
+          f:f32[1024,1,32] = reshape[
+            dimensions=None
+            new_sizes=(1024, 1, 32)
+            sharding=None
+          ] e
+          g:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 32)
+            start_indices=(0, 0, 31)
+            strides=None
+          ] f
+          h:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 1)
+            start_indices=(0, 0, 0)
+            strides=None
+          ] f
+          i:f32[1024,1,34] = concatenate[dimension=2] g f h
+          j:f32[1024,1,32] = conv_general_dilated[
+            batch_group_count=1
+            dimension_numbers=ConvDimensionNumbers(lhs_spec=(0, 1, 2), rhs_spec=(0, 1, 2), out_spec=(0, 1, 2))
+            feature_group_count=1
+            lhs_dilation=(1,)
+            out_sharding=None
+            padding=((0, 0),)
+            precision=None
+            preferred_element_type=None
+            rhs_dilation=(1,)
+            window_strides=(1,)
+          ] i a
+          k:f32[32,32,32] = reshape[
+            dimensions=None
+            new_sizes=(32, 32, 32)
+            sharding=None
+          ] j
+          l:f32[32,32,32] = transpose[permutation=(2, 0, 1)] k
+          m:f32[32,32,32] = transpose[permutation=(0, 2, 1)] b
+          n:f32[1024,1,32] = reshape[
+            dimensions=None
+            new_sizes=(1024, 1, 32)
+            sharding=None
+          ] m
+          o:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 32)
+            start_indices=(0, 0, 31)
+            strides=None
+          ] n
+          p:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 1)
+            start_indices=(0, 0, 0)
+            strides=None
+          ] n
+          q:f32[1024,1,34] = concatenate[dimension=2] o n p
+          r:f32[1024,1,32] = conv_general_dilated[
+            batch_group_count=1
+            dimension_numbers=ConvDimensionNumbers(lhs_spec=(0, 1, 2), rhs_spec=(0, 1, 2), out_spec=(0, 1, 2))
+            feature_group_count=1
+            lhs_dilation=(1,)
+            out_sharding=None
+            padding=((0, 0),)
+            precision=None
+            preferred_element_type=None
+            rhs_dilation=(1,)
+            window_strides=(1,)
+          ] q a
+          s:f32[32,32,32] = reshape[
+            dimensions=None
+            new_sizes=(32, 32, 32)
+            sharding=None
+          ] r
+          t:f32[32,32,32] = transpose[permutation=(0, 2, 1)] s
+          u:f32[32,32,32] = add l t
+          v:f32[1024,1,32] = reshape[
+            dimensions=None
+            new_sizes=(1024, 1, 32)
+            sharding=None
+          ] b
+          w:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 32)
+            start_indices=(0, 0, 31)
+            strides=None
+          ] v
+          x:f32[1024,1,1] = slice[
+            limit_indices=(1024, 1, 1)
+            start_indices=(0, 0, 0)
+            strides=None
+          ] v
+          y:f32[1024,1,34] = concatenate[dimension=2] w v x
+          z:f32[1024,1,32] = conv_general_dilated[
+            batch_group_count=1
+            dimension_numbers=ConvDimensionNumbers(lhs_spec=(0, 1, 2), rhs_spec=(0, 1, 2), out_spec=(0, 1, 2))
+            feature_group_count=1
+            lhs_dilation=(1,)
+            out_sharding=None
+            padding=((0, 0),)
+            precision=None
+            preferred_element_type=None
+            rhs_dilation=(1,)
+            window_strides=(1,)
+          ] y a
+          ba:f32[32,32,32] = reshape[
+            dimensions=None
+            new_sizes=(32, 32, 32)
+            sharding=None
+          ] z
+          bb:f32[32,32,32] = add u ba
+          bc:f32[] = convert_element_type[new_dtype=float32 weak_type=False] c
+          bd:f32[32,32,32] = mul bc bb
+          d:f32[32,32,32] = add b bd
+        in (d,) }
+    ] b c a
+  in (d,) }

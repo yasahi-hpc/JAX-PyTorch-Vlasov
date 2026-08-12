@@ -1,0 +1,28 @@
+
+Runtime Configuration:
+macro  KOKKOS_ENABLE_ONEDPL : defined
+macro  KOKKOS_IMPL_SYCL_DEVICE_GLOBAL_SUPPORTED : defined
+macro  KOKKOS_ENABLE_SYCL_RELOCATABLE_DEVICE_CODE : undefined
+macro  SYCL_EXT_ONEAPI_DEVICE_GLOBAL : defined
+macro  KOKKOS_IMPL_SYCL_USE_IN_ORDER_QUEUES : defined
+macro  KOKKOS_IMPL_SYCL_GRAPH_SUPPORT : defined
+macro  SYCL_EXT_ONEAPI_BFLOAT16 : undefined
+macro  SYCL_EXT_ONEAPI_AUTO_LOCAL_RANGE : defined
+Immediate command lists and standard command queue allowed.
+SYCL_PI_LEVEL_ZERO_USE_IMMEDIATE_COMMANDLISTS not defined.
+[ext_oneapi_level_zero]:gpu:0] Intel(R) Data Center GPU Max 1550 : Selected
+[ext_oneapi_level_zero]:gpu:1] Intel(R) Data Center GPU Max 1550 : Not Selected
+[ext_oneapi_level_zero]:gpu:2] Intel(R) Data Center GPU Max 1550 : Not Selected
+[ext_oneapi_level_zero]:gpu:3] Intel(R) Data Center GPU Max 1550 : Not Selected
+[ext_oneapi_level_zero]:gpu:4] Intel(R) Data Center GPU Max 1550 : Not Selected
+[ext_oneapi_level_zero]:gpu:5] Intel(R) Data Center GPU Max 1550 : Not Selected
+[ext_oneapi_level_zero]:gpu:6] Intel(R) Data Center GPU Max 1550 : Not Selected
+[ext_oneapi_level_zero]:gpu:7] Intel(R) Data Center GPU Max 1550 : Not Selected
+[ext_oneapi_level_zero]:gpu:8] Intel(R) Data Center GPU Max 1550 : Not Selected
+[ext_oneapi_level_zero]:gpu:9] Intel(R) Data Center GPU Max 1550 : Not Selected
+[ext_oneapi_level_zero]:gpu:10] Intel(R) Data Center GPU Max 1550 : Not Selected
+[ext_oneapi_level_zero]:gpu:11] Intel(R) Data Center GPU Max 1550 : Not Selected
+Grid: 512 x 512 x 512 (N=134217728), dtype=double
+Times (s): best=4.991716e+00, avg=4.993308e+00 over 10 runs
+Estimated bandwidth (GB/s): best=430.2095, avg=430.0723
+Errors vs analytical PDE at t=20.0000: L2rel=1.047039e-06, Linf=9.860642e-07

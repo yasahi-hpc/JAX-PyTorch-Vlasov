@@ -1,0 +1,13 @@
+PyTorch version: 2.9.1+cu128
+Starting simulation on cuda with torch.float32 precision with Poisson solver and solver type vlasov_step.
+Grid: 128x128, Steps: 1000, chunks: 0, diag_freq: 2000
+Warming up JIT compilation...
+JIT compilation done. Starting timed run...
+Elapsed time: 0.6280 [s]
+
+Memory statistics
+Allocated before benchmark : 0.13 MiB
+Reserved before benchmark  : 64.00 MiB
+Peak allocated             : 1.07 MiB
+Peak reserved              : 64.00 MiB
+

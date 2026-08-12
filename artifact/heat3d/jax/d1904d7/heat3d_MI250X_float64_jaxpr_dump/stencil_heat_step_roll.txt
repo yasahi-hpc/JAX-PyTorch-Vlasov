@@ -1,0 +1,113 @@
+{ lambda ; a:f64[32,32,32] b:f64[]. let
+    c:f64[32,32,32] = jit[
+      name=heat_step_roll
+      jaxpr={ lambda ; a:f64[32,32,32] b:f64[]. let
+          d:f64[32,32,32] = jit[
+            name=_roll_static
+            jaxpr={ lambda ; a:f64[32,32,32]. let
+                e:f64[31,32,32] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(1, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                f:f64[1,32,32] = slice[
+                  limit_indices=(1, 32, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                d:f64[32,32,32] = concatenate[dimension=0] e f
+              in (d,) }
+          ] a
+          g:f64[32,32,32] = jit[
+            name=_roll_static
+            jaxpr={ lambda ; a:f64[32,32,32]. let
+                h:f64[1,32,32] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(31, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                i:f64[31,32,32] = slice[
+                  limit_indices=(31, 32, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                g:f64[32,32,32] = concatenate[dimension=0] h i
+              in (g,) }
+          ] a
+          j:f64[32,32,32] = jit[
+            name=_roll_static
+            jaxpr={ lambda ; a:f64[32,32,32]. let
+                k:f64[32,31,32] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 1, 0)
+                  strides=(1, 1, 1)
+                ] a
+                l:f64[32,1,32] = slice[
+                  limit_indices=(32, 1, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                j:f64[32,32,32] = concatenate[dimension=1] k l
+              in (j,) }
+          ] a
+          m:f64[32,32,32] = jit[
+            name=_roll_static
+            jaxpr={ lambda ; a:f64[32,32,32]. let
+                n:f64[32,1,32] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 31, 0)
+                  strides=(1, 1, 1)
+                ] a
+                o:f64[32,31,32] = slice[
+                  limit_indices=(32, 31, 32)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                m:f64[32,32,32] = concatenate[dimension=1] n o
+              in (m,) }
+          ] a
+          p:f64[32,32,32] = jit[
+            name=_roll_static
+            jaxpr={ lambda ; a:f64[32,32,32]. let
+                q:f64[32,32,31] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 0, 1)
+                  strides=(1, 1, 1)
+                ] a
+                r:f64[32,32,1] = slice[
+                  limit_indices=(32, 32, 1)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                p:f64[32,32,32] = concatenate[dimension=2] q r
+              in (p,) }
+          ] a
+          s:f64[32,32,32] = jit[
+            name=_roll_static
+            jaxpr={ lambda ; a:f64[32,32,32]. let
+                t:f64[32,32,1] = slice[
+                  limit_indices=(32, 32, 32)
+                  start_indices=(0, 0, 31)
+                  strides=(1, 1, 1)
+                ] a
+                u:f64[32,32,31] = slice[
+                  limit_indices=(32, 32, 31)
+                  start_indices=(0, 0, 0)
+                  strides=(1, 1, 1)
+                ] a
+                s:f64[32,32,32] = concatenate[dimension=2] t u
+              in (s,) }
+          ] a
+          v:f64[32,32,32] = add d g
+          w:f64[32,32,32] = add v j
+          x:f64[32,32,32] = add w m
+          y:f64[32,32,32] = add x p
+          z:f64[32,32,32] = add y s
+          ba:f64[32,32,32] = mul 6.0:f64[] a
+          bb:f64[32,32,32] = sub z ba
+          bc:f64[] = convert_element_type[new_dtype=float64 weak_type=False] b
+          bd:f64[32,32,32] = mul bc bb
+          c:f64[32,32,32] = add a bd
+        in (c,) }
+    ] a b
+  in (c,) }
