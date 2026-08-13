@@ -1,6 +1,12 @@
 # AI frameworks for Performance Portable Vlasov code
 
-Evaluating the capability of AI frameworks (JAX, PyTorch) as a performance portability framework.
+Evaluating the capability of AI frameworks (JAX, PyTorch) as a performance portability framework. We have implemented 3D heat equation solver and 4D (2D space and 2D velocity space) Vlasov-Poisson solver. These mini-apps are parallelized with [JAX](https://github.com/jax-ml/jax), [PyTorch](https://github.com/pytorch/pytorch) and [Kokkos](https://github.com/kokkos/kokkos).
+
+This repository includes the following mini-apps:
+
+* [heat3d](docs/heat3d.md)
+* [vlasov1d-1v](docs/vlp1d-1v.md)
+* [vlasov2d-2v](docs/vlp2d-2v.md)
 
 ## Using
 
@@ -56,3 +62,5 @@ To run the tests, please run the following command.
 cd build
 ctest --output-on-failure
 ```
+
+More details are given in the docs for [heat3d](docs/heat3d.md), [vlasov1d-1v](docs/vlp1d-1v.md) and [vlasov2d-2v](docs/vlp2d-2v.md).
