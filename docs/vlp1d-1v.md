@@ -12,9 +12,9 @@ The simulation primarily uses JAX arrays (`jnp.ndarray`) for high-performance nu
 *   **`Field`**: A dataclass holding the 1D field data (rho, phi).
     *   `rho`: Charge density of shape `(Nx)`.
     *   `phi`: Electric potential of shape `(Nx)`.
-*   **`Variables`**: A dataclass holding the distribution function. 
+*   **`Variables`**: A dataclass holding the distribution function.
     *   `fn`: 2D array of shape `(Nx, Nvx)` representing the distribution function.
-    *   `f0`: 1D array of shape `(Nvx)` representing the equilibirum distribution function.
+    *   `f0`: 1D array of shape `(Nvx)` representing the equilibrium distribution function.
 *   **`SimulationState`**: A dataclass encapsulating the full state of the simulation at a given time.
     *   Includes `grid`, `field`, `variables`, current time `t`, and step count `step`.
 

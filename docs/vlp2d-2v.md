@@ -12,9 +12,9 @@ The simulation primarily uses JAX arrays (`jnp.ndarray`) for high-performance nu
 *   **`Field`**: A dataclass holding the 2D field data (rho, phi).
     *   `rho`: Charge density of shape `(Nx, Ny)`.
     *   `phi`: Electric potential of shape `(Nx, Ny)`.
-*   **`Variables`**: A dataclass holding the distribution function. 
+*   **`Variables`**: A dataclass holding the distribution function.
     *   `fn`: 4D array of shape `(Nx, Ny, Nvx, Nvy)` representing the distribution function.
-    *   `f0`: 2D array of shape `(Nvx, Nvy)` representing the equilibirum distribution function.
+    *   `f0`: 2D array of shape `(Nvx, Nvy)` representing the equilibrium distribution function.
 *   **`SimulationState`**: A dataclass encapsulating the full state of the simulation at a given time.
     *   Includes `grid`, `field`, `variables`, current time `t`, and step count `step`.
 
@@ -199,12 +199,10 @@ Please run the following command.
 ```bash
 # Kokkos (fp32, MDRange)
 build/simulations/vlasov2d_2v/kokkos/src/vlp2d_2v_fp32 -nx 128 -ny 128 -nvx 128 -nvy 128 -nbiter 128 -diag_steps 2000 -solver_type 1
-        
 
 # JAX (fp32, gather free)
 cd simulations/vlasov2d_2v/jax/src
 python vlasov2D2V.py -dtype float32 -nx 128 -ny 128 -nvx 128 -nvy 128 -nbiter 128 -diag_steps 2000 -physics_mode -solver 2
-        
 
 # PyTorch (fp32, gather free)
 cd simulations/vlasov2d_2v/pytorch/src
