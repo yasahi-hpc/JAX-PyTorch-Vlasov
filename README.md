@@ -2,11 +2,11 @@
 
 Evaluating the capability of AI frameworks (JAX, PyTorch) as a performance portability framework. We have implemented 3D heat equation solver and 4D (2D space and 2D velocity space) Vlasov-Poisson solver. These mini-apps are parallelized with [JAX](https://github.com/jax-ml/jax), [PyTorch](https://github.com/pytorch/pytorch) and [Kokkos](https://github.com/kokkos/kokkos).
 
-This repository includes the following mini-apps:
+This repository includes the following mini-apps (JAX versions are also available through google Colab):
 
-* [heat3d](docs/heat3d.md)
-* [vlasov1d-1v](docs/vlp1d-1v.md)
-* [vlasov2d-2v](docs/vlp2d-2v.md)
+|  [heat3d](docs/heat3d.md) |  [vlasov1d-1v](docs/vlp1d-1v.md)  |  [vlasov2d-2v](docs/vlp2d-2v.md) | 
+| :-: | :-: | :-: |
+|  <a target="_blank" href="https://colab.research.google.com/github/yasahi-hpc/JAX-PyTorch-Vlasov/blob/main/simulations/heat3d/jax/src/heat3d.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> | <a target="_blank" href="https://colab.research.google.com/github/yasahi-hpc/JAX-PyTorch-Vlasov/blob/main/simulations/vlasov1d_1v/jax/src/vlp1d_1v.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> | <a target="_blank" href="https://colab.research.google.com/github/yasahi-hpc/JAX-PyTorch-Vlasov/blob/main/simulations/vlasov2d_2v/jax/src/vlp2d_2v.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> | 
 
 ## Using
 
